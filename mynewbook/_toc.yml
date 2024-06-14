@@ -6,5 +6,6 @@ root: intro
 chapters:
 - file: markdown
 - file: IRVE_indicateurs
-- file: notebooks
+  sections:
+  - file: notebooks
 - file: markdown-notebooks
