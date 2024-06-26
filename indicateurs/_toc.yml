@@ -3,9 +3,16 @@
 
 format: jb-book
 root: intro
-chapters:
-- file: markdown
-- file: files/IRVE_indicateurs
-  sections:
-  - file: notebooks
-- file: markdown-notebooks
+parts:
+  - caption: Indicateurs
+    chapters:
+    - file: markdown
+      sections:
+      - file: notebooks
+    - file: markdown-notebooks
+  - caption: Annexes
+    numbered: True
+    chapters:
+    - file: files/IRVE_indicateurs
+    - file: files/glossaire
+    - file: genindex

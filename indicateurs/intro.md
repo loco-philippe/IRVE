@@ -10,6 +10,14 @@ Check out the content pages bundled with this sample book to see more.
 ```{tableofcontents}
 ```
 
+```{glossary}
+Term one
+  An indented explanation of term 1
+
+A second term
+  An indented explanation of term2
+```
+
 ## test notes
 
 ```{note}
