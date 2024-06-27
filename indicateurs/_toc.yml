@@ -5,14 +5,20 @@ format: jb-book
 root: intro
 parts:
   - caption: Indicateurs
-    chapters:
-    - file: markdown
-      sections:
-      - file: notebooks
-    - file: markdown-notebooks
-  - caption: Annexes
     numbered: True
     chapters:
+    - file: files/chiffres_cles
+    - file: files/spatial
+    - file: files/puissance
+    - file: files/disponibilite
+    # - file: markdown
+    #   sections:
+    #   - file: notebooks
+    # - file: markdown-notebooks
+  - caption: Annexes
+    chapters:
+    - file: files/planification
+    - file: files/validation
     - file: files/IRVE_indicateurs
     - file: files/glossaire
     - file: genindex

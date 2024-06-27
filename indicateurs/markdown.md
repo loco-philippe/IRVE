@@ -57,3 +57,14 @@ You can learn a lot more at [jupyterbook.org](https://jupyterbook.org).
 Term three
   An indented explanation of term 3
 ```
+
+:::{note}
+Test *note*
+:::
+
+Autre test
+
+```{admonition} Texte caché
+:class: tip, dropdown
+Voilà, voilà
+```
