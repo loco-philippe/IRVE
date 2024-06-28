@@ -20,5 +20,8 @@ parts:
     - file: files/planification
     - file: files/validation
     - file: files/IRVE_indicateurs
+    - file: files/modeles
+    - file: files/etats
+    - file: files/stations
     - file: files/glossaire
     - file: genindex
