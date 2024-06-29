@@ -13,26 +13,31 @@ Les états sont les suivants :
 
 ```{mermaid}
 flowchart TB
-    init(déclaré) -->|début charge| occ(occupé)   
-    subgraph fonctionnement
-        direction TB
-        occ --> |fin charge si ouverture| lib(libre)
-        occ --> |fin charge| ina(inactif)
-        ina -->|début ouverture| lib
-        lib -->|fin ouverture| ina
-    end    
+    déclaré -->|début charge| occ(occupé)   
+    occ --> |fin charge| en_service
     lib -->|début charge| occ 
+    subgraph en_service
+        lib(libre) -->|fin ouverture| ina
+        ina(inactif) -->|début ouverture| lib
+    end  
+    arr(hors service) -->|fin arrêt| en_service
+    occ -->|arrêt| arr
+    arr -->|désactivation| desactivé 
 ```
 
 *figure 1 :* *Diagramme d'états fonctionnement*
 
+Si les évènements d'arrêt distinguent les défauts et les OT (ordre de travail de maintenance préventive ou corrective), le mode hors service serait le suivant:
+
 ```{mermaid}
 flowchart TD
-    fonc[fonctionnement] -->|début défaut| pan(panne)
-    pan -->|fin défaut| fonc
-    pan -->|début OT| maint(maintenance)
+flowchart TB
+    subgraph hors_service
+        pan(panne) -->|début OT| maint(maintenance)
+    end
+    fonc[en_service] -->|début défaut| pan
     fonc -->|début OT| maint
-    maint -->|fin OT| fonc
+    hors_service -->|remise en service| fonc
 ```
 
 *figure 2 :* *Diagramme d'états non fonctionnement*
