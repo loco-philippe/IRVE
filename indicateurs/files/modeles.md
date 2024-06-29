@@ -2,6 +2,9 @@
 
 ## Modèle Qualicharge
 
+```{index} Modèle de données Qualicharge
+```
+
 ```{mermaid}
 erDiagram
     AMENAGEUR ||..|{ STATION : amenage

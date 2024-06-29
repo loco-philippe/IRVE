@@ -4,12 +4,23 @@
 
 Les états sont les suivants :
 
-- déclaré: Identifié dans Qualicharge mais avec aucune charge effectuée
-- inactif: En fonctionnement, hors période d'ouverture ou sur arrêt volontaire
+- déclaré: Identifié dans Qualicharge mais avec aucune charge encore effectuée
+- inactif: En fonctionnement, hors période d'ouverture
 - libre: En fonctionnement, non occupé et pendant la période d'ouverture
 - occupé: En charge
-- en panne: Présence d'un défaut depuis moins de 24h (deux types de pannes: pannes courtes < 2h, pannes longues (< 24h))
-- en maintenance: Arrété pour intervention de maintenance corrective ou préventive (deux niveaux : arrêt < 7j, arrêt > 7j)
+- hors service: Mise à l'arrêt (ex. maintenance) ou arrêt intempestif (défaillance : statut erreur ou inconnu). Quatre niveaux définis en fonction du temps de présence dans cet état sont retenus:
+
+  - pannes courtes < 2h,
+  - pannes longues < 24h,
+  - arrêt < 7j,
+  - arrêt > 7j.
+
+- désactivé: Identifié dans Qualicharge mais non pris en compte dans le suivi d'usage.
+
+Le diagramme d'état correspondant à ces états est présenté ci-dessous. Il suppose que les évènements suivant sont bien enregistrés:
+
+- début et fin de charge,
+- mise hors service et remise en service
 
 ```{mermaid}
 flowchart TB
@@ -27,17 +38,17 @@ flowchart TB
 
 *figure 1 :* *Diagramme d'états fonctionnement*
 
+::::{note}
 Si les évènements d'arrêt distinguent les défauts et les OT (ordre de travail de maintenance préventive ou corrective), le mode hors service serait le suivant:
-
-```{mermaid}
-flowchart TD
+:::{mermaid}
 flowchart TB
+    fonc[en_service] -->|défaut| pan
+    pan -->|fin défaut| fonc
+    fonc -->|mise à l'arrêt| maint
+    maint --mise en service--> fonc
     subgraph hors_service
-        pan(panne) -->|début OT| maint(maintenance)
+        pan(panne) -->|intervention / OT| maint(maintenance)
     end
-    fonc[en_service] -->|début défaut| pan
-    fonc -->|début OT| maint
-    hors_service -->|remise en service| fonc
-```
-
+:::
 *figure 2 :* *Diagramme d'états non fonctionnement*
+::::
