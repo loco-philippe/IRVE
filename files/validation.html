@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Validation des consommations &#8212; Indicateurs book</title>
+    <title>9. Anomalie de consommation &#8212; Indicateurs book</title>
   
   
   
@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'files/validation';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Indicateurs d’intégrité" href="IRVE_indicateurs.html" />
-    <link rel="prev" title="Planification écologique" href="planification.html" />
+    <link rel="next" title="10. Modèle prédictif" href="modelisation.html" />
+    <link rel="prev" title="8. Planification écologique" href="planification.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -177,18 +177,33 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs de référence</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="chiffres_cles.html">1. Chiffres-cles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chiffres_cles.html">1. Chiffres cles</a></li>
 <li class="toctree-l1"><a class="reference internal" href="spatial.html">2. Répartition spatiale</a></li>
-<li class="toctree-l1"><a class="reference internal" href="puissance.html">3. Puissance des stations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="disponibilite.html">4. Disponibilité de la recharge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evolution.html">3. Evolution du nombre de points de recharge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qualite_service.html">4. Qualité du servcie</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs génériques</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../gen/intro_gen.html">5. Structuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gen/criteres_gen.html">6. Critères de filtrage ou d’agrégation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gen/valorisation_gen.html">7. Valorisation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs spécifiques</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="planification.html">8. Planification écologique</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Anomalie de consommation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modelisation.html">10. Modèle prédictif</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Annexes</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="planification.html">Planification écologique</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Validation des consommations</a></li>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="IRVE_indicateurs.html">Indicateurs d’intégrité</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modeles.html">Modèles de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="etats.html">Etat des stations et points de recharge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stations.html">Analyse de la structure des stations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coherence_geographique.html">Analyse de la cohérence géographique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="puissance.html">Analyse de la puissance des stations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossaire.html">Glossaire</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 </ul>
@@ -374,7 +389,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Validation des consommations</h1>
+    <h1>Anomalie de consommation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -388,8 +403,21 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="validation-des-consommations">
-<h1>Validation des consommations<a class="headerlink" href="#validation-des-consommations" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="anomalie-de-consommation">
+<h1><span class="section-number">9. </span>Anomalie de consommation<a class="headerlink" href="#anomalie-de-consommation" title="Link to this heading">#</a></h1>
+<p>La quantité d’énergie déclarée par un opérateur correspond à la somme des consommations de chaque session. Les anomalies recherchées concernent les surestimations de consommation (conduisent à une surévaluation des subventions).</p>
+<p>Les causes peuvent être :</p>
+<ul class="simple">
+<li><p>un périmètre erroné (prise en compte de point de recharge externes)</p></li>
+<li><p>un nombre de sessions surévalué,</p></li>
+<li><p>des sessions avec des consommations surévaluées</p></li>
+</ul>
+<p>La première analyse consiste à comparer la consommation totale des sessions à la consommation des points de livraison associé aux stations considérées. Pour que la comparaison soit valide, il est nécessaire de disposer dans QualiCharge des informations permettant ce calcul. En particulier:</p>
+<ul class="simple">
+<li><p>l’ensemble des consommations des sessions</p></li>
+<li><p>les évènements qui affectent les stations (ex. changement d’opérateur …)</p></li>
+</ul>
+<p>Un deuxième niveau consiste à analyser la série temporelle des consommations de chaque point de recharge ou de chaque station de façon à identifier des paramètres caractéristiques (analyse spectrale, auto-corélation, filtrage, corrélation entre points de recharge d’une même station). Les variations anormales de ces paramètres peuvent être enregistrées sous forme d’anomalies. Les indicateurs d’anomalies permettent de cibler des analyses approfondies à engager.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -428,15 +456,15 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Planification écologique</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Planification écologique</p>
       </div>
     </a>
     <a class="right-next"
-       href="IRVE_indicateurs.html"
+       href="modelisation.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Indicateurs d’intégrité</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Modèle prédictif</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

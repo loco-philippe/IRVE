@@ -1,0 +1,93 @@
+# Modèles de données
+
+## Modèle Qualicharge
+
+```{index} Modèle de données Qualicharge
+```
+
+```{mermaid}
+erDiagram
+    AMENAGEUR ||..|{ STATION : amenage
+    AMENAGEUR {
+        UUID id
+        string nom_amenageur
+        string siren_amenageur
+        string contact_amenageur 
+    }
+    OPERATEUR ||..|{ STATION : "exploite pour le compte de l enseigne"
+    OPERATEUR {
+        UUID id
+        string contact_operateur PK "M"
+        string nom_operateur 
+        string telephone_operateur 
+    }
+    ENSEIGNE ||..|{ STATION : "heberge"
+    ENSEIGNE {
+        UUID id 
+        string nom_enseigne PK "M" 
+    }
+    STATION {
+        UUID id 
+        string  id_station_itinerance PK "M"
+        string  nom_station "M"
+        enum    implantation_station "M"
+        integer nbre_pdc "M"
+        string  condition_acces "M"
+        string  horaires "M"
+        boolean station_deux_roues "M"
+        date    date_maj "M"
+        string  id_station_local
+        enum    raccordement
+        string  num_pdl
+        date    date_mise_en_service 
+    }
+    LOCALISATION ||--|{ STATION : "localise"
+    LOCALISATION {
+       UUID id
+       array   coordonneesXY PK "M"
+       string  adresse_station "M"
+       string  code_insee_commune 
+    }
+    STATION ||--|{ POINT_DE_CHARGE : regroupe
+    POINT_DE_CHARGE {
+        UUID id 
+        string id_pdc_itinerance PK "M Root"
+        number puissance_nominale "M"
+        boolean prise_type_ef "M"
+        boolean prise_type_2 "M" 
+        boolean prise_type_combo_ccs "M"
+        boolean prise_type_chademo "M"
+        boolean prise_type_autre "M"
+        boolean paiement_acte "M"
+        boolean reservation "M"
+        enum    accessibilite_pmr "M"
+        string  restriction_gabarit "M"
+        string  id_pdc_local
+        boolean gratuit
+        boolean paiement_cb
+        boolean paiement_autre
+        string  tarification
+        string  observations
+        boolean cable_t2_attache
+    }
+    OPERATIONAL_UNIT ||--|{ STATION : "relationship"
+    OPERATIONAL_UNIT {
+        UUID id 
+        string code "M"
+        string name "M"
+        enum type "M"
+    }
+    POINT_DE_CHARGE ||--|{ SESSION : "a pour session"
+    SESSION {
+        UUID id 
+        datetime start "M"
+        datetime end "M"
+    }
+    POINT_DE_CHARGE ||--|{ STATUS : "a pour status"
+    STATUS {
+        UUID id 
+        datetime horodatage "M"
+    }
+```
+
+*figure 1 :* *Modele qualicharge - v0.5.0*

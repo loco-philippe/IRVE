@@ -56,6 +56,8 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script src="https://unpkg.com/mermaid@10.2.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" />
@@ -174,18 +176,33 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs de référence</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="files/chiffres_cles.html">1. Chiffres-cles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files/chiffres_cles.html">1. Chiffres cles</a></li>
 <li class="toctree-l1"><a class="reference internal" href="files/spatial.html">2. Répartition spatiale</a></li>
-<li class="toctree-l1"><a class="reference internal" href="files/puissance.html">3. Puissance des stations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="files/disponibilite.html">4. Disponibilité de la recharge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files/evolution.html">3. Evolution du nombre de points de recharge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files/qualite_service.html">4. Qualité du servcie</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs génériques</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="gen/intro_gen.html">5. Structuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gen/criteres_gen.html">6. Critères de filtrage ou d’agrégation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gen/valorisation_gen.html">7. Valorisation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs spécifiques</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="files/planification.html">8. Planification écologique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files/validation.html">9. Anomalie de consommation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files/modelisation.html">10. Modèle prédictif</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Annexes</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="files/planification.html">Planification écologique</a></li>
-<li class="toctree-l1"><a class="reference internal" href="files/validation.html">Validation des consommations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="files/IRVE_indicateurs.html">Indicateurs d’intégrité</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files/modeles.html">Modèles de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files/etats.html">Etat des stations et points de recharge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files/stations.html">Analyse de la structure des stations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files/coherence_geographique.html">Analyse de la cohérence géographique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files/puissance.html">Analyse de la puissance des stations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="files/glossaire.html">Glossaire</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Index</a></li>
 </ul>
@@ -342,14 +359,28 @@ document.write(`
 
 <div class="genindex-jumpbox">
  <a href="#B"><strong>B</strong></a>
+ | <a href="#M"><strong>M</strong></a>
  | <a href="#P"><strong>P</strong></a>
  | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
  
 </div>
 <h2 id="B">B</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="files/glossaire.html#term-Borne-de-recharge"><strong>Borne de recharge</strong></a>
+      <li><a href="files/glossaire.html#term-Barometre-AVERE"><strong>Baromètre AVERE</strong></a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="files/glossaire.html#term-Borne-de-recharge-journal-officiel"><strong>Borne de recharge (journal officiel)</strong></a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="files/modeles.html#index-0">Modèle de données Qualicharge</a>
 </li>
   </ul></td>
 </tr></table>
@@ -357,7 +388,7 @@ document.write(`
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="files/glossaire.html#term-Point-de-recharge"><strong>Point de recharge</strong></a>
+      <li><a href="files/glossaire.html#term-Point-de-recharge-journal-officiel"><strong>Point de recharge (journal officiel)</strong></a>
 </li>
   </ul></td>
 </tr></table>
@@ -365,7 +396,29 @@ document.write(`
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="files/glossaire.html#term-Station-de-recharge"><strong>Station de recharge</strong></a>
+      <li><a href="files/glossaire.html#term-schema-de-donnees-statiques"><strong>schéma de données statiques</strong></a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="files/glossaire.html#term-Station-de-recharge-journal-officiel"><strong>Station de recharge (journal officiel)</strong></a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="files/glossaire.html#term-Taux-de-bon-fonctionnement-des-systemes-informatiques-definition-AFIREV"><strong>Taux de bon fonctionnement des systèmes informatiques (définition AFIREV)</strong></a>
+</li>
+      <li><a href="files/glossaire.html#term-Taux-de-disponibilite-des-points-de-recharge-definition-AFIREV"><strong>Taux de disponibilité des points de recharge (définition AFIREV)</strong></a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="files/glossaire.html#term-Taux-de-points-de-charge-disponibles-99-du-temps-definition-AFIREV"><strong>Taux de points de charge disponibles 99% du temps (définition AFIREV)</strong></a>
+</li>
+      <li><a href="files/glossaire.html#term-Taux-de-points-de-charge-indisponibles-depuis-plus-de-7-jours-definition-AFIREV"><strong>Taux de points de charge indisponibles depuis plus de 7 jours (définition AFIREV)</strong></a>
+</li>
+      <li><a href="files/glossaire.html#term-Taux-de-sessions-de-recharge-reussies-definition-AFIREV"><strong>Taux de sessions de recharge réussies (définition AFIREV)</strong></a>
 </li>
   </ul></td>
 </tr></table>

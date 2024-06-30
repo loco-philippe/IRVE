@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1. Chiffres-cles &#8212; Indicateurs book</title>
+    <title>1. Chiffres cles &#8212; Indicateurs book</title>
   
   
   
@@ -177,18 +177,33 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs de référence</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Chiffres-cles</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Chiffres cles</a></li>
 <li class="toctree-l1"><a class="reference internal" href="spatial.html">2. Répartition spatiale</a></li>
-<li class="toctree-l1"><a class="reference internal" href="puissance.html">3. Puissance des stations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="disponibilite.html">4. Disponibilité de la recharge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evolution.html">3. Evolution du nombre de points de recharge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qualite_service.html">4. Qualité du servcie</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs génériques</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../gen/intro_gen.html">5. Structuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gen/criteres_gen.html">6. Critères de filtrage ou d’agrégation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gen/valorisation_gen.html">7. Valorisation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs spécifiques</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="planification.html">8. Planification écologique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="validation.html">9. Anomalie de consommation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modelisation.html">10. Modèle prédictif</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Annexes</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="planification.html">Planification écologique</a></li>
-<li class="toctree-l1"><a class="reference internal" href="validation.html">Validation des consommations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="IRVE_indicateurs.html">Indicateurs d’intégrité</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modeles.html">Modèles de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="etats.html">Etat des stations et points de recharge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stations.html">Analyse de la structure des stations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coherence_geographique.html">Analyse de la cohérence géographique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="puissance.html">Analyse de la puissance des stations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossaire.html">Glossaire</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 </ul>
@@ -363,7 +378,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -374,11 +391,24 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Chiffres-cles</h1>
+    <h1>Chiffres cles</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#barometre-avere">1.1. Baromètre AVERE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qualicharge">1.2. Qualicharge</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mode-de-calcul">1.2.1. Mode de calcul</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resultats">1.2.2. Résultats</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -389,7 +419,50 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="chiffres-cles">
-<h1><span class="section-number">1. </span>Chiffres-cles<a class="headerlink" href="#chiffres-cles" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">1. </span>Chiffres cles<a class="headerlink" href="#chiffres-cles" title="Link to this heading">#</a></h1>
+<section id="barometre-avere">
+<h2><span class="section-number">1.1. </span>Baromètre AVERE<a class="headerlink" href="#barometre-avere" title="Link to this heading">#</a></h2>
+<p>Les chiffres cles publiés dans le <a class="reference internal" href="glossaire.html#term-Barometre-AVERE"><span class="xref std std-term">Baromètre AVERE</span></a> sont les suivants :</p>
+<ul>
+<li><p>Nombre total de points de recharge ouverts au public</p>
+<p><strong>129 525</strong> <em>(au 30/04)</em></p>
+</li>
+<li><p>Taux d’évolution sur 12 mois</p>
+<p><strong>30 %</strong> <em>(au 30/04)</em></p>
+</li>
+<li><p>Taux de disponibilité moyen d’un point de charge</p>
+<p><strong>78 %</strong> <em>(au 30/04)</em></p>
+</li>
+<li><p>Points de recharge en moyenne pour 100 000 habitants</p>
+<p><strong>192</strong> <em>(au 30/04)</em></p>
+</li>
+</ul>
+</section>
+<section id="qualicharge">
+<h2><span class="section-number">1.2. </span>Qualicharge<a class="headerlink" href="#qualicharge" title="Link to this heading">#</a></h2>
+<p>Les mêmes chiffres cles sont intégrés dans un premier temps.</p>
+<section id="mode-de-calcul">
+<h3><span class="section-number">1.2.1. </span>Mode de calcul<a class="headerlink" href="#mode-de-calcul" title="Link to this heading">#</a></h3>
+<p>Calculés à partir des données ‘transport.data.gouv’ dans un premier temps.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>le mode de calcul du <a class="reference internal" href="#./disponibilite.md"><span class="xref myst">taux de disponibilité</span></a> reste à préciser (données non disponibles)</p></li>
+</ul>
+</div>
+</section>
+<section id="resultats">
+<h3><span class="section-number">1.2.2. </span>Résultats<a class="headerlink" href="#resultats" title="Link to this heading">#</a></h3>
+<p>A établir</p>
+<div class="important admonition">
+<p class="admonition-title">A faire</p>
+<ul class="simple">
+<li><p>préciser la référence population utilisée</p></li>
+<li><p>ajouter le calcul des indicateurs sur un jeu de données</p></li>
+</ul>
+</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -446,6 +519,26 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#barometre-avere">1.1. Baromètre AVERE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qualicharge">1.2. Qualicharge</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mode-de-calcul">1.2.1. Mode de calcul</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resultats">1.2.2. Résultats</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

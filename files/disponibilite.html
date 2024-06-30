@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4. Disponibilité de la recharge &#8212; Indicateurs book</title>
+    <title>6. Disponibilité de la recharge &#8212; Indicateurs book</title>
   
   
   
@@ -61,7 +61,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Planification écologique" href="planification.html" />
-    <link rel="prev" title="3. Puissance des stations" href="puissance.html" />
+    <link rel="prev" title="5. Sessions de recharge" href="sessions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -179,16 +179,26 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="chiffres_cles.html">1. Chiffres-cles</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="chiffres_cles.html">1. Chiffres cles</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="chiffres_cles_actuel.html">1.1. Baromètre AVERE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chiffres_cles_futur.html">1.2. Qualicharge</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="spatial.html">2. Répartition spatiale</a></li>
-<li class="toctree-l1"><a class="reference internal" href="puissance.html">3. Puissance des stations</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Disponibilité de la recharge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evolution.html">3. Evolution du nombre de points de recharge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="puissance.html">4. Analyse de la puissance des stations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sessions.html">5. Sessions de recharge</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Disponibilité de la recharge</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Annexes</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="planification.html">Planification écologique</a></li>
 <li class="toctree-l1"><a class="reference internal" href="validation.html">Validation des consommations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="IRVE_indicateurs.html">Indicateurs d’intégrité</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modeles.html">Modèles de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="etats.html">Etat des stations et points de recharge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stations.html">Analyse de la structure des stations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coherence_geographique.html">Analyse de la cohérence géographique</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossaire.html">Glossaire</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 </ul>
@@ -363,7 +373,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -379,6 +391,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-actuels">6.1. Indicateurs actuels</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -389,7 +409,18 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="disponibilite-de-la-recharge">
-<h1><span class="section-number">4. </span>Disponibilité de la recharge<a class="headerlink" href="#disponibilite-de-la-recharge" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">6. </span>Disponibilité de la recharge<a class="headerlink" href="#disponibilite-de-la-recharge" title="Link to this heading">#</a></h1>
+<section id="indicateurs-actuels">
+<h2><span class="section-number">6.1. </span>Indicateurs actuels<a class="headerlink" href="#indicateurs-actuels" title="Link to this heading">#</a></h2>
+<p>Les indicateurs suivants sont définis:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="glossaire.html#term-Taux-de-sessions-de-recharge-reussies-definition-AFIREV"><span class="xref std std-term">Taux de sessions de recharge réussies (définition AFIREV)</span></a></p></li>
+<li><p><a class="reference internal" href="glossaire.html#term-Taux-de-disponibilite-des-points-de-recharge-definition-AFIREV"><span class="xref std std-term">Taux de disponibilité des points de recharge (définition AFIREV)</span></a></p></li>
+<li><p><a class="reference internal" href="glossaire.html#term-Taux-de-bon-fonctionnement-des-systemes-informatiques-definition-AFIREV"><span class="xref std std-term">Taux de bon fonctionnement des systèmes informatiques (définition AFIREV)</span></a></p></li>
+<li><p><a class="reference internal" href="glossaire.html#term-Taux-de-points-de-charge-disponibles-99-du-temps-definition-AFIREV"><span class="xref std std-term">Taux de points de charge disponibles 99% du temps (définition AFIREV)</span></a></p></li>
+<li><p><a class="reference internal" href="glossaire.html#term-Taux-de-points-de-charge-indisponibles-depuis-plus-de-7-jours-definition-AFIREV"><span class="xref std std-term">Taux de points de charge indisponibles depuis plus de 7 jours (définition AFIREV)</span></a></p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -423,12 +454,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="puissance.html"
+       href="sessions.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>Puissance des stations</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Sessions de recharge</p>
       </div>
     </a>
     <a class="right-next"
@@ -446,6 +477,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-actuels">6.1. Indicateurs actuels</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'files/spatial';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3. Puissance des stations" href="puissance.html" />
-    <link rel="prev" title="1. Chiffres-cles" href="chiffres_cles.html" />
+    <link rel="next" title="3. Evolution du nombre de points de recharge" href="evolution.html" />
+    <link rel="prev" title="1. Chiffres cles" href="chiffres_cles.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -177,18 +177,33 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs de référence</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="chiffres_cles.html">1. Chiffres-cles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chiffres_cles.html">1. Chiffres cles</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Répartition spatiale</a></li>
-<li class="toctree-l1"><a class="reference internal" href="puissance.html">3. Puissance des stations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="disponibilite.html">4. Disponibilité de la recharge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evolution.html">3. Evolution du nombre de points de recharge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qualite_service.html">4. Qualité du servcie</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs génériques</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../gen/intro_gen.html">5. Structuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gen/criteres_gen.html">6. Critères de filtrage ou d’agrégation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gen/valorisation_gen.html">7. Valorisation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs spécifiques</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="planification.html">8. Planification écologique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="validation.html">9. Anomalie de consommation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modelisation.html">10. Modèle prédictif</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Annexes</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="planification.html">Planification écologique</a></li>
-<li class="toctree-l1"><a class="reference internal" href="validation.html">Validation des consommations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="IRVE_indicateurs.html">Indicateurs d’intégrité</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modeles.html">Modèles de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="etats.html">Etat des stations et points de recharge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stations.html">Analyse de la structure des stations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coherence_geographique.html">Analyse de la cohérence géographique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="puissance.html">Analyse de la puissance des stations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossaire.html">Glossaire</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 </ul>
@@ -363,7 +378,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -379,6 +396,19 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#barometre-avere">2.1. Baromètre AVERE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qualicharge">2.2. Qualicharge</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mode-de-calcul">2.2.1. Mode de calcul</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resultats">2.2.2. Résultats</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -390,6 +420,46 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="repartition-spatiale">
 <h1><span class="section-number">2. </span>Répartition spatiale<a class="headerlink" href="#repartition-spatiale" title="Link to this heading">#</a></h1>
+<section id="barometre-avere">
+<h2><span class="section-number">2.1. </span>Baromètre AVERE<a class="headerlink" href="#barometre-avere" title="Link to this heading">#</a></h2>
+<p>Le <a class="reference internal" href="glossaire.html#term-Barometre-AVERE"><span class="xref std std-term">Baromètre AVERE</span></a> présente les cartes choroplèthes suivantes:</p>
+<ul class="simple">
+<li><p>Nombre de stations de recharge par région</p></li>
+<li><p>Nombre de points de recharge par région</p></li>
+<li><p>Puissance totale installée par région</p></li>
+</ul>
+<p>ainsi que les diagrammes circulaires suivants:</p>
+<ul class="simple">
+<li><p>Répartition des points de recharge par site d’implantation</p></li>
+<li><p>Recharge selon la catégorie de puissance</p></li>
+</ul>
+</section>
+<section id="qualicharge">
+<h2><span class="section-number">2.2. </span>Qualicharge<a class="headerlink" href="#qualicharge" title="Link to this heading">#</a></h2>
+<p>Intégration des cartes choroplèthes et diagrammes circulaires du baromètre AVERE dans un premier temps.</p>
+<section id="mode-de-calcul">
+<h3><span class="section-number">2.2.1. </span>Mode de calcul<a class="headerlink" href="#mode-de-calcul" title="Link to this heading">#</a></h3>
+<p>Calculés à partir des données ‘transport.data.gouv’ dans un premier temps.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>l’information concernant le site d’implantation n’est pas disponible actuellement</p></li>
+</ul>
+</div>
+</section>
+<section id="resultats">
+<h3><span class="section-number">2.2.2. </span>Résultats<a class="headerlink" href="#resultats" title="Link to this heading">#</a></h3>
+<p>A intégrer</p>
+<div class="important admonition">
+<p class="admonition-title">A faire</p>
+<ul class="simple">
+<li><p>préciser la référence des contours utilisés (ex <a class="reference external" href="https://github.com/gregoiredavid/france-geojson">contours simplifiés</a>)</p></li>
+<li><p>utilisation du code département issu du code INSEE (sous réserve de l’<a class="reference internal" href="coherence_geographique.html"><span class="std std-doc">Analyse de la cohérence géographique</span></a> effectuée)</p></li>
+<li><p>ajouter le calcul des indicateurs sur un jeu de données</p></li>
+</ul>
+</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -428,15 +498,15 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Chiffres-cles</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Chiffres cles</p>
       </div>
     </a>
     <a class="right-next"
-       href="puissance.html"
+       href="evolution.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>Puissance des stations</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Evolution du nombre de points de recharge</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -446,6 +516,26 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#barometre-avere">2.1. Baromètre AVERE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qualicharge">2.2. Qualicharge</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mode-de-calcul">2.2.1. Mode de calcul</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resultats">2.2.2. Résultats</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

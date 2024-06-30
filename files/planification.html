@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Planification écologique &#8212; Indicateurs book</title>
+    <title>8. Planification écologique &#8212; Indicateurs book</title>
   
   
   
@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'files/planification';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Validation des consommations" href="validation.html" />
-    <link rel="prev" title="4. Disponibilité de la recharge" href="disponibilite.html" />
+    <link rel="next" title="9. Anomalie de consommation" href="validation.html" />
+    <link rel="prev" title="7. Valorisation" href="../gen/valorisation_gen.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -177,18 +177,33 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs de référence</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="chiffres_cles.html">1. Chiffres-cles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chiffres_cles.html">1. Chiffres cles</a></li>
 <li class="toctree-l1"><a class="reference internal" href="spatial.html">2. Répartition spatiale</a></li>
-<li class="toctree-l1"><a class="reference internal" href="puissance.html">3. Puissance des stations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="disponibilite.html">4. Disponibilité de la recharge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evolution.html">3. Evolution du nombre de points de recharge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qualite_service.html">4. Qualité du servcie</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs génériques</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../gen/intro_gen.html">5. Structuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gen/criteres_gen.html">6. Critères de filtrage ou d’agrégation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gen/valorisation_gen.html">7. Valorisation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs spécifiques</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">8. Planification écologique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="validation.html">9. Anomalie de consommation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modelisation.html">10. Modèle prédictif</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Annexes</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Planification écologique</a></li>
-<li class="toctree-l1"><a class="reference internal" href="validation.html">Validation des consommations</a></li>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="IRVE_indicateurs.html">Indicateurs d’intégrité</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modeles.html">Modèles de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="etats.html">Etat des stations et points de recharge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stations.html">Analyse de la structure des stations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coherence_geographique.html">Analyse de la cohérence géographique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="puissance.html">Analyse de la puissance des stations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossaire.html">Glossaire</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 </ul>
@@ -363,7 +378,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -379,6 +396,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disponibilite-d-un-reseau">8.1. Disponibilité d’un réseau</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -389,7 +414,24 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="planification-ecologique">
-<h1>Planification écologique<a class="headerlink" href="#planification-ecologique" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">8. </span>Planification écologique<a class="headerlink" href="#planification-ecologique" title="Link to this heading">#</a></h1>
+<section id="disponibilite-d-un-reseau">
+<h2><span class="section-number">8.1. </span>Disponibilité d’un réseau<a class="headerlink" href="#disponibilite-d-un-reseau" title="Link to this heading">#</a></h2>
+<p>Les bornes sont regroupées sur un graphe orienté (une station est un sommet, un arc est un trajet entre deux stations défini par une distance).</p>
+<p>Le traitement consiste à :</p>
+<ul class="simple">
+<li><p>associer un état à chaque sommet : le sommet est valide si la station est disponible</p></li>
+<li><p>associer un état à chaque arc : l’arc est non valide s’il n’existe aucun sommet aval valide à moins de 60 km</p></li>
+</ul>
+<p>L’application concerne principalement le réseau autoroutier en intégrant les stations de recharge situées sur les aires de l’autoroute ainsi que celles situées à moins de 3 km d’une sortie.</p>
+<p>La mise en oeuvre nécessite:</p>
+<ul class="simple">
+<li><p>d’identifier les stations de recharge sur l’emprise de l’autoroute et celles incluses dans une bande de 3 km de part et d’autre,</p></li>
+<li><p>de construire le réseau entre les stations internes et les sorties de l’autoroute,</p></li>
+<li><p>d’jouter des arcs entre les stations externes et les sorties les plus proches,</p></li>
+<li><p>d’associer les stations à un sens de circulation (pour les stations internes),</p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -423,12 +465,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="disponibilite.html"
+       href="../gen/valorisation_gen.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Disponibilité de la recharge</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Valorisation</p>
       </div>
     </a>
     <a class="right-next"
@@ -436,7 +478,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Validation des consommations</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Anomalie de consommation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -446,6 +488,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disponibilite-d-un-reseau">8.1. Disponibilité d’un réseau</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1. Chiffres-cles" href="files/chiffres_cles.html" />
+    <link rel="next" title="1. Chiffres cles" href="files/chiffres_cles.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -178,18 +178,33 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs de référence</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="files/chiffres_cles.html">1. Chiffres-cles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files/chiffres_cles.html">1. Chiffres cles</a></li>
 <li class="toctree-l1"><a class="reference internal" href="files/spatial.html">2. Répartition spatiale</a></li>
-<li class="toctree-l1"><a class="reference internal" href="files/puissance.html">3. Puissance des stations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="files/disponibilite.html">4. Disponibilité de la recharge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files/evolution.html">3. Evolution du nombre de points de recharge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files/qualite_service.html">4. Qualité du servcie</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs génériques</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="gen/intro_gen.html">5. Structuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gen/criteres_gen.html">6. Critères de filtrage ou d’agrégation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gen/valorisation_gen.html">7. Valorisation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs spécifiques</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="files/planification.html">8. Planification écologique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files/validation.html">9. Anomalie de consommation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files/modelisation.html">10. Modèle prédictif</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Annexes</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="files/planification.html">Planification écologique</a></li>
-<li class="toctree-l1"><a class="reference internal" href="files/validation.html">Validation des consommations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="files/IRVE_indicateurs.html">Indicateurs d’intégrité</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files/modeles.html">Modèles de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files/etats.html">Etat des stations et points de recharge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files/stations.html">Analyse de la structure des stations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files/coherence_geographique.html">Analyse de la cohérence géographique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files/puissance.html">Analyse de la puissance des stations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="files/glossaire.html">Glossaire</a></li>
 <li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
 </ul>
@@ -393,7 +408,12 @@ document.write(`
 <h1>Qualicharge - Indicateurs et analyses<a class="headerlink" href="#qualicharge-indicateurs-et-analyses" title="Link to this heading">#</a></h1>
 <p>Le projet Qualicharge a pour objectif d’améliorer la qualité globale du service de recharge des véhicules électriques en analysant les données de supervision.</p>
 <p>Ce site est dédié à la fourniture d’indicateurs du service de recharge ainsi qu’aux analyses menées sur les données d’usage.</p>
-<p>Les indicateurs retenus seront accessibles dans Qualicharge via une solution de BI (Metabase).</p>
+<p>Trois types d’indicateurs sont distingués :</p>
+<ul class="simple">
+<li><p>indicateurs de référence destinés à la publication de tableaux de bord / baromètre,</p></li>
+<li><p>indicateurs génériques et paramétrables accessibles dans Qualicharge via une solution de BI (Metabase),</p></li>
+<li><p>indicateurs spécifiques dédiés à des usages particuliers</p></li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Les indicateurs et analyses sont produits à partir de jeux de données d’entrée :</p>
@@ -404,20 +424,39 @@ document.write(`
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs de référence</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="files/chiffres_cles.html">1. Chiffres-cles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files/chiffres_cles.html">1. Chiffres cles</a></li>
 <li class="toctree-l1"><a class="reference internal" href="files/spatial.html">2. Répartition spatiale</a></li>
-<li class="toctree-l1"><a class="reference internal" href="files/puissance.html">3. Puissance des stations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="files/disponibilite.html">4. Disponibilité de la recharge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files/evolution.html">3. Evolution du nombre de points de recharge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files/qualite_service.html">4. Qualité du servcie</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs génériques</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gen/intro_gen.html">5. Structuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gen/criteres_gen.html">6. Critères de filtrage ou d’agrégation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gen/valorisation_gen.html">7. Valorisation</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs spécifiques</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="files/planification.html">8. Planification écologique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files/validation.html">9. Anomalie de consommation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files/modelisation.html">10. Modèle prédictif</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Annexes</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="files/planification.html">Planification écologique</a></li>
-<li class="toctree-l1"><a class="reference internal" href="files/validation.html">Validation des consommations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="files/IRVE_indicateurs.html">Indicateurs d’intégrité</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files/modeles.html">Modèles de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files/etats.html">Etat des stations et points de recharge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files/stations.html">Analyse de la structure des stations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files/coherence_geographique.html">Analyse de la cohérence géographique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files/puissance.html">Analyse de la puissance des stations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="files/glossaire.html">Glossaire</a></li>
 <li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
 </ul>
@@ -459,7 +498,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Chiffres-cles</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Chiffres cles</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
