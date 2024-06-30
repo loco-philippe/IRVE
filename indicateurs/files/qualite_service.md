@@ -1,6 +1,8 @@
-# Disponibilité de la recharge
+# Qualité du servcie
 
-## Indicateurs actuels
+## Disponibilité de la recharge
+
+### Indicateurs actuels
 
 Les indicateurs suivants sont définis:
 
@@ -9,3 +11,5 @@ Les indicateurs suivants sont définis:
 - {term}`Taux de bon fonctionnement des systèmes informatiques (définition AFIREV)`
 - {term}`Taux de points de charge disponibles 99% du temps (définition AFIREV)`
 - {term}`Taux de points de charge indisponibles depuis plus de 7 jours (définition AFIREV)`
+
+## Sessions de recharge

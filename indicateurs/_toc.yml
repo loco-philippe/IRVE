@@ -4,24 +4,32 @@
 format: jb-book
 root: intro
 parts:
-  - caption: Indicateurs
+  - caption: Indicateurs de référence
     numbered: True
     chapters:
     - file: files/chiffres_cles
     - file: files/spatial
-    - file: files/puissance
-    - file: files/disponibilite
-    # - file: markdown
-    #   sections:
-    #   - file: notebooks
-    # - file: markdown-notebooks
-  - caption: Annexes
+    - file: files/evolution
+    - file: files/qualite_service
+  - caption: Indicateurs génériques
+    numbered: True
+    chapters:
+    - file: gen/intro_gen
+    - file: gen/criteres_gen
+    - file: gen/valorisation_gen
+  - caption: Indicateurs spécifiques
+    numbered: True
     chapters:
     - file: files/planification
     - file: files/validation
+    - file: files/modelisation
+  - caption: Annexes
+    chapters:
     - file: files/IRVE_indicateurs
     - file: files/modeles
     - file: files/etats
     - file: files/stations
+    - file: files/coherence_geographique
+    - file: files/puissance
     - file: files/glossaire
     - file: genindex
