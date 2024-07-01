@@ -439,7 +439,10 @@ document.write(`
 <ul class="simple">
 <li><p>début et fin de charge,</p></li>
 <li><p>mise hors service et remise en service</p></li>
+<li><p>désactivation</p></li>
 </ul>
+<p>Le suivi des états permet d’enregistrer dans une table dédiée les durées passées dans chaque état successif.
+Le calcul de la disponibilité et du taux d’utilisation s’effectue alors par cumul de ces durées.</p>
 <div class="mermaid">
             flowchart TB
     déclaré --&gt;|début charge| occ(occupé)   

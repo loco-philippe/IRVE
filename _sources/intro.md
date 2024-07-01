@@ -1,8 +1,8 @@
 # Qualicharge - Indicateurs et analyses
 
-Le projet Qualicharge a pour objectif d'améliorer la qualité globale du service de recharge des véhicules électriques en analysant les données de supervision.
-
 Ce site est dédié à la fourniture d'indicateurs du service de recharge ainsi qu'aux analyses menées sur les données d'usage.
+
+Il est construit sur la base de fichiers Markdown et Jupyter Notebook assemblés via Jupyter book.
 
 Trois types d'indicateurs sont distingués :
 
@@ -14,7 +14,7 @@ Trois types d'indicateurs sont distingués :
 Les indicateurs et analyses sont produits à partir de jeux de données d'entrée :
 
 - données issues de la base de données de QualiCharge
-- données issues du jeu de données IRVE disponible sur 'transport.gouv.fr'
+- données issues du jeu de données IRVE disponible sur 'transport.gouv.fr' (transitoire)
 - toutes données complémentaires fournies explicitement
 ```
 

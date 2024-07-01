@@ -21,6 +21,10 @@ Le diagramme d'état correspondant à ces états est présenté ci-dessous. Il s
 
 - début et fin de charge,
 - mise hors service et remise en service
+- désactivation
+
+Le suivi des états permet d'enregistrer dans une table dédiée les durées passées dans chaque état successif.
+Le calcul de la disponibilité et du taux d'utilisation s'effectue alors par cumul de ces durées.
 
 ```{mermaid}
 flowchart TB
