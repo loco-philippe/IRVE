@@ -19,7 +19,7 @@ Intégration des cartes choroplèthes et diagrammes circulaires du baromètre AV
 
 ### Mode de calcul
 
-Calculés à partir des données 'transport.data.gouv' dans un premier temps.
+RAS
 
 :::{note}
 

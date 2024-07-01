@@ -26,7 +26,7 @@ Les mêmes chiffres cles sont intégrés dans un premier temps.
 
 ### Mode de calcul
 
-Calculés à partir des données 'transport.data.gouv' dans un premier temps.
+RAS
 
 :::{note}
 
