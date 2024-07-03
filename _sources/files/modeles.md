@@ -1,6 +1,12 @@
-# Modèles de données
+# Analyse du modèle de données
+
+Ce chapitre analyse le modèle de données QualiCharge par rapport aux indicateurs à produire ainsi que vis à vis de la base `transport.gouv`.
 
 ## Modèle Qualicharge
+
+Le modèle Qualicharge intègre les données staiques et dynamiques.
+
+Il est présenté ci-dessous sous la forme "entité-association"
 
 ```{index} Modèle de données Qualicharge
 ```
@@ -82,12 +88,64 @@ erDiagram
         UUID id 
         datetime start "M"
         datetime end "M"
+        number energy "M"
     }
     POINT_DE_CHARGE ||--|{ STATUS : "a pour status"
     STATUS {
         UUID id 
         datetime horodatage "M"
+        enum     etat_pdc "M"
+        enum     occupation_pdc "M"
+        enum     etat_prise_type_2
+        enum     etat_prise_type_combo_ccs
+        enum     etat_prise_type_chademo
+        enum     etat_prise_type_ef
     }
 ```
 
 *figure 1 :* *Modele qualicharge - v0.5.0*
+
+## Compatibilité indicateurs
+
+Le modèle contient l'ensemble des informations permettant de générer les indicateurs à l'exception de ceux traitant des informations suivantes :
+
+- identification de l'opérateur: La seule information obligatoire concernant l'opérateur est une adresse email (le nom de l'opérateur est optionnel)
+- identification de l'aménageur: L'aménageur n'est pas identifié explicitement (toutes les informations liées à l'aménageur sont optionnelles)
+- site d'implantation: Les types d'implantation définis ne permettent pas de restituer la nature du site telle qu'elle est restituée par l'AVERE (ex. commerce, entreprise)
+- puissance: La puissance est actuellement identifiée par une valeur. Une classification par niveau de puissance permettrait des analyses par gamme de puissance
+- type d'alimentation AC/DC: Cette information est souhaitable
+- Type de session: Cette information permettrait d'identifier par exemple les charges partielles ou interrompues
+- tarification: Cette information est souhaitable (présente dans les indicateurs AVERE)
+- qualité de service: le taux d'occupation ou la disponibilité d'un point de charge nécessite de disposer du temps passé dans chaque état (voir [état des points de recharge](./etats.md)). Cette information est présente de façon implicite (status) mais nécessite d'être explicite pour élaborer les indicateurs de qualité de service
+
+## Compatibilité avec les données `transport.gouv`
+
+Pour la partie statique, les attributs du modèle de données sont identiques à ceux du dataset `transport.gouv`.
+Les deux structures comportent néanmoins les écarts suivants :
+
+- modèle de données:
+
+    Pour QualiCharge, l'intégrité du modèle de données est garantie par la structure de la base de données et les API associés.
+    Pour `transport.gouv`, l'intégrité du modèle n'est pas controlée en amont (elle l'est uniquement a posteriori).
+
+- valeurs des attributs:
+
+    Le niveau de qualité des attributs est contrôlé dans les deux cas en amont (via les API pour QualiCharge, via Validata pour `transport.gouv`).
+    De façon générale, la niveau de qualité attendue des valeurs des attributs pour QualiCharge est plus élevé que celui de `transport.gouv`.
+
+    Les différences relevées sont les suivantes :
+
+    | attribut               | Qualicharge       | Schema statique |
+    | :--------------------- | ----------------- | --------------- |
+    | contact_amenageur      | EmailStr          | format email    |
+    | contact_operateur (M)  | EmailStr          | format email    |
+    | telephone_operateur    | FrenchPhoneNumber | string          |
+    | nbre_pdc (M)           | PositiveInt       | int             |
+    | date_maj (M)           | PastDate          | date            |
+    | num_pdl                | "^\d{14}$"        | string          |
+    | date_mise_en_service   | PastDate          | date            |
+    | puissance_nominale (M) | PositiveFloat     | float           |
+
+    Qualicharge intègre également le contrôle de cohérence du prefixe AFIREV entre id-station et id_pdc.
+
+L'échange de données entre les deux bases nécessite de mettre en place une stratégie de prise en compte de ces différence (ne concerne que le sens `transport.gouv`vers QualiCharge).
