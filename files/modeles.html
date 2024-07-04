@@ -406,6 +406,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modele-qualicharge">Modèle Qualicharge</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compatibilite-indicateurs">Compatibilité indicateurs</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compatibilite-avec-les-donnees-transport-gouv">Compatibilité avec les données <code class="docutils literal notranslate"><span class="pre">transport.gouv</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition-de-conversion-du-format-csv-transport-gouv-au-format-csv-qualicharge">Proposition de conversion du format CSV <code class="docutils literal notranslate"><span class="pre">transport.gouv</span></code> au format CSV Qualicharge</a></li>
 </ul>
             </nav>
         </div>
@@ -589,7 +590,25 @@ De façon générale, la niveau de qualité attendue des valeurs des attributs p
 <p>Qualicharge intègre également le contrôle de cohérence du prefixe AFIREV entre id-station et id_pdc.</p>
 </li>
 </ul>
-<p>L’échange de données entre les deux bases nécessite de mettre en place une stratégie de prise en compte de ces différence (ne concerne que le sens <code class="docutils literal notranslate"><span class="pre">transport.gouv</span></code>vers QualiCharge).</p>
+<p>L’échange de données entre les deux bases nécessite de mettre en place une stratégie de prise en compte de ces différences (ne concerne que le sens <code class="docutils literal notranslate"><span class="pre">transport.gouv</span></code>vers QualiCharge).</p>
+</section>
+<section id="proposition-de-conversion-du-format-csv-transport-gouv-au-format-csv-qualicharge">
+<h2>Proposition de conversion du format CSV <code class="docutils literal notranslate"><span class="pre">transport.gouv</span></code> au format CSV Qualicharge<a class="headerlink" href="#proposition-de-conversion-du-format-csv-transport-gouv-au-format-csv-qualicharge" title="Link to this heading">#</a></h2>
+<p>L’objectif est de traiter les écarts de structure identifiés ci-dessus et d’éliminer les données erronées.</p>
+<p>Les principes retenus pour traiter les données ne respectant pas le format QualiCharge sont les suivants (pour chaque donnée provoquant une erreur):</p>
+<ul class="simple">
+<li><p>les données facultatives sont transformées en données vides (valeur spécifique à chaque type de donnée),</p></li>
+<li><p>les données obligatoires dont les formats sont différentes sont transformées en données spécifiques:</p>
+<ul>
+<li><p>date_maj: valeur de la date du jour (pour les date postérieures à la date du jour),</p></li>
+<li><p>puissance_nominale: valeur opposée (pour les valeurs négatives)</p></li>
+<li><p>nbre_pdc: valeur nulle (la valeur du champ peut être recalculée si besoin)</p></li>
+<li><p>contact_operateur: à préciser (en fonction des différences entre les formats <code class="docutils literal notranslate"><span class="pre">EmailStr</span></code> et <code class="docutils literal notranslate"><span class="pre">format</span> <span class="pre">email</span></code>)</p></li>
+</ul>
+</li>
+<li><p>les autres données obligatoires dont les formats sont identiques sont traitées comme une erreur portant sur la station (la station n’est pas prise en compte).</p></li>
+</ul>
+<p>Le principe d’implémentation est de tester la création d’une instance de la classe <code class="docutils literal notranslate"><span class="pre">Statique</span></code> pour chaque ligne, et en cas d’erreur d’appliquer les principes ci-dessus (remplacement des données avec des formats différents et suppression des stations erronées).</p>
 </section>
 </section>
 
@@ -660,6 +679,7 @@ De façon générale, la niveau de qualité attendue des valeurs des attributs p
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modele-qualicharge">Modèle Qualicharge</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compatibilite-indicateurs">Compatibilité indicateurs</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compatibilite-avec-les-donnees-transport-gouv">Compatibilité avec les données <code class="docutils literal notranslate"><span class="pre">transport.gouv</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition-de-conversion-du-format-csv-transport-gouv-au-format-csv-qualicharge">Proposition de conversion du format CSV <code class="docutils literal notranslate"><span class="pre">transport.gouv</span></code> au format CSV Qualicharge</a></li>
 </ul>
   </nav></div>
 

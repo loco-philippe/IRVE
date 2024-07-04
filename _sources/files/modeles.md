@@ -148,4 +148,20 @@ Les deux structures comportent néanmoins les écarts suivants :
 
     Qualicharge intègre également le contrôle de cohérence du prefixe AFIREV entre id-station et id_pdc.
 
-L'échange de données entre les deux bases nécessite de mettre en place une stratégie de prise en compte de ces différence (ne concerne que le sens `transport.gouv`vers QualiCharge).
+L'échange de données entre les deux bases nécessite de mettre en place une stratégie de prise en compte de ces différences (ne concerne que le sens `transport.gouv`vers QualiCharge).
+
+## Proposition de conversion du format CSV `transport.gouv` au format CSV Qualicharge
+
+L'objectif est de traiter les écarts de structure identifiés ci-dessus et d'éliminer les données erronées.
+
+Les principes retenus pour traiter les données ne respectant pas le format QualiCharge sont les suivants (pour chaque donnée provoquant une erreur):
+
+- les données facultatives sont transformées en données vides (valeur spécifique à chaque type de donnée),
+- les données obligatoires dont les formats sont différentes sont transformées en données spécifiques:
+  - date_maj: valeur de la date du jour (pour les date postérieures à la date du jour),
+  - puissance_nominale: valeur opposée (pour les valeurs négatives)
+  - nbre_pdc: valeur nulle (la valeur du champ peut être recalculée si besoin)
+  - contact_operateur: à préciser (en fonction des différences entre les formats `EmailStr` et `format email`)
+- les autres données obligatoires dont les formats sont identiques sont traitées comme une erreur portant sur la station (la station n'est pas prise en compte).
+
+Le principe d'implémentation est de tester la création d'une instance de la classe `Statique` pour chaque ligne, et en cas d'erreur d'appliquer les principes ci-dessus (remplacement des données avec des formats différents et suppression des stations erronées).
