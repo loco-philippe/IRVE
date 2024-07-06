@@ -2,7 +2,7 @@
 """
 Created on Mon Jun 24 15:06:09 2024
 
-@author: phili
+@author: philippe.thomy@beta.gouv.fr
 """
 
 import json
