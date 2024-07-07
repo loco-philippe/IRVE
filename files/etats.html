@@ -404,6 +404,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etats-des-points-de-recharge">Etats des points de recharge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etats-des-stations">Etats des stations</a></li>
 </ul>
             </nav>
         </div>
@@ -419,43 +420,54 @@ document.write(`
 <h1>Etat des stations et points de recharge<a class="headerlink" href="#etat-des-stations-et-points-de-recharge" title="Link to this heading">#</a></h1>
 <section id="etats-des-points-de-recharge">
 <h2>Etats des points de recharge<a class="headerlink" href="#etats-des-points-de-recharge" title="Link to this heading">#</a></h2>
-<p>Les états sont les suivants :</p>
+<p>Trois états principaux sont définis :</p>
 <ul class="simple">
-<li><p>déclaré: Identifié dans Qualicharge mais avec aucune charge encore effectuée</p></li>
-<li><p>inactif: En fonctionnement, hors période d’ouverture</p></li>
 <li><p>libre: En fonctionnement, non occupé et pendant la période d’ouverture</p></li>
 <li><p>occupé: En charge</p></li>
 <li><p>hors service: Mise à l’arrêt (ex. maintenance) ou arrêt intempestif (défaillance : statut erreur ou inconnu). Quatre niveaux définis en fonction du temps de présence dans cet état sont retenus:</p>
 <ul>
-<li><p>pannes courtes &lt; 2h,</p></li>
-<li><p>pannes longues &lt; 24h,</p></li>
-<li><p>arrêt &lt; 7j,</p></li>
-<li><p>arrêt &gt; 7j.</p></li>
+<li><p>interruption courte &lt; 2h,</p></li>
+<li><p>interruption longue &lt; 24h,</p></li>
+<li><p>arrêt court &lt; 7j,</p></li>
+<li><p>arrêt long &gt; 7j.</p></li>
 </ul>
 </li>
+</ul>
+<p>Deux états complémentaires peuvent être ajoutés:</p>
+<ul class="simple">
+<li><p>déclaré: Identifié dans Qualicharge mais avec aucune charge encore effectuée</p></li>
 <li><p>désactivé: Identifié dans Qualicharge mais non pris en compte dans le suivi d’usage.</p></li>
 </ul>
-<p>Le diagramme d’état correspondant à ces états est présenté ci-dessous. Il suppose que les évènements suivant sont bien enregistrés:</p>
+<div class="mermaid">
+            flowchart TB
+    déclaré --&gt;|début charge| occ   
+    occ --&gt;|arrêt| hs
+    subgraph en_service
+        direction RL
+        lib(libre) --&gt;|début charge| occ(occupé)
+        occ --&gt;|fin charge| lib
+    end  
+    hs(hors service) --&gt;|fin arrêt| lib
+    hs --&gt;|désactivation| desactivé 
+        </div><p><em>figure 1 :</em> <em>Diagramme d’états</em></p>
+<p>Chacun des trois états (libre, occupé, hors service) est doublé pour tenir compte des périodes d’ouverture du point de recharge.</p>
+<ul class="simple">
+<li><p>requis: pendant la période d’ouverture,</p></li>
+<li><p>non requis: hors période d’ouverture.</p></li>
+</ul>
+<div class="mermaid">
+            flowchart LR
+    req(requis\n occupé, libre, hors service) --&gt;|fin ouverture| nreq(non requis\n occupé, libre, hors service)
+    nreq --&gt; |début ouverture| req 
+        </div><p><em>figure 2 :</em> <em>Diagramme d’états ouverture</em></p>
+<p>Le suivi des états permet d’enregistrer dans une table dédiée les durées passées dans chaque état successif.</p>
+<p>Il suppose que les évènements suivant sont bien enregistrés:</p>
 <ul class="simple">
 <li><p>début et fin de charge,</p></li>
 <li><p>mise hors service et remise en service</p></li>
 <li><p>désactivation</p></li>
 </ul>
-<p>Le suivi des états permet d’enregistrer dans une table dédiée les durées passées dans chaque état successif.
-Le calcul de la disponibilité et du taux d’utilisation s’effectue alors par cumul de ces durées.</p>
-<div class="mermaid">
-            flowchart TB
-    déclaré --&gt;|début charge| occ(occupé)   
-    occ --&gt; |fin charge| en_service
-    lib --&gt;|début charge| occ 
-    subgraph en_service
-        lib(libre) --&gt;|fin ouverture| ina
-        ina(inactif) --&gt;|début ouverture| lib
-    end  
-    arr(hors service) --&gt;|fin arrêt| en_service
-    occ --&gt;|arrêt| arr
-    arr --&gt;|désactivation| desactivé 
-        </div><p><em>figure 1 :</em> <em>Diagramme d’états fonctionnement</em></p>
+<p>Le calcul de la qualité de service (disponibilité opérationnelle, taux d’utilisation, saturation) s’effectue alors par cumul des durées dans les états associés aux indicateurs.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Si les évènements d’arrêt distinguent les défauts et les OT (ordre de travail de maintenance préventive ou corrective), le mode hors service serait le suivant:</p>
@@ -468,8 +480,12 @@ Le calcul de la disponibilité et du taux d’utilisation s’effectue alors par
     subgraph hors_service
         pan(panne) --&gt;|intervention / OT| maint(maintenance)
     end
-        </div><p><em>figure 2 :</em> <em>Diagramme d’états non fonctionnement</em></p>
+        </div><p><em>figure 3 :</em> <em>Diagramme d’états non fonctionnement</em></p>
 </div>
+</section>
+<section id="etats-des-stations">
+<h2>Etats des stations<a class="headerlink" href="#etats-des-stations" title="Link to this heading">#</a></h2>
+<p>A préciser</p>
 </section>
 </section>
 
@@ -538,6 +554,7 @@ Le calcul de la disponibilité et du taux d’utilisation s’effectue alors par
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etats-des-points-de-recharge">Etats des points de recharge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etats-des-stations">Etats des stations</a></li>
 </ul>
   </nav></div>
 
