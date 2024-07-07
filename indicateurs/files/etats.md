@@ -2,45 +2,59 @@
 
 ## Etats des points de recharge
 
-Les états sont les suivants :
+Trois états principaux sont définis :
 
-- déclaré: Identifié dans Qualicharge mais avec aucune charge encore effectuée
-- inactif: En fonctionnement, hors période d'ouverture
 - libre: En fonctionnement, non occupé et pendant la période d'ouverture
 - occupé: En charge
 - hors service: Mise à l'arrêt (ex. maintenance) ou arrêt intempestif (défaillance : statut erreur ou inconnu). Quatre niveaux définis en fonction du temps de présence dans cet état sont retenus:
 
-  - pannes courtes < 2h,
-  - pannes longues < 24h,
-  - arrêt < 7j,
-  - arrêt > 7j.
+  - interruption courte < 2h,
+  - interruption longue < 24h,
+  - arrêt court < 7j,
+  - arrêt long > 7j.
 
+Deux états complémentaires peuvent être ajoutés:
+
+- déclaré: Identifié dans Qualicharge mais avec aucune charge encore effectuée
 - désactivé: Identifié dans Qualicharge mais non pris en compte dans le suivi d'usage.
 
-Le diagramme d'état correspondant à ces états est présenté ci-dessous. Il suppose que les évènements suivant sont bien enregistrés:
+```{mermaid}
+flowchart TB
+    déclaré -->|début charge| occ   
+    occ -->|arrêt| hs
+    subgraph en_service
+        direction RL
+        lib(libre) -->|début charge| occ(occupé)
+        occ -->|fin charge| lib
+    end  
+    hs(hors service) -->|fin arrêt| lib
+    hs -->|désactivation| desactivé 
+```
+
+*figure 1 :* *Diagramme d'états*
+
+Chacun des trois états (libre, occupé, hors service) est doublé pour tenir compte des périodes d'ouverture du point de recharge.
+
+- requis: pendant la période d'ouverture,
+- non requis: hors période d'ouverture.
+
+```{mermaid}
+flowchart LR
+    req(requis\n occupé, libre, hors service) -->|fin ouverture| nreq(non requis\n occupé, libre, hors service)
+    nreq --> |début ouverture| req 
+```
+
+*figure 2 :* *Diagramme d'états ouverture*
+
+Le suivi des états permet d'enregistrer dans une table dédiée les durées passées dans chaque état successif.
+
+Il suppose que les évènements suivant sont bien enregistrés:
 
 - début et fin de charge,
 - mise hors service et remise en service
 - désactivation
 
-Le suivi des états permet d'enregistrer dans une table dédiée les durées passées dans chaque état successif.
-Le calcul de la disponibilité et du taux d'utilisation s'effectue alors par cumul de ces durées.
-
-```{mermaid}
-flowchart TB
-    déclaré -->|début charge| occ(occupé)   
-    occ --> |fin charge| en_service
-    lib -->|début charge| occ 
-    subgraph en_service
-        lib(libre) -->|fin ouverture| ina
-        ina(inactif) -->|début ouverture| lib
-    end  
-    arr(hors service) -->|fin arrêt| en_service
-    occ -->|arrêt| arr
-    arr -->|désactivation| desactivé 
-```
-
-*figure 1 :* *Diagramme d'états fonctionnement*
+Le calcul de la qualité de service (disponibilité opérationnelle, taux d'utilisation, saturation) s'effectue alors par cumul des durées dans les états associés aux indicateurs.
 
 ::::{note}
 Si les évènements d'arrêt distinguent les défauts et les OT (ordre de travail de maintenance préventive ou corrective), le mode hors service serait le suivant:
@@ -54,5 +68,9 @@ flowchart TB
         pan(panne) -->|intervention / OT| maint(maintenance)
     end
 :::
-*figure 2 :* *Diagramme d'états non fonctionnement*
+*figure 3 :* *Diagramme d'états non fonctionnement*
 ::::
+
+## Etats des stations
+
+A préciser
