@@ -13,3 +13,8 @@ Les indicateurs suivants sont définis:
 - {term}`Taux de points de charge indisponibles depuis plus de 7 jours (définition AFIREV)`
 
 ## Sessions de recharge
+
+à préciser (session réussie/non réussie, session partielle/complète)
+
+## Taux de disponibilité
+
