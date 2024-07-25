@@ -20,7 +20,7 @@ A partir du `model`, choisir uniquement la visualisation de type map, choisir la
 
 4 - Résultat
 
-## requête SQL
+## exemple requête SQL
 
 ```sql
 SELECT
