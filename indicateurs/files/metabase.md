@@ -19,3 +19,17 @@ exemple (COG) : https://www.insee.fr/fr/information/7766585 (csv avec code_regio
 A partir du `model`, choisir uniquement la visualisation de type map, choisir la map créée en 1, associer les champs
 
 4 - Résultat
+
+## requête SQL
+
+```sql
+SELECT
+  loc_with_commune_20240725082159.commune,
+  SUM(PointDeCharge.puissance_nominale) AS "sum"
+FROM
+  PointDeCharge
+  INNER JOIN Station ON PointDeCharge.station_id = Station.id
+  INNER JOIN loc_with_commune_20240725082159 ON Station.localisation_id :: text = loc_with_commune_20240725082159.id
+GROUP BY
+  loc_with_commune_20240725082159.commune
+  ```
