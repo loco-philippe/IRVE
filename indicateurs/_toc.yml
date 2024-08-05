@@ -4,6 +4,10 @@
 format: jb-book
 root: intro
 parts:
+  - caption: Indicateurs
+    numbered: True
+    chapters:
+    - file: files/indicateurs
   - caption: Indicateurs de référence
     numbered: True
     chapters:
