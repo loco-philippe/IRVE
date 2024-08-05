@@ -1,4 +1,4 @@
-# Indicateurs de référence
+# Indicateurs de  référence
 
 Les indicateurs de référence sont les indicateurs générés et actualisés par QualiCharge.
 
