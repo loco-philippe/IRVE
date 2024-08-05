@@ -3,6 +3,9 @@
 Glossaire des principaux termes utilisés
 
 ```{glossary}
+[Disponibilité (NF EN 13306)](http://maint.t.i.b.free.fr/Files/Other/NF%20EN%2013306.pdf)
+    Aptitude d’un bien à être en état d’accomplir une fonction requise dans des conditions données, à un instant donné ou pendant un intervalle de temps donné, en supposant que la fourniture des moyens extérieurs est assurée.
+
 [Baromètre AVERE](https://www.avere-france.org/wp-content/uploads/2024/06/Barometres_2024-05_20240606-Barometre-IRVE-Mai-2024-Externe-combine.pdf)
     Indicateurs IRVE publiés mensuellement par l'AVERE
 

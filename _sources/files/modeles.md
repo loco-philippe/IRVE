@@ -118,6 +118,13 @@ Le modèle contient l'ensemble des informations permettant de générer les indi
 - tarification: Cette information est souhaitable (présente dans les indicateurs AVERE)
 - qualité de service: le taux d'occupation ou la disponibilité d'un point de charge nécessite de disposer du temps passé dans chaque état (voir [état des points de recharge](./etats.md)). Cette information est présente de façon implicite (status) mais nécessite d'être explicite pour élaborer les indicateurs de qualité de service
 
+## Autres besoins d'évolutions du modèle de données
+
+- besoin d'identifier de façon unique le "responsable initial" du PDC correctement, et d'avoir également l'email de contact fiable du producteur de la donnée (besoin : pouvoir le notifier de façon fiable en automatique, pour scaler le dispositif d'un point de vue gestion chez nous)
+- énorme point d'attention concernant la "productibilité" (fait d'être produit plus ou moins facilement) des champs. En effet vu la variété des acteurs, et l'historique, on va fragmenter la qualité de la base consolidée si on ne prête pas attention suffisante à ça (certains pourront produire, d'autres pas si facilement), voire, perdre des PDC (situation qui se produisait en v2 initialement, qui nous a amené à rendre optionnels certains champs)
+- sur les formats des attributs, on gagnera à homogénéiser (ou à transformer à la volée quand on consolide si ça peut se faire simplement) et resserrer la vis
+- Une autre option pour simplifier pourrait être de sortir les attributs liés aux opérateurs et aux aménageurs (données quasi-fixes qui sont plus associées à un profil admin et qui pourraient être gérées séparément). Il n'y aurait dans ce cas qu'un seul attribut `id_operateur` et `id_amenageur` à associer aux stations. Ca permettrait également de faciliter les transferts de responsabilité de stations d'un opérateur à l'autre (sinon, c'est plus compliqué à gérér).
+
 ## Compatibilité avec les données `transport.gouv`
 
 Pour la partie statique, les attributs du modèle de données sont identiques à ceux du dataset `transport.gouv`.

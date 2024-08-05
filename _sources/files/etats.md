@@ -46,9 +46,9 @@ flowchart LR
 
 *figure 2 :* *Diagramme d'états ouverture*
 
-Le suivi des états permet d'enregistrer dans une table dédiée les durées passées dans chaque état successif.
+Le suivi des états permet d'enregistrer dans une table dédiée les durées passées dans chaque état successif (mode non échantillonné) ou bien l'état pour chaque pas de temps (mode échantillonné).
 
-Il suppose que les évènements suivant sont bien enregistrés:
+Il suppose que les évènements suivant soient bien enregistrés:
 
 - début et fin de charge,
 - mise hors service et remise en service
