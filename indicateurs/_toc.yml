@@ -4,17 +4,10 @@
 format: jb-book
 root: intro
 parts:
-  - caption: Indicateurs
-    numbered: True
-    chapters:
-    - file: files/indicateurs
   - caption: Indicateurs de référence
     numbered: True
     chapters:
-    - file: files/chiffres_cles
-    - file: files/spatial
-    - file: files/evolution
-    - file: files/qualite_service
+    - file: files/indicateurs
   - caption: Indicateurs génériques
     numbered: True
     chapters:
