@@ -50,26 +50,11 @@ Le suivi des états permet d'enregistrer dans une table dédiée les durées pas
 
 Il suppose que les évènements suivant soient bien enregistrés:
 
-- début et fin de charge,
-- mise hors service et remise en service
+- début et fin de charge (table 'session'),
+- mise hors service et remise en service (table à construire)
 - désactivation
 
 Le calcul de la qualité de service (disponibilité opérationnelle, taux d'utilisation, saturation) s'effectue alors par cumul des durées dans les états associés aux indicateurs.
-
-::::{note}
-Si les évènements d'arrêt distinguent les défauts et les OT (ordre de travail de maintenance préventive ou corrective), le mode hors service serait le suivant:
-:::{mermaid}
-flowchart TB
-    fonc[en_service] -->|défaut| pan
-    pan -->|fin défaut| fonc
-    fonc -->|mise à l'arrêt| maint
-    maint --mise en service--> fonc
-    subgraph hors_service
-        pan(panne) -->|intervention / OT| maint(maintenance)
-    end
-:::
-*figure 3 :* *Diagramme d'états non fonctionnement*
-::::
 
 ## Etats des stations
 

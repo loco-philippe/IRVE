@@ -417,6 +417,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-etendus">1.7. Indicateurs étendus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historisation-des-donnees">1.8. Historisation des données</a></li>
 </ul>
             </nav>
         </div>
@@ -433,18 +434,33 @@ document.write(`
 <p>Les indicateurs de référence sont les indicateurs générés et actualisés par QualiCharge.</p>
 <section id="structuration">
 <h2><span class="section-number">1.1. </span>Structuration<a class="headerlink" href="#structuration" title="Link to this heading">#</a></h2>
+<p>Les indicateurs sont constitués d’une liste de valeurs. On distingue les types suivants :</p>
+<ul class="simple">
+<li><p>scalaire (une seule valeur numérique)</p></li>
+<li><p>temporel (une liste de valeurs associées à un index temporel),</p></li>
+<li><p>catégorie (une liste de valeurs associées à un index catégoriel)</p></li>
+<li><p>multiple (multi-dimensionnel: une liste de valeurs associées à plusieurs index)</p></li>
+</ul>
 <p>Les indicateurs peuvent être:</p>
 <ul class="simple">
-<li><p>dynamiques (générés dynamiquement à partir de l’état courant des données),</p></li>
-<li><p>historisés (générés périodiquement mais accessibles également sous forme dynamique)</p></li>
+<li><p>dynamiques : générés dynamiquement à partir de l’état courant des données,</p></li>
+<li><p>historisés : générés périodiquement (heure, jour, mois ou année) et stockés pour être réutilisés.</p></li>
 </ul>
-<p>Quatre formats sont retenus:</p>
+<p>Par exemple, le nombre de points de recharge est un indicateur dynamique mais si l’on souhaite disposer d’un indicateur de l’évolution du nombre de points de recharges, celui-ci doit être historisé.</p>
+<p>Un indicateur peut être visualisé suivant différentes représentations. Par exemple, un indicateur de type ‘catégorie’ peut être représenté par :</p>
 <ul class="simple">
-<li><p>scalaire (une valeur numérique)</p></li>
-<li><p>temporel (une liste de valeurs associées à un index temporel),</p></li>
-<li><p>catégorie (une liste de valeurs associées à un index catégorisé)</p></li>
-<li><p>multiple (muylti-dimensionnel: une liste de valeurs associées à plusieurs index)</p></li>
+<li><p>un tableau à deux colonnes,</p></li>
+<li><p>un diagramme en barres,</p></li>
+<li><p>un diagramme circulaire,</p></li>
+<li><p>une carte choroplèthe (si l’index de l’indicateur est associé à une carte).</p></li>
 </ul>
+<p>Un indicateur historisé peut être représenté en fonction de sa dimension temporelle. Par exemple:</p>
+<ul class="simple">
+<li><p>une moyenne sur une période,</p></li>
+<li><p>un historique sur une période,</p></li>
+<li><p>état courant.</p></li>
+</ul>
+<p>Le mode de représentation d’un indicateur n’est pas abordé.</p>
 </section>
 <section id="exemple-barometre-avere">
 <h2><span class="section-number">1.2. </span>Exemple - baromètre AVERE<a class="headerlink" href="#exemple-barometre-avere" title="Link to this heading">#</a></h2>
@@ -496,10 +512,7 @@ document.write(`
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<ul class="simple">
-<li><p>Les indicateurs d’exploitation (liés aux opérateurs et aménageurs et enseignes) ne sont pas abordés</p></li>
-<li><p>à compléter avec les indicateurs spécifiques (ex. accès deux roues, période d’ouverture, accès handicapés…)</p></li>
-</ul>
+<p>Les indicateurs d’exploitation (liés aux opérateurs et aménageurs et enseignes) ainsi que les indicateurs liés à des attributs spécifiques (ex. accès deux roues, période d’ouverture, accès handicapés…) sont à ajouter.</p>
 </div>
 </section>
 <section id="indicateurs-d-infrastructure">
@@ -508,7 +521,7 @@ document.write(`
 <h3><span class="section-number">1.4.1. </span>Infrastructure - typologie<a class="headerlink" href="#infrastructure-typologie" title="Link to this heading">#</a></h3>
 <p>Objectif :</p>
 <ul class="simple">
-<li><p>analyse de la typologie géographique (comparaison des ratios)</p></li>
+<li><p>analyse de la typologie (comparaison des ratios)</p></li>
 </ul>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -524,7 +537,7 @@ document.write(`
 <td><p>Nombre de points de recharge par niveau de puissance</p></td>
 <td><p>catégorie</p></td>
 <td><p>infra</p></td>
-<td><p>dynamique</p></td>
+<td><p>mensuel (national)</p></td>
 </tr>
 <tr class="row-odd"><td><p>t2-xx</p></td>
 <td><p>Pourcentage de points de recharge par niveau de puissance</p></td>
@@ -548,7 +561,7 @@ document.write(`
 <td><p>Nombre de stations par type d’implantation</p></td>
 <td><p>catégorie</p></td>
 <td><p>infra</p></td>
-<td><p>dynamique</p></td>
+<td><p>mensuel (national)</p></td>
 </tr>
 <tr class="row-odd"><td><p>t6-xx</p></td>
 <td><p>Pourcentage de stations par type d’implantation</p></td>
@@ -560,7 +573,7 @@ document.write(`
 <td><p>Densité EPCI (nb EPCI avec / nb EPCI total)</p></td>
 <td><p>scalaire</p></td>
 <td><p>infra</p></td>
-<td><p>dynamique</p></td>
+<td><p>mensuel (national)</p></td>
 </tr>
 </tbody>
 </table>
@@ -587,7 +600,7 @@ document.write(`
 <td><p>Nombre de points de recharge ouverts au public</p></td>
 <td><p>scalaire</p></td>
 <td><p>infra</p></td>
-<td><p>historisé</p></td>
+<td><p>mensuel</p></td>
 </tr>
 <tr class="row-odd"><td><p>i2-xx</p></td>
 <td><p>Ratio pour 100 000 habitants</p></td>
@@ -605,7 +618,7 @@ document.write(`
 <td><p>Nombre de stations de recharge ouverts au public</p></td>
 <td><p>catégorie</p></td>
 <td><p>infra</p></td>
-<td><p>dynamique</p></td>
+<td><p>mensuel</p></td>
 </tr>
 <tr class="row-even"><td><p>i5-xx</p></td>
 <td><p>Ratio pour 100 000 habitants</p></td>
@@ -623,7 +636,7 @@ document.write(`
 <td><p>Puissance installée</p></td>
 <td><p>catégorie</p></td>
 <td><p>infra</p></td>
-<td><p>dynamique</p></td>
+<td><p>mensuel</p></td>
 </tr>
 <tr class="row-odd"><td><p>i8-xx</p></td>
 <td><p>Ratio pour 100 000 habitants</p></td>
@@ -667,36 +680,43 @@ document.write(`
 <td><p>Nombre de points de recharge</p></td>
 <td><p>scalaire</p></td>
 <td><p>infra</p></td>
-<td><p>historisé</p></td>
+<td><p>mensuel</p></td>
 </tr>
 <tr class="row-odd"><td><p>a2</p></td>
 <td><p>Nombre de stations de recharge</p></td>
 <td><p>scalaire</p></td>
 <td><p>infra</p></td>
-<td><p>historisé</p></td>
+<td><p>mensuel</p></td>
 </tr>
 <tr class="row-even"><td><p>a3</p></td>
 <td><p>Puissance installée</p></td>
 <td><p>scalaire</p></td>
 <td><p>infra</p></td>
-<td><p>historisé</p></td>
+<td><p>mensuel</p></td>
 </tr>
 <tr class="row-odd"><td><p>a4</p></td>
 <td><p>Puissance par point de charge</p></td>
 <td><p>scalaire</p></td>
 <td><p>infra</p></td>
-<td><p></p></td>
+<td><p>dynamique</p></td>
 </tr>
 <tr class="row-even"><td><p>a5</p></td>
 <td><p>Densité des stations équipées (nb stations équipées / nb stations)</p></td>
 <td><p>scalaire</p></td>
 <td><p>infra</p></td>
-<td><p></p></td>
+<td><p>mensuel</p></td>
+</tr>
+<tr class="row-odd"><td><p>a6</p></td>
+<td><p>Distance moyenne inter-station de recharge</p></td>
+<td><p>catégorie</p></td>
+<td><p>infra</p></td>
+<td><p>mensuel</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>ex. Suivi du déploiement des IRVE dans les stations.</p>
+<p>ex. Suivi du déploiement des IRVE dans les stations (nécessite de disposer du nombre de stations).
+ex. Suivi temporel de la distance interstation (utilisation du graphe pour calculer les distances de recharge associée à chaque station).</p>
 </section>
 <section id="indicateurs-par-station">
 <h3><span class="section-number">1.5.2. </span>Indicateurs par station<a class="headerlink" href="#indicateurs-par-station" title="Link to this heading">#</a></h3>
@@ -710,28 +730,28 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>a6</p></td>
+<tr class="row-even"><td><p>a7</p></td>
 <td><p>Puissance installée par station</p></td>
-<td><p>scalaire</p></td>
+<td><p>catégorie</p></td>
 <td><p>infra</p></td>
-<td><p>historisé</p></td>
+<td><p>dynamique</p></td>
 </tr>
-<tr class="row-odd"><td><p>a7</p></td>
+<tr class="row-odd"><td><p>a8</p></td>
 <td><p>Nombre de points de charge par station</p></td>
 <td><p>catégorie</p></td>
 <td><p>infra</p></td>
-<td><p></p></td>
+<td><p>dynamique</p></td>
 </tr>
-<tr class="row-even"><td><p>a8</p></td>
+<tr class="row-even"><td><p>a9</p></td>
 <td><p>Distance de recharge par station</p></td>
-<td><p>scalaire</p></td>
+<td><p>catégorie</p></td>
 <td><p>infra</p></td>
-<td><p></p></td>
+<td><p>dynamique</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>ex. Suivi temporel de la distance interstation (utilisation du graphe pour calculer les distances de recharge associée à chaque station).</p>
+<p>ex. Analyse de la distance interstation (zones blanches ).</p>
 </section>
 </section>
 <section id="indicateurs-d-usage">
@@ -755,37 +775,39 @@ document.write(`
 <td><p>Nombre de point de charge actif</p></td>
 <td><p>scalaire</p></td>
 <td><p>usage</p></td>
-<td><p>historisé</p></td>
+<td><p>mensuel (national)</p></td>
 </tr>
 <tr class="row-odd"><td><p>u2-xx-y</p></td>
 <td><p>Pourcentage de point de charge actif</p></td>
 <td><p>scalaire</p></td>
 <td><p>usage</p></td>
-<td><p>historisé</p></td>
+<td><p>dynamique</p></td>
 </tr>
 <tr class="row-even"><td><p>u3-xx-y</p></td>
 <td><p>Nombre de sessions</p></td>
 <td><p>scalaire</p></td>
 <td><p>usage</p></td>
-<td><p>historisé</p></td>
+<td><p>quotidien/mensuel (national)</p></td>
 </tr>
-<tr class="row-odd"><td><p>u3-xx-y</p></td>
+<tr class="row-odd"><td><p>u4-xx-y</p></td>
 <td><p>Répartition horaire des sessions</p></td>
 <td><p>scalaire</p></td>
 <td><p>usage</p></td>
-<td><p>historisé</p></td>
+<td><p>dynamique</p></td>
 </tr>
-<tr class="row-even"><td><p>u4-xx-y</p></td>
+<tr class="row-even"><td><p>u5-xx-y</p></td>
 <td><p>Répartition horaire de l’énergie distribuée</p></td>
 <td><p>catégorie</p></td>
 <td><p>usage</p></td>
-<td><p>historisé</p></td>
+<td><p>dynamique</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <p>xx : national, national hors autoroutes, région et département (hors autoroutes), autoroutes
 y : jour, mois, année</p>
+<p>Les sessions sont par nature historisées.
+L’historisation du nombre de sessions est à définir en fonction de l’historique conservé des sessions.</p>
 <p>ex. Analyse du profil horaire de l’énergie fournie en fonction des périodes et de la localisation.</p>
 </section>
 <section id="usage-qualite-de-service">
@@ -807,13 +829,13 @@ y : jour, mois, année</p>
 <td><p>Taux de disponibilité d’un point de charge actif</p></td>
 <td><p>scalaire</p></td>
 <td><p>usage</p></td>
-<td><p>dynamique</p></td>
+<td><p>quotidien</p></td>
 </tr>
 <tr class="row-odd"><td><p>q2-xx-y</p></td>
 <td><p>Taux d’utilisation d’un point de charge actif</p></td>
 <td><p>scalaire</p></td>
 <td><p>usage</p></td>
-<td><p>dynamique</p></td>
+<td><p>quotidien</p></td>
 </tr>
 <tr class="row-even"><td><p>q3-xx-y</p></td>
 <td><p>Taux de sessions réussies d’un point de charge actif</p></td>
@@ -821,17 +843,17 @@ y : jour, mois, année</p>
 <td><p>usage</p></td>
 <td><p>dynamique</p></td>
 </tr>
-<tr class="row-odd"><td><p>q2-xx-y</p></td>
+<tr class="row-odd"><td><p>q4-xx-y</p></td>
 <td><p>Taux de saturation d’une station</p></td>
 <td><p>scalaire</p></td>
 <td><p>usage</p></td>
 <td><p>dynamique</p></td>
 </tr>
-<tr class="row-even"><td><p>q4-xx-y</p></td>
+<tr class="row-even"><td><p>q5-xx-y</p></td>
 <td><p>Taux mensuel de points de recharge avec indisponibilité &gt; 7 j</p></td>
 <td><p>scalaire</p></td>
 <td><p>usage</p></td>
-<td><p>dynamique</p></td>
+<td><p>mensuel</p></td>
 </tr>
 </tbody>
 </table>
@@ -859,12 +881,90 @@ y : jour, mois, année</p>
 </section>
 <section id="indicateurs-etendus">
 <h2><span class="section-number">1.7. </span>Indicateurs étendus<a class="headerlink" href="#indicateurs-etendus" title="Link to this heading">#</a></h2>
-<p>Couplage des données avec des jeux de données complémentaires:</p>
+<p>Ils concernent le couplage des données avec des jeux de données complémentaires (à définir dans un second temps):</p>
 <ul class="simple">
 <li><p>couplage consommation / trafic</p></li>
 <li><p>couplage nombre de véhicules électriques vendus/immatriculés</p></li>
 <li><p>couplage consommation / relevés ENEDIS des points de livraison</p></li>
 </ul>
+</section>
+<section id="historisation-des-donnees">
+<h2><span class="section-number">1.8. </span>Historisation des données<a class="headerlink" href="#historisation-des-donnees" title="Link to this heading">#</a></h2>
+<p>L’historisation des données est prévue par un stockage de données sous un format simple (valeur numérique) ou structuré (JSON) dans une table intégrant un index temporel.</p>
+<p>L’exemple ci-dessous montre l’enregistrement du nombre de stations, de points de charge et la puissance installée pour chaque commune, département, opérateur et région.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;now&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;totals&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;stations&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12424</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;psoc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2312314</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;power&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1e19</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;counts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;code_insee&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;01311&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;stations&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;poc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">132</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;power&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30000</span><span class="p">,</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;code_insee&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;13411&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;stations&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;poc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">132</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;power&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30000</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;department&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;code_insee&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;01&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;stations&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;poc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">132</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;power&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30000</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;code_insee&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;13&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;stations&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;poc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">132</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;power&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30000</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;region&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;code_insee&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;13&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;stations&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span>
+<span class="w">                </span><span class="nt">&quot;poc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">132</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;power&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30000</span>
+<span class="w">            </span><span class="p">},</span><span class="w">            </span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;operational_unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FRFAS&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;stations&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;poc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">142</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;power&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30000</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FRS77&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;stations&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">114</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;poc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1445</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;power&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30000</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># iStatic table database fields</span>
+<span class="n">timestamp</span><span class="p">:</span> <span class="n">date</span> <span class="n">time</span>
+<span class="n">total_stations</span><span class="p">:</span> <span class="nb">int</span>
+<span class="n">total_poc</span><span class="p">:</span> <span class="nb">int</span>
+<span class="n">total_power</span><span class="p">:</span> <span class="n">long</span> <span class="nb">float</span>
+<span class="n">city</span><span class="p">:</span> <span class="n">json</span>
+<span class="n">department</span><span class="p">:</span> <span class="n">json</span>
+<span class="n">region</span><span class="p">:</span> <span class="n">json</span>
+<span class="n">operational_unit</span><span class="p">:</span> <span class="n">json</span>
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -951,6 +1051,7 @@ y : jour, mois, année</p>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-etendus">1.7. Indicateurs étendus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historisation-des-donnees">1.8. Historisation des données</a></li>
 </ul>
   </nav></div>
 

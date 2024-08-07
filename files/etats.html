@@ -460,25 +460,11 @@ document.write(`
 <p>Le suivi des états permet d’enregistrer dans une table dédiée les durées passées dans chaque état successif (mode non échantillonné) ou bien l’état pour chaque pas de temps (mode échantillonné).</p>
 <p>Il suppose que les évènements suivant soient bien enregistrés:</p>
 <ul class="simple">
-<li><p>début et fin de charge,</p></li>
-<li><p>mise hors service et remise en service</p></li>
+<li><p>début et fin de charge (table ‘session’),</p></li>
+<li><p>mise hors service et remise en service (table à construire)</p></li>
 <li><p>désactivation</p></li>
 </ul>
 <p>Le calcul de la qualité de service (disponibilité opérationnelle, taux d’utilisation, saturation) s’effectue alors par cumul des durées dans les états associés aux indicateurs.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Si les évènements d’arrêt distinguent les défauts et les OT (ordre de travail de maintenance préventive ou corrective), le mode hors service serait le suivant:</p>
-<div class="mermaid">
-            flowchart TB
-    fonc[en_service] --&gt;|défaut| pan
-    pan --&gt;|fin défaut| fonc
-    fonc --&gt;|mise à l'arrêt| maint
-    maint --mise en service--&gt; fonc
-    subgraph hors_service
-        pan(panne) --&gt;|intervention / OT| maint(maintenance)
-    end
-        </div><p><em>figure 3 :</em> <em>Diagramme d’états non fonctionnement</em></p>
-</div>
 </section>
 <section id="etats-des-stations">
 <h2>Etats des stations<a class="headerlink" href="#etats-des-stations" title="Link to this heading">#</a></h2>
