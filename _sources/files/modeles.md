@@ -109,6 +109,7 @@ erDiagram
 
 Le modèle contient l'ensemble des informations permettant de générer les indicateurs à l'exception de ceux traitant des informations suivantes :
 
+- état activé ou désactivé d'un point de recharge (ou d'une station): Cette information est nécessaire pour ne pas fausser les indicateurs (ne pas tenir compte des points de recharge désactivés)
 - identification de l'opérateur: La seule information obligatoire concernant l'opérateur est une adresse email (le nom de l'opérateur est optionnel)
 - identification de l'aménageur: L'aménageur n'est pas identifié explicitement (toutes les informations liées à l'aménageur sont optionnelles)
 - site d'implantation: Les types d'implantation définis ne permettent pas de restituer la nature du site telle qu'elle est restituée par l'AVERE (ex. commerce, entreprise)
@@ -116,7 +117,7 @@ Le modèle contient l'ensemble des informations permettant de générer les indi
 - type d'alimentation AC/DC: Cette information est souhaitable
 - Type de session: Cette information permettrait d'identifier par exemple les charges partielles ou interrompues
 - tarification: Cette information est souhaitable (présente dans les indicateurs AVERE)
-- qualité de service: le taux d'occupation ou la disponibilité d'un point de charge nécessite de disposer du temps passé dans chaque état (voir [état des points de recharge](./etats.md)). Cette information est présente de façon implicite (status) mais nécessite d'être explicite pour élaborer les indicateurs de qualité de service
+- qualité de service: le taux d'occupation ou la disponibilité d'un point de charge nécessite de disposer du temps passé dans chaque état (voir [état des points de recharge](./etats.md)). Cette information est présente pour les sessions (table 'session') mais pas pour les périodes d'indisponibilité (pannes ou arrêt). Les périoes d'indisponibilité doivent être explicites pour élaborer les indicateurs de qualité de service
 
 ## Autres besoins d'évolutions du modèle de données
 

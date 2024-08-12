@@ -67,7 +67,7 @@ Trois types d'indicateurs sont définis:
 
 :::{note}
 
-Les indicateurs d'exploitation (liés aux opérateurs et aménageurs et enseignes) ainsi que les indicateurs liés à des attributs spécifiques (ex. accès deux roues, période d'ouverture, accès handicapés...) sont à ajouter.
+Les indicateurs d'exploitation (liés aux opérateurs et aménageurs et enseignes) ainsi que les indicateurs liés à des attributs spécifiques (ex. accès deux roues, période d'ouverture, accès handicapés...) sont à ajouter (en particulier pour le suivi des opérateurs).
 
 :::
 
@@ -79,17 +79,22 @@ Objectif :
 
 - analyse de la typologie (comparaison des ratios)
 
-| id    | nom                                                       | format    | type  | nature             |
-| ----- | --------------------------------------------------------- | --------- | ----- | ------------------ |
-| t1-xx | Nombre de points de recharge par niveau de puissance      | catégorie | infra | mensuel (national) |
-| t2-xx | Pourcentage de points de recharge par niveau de puissance | catégorie | infra | dynamique          |
-| t3-xx | Nombre de points de recharge par station                  | catégorie | infra | dynamique          |
-| t4-xx | Pourcentage de points de recharge par station             | catégorie | infra | dynamique          |
-| t5-xx | Nombre de stations par type d'implantation                | catégorie | infra | mensuel (national) |
-| t6-xx | Pourcentage de stations par type d'implantation           | catégorie | infra | dynamique          |
-| t7-xx | Densité EPCI (nb EPCI avec / nb EPCI total)               | scalaire  | infra | mensuel (national) |
+| id    | nom                                                       | Pr  | format    | type  | nature             |
+| ----- | --------------------------------------------------------- | --- | --------- | ----- | ------------------ |
+| t1-xx | Nombre de points de recharge par niveau de puissance      | 1   | catégorie | infra | mensuel (national) |
+| t2-xx | Pourcentage de points de recharge par niveau de puissance | 2   | catégorie | infra | dynamique          |
+| t3-xx | Nombre de points de recharge par station                  | 1   | catégorie | infra | dynamique          |
+| t4-xx | Pourcentage de points de recharge par station             | 2   | catégorie | infra | dynamique          |
+| t5-xx | Nombre de stations par type d'implantation                | 1   | catégorie | infra | mensuel (national) |
+| t6-xx | Pourcentage de stations par type d'implantation           | 2   | catégorie | infra | dynamique          |
+| t7-xx | Densité EPCI (nb EPCI avec / nb EPCI total)               | 3   | scalaire  | infra | mensuel (national) |
 
 xx : national, national hors autoroutes, région et département (hors autoroutes), autoroutes
+
+:::{note}
+
+La classification des niveaux de puissances nominales est à définir. Ex. 0-7,4 / 7,4-22 / 22-50 / 50-150 / 150-350 / > 350 en liaison avec le type d'alimentation AC/DC (pour cela, analyser la répartition des puissances documentées dans la base  `transport.gouv`).
+:::
 
 ### Infrastructure - quantitatif
 
@@ -97,17 +102,17 @@ Objectif:
 
 - analyse de la répartition géographique (comparaison des ratios)
 
-| id    | nom                                              | format    | type  | nature    |
-| ----- | ------------------------------------------------ | --------- | ----- | --------- |
-| i1-xx | Nombre de points de recharge ouverts au public   | scalaire  | infra | mensuel   |
-| i2-xx | Ratio pour 100 000 habitants                     | scalaire  | infra | dynamique |
-| i3-xx | Ratio pour 100 km2                               | scalaire  | infra | dynamique |
-| i4-xx | Nombre de stations de recharge ouverts au public | catégorie | infra | mensuel   |
-| i5-xx | Ratio pour 100 000 habitants                     | scalaire  | infra | dynamique |
-| i6-xx | Ratio pour 100 km2                               | scalaire  | infra | dynamique |
-| i7-xx | Puissance installée                              | catégorie | infra | mensuel   |
-| i8-xx | Ratio pour 100 000 habitants                     | scalaire  | infra | dynamique |
-| i9-xx | Ratio pour 100 km2                               | scalaire  | infra | dynamique |
+| id    | nom                                              | Pr  | format    | type  | nature    |
+| ----- | ------------------------------------------------ | --- | --------- | ----- | --------- |
+| i1-xx | Nombre de points de recharge ouverts au public   | 1   | scalaire  | infra | mensuel   |
+| i2-xx | Ratio pour 100 000 habitants                     | 1   | scalaire  | infra | dynamique |
+| i3-xx | Ratio pour 100 km2                               | 2   | scalaire  | infra | dynamique |
+| i4-xx | Nombre de stations de recharge ouverts au public | 1   | catégorie | infra | mensuel   |
+| i5-xx | Ratio pour 100 000 habitants                     | 1   | scalaire  | infra | dynamique |
+| i6-xx | Ratio pour 100 km2                               | 2   | scalaire  | infra | dynamique |
+| i7-xx | Puissance installée                              | 1   | catégorie | infra | mensuel   |
+| i8-xx | Ratio pour 100 000 habitants                     | 1   | scalaire  | infra | dynamique |
+| i9-xx | Ratio pour 100 km2                               | 2   | scalaire  | infra | dynamique |
 
 xx : national, national hors autoroutes, région et département (hors autoroutes), autoroutes
 
@@ -121,25 +126,31 @@ Objectif:
 
 ### Indicateurs globaux
 
-| id  | nom                                                                | format    | type  | nature    |
-| --- | ------------------------------------------------------------------ | --------- | ----- | --------- |
-| a1  | Nombre de points de recharge                                       | scalaire  | infra | mensuel   |
-| a2  | Nombre de stations de recharge                                     | scalaire  | infra | mensuel   |
-| a3  | Puissance installée                                                | scalaire  | infra | mensuel   |
-| a4  | Puissance par point de charge                                      | scalaire  | infra | dynamique |
-| a5  | Densité des stations équipées (nb stations équipées / nb stations) | scalaire  | infra | mensuel   |
-| a6  | Distance moyenne inter-station de recharge                         | catégorie | infra | mensuel   |
+| id  | nom                                                                | Pr  | format    | type  | nature    |
+| --- | ------------------------------------------------------------------ | --- | --------- | ----- | --------- |
+| a1  | Nombre de points de recharge                                       | 1   | scalaire  | infra | mensuel   |
+| a2  | Nombre de stations de recharge                                     | 2   | scalaire  | infra | mensuel   |
+| a3  | Puissance installée                                                | 2   | scalaire  | infra | mensuel   |
+| a4  | Puissance par point de charge                                      | 1   | scalaire  | infra | dynamique |
+| a5  | Densité des stations équipées (nb stations équipées / nb stations) | 3   | scalaire  | infra | mensuel   |
+| a6  | Distance moyenne inter-station de recharge                         | 3   | catégorie | infra | mensuel   |
 
 ex. Suivi du déploiement des IRVE dans les stations (nécessite de disposer du nombre de stations).
 ex. Suivi temporel de la distance interstation (utilisation du graphe pour calculer les distances de recharge associée à chaque station).
 
+:::{note}
+
+L'appartenance d'une station au réseau autoroute est à définir (attribut spécifique et / ou proximité géographique avec les voies de circulation).
+Le graphe autoroutier doit permettre d'associer plusieurs stations à un noeud (ou à un tronçon).
+:::
+
 ### Indicateurs par station
 
-| id  | nom                                    | format    | type  | nature    |
-| --- | -------------------------------------- | --------- | ----- | --------- |
-| a7  | Puissance installée par station        | catégorie | infra | dynamique |
-| a8  | Nombre de points de charge par station | catégorie | infra | dynamique |
-| a9  | Distance de recharge par station       | catégorie | infra | dynamique |
+| id  | nom                                    | Pr  | format    | type  | nature    |
+| --- | -------------------------------------- | --- | --------- | ----- | --------- |
+| a7  | Puissance installée par station        | 2   | catégorie | infra | dynamique |
+| a8  | Nombre de points de charge par station | 2   | catégorie | infra | dynamique |
+| a9  | Distance de recharge par station       | 2   | catégorie | infra | dynamique |
 
 ex. Analyse de la distance interstation (zones blanches ).
 
@@ -149,13 +160,13 @@ ex. Analyse de la distance interstation (zones blanches ).
 
 - analyse de l'évolution temporelle de l'utilisation
 
-| id      | nom                                         | format    | type  | nature                       |
-| ------- | ------------------------------------------- | --------- | ----- | ---------------------------- |
-| u1-xx-y | Nombre de point de charge actif             | scalaire  | usage | mensuel (national)           |
-| u2-xx-y | Pourcentage de point de charge actif        | scalaire  | usage | dynamique                    |
-| u3-xx-y | Nombre de sessions                          | scalaire  | usage | quotidien/mensuel (national) |
-| u4-xx-y | Répartition horaire des sessions            | scalaire  | usage | dynamique                    |
-| u5-xx-y | Répartition horaire de l'énergie distribuée | catégorie | usage | dynamique                    |
+| id      | nom                                         | Pr  | format    | type  | nature                       |
+| ------- | ------------------------------------------- | --- | --------- | ----- | ---------------------------- |
+| u1-xx-y | Nombre de point de charge actif             | 2   | scalaire  | usage | mensuel (national)           |
+| u2-xx-y | Pourcentage de point de charge actif        | 2   | scalaire  | usage | dynamique                    |
+| u3-xx-y | Nombre de sessions                          | 2   | scalaire  | usage | quotidien/mensuel (national) |
+| u4-xx-y | Répartition horaire des sessions            | 2   | scalaire  | usage | dynamique                    |
+| u5-xx-y | Répartition horaire de l'énergie distribuée | 2   | catégorie | usage | dynamique                    |
 
 xx : national, national hors autoroutes, région et département (hors autoroutes), autoroutes
 y : jour, mois, année
@@ -169,13 +180,13 @@ ex. Analyse du profil horaire de l'énergie fournie en fonction des périodes et
 
 - analyse de la disponibilité et de l'utilisation des points de recharge
 
-| id      | nom                                                           | format   | type  | nature    |
-| ------- | ------------------------------------------------------------- | -------- | ----- | --------- |
-| q1-xx-y | Taux de disponibilité d'un point de charge actif              | scalaire | usage | quotidien |
-| q2-xx-y | Taux d'utilisation d'un point de charge actif                 | scalaire | usage | quotidien |
-| q3-xx-y | Taux de sessions réussies d'un point de charge actif          | scalaire | usage | dynamique |
-| q4-xx-y | Taux de saturation d'une station                              | scalaire | usage | dynamique |
-| q5-xx-y | Taux mensuel de points de recharge avec indisponibilité > 7 j | scalaire | usage | mensuel   |
+| id      | nom                                                           | Pr  | format   | type  | nature    |
+| ------- | ------------------------------------------------------------- | --- | -------- | ----- | --------- |
+| q1-xx-y | Taux de disponibilité d'un point de charge actif              | 2   | scalaire | usage | quotidien |
+| q2-xx-y | Taux d'utilisation d'un point de charge actif                 | 2   | scalaire | usage | quotidien |
+| q3-xx-y | Taux de sessions réussies d'un point de charge actif          | 2   | scalaire | usage | dynamique |
+| q4-xx-y | Taux de saturation d'une station                              | 2   | scalaire | usage | dynamique |
+| q5-xx-y | Taux mensuel de points de recharge avec indisponibilité > 7 j | 2   | scalaire | usage | mensuel   |
 
 xx : national, national hors autoroutes, région et département (hors autoroutes), autoroutes
 y : jour, mois, année
@@ -274,7 +285,7 @@ L'exemple ci-dessous montre l'enregistrement du nombre de stations, de points de
 }
 ```
 
-```
+```python
 # iStatic table database fields
 timestamp: date time
 total_stations: int
