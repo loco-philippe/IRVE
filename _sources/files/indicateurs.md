@@ -71,6 +71,28 @@ Les indicateurs d'exploitation (liés aux opérateurs et aménageurs et enseigne
 
 :::
 
+## Codification des indicateurs
+
+Les indicateurs sont codifiés par une chaine de caractères *[type]-[périmètre]-[valeur de périmètre]-[critère]* avec:
+
+- type : identifiant du type d'indicateur (ex. 'i1' : nombre de points de recharge)
+- périmètre et valeur de périmètre: sous ensemble des données sur lequel appliquer l'indicateur. Les périmètres actuellement définis sont les suivants :
+  - 00: national (sans valeur)
+  - 01: région (valeur : code de la région)
+  - 02: département (valeur : code du département)
+  - 03: EPCI (valeur : code de l'EPCI)
+  - 04: commune (valeur : code de la commune)
+- critère : paramètre spécifique du type d'indicateur
+
+Le périmètre par défaut est l'ensemble des données.
+
+```{admonition} Exemples
+- t4-04-74012 : Pourcentage de stations par nombre de points de recharge (t4) pour la ville (04) d'Annemasse (74012)
+- i1-01-93 : Nombre de points de recharge (i1) pour la région (01) PACA (93)
+- i1-01-93-03 : Nombre de points de recharge (i1) pour la région (01) PACA (93) par EPCI (03)
+- t1 : Nombre de points de recharge par niveau de puissance (t1) pour l'ensemble des données (pas de périmètre choisi)
+```
+
 ## Indicateurs d'infrastructure
 
 ### Infrastructure - typologie
@@ -79,42 +101,40 @@ Objectif :
 
 - analyse de la typologie (comparaison des ratios)
 
-| id    | nom                                                       | Pr  | format    | type  | nature             |
-| ----- | --------------------------------------------------------- | --- | --------- | ----- | ------------------ |
-| t1-xx | Nombre de points de recharge par niveau de puissance      | 1   | catégorie | infra | mensuel (national) |
-| t2-xx | Pourcentage de points de recharge par niveau de puissance | 2   | catégorie | infra | dynamique          |
-| t3-xx | Nombre de points de recharge par station                  | 1   | catégorie | infra | dynamique          |
-| t4-xx | Pourcentage de points de recharge par station             | 2   | catégorie | infra | dynamique          |
-| t5-xx | Nombre de stations par type d'implantation                | 1   | catégorie | infra | mensuel (national) |
-| t6-xx | Pourcentage de stations par type d'implantation           | 2   | catégorie | infra | dynamique          |
-| t7-xx | Densité EPCI (nb EPCI avec / nb EPCI total)               | 3   | scalaire  | infra | mensuel (national) |
-
-xx : national, national hors autoroutes, région et département (hors autoroutes), autoroutes
+| id       | nom                                                       | Pr  | format    | type  | nature             |
+| -------- | --------------------------------------------------------- | --- | --------- | ----- | ------------------ |
+| t1-xx-yy | Nombre de points de recharge par niveau de puissance      | 1   | catégorie | infra | mensuel (national) |
+| t2-xx-yy | Pourcentage de points de recharge par niveau de puissance | 2   | catégorie | infra | dynamique          |
+| t3-xx-yy | Nombre stations par nombre de points de recharge          | 1   | catégorie | infra | dynamique          |
+| t4-xx-yy | Pourcentage de stations par nombre de points de recharge  | 2   | catégorie | infra | dynamique          |
+| t5-xx-yy | Nombre de stations par type d'implantation                | 1   | catégorie | infra | mensuel (national) |
+| t6-xx-yy | Pourcentage de stations par type d'implantation           | 2   | catégorie | infra | dynamique          |
+| t7-xx-yy | Densité EPCI (nb EPCI avec / nb EPCI total)               | 3   | scalaire  | infra | mensuel (national) |
 
 :::{note}
-
-La classification des niveaux de puissances nominales est à définir. Ex. 0-7,4 / 7,4-22 / 22-50 / 50-150 / 150-350 / > 350 en liaison avec le type d'alimentation AC/DC (pour cela, analyser la répartition des puissances documentées dans la base  `transport.gouv`).
+Pas de critères définis pour ces indicateurs.
+La classification des niveaux de puissances nominale est à valider (en liaison avec le type d'alimentation AC/DC). La classification retenue actuellement est la suivante : 0-15 / 15-26 / 26-65 / 65-175 / 175-360 / > 360 (valeurs de seuil choisie à partir de l'existant Qualicharge).
 :::
 
 ### Infrastructure - quantitatif
 
 Objectif:
 
-- analyse de la répartition géographique (comparaison des ratios)
+- analyse de la répartition géographique (les ratios permettent les comparaisons)
 
-| id    | nom                                              | Pr  | format    | type  | nature    |
-| ----- | ------------------------------------------------ | --- | --------- | ----- | --------- |
-| i1-xx | Nombre de points de recharge ouverts au public   | 1   | scalaire  | infra | mensuel   |
-| i2-xx | Ratio pour 100 000 habitants                     | 1   | scalaire  | infra | dynamique |
-| i3-xx | Ratio pour 100 km2                               | 2   | scalaire  | infra | dynamique |
-| i4-xx | Nombre de stations de recharge ouverts au public | 1   | catégorie | infra | mensuel   |
-| i5-xx | Ratio pour 100 000 habitants                     | 1   | scalaire  | infra | dynamique |
-| i6-xx | Ratio pour 100 km2                               | 2   | scalaire  | infra | dynamique |
-| i7-xx | Puissance installée                              | 1   | catégorie | infra | mensuel   |
-| i8-xx | Ratio pour 100 000 habitants                     | 1   | scalaire  | infra | dynamique |
-| i9-xx | Ratio pour 100 km2                               | 2   | scalaire  | infra | dynamique |
+| id          | nom                                              | Pr  | format    | type  | nature    |
+| ----------- | ------------------------------------------------ | --- | --------- | ----- | --------- |
+| i1-xx-yy-zz | Nombre de points de recharge ouverts au public   | 1   | scalaire  | infra | mensuel   |
+| i2-xx-yy-zz | Ratio pour 100 000 habitants                     | 1   | scalaire  | infra | dynamique |
+| i3-xx-yy-zz | Ratio pour 100 km2                               | 2   | scalaire  | infra | dynamique |
+| i4-xx-yy-zz | Nombre de stations de recharge ouverts au public | 1   | catégorie | infra | mensuel   |
+| i5-xx-yy-zz | Ratio pour 100 000 habitants                     | 1   | scalaire  | infra | dynamique |
+| i6-xx-yy-zz | Ratio pour 100 km2                               | 2   | scalaire  | infra | dynamique |
+| i7-xx-yy-zz | Puissance installée                              | 1   | catégorie | infra | mensuel   |
+| i8-xx-yy-zz | Ratio pour 100 000 habitants                     | 1   | scalaire  | infra | dynamique |
+| i9-xx-yy-zz | Ratio pour 100 km2                               | 2   | scalaire  | infra | dynamique |
 
-xx : national, national hors autoroutes, région et département (hors autoroutes), autoroutes
+zz : critère de répartition par périmètre (ex. 02 : répartition par département)
 
 ## Indicateurs d'infrastructure du réseau autoroutes
 
