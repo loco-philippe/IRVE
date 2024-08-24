@@ -67,7 +67,7 @@ Trois types d'indicateurs sont définis:
 
 :::{note}
 
-Les indicateurs d'exploitation (liés aux opérateurs et aménageurs et enseignes) ainsi que les indicateurs liés à des attributs spécifiques (ex. accès deux roues, période d'ouverture, accès handicapés...) sont à ajouter (en particulier pour le suivi des opérateurs).
+Les indicateurs d'exploitation (liés aux opérateurs et aménageurs et enseignes) ainsi que les indicateurs liés à des attributs spécifiques (ex. accès deux roues, période d'ouverture, accès handicapés...) sont à ajouter.
 
 :::
 
@@ -87,10 +87,10 @@ Les indicateurs sont codifiés par une chaine de caractères *[type]-[périmètr
 Le périmètre par défaut est l'ensemble des données.
 
 ```{admonition} Exemples
-- t4-04-74012 : Pourcentage de stations par nombre de points de recharge (t4) pour la ville (04) d'Annemasse (74012)
-- i1-01-93 : Nombre de points de recharge (i1) pour la région (01) PACA (93)
-- i1-01-93-03 : Nombre de points de recharge (i1) pour la région (01) PACA (93) par EPCI (03)
-- t1 : Nombre de points de recharge par niveau de puissance (t1) pour l'ensemble des données (pas de périmètre choisi)
+- **t4-04-74012** : Pourcentage de stations par nombre de points de recharge (t4) pour la ville (04) d'Annemasse (74012)
+- **i1-01-93** : Nombre de points de recharge (i1) pour la région (01) PACA (93)
+- **i1-01-93-03** : Nombre de points de recharge (i1) pour la région (01) PACA (93) par EPCI (03)
+- **t1** : Nombre de points de recharge par niveau de puissance (t1) pour l'ensemble des données (pas de périmètre choisi)
 ```
 
 ## Indicateurs d'infrastructure
@@ -110,10 +110,14 @@ Objectif :
 | t5-xx-yy | Nombre de stations par type d'implantation                | 1   | catégorie | infra | mensuel (national) |
 | t6-xx-yy | Pourcentage de stations par type d'implantation           | 2   | catégorie | infra | dynamique          |
 | t7-xx-yy | Densité EPCI (nb EPCI avec / nb EPCI total)               | 3   | scalaire  | infra | mensuel (national) |
+| t8-xx-yy | Nombre stations par opérateur                             | 1   | scalaire  | infra | mensuel (national) |
+| t9-xx-yy | Pourcentage de stations par opérateur                     | 2   | scalaire  | infra | mensuel (national) |
 
 :::{note}
-Pas de critères définis pour ces indicateurs.
-La classification des niveaux de puissances nominale est à valider (en liaison avec le type d'alimentation AC/DC). La classification retenue actuellement est la suivante : 0-15 / 15-26 / 26-65 / 65-175 / 175-360 / > 360 (valeurs de seuil choisie à partir de l'existant Qualicharge).
+Pas de critères identifiés pour ces indicateurs.
+
+L'identification des opérateurs est à préciser (actuellement, uniquement une adresse mail).
+La classification des niveaux de puissances nominale est à valider (en liaison avec le type d'alimentation AC/DC). La classification retenue actuellement est la suivante : 0-15 / 15-26 / 26-65 / 65-175 / 175-360 / > 360 (valeurs de seuil choisies à partir de l'existant Qualicharge).
 :::
 
 ### Infrastructure - quantitatif
@@ -127,10 +131,10 @@ Objectif:
 | i1-xx-yy-zz | Nombre de points de recharge ouverts au public   | 1   | scalaire  | infra | mensuel   |
 | i2-xx-yy-zz | Ratio pour 100 000 habitants                     | 1   | scalaire  | infra | dynamique |
 | i3-xx-yy-zz | Ratio pour 100 km2                               | 2   | scalaire  | infra | dynamique |
-| i4-xx-yy-zz | Nombre de stations de recharge ouverts au public | 1   | catégorie | infra | mensuel   |
+| i4-xx-yy-zz | Nombre de stations de recharge ouverts au public | 1   | scalaire  | infra | mensuel   |
 | i5-xx-yy-zz | Ratio pour 100 000 habitants                     | 1   | scalaire  | infra | dynamique |
 | i6-xx-yy-zz | Ratio pour 100 km2                               | 2   | scalaire  | infra | dynamique |
-| i7-xx-yy-zz | Puissance installée                              | 1   | catégorie | infra | mensuel   |
+| i7-xx-yy-zz | Puissance installée                              | 1   | scalaire  | infra | mensuel   |
 | i8-xx-yy-zz | Ratio pour 100 000 habitants                     | 1   | scalaire  | infra | dynamique |
 | i9-xx-yy-zz | Ratio pour 100 km2                               | 2   | scalaire  | infra | dynamique |
 
@@ -148,9 +152,9 @@ Objectif:
 
 | id  | nom                                                                | Pr  | format    | type  | nature    |
 | --- | ------------------------------------------------------------------ | --- | --------- | ----- | --------- |
-| a1  | Nombre de points de recharge                                       | 1   | scalaire  | infra | mensuel   |
-| a2  | Nombre de stations de recharge                                     | 2   | scalaire  | infra | mensuel   |
-| a3  | Puissance installée                                                | 2   | scalaire  | infra | mensuel   |
+| a1  | Nombre de points de recharge (i1-xx)                               | 1   | scalaire  | infra | mensuel   |
+| a2  | Nombre de stations de recharge (i4-xx)                             | 2   | scalaire  | infra | mensuel   |
+| a3  | Puissance installée (i7-xx)                                        | 2   | scalaire  | infra | mensuel   |
 | a4  | Puissance par point de charge                                      | 1   | scalaire  | infra | dynamique |
 | a5  | Densité des stations équipées (nb stations équipées / nb stations) | 3   | scalaire  | infra | mensuel   |
 | a6  | Distance moyenne inter-station de recharge                         | 3   | catégorie | infra | mensuel   |
@@ -238,9 +242,17 @@ Ils concernent le couplage des données avec des jeux de données complémentair
 
 ## Historisation des données
 
-L'historisation des données est prévue par un stockage de données sous un format simple (valeur numérique) ou structuré (JSON) dans une table intégrant un index temporel.
+L'historisation est à effectuer pour les indicateurs suivants (voir chapitre listant les indicateurs): 
 
-L'exemple ci-dessous montre l'enregistrement du nombre de stations, de points de charge et la puissance installée pour chaque commune, département, opérateur et région.
+- infrastructure - typologie (mensuel) : t1, t5, t7, t8, t9
+- infrastructure - quantitatif (mensuel) : i1, i4, i7
+- infrastructure - autoroute (mensuel) : a5, a6
+- usage - quantitatif: u1 (mensuel), u3 (quotidien)
+- usage - qualité de service : q1 (quotidien), q2 (quotidien), q5 (mensuel)
+
+L'historisation des données est prévue par un stockage de données sous un format simple (une table par indicateur) ou structuré (JSON) dans une table intégrant un index temporel.
+
+L'exemple ci-dessous montre l'enregistrement avec un format structuré (JSON) du nombre de stations (i4), de points de charge (i1) et la puissance installée (i7) pour chaque commune, département, opérateur et région.
 
 ```json
 {
