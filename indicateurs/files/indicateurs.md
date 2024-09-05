@@ -155,7 +155,7 @@ Objectif:
 | a1  | Nombre de points de recharge (i1-xx)                               | 1   | scalaire  | infra | mensuel   |
 | a2  | Nombre de stations de recharge (i4-xx)                             | 2   | scalaire  | infra | mensuel   |
 | a3  | Puissance installée (i7-xx)                                        | 2   | scalaire  | infra | mensuel   |
-| a4  | Puissance par point de charge                                      | 1   | scalaire  | infra | dynamique |
+| a4  | Nombre de points de recharge par niveau de puissance (t1-xx)       | 1   | scalaire  | infra | dynamique |
 | a5  | Densité des stations équipées (nb stations équipées / nb stations) | 3   | scalaire  | infra | mensuel   |
 | a6  | Distance moyenne inter-station de recharge                         | 3   | catégorie | infra | mensuel   |
 
@@ -176,7 +176,7 @@ Le graphe autoroutier doit permettre d'associer plusieurs stations à un noeud (
 | a8  | Nombre de points de charge par station | 2   | catégorie | infra | dynamique |
 | a9  | Distance de recharge par station       | 2   | catégorie | infra | dynamique |
 
-ex. Analyse de la distance interstation (zones blanches ).
+ex. Analyse de la distance interstation (zones blanches).
 
 ## Indicateurs d'usage
 
@@ -184,36 +184,42 @@ ex. Analyse de la distance interstation (zones blanches ).
 
 - analyse de l'évolution temporelle de l'utilisation
 
-| id      | nom                                         | Pr  | format    | type  | nature                       |
-| ------- | ------------------------------------------- | --- | --------- | ----- | ---------------------------- |
-| u1-xx-y | Nombre de point de charge actif             | 2   | scalaire  | usage | mensuel (national)           |
-| u2-xx-y | Pourcentage de point de charge actif        | 2   | scalaire  | usage | dynamique                    |
-| u3-xx-y | Nombre de sessions                          | 2   | scalaire  | usage | quotidien/mensuel (national) |
-| u4-xx-y | Répartition horaire des sessions            | 2   | scalaire  | usage | dynamique                    |
-| u5-xx-y | Répartition horaire de l'énergie distribuée | 2   | catégorie | usage | dynamique                    |
+| id          | nom                                         | Pr  | format    | type  | nature                       |
+| ----------- | ------------------------------------------- | --- | --------- | ----- | ---------------------------- |
+| u1-xx-yy-zz | Nombre de point de charge actif             | 2   | scalaire  | usage | mensuel (national)           |
+| u2-xx-yy-zz | Pourcentage de point de charge actif        | 2   | scalaire  | usage | synthèse                     |
+| u3-xx-yy-zz | Nombre de sessions                          | 2   | scalaire  | usage | quotidien/mensuel (national) |
+| u4-xx-yy-zz | Energie distribuée                          | 2   | catégorie | usage | quotidien                    |
 
-xx : national, national hors autoroutes, région et département (hors autoroutes), autoroutes
-y : jour, mois, année
+u1 est calculé sur une journée
+U2 est calculé à partir de u1 et i1
+U3 et u4 sont calculés par heure
 
-Les sessions sont par nature historisées.
-L'historisation du nombre de sessions est à définir en fonction de l'historique conservé des sessions.
-
-ex. Analyse du profil horaire de l'énergie fournie en fonction des périodes et de la localisation.
+exemple d'utilisation : Analyse du profil horaire de l'énergie fournie en fonction des périodes et de la localisation.
 
 ### Usage - qualité de service
 
 - analyse de la disponibilité et de l'utilisation des points de recharge
 
-| id      | nom                                                           | Pr  | format   | type  | nature    |
-| ------- | ------------------------------------------------------------- | --- | -------- | ----- | --------- |
-| q1-xx-y | Taux de disponibilité d'un point de charge actif              | 2   | scalaire | usage | quotidien |
-| q2-xx-y | Taux d'utilisation d'un point de charge actif                 | 2   | scalaire | usage | quotidien |
-| q3-xx-y | Taux de sessions réussies d'un point de charge actif          | 2   | scalaire | usage | dynamique |
-| q4-xx-y | Taux de saturation d'une station                              | 2   | scalaire | usage | dynamique |
-| q5-xx-y | Taux mensuel de points de recharge avec indisponibilité > 7 j | 2   | scalaire | usage | mensuel   |
+| id           | nom                                                           | Pr  | format   | type  | nature    |
+| ------------ | ------------------------------------------------------------- | --- | -------- | ----- | --------- |
+| q1-xx-yy-zz  | Durée de bon fonctionnement                                   | 2   | scalaire | usage | quotidien |
+| q2-xx-yy-zz  | Durée d'utilisation                                           | 2   | scalaire | usage | quotidien |
+| q3-xx-yy-zz  | Durée d'ouverture                                             | 2   | scalaire | usage | quotidien |
+| q4-xx-yy-zz  | Nombre de sessions réussies                                   | 3   | scalaire | usage | quotidien |
+| q5-xx-yy-zz  | Saturation                                                    | 2   | scalaire | usage | quotidien |
+| q6-xx-yy-zz  | Taux de disponibilité d'un point de charge actif              | 2   | scalaire | usage | synthèse  |
+| q7-xx-yy-zz  | Taux d'utilisation d'un point de charge actif                 | 2   | scalaire | usage | synthèse  |
+| q8-xx-yy-zz  | Taux de sessions réussies d'un point de charge actif          | 2   | scalaire | usage | synthèse  |
+| q9-xx-yy-zz  | Taux de saturation d'une station                              | 3   | scalaire | usage | dynamique |
+| q10-xx-yy-zz | Taux mensuel de points de recharge avec indisponibilité > 7 j | 3   | scalaire | usage | mensuel   |
 
-xx : national, national hors autoroutes, région et département (hors autoroutes), autoroutes
-y : jour, mois, année
+q1, q2, q3, q4 et q5 sont calculés sur une journée
+q6 est calculé à partir de q1 et q3
+q7 est calculé à partir de q2 et q3
+q8 est calculé à partir de q4 et u3
+q9 est calculé à partir de q5
+q10 à préciser
 
 :::{note}
 
@@ -232,13 +238,45 @@ Les indicateurs suivants ont été formalisés par l'AFIREV:
 - le mode de calcul du taux de disponibilité et du taux d'utilisation est précisé dans le chapitre lié aux [états des points de recharge](./etats.md).
 :::
 
-## Indicateurs étendus
+## Indicateurs temporels
 
-Ils concernent le couplage des données avec des jeux de données complémentaires (à définir dans un second temps):
+### Caractéristiques
 
-- couplage consommation / trafic
-- couplage nombre de véhicules électriques vendus/immatriculés
-- couplage consommation / relevés ENEDIS des points de livraison
+Il s'agit des indicateurs associés à une période temporelle.
+
+On peut citer par exemple les indicateurs AVERE suivants :
+  
+- Taux d'évolution du nombre de stations sur 12 mois
+- Evolution du nombre de points de recharge par année
+- Évolution du nombre de points de recharge par mois sur deux ans
+- Nombre de sessions moyen mensuel par point de recharge
+- Taux de disponibilité du mois par catégorie de puissance
+
+Pour le calcul de ces indicateurs, il est difficilement envisageable d'avoir accès aux données à des échelles de temps faible sur une longue période. Par exemple, il serait couteux de calculer une valeur annuelle à partir de données horaires.
+
+Pour être effectif, le calcul des indicateurs temporels doit donc pouvoir être réalisé en autorisant des purges lorsqu'un historique est trop important.
+
+Ceci implique en particulier que :
+
+- les données soient historisées à différentes échelles de temps.
+Par exemple, pour présenter l'évolution du nombre de points de recharge par mois sur deux ans, il est nécessaire d'avoir stocké au préalable mensuellement le nombre de points de recharge.
+- les données historisées soient "scalables", c'est à dire qu'on puisse calculer les valeurs à une échelle de temps à partir de données existantes à une échelle plus faible (par exemple, valeurs annuelles à partir des valeurs mensuelles, valeurs mensuelles à partir des valeurs quotidiennes).
+Par exemple, le taux de disponibilité qui est le ratio du temps de bon fonctionnement sur le temps d'ouverture n'est pas scalable (le taux mensuel n'est pas égal à la moyenne des taux journaliers). Par contre, le temps de bon fonctionnement et le temps d'ouverture sont scalables et on peut donc calculer le taux de disponibilité sur une période à partir du temps de bon fonctionnement sur la période et du temps d'ouverture sur la période.
+
+### Mise en oeuvre
+
+Chaque échelle de temps doit être associée à une (ou plusieurs) table purgée avec une fréquence spécifique. Par exemple, un stockage horaire pourrait être purgé chaque semaine ou chaque mois.
+Le passage d'une échelle de temps à une autre est réalisé de façon automatique en appliquant une fonctiion simple (ex. somme, moyenne, maxi). Par exemple, la puissance installée de l'année peut être calculée comme la moyenne des puissances installées du mois elles-mêmes calculées comme la moyenne des puissances installées quotidiennes. De même, le nombre de sessions de l'année peut être calculé comme la somme des sessions mensuelles elles-mêmes calculées comme la somme des sessions quotidiennes.
+
+Pour un indicateur externe donnée, il convient donc de définir:
+
+- les indicateurs de base historisés à utiliser,
+- pour chaque indicateur de base, la formule d'historisation à appliquer,
+- le mode de calcul en fonction des indicateurs de base utilisés.
+
+### Indicateurs
+
+tableau à faire
 
 ## Historisation des données
 
@@ -328,3 +366,11 @@ department: json
 region: json
 operational_unit: json
 ```
+
+## Indicateurs étendus
+
+Ils concernent le couplage des données avec des jeux de données complémentaires (à définir dans un second temps):
+
+- couplage consommation / trafic
+- couplage nombre de véhicules électriques vendus/immatriculés
+- couplage consommation / relevés ENEDIS des points de livraison
