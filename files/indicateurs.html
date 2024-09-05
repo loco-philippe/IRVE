@@ -417,8 +417,14 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usage-qualite-de-service">1.7.2. Usage - qualité de service</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-etendus">1.8. Indicateurs étendus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-temporels">1.8. Indicateurs temporels</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristiques">1.8.1. Caractéristiques</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mise-en-oeuvre">1.8.2. Mise en oeuvre</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs">1.8.3. Indicateurs</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historisation-des-donnees">1.9. Historisation des données</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-etendus">1.10. Indicateurs étendus</a></li>
 </ul>
             </nav>
         </div>
@@ -764,7 +770,7 @@ La classification des niveaux de puissances nominale est à valider (en liaison 
 <td><p>mensuel</p></td>
 </tr>
 <tr class="row-odd"><td><p>a4</p></td>
-<td><p>Puissance par point de charge</p></td>
+<td><p>Nombre de points de recharge par niveau de puissance (t1-xx)</p></td>
 <td><p>1</p></td>
 <td><p>scalaire</p></td>
 <td><p>infra</p></td>
@@ -832,7 +838,7 @@ Le graphe autoroutier doit permettre d’associer plusieurs stations à un noeud
 </tbody>
 </table>
 </div>
-<p>ex. Analyse de la distance interstation (zones blanches ).</p>
+<p>ex. Analyse de la distance interstation (zones blanches).</p>
 </section>
 </section>
 <section id="indicateurs-d-usage">
@@ -853,49 +859,41 @@ Le graphe autoroutier doit permettre d’associer plusieurs stations à un noeud
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>u1-xx-y</p></td>
+<tr class="row-even"><td><p>u1-xx-yy-zz</p></td>
 <td><p>Nombre de point de charge actif</p></td>
 <td><p>2</p></td>
 <td><p>scalaire</p></td>
 <td><p>usage</p></td>
 <td><p>mensuel (national)</p></td>
 </tr>
-<tr class="row-odd"><td><p>u2-xx-y</p></td>
+<tr class="row-odd"><td><p>u2-xx-yy-zz</p></td>
 <td><p>Pourcentage de point de charge actif</p></td>
 <td><p>2</p></td>
 <td><p>scalaire</p></td>
 <td><p>usage</p></td>
-<td><p>dynamique</p></td>
+<td><p>synthèse</p></td>
 </tr>
-<tr class="row-even"><td><p>u3-xx-y</p></td>
+<tr class="row-even"><td><p>u3-xx-yy-zz</p></td>
 <td><p>Nombre de sessions</p></td>
 <td><p>2</p></td>
 <td><p>scalaire</p></td>
 <td><p>usage</p></td>
 <td><p>quotidien/mensuel (national)</p></td>
 </tr>
-<tr class="row-odd"><td><p>u4-xx-y</p></td>
-<td><p>Répartition horaire des sessions</p></td>
-<td><p>2</p></td>
-<td><p>scalaire</p></td>
-<td><p>usage</p></td>
-<td><p>dynamique</p></td>
-</tr>
-<tr class="row-even"><td><p>u5-xx-y</p></td>
-<td><p>Répartition horaire de l’énergie distribuée</p></td>
+<tr class="row-odd"><td><p>u4-xx-yy-zz</p></td>
+<td><p>Energie distribuée</p></td>
 <td><p>2</p></td>
 <td><p>catégorie</p></td>
 <td><p>usage</p></td>
-<td><p>dynamique</p></td>
+<td><p>quotidien</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>xx : national, national hors autoroutes, région et département (hors autoroutes), autoroutes
-y : jour, mois, année</p>
-<p>Les sessions sont par nature historisées.
-L’historisation du nombre de sessions est à définir en fonction de l’historique conservé des sessions.</p>
-<p>ex. Analyse du profil horaire de l’énergie fournie en fonction des périodes et de la localisation.</p>
+<p>u1 est calculé sur une journée
+U2 est calculé à partir de u1 et i1
+U3 et u4 sont calculés par heure</p>
+<p>exemple d’utilisation : Analyse du profil horaire de l’énergie fournie en fonction des périodes et de la localisation.</p>
 </section>
 <section id="usage-qualite-de-service">
 <h3><span class="section-number">1.7.2. </span>Usage - qualité de service<a class="headerlink" href="#usage-qualite-de-service" title="Link to this heading">#</a></h3>
@@ -913,37 +911,72 @@ L’historisation du nombre de sessions est à définir en fonction de l’histo
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>q1-xx-y</p></td>
+<tr class="row-even"><td><p>q1-xx-yy-zz</p></td>
+<td><p>Durée de bon fonctionnement</p></td>
+<td><p>2</p></td>
+<td><p>scalaire</p></td>
+<td><p>usage</p></td>
+<td><p>quotidien</p></td>
+</tr>
+<tr class="row-odd"><td><p>q2-xx-yy-zz</p></td>
+<td><p>Durée d’utilisation</p></td>
+<td><p>2</p></td>
+<td><p>scalaire</p></td>
+<td><p>usage</p></td>
+<td><p>quotidien</p></td>
+</tr>
+<tr class="row-even"><td><p>q3-xx-yy-zz</p></td>
+<td><p>Durée d’ouverture</p></td>
+<td><p>2</p></td>
+<td><p>scalaire</p></td>
+<td><p>usage</p></td>
+<td><p>quotidien</p></td>
+</tr>
+<tr class="row-odd"><td><p>q4-xx-yy-zz</p></td>
+<td><p>Nombre de sessions réussies</p></td>
+<td><p>3</p></td>
+<td><p>scalaire</p></td>
+<td><p>usage</p></td>
+<td><p>quotidien</p></td>
+</tr>
+<tr class="row-even"><td><p>q5-xx-yy-zz</p></td>
+<td><p>Saturation</p></td>
+<td><p>2</p></td>
+<td><p>scalaire</p></td>
+<td><p>usage</p></td>
+<td><p>quotidien</p></td>
+</tr>
+<tr class="row-odd"><td><p>q6-xx-yy-zz</p></td>
 <td><p>Taux de disponibilité d’un point de charge actif</p></td>
 <td><p>2</p></td>
 <td><p>scalaire</p></td>
 <td><p>usage</p></td>
-<td><p>quotidien</p></td>
+<td><p>synthèse</p></td>
 </tr>
-<tr class="row-odd"><td><p>q2-xx-y</p></td>
+<tr class="row-even"><td><p>q7-xx-yy-zz</p></td>
 <td><p>Taux d’utilisation d’un point de charge actif</p></td>
 <td><p>2</p></td>
 <td><p>scalaire</p></td>
 <td><p>usage</p></td>
-<td><p>quotidien</p></td>
+<td><p>synthèse</p></td>
 </tr>
-<tr class="row-even"><td><p>q3-xx-y</p></td>
+<tr class="row-odd"><td><p>q8-xx-yy-zz</p></td>
 <td><p>Taux de sessions réussies d’un point de charge actif</p></td>
 <td><p>2</p></td>
 <td><p>scalaire</p></td>
 <td><p>usage</p></td>
-<td><p>dynamique</p></td>
+<td><p>synthèse</p></td>
 </tr>
-<tr class="row-odd"><td><p>q4-xx-y</p></td>
+<tr class="row-even"><td><p>q9-xx-yy-zz</p></td>
 <td><p>Taux de saturation d’une station</p></td>
-<td><p>2</p></td>
+<td><p>3</p></td>
 <td><p>scalaire</p></td>
 <td><p>usage</p></td>
 <td><p>dynamique</p></td>
 </tr>
-<tr class="row-even"><td><p>q5-xx-y</p></td>
+<tr class="row-odd"><td><p>q10-xx-yy-zz</p></td>
 <td><p>Taux mensuel de points de recharge avec indisponibilité &gt; 7 j</p></td>
-<td><p>2</p></td>
+<td><p>3</p></td>
 <td><p>scalaire</p></td>
 <td><p>usage</p></td>
 <td><p>mensuel</p></td>
@@ -951,8 +984,12 @@ L’historisation du nombre de sessions est à définir en fonction de l’histo
 </tbody>
 </table>
 </div>
-<p>xx : national, national hors autoroutes, région et département (hors autoroutes), autoroutes
-y : jour, mois, année</p>
+<p>q1, q2, q3, q4 et q5 sont calculés sur une journée
+q6 est calculé à partir de q1 et q3
+q7 est calculé à partir de q2 et q3
+q8 est calculé à partir de q4 et u3
+q9 est calculé à partir de q5
+q10 à préciser</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Les indicateurs suivants ont été formalisés par l’AFIREV:</p>
@@ -972,14 +1009,44 @@ y : jour, mois, année</p>
 </div>
 </section>
 </section>
-<section id="indicateurs-etendus">
-<h2><span class="section-number">1.8. </span>Indicateurs étendus<a class="headerlink" href="#indicateurs-etendus" title="Link to this heading">#</a></h2>
-<p>Ils concernent le couplage des données avec des jeux de données complémentaires (à définir dans un second temps):</p>
+<section id="indicateurs-temporels">
+<h2><span class="section-number">1.8. </span>Indicateurs temporels<a class="headerlink" href="#indicateurs-temporels" title="Link to this heading">#</a></h2>
+<section id="caracteristiques">
+<h3><span class="section-number">1.8.1. </span>Caractéristiques<a class="headerlink" href="#caracteristiques" title="Link to this heading">#</a></h3>
+<p>Il s’agit des indicateurs associés à une période temporelle.</p>
+<p>On peut citer par exemple les indicateurs AVERE suivants :</p>
 <ul class="simple">
-<li><p>couplage consommation / trafic</p></li>
-<li><p>couplage nombre de véhicules électriques vendus/immatriculés</p></li>
-<li><p>couplage consommation / relevés ENEDIS des points de livraison</p></li>
+<li><p>Taux d’évolution du nombre de stations sur 12 mois</p></li>
+<li><p>Evolution du nombre de points de recharge par année</p></li>
+<li><p>Évolution du nombre de points de recharge par mois sur deux ans</p></li>
+<li><p>Nombre de sessions moyen mensuel par point de recharge</p></li>
+<li><p>Taux de disponibilité du mois par catégorie de puissance</p></li>
 </ul>
+<p>Pour le calcul de ces indicateurs, il est difficilement envisageable d’avoir accès aux données à des échelles de temps faible sur une longue période. Par exemple, il serait couteux de calculer une valeur annuelle à partir de données horaires.</p>
+<p>Pour être effectif, le calcul des indicateurs temporels doit donc pouvoir être réalisé en autorisant des purges lorsqu’un historique est trop important.</p>
+<p>Ceci implique en particulier que :</p>
+<ul class="simple">
+<li><p>les données soient historisées à différentes échelles de temps.
+Par exemple, pour présenter l’évolution du nombre de points de recharge par mois sur deux ans, il est nécessaire d’avoir stocké au préalable mensuellement le nombre de points de recharge.</p></li>
+<li><p>les données historisées soient “scalables”, c’est à dire qu’on puisse calculer les valeurs à une échelle de temps à partir de données existantes à une échelle plus faible (par exemple, valeurs annuelles à partir des valeurs mensuelles, valeurs mensuelles à partir des valeurs quotidiennes).
+Par exemple, le taux de disponibilité qui est le ratio du temps de bon fonctionnement sur le temps d’ouverture n’est pas scalable (le taux mensuel n’est pas égal à la moyenne des taux journaliers). Par contre, le temps de bon fonctionnement et le temps d’ouverture sont scalables et on peut donc calculer le taux de disponibilité sur une période à partir du temps de bon fonctionnement sur la période et du temps d’ouverture sur la période.</p></li>
+</ul>
+</section>
+<section id="mise-en-oeuvre">
+<h3><span class="section-number">1.8.2. </span>Mise en oeuvre<a class="headerlink" href="#mise-en-oeuvre" title="Link to this heading">#</a></h3>
+<p>Chaque échelle de temps doit être associée à une (ou plusieurs) table purgée avec une fréquence spécifique. Par exemple, un stockage horaire pourrait être purgé chaque semaine ou chaque mois.
+Le passage d’une échelle de temps à une autre est réalisé de façon automatique en appliquant une fonctiion simple (ex. somme, moyenne, maxi). Par exemple, la puissance installée de l’année peut être calculée comme la moyenne des puissances installées du mois elles-mêmes calculées comme la moyenne des puissances installées quotidiennes. De même, le nombre de sessions de l’année peut être calculé comme la somme des sessions mensuelles elles-mêmes calculées comme la somme des sessions quotidiennes.</p>
+<p>Pour un indicateur externe donnée, il convient donc de définir:</p>
+<ul class="simple">
+<li><p>les indicateurs de base historisés à utiliser,</p></li>
+<li><p>pour chaque indicateur de base, la formule d’historisation à appliquer,</p></li>
+<li><p>le mode de calcul en fonction des indicateurs de base utilisés.</p></li>
+</ul>
+</section>
+<section id="indicateurs">
+<h3><span class="section-number">1.8.3. </span>Indicateurs<a class="headerlink" href="#indicateurs" title="Link to this heading">#</a></h3>
+<p>tableau à faire</p>
+</section>
 </section>
 <section id="historisation-des-donnees">
 <h2><span class="section-number">1.9. </span>Historisation des données<a class="headerlink" href="#historisation-des-donnees" title="Link to this heading">#</a></h2>
@@ -1067,6 +1134,15 @@ y : jour, mois, année</p>
 </pre></div>
 </div>
 </section>
+<section id="indicateurs-etendus">
+<h2><span class="section-number">1.10. </span>Indicateurs étendus<a class="headerlink" href="#indicateurs-etendus" title="Link to this heading">#</a></h2>
+<p>Ils concernent le couplage des données avec des jeux de données complémentaires (à définir dans un second temps):</p>
+<ul class="simple">
+<li><p>couplage consommation / trafic</p></li>
+<li><p>couplage nombre de véhicules électriques vendus/immatriculés</p></li>
+<li><p>couplage consommation / relevés ENEDIS des points de livraison</p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1152,8 +1228,14 @@ y : jour, mois, année</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usage-qualite-de-service">1.7.2. Usage - qualité de service</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-etendus">1.8. Indicateurs étendus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-temporels">1.8. Indicateurs temporels</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristiques">1.8.1. Caractéristiques</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mise-en-oeuvre">1.8.2. Mise en oeuvre</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs">1.8.3. Indicateurs</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historisation-des-donnees">1.9. Historisation des données</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-etendus">1.10. Indicateurs étendus</a></li>
 </ul>
   </nav></div>
 
