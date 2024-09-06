@@ -63,6 +63,7 @@ Trois types d'indicateurs sont définis:
 
 - indicateurs d'infrastructure : Ils décrivent le parc installé (évolution temporelle, répartition géographiques, caratéristiques, dimensionnement)
 - indicateurs d'usage : Ils décrivent l'utilisation effective des infrastructures (qualité de service, volumétrie, répartition)
+- indicateurs temporels : Ils analysent l'évolution des deux catégories d'indicateurs précédent sur une période temporelle
 - indicateurs étendus : Ils concernent les indicateurs obtenus avec des jeux de données en lien (ex. relevés ENEDIS)
 
 :::{note}
@@ -242,7 +243,11 @@ Les indicateurs suivants ont été formalisés par l'AFIREV:
 
 ### Caractéristiques
 
-Il s'agit des indicateurs associés à une période temporelle.
+Il s'agit des indicateurs associés à une période temporelle. Ils peuvent prendre plusieurs formes :
+
+- un historique de valeurs sur la période (ex. un histogramme),
+- une représentation statistique (ex. une moyenne, une interpolation linéaire)
+- une analyse spécifique
 
 On peut citer par exemple les indicateurs AVERE suivants :
   
@@ -254,29 +259,63 @@ On peut citer par exemple les indicateurs AVERE suivants :
 
 Pour le calcul de ces indicateurs, il est difficilement envisageable d'avoir accès aux données à des échelles de temps faible sur une longue période. Par exemple, il serait couteux de calculer une valeur annuelle à partir de données horaires.
 
-Pour être effectif, le calcul des indicateurs temporels doit donc pouvoir être réalisé en autorisant des purges lorsqu'un historique est trop important.
+Le calcul des indicateurs temporels doit donc pouvoir être réalisé en optimisant les temps de calcul et le volume de données stockées.
 
-Ceci implique en particulier que :
+Les principes proposés pour cela sont les suivants :
 
-- les données soient historisées à différentes échelles de temps.
-Par exemple, pour présenter l'évolution du nombre de points de recharge par mois sur deux ans, il est nécessaire d'avoir stocké au préalable mensuellement le nombre de points de recharge.
-- les données historisées soient "scalables", c'est à dire qu'on puisse calculer les valeurs à une échelle de temps à partir de données existantes à une échelle plus faible (par exemple, valeurs annuelles à partir des valeurs mensuelles, valeurs mensuelles à partir des valeurs quotidiennes).
-Par exemple, le taux de disponibilité qui est le ratio du temps de bon fonctionnement sur le temps d'ouverture n'est pas scalable (le taux mensuel n'est pas égal à la moyenne des taux journaliers). Par contre, le temps de bon fonctionnement et le temps d'ouverture sont scalables et on peut donc calculer le taux de disponibilité sur une période à partir du temps de bon fonctionnement sur la période et du temps d'ouverture sur la période.
+- historisation des données à différentes échelles de temps.
+
+```{admonition} Exemple
+Pour présenter l'évolution du nombre de points de recharge par mois sur deux ans, il est nécessaire d'avoir stocké au préalable mensuellement le nombre de points de recharge.
+```
+
+- historisation de données "scalables", c'est à dire qu'on peut calculer à une échelle de temps à partir de données existantes à une échelle de temps plus faible
+
+```{admonition} Exemples
+- calcul des valeurs annuelles à partir des valeurs mensuelles (et valeurs mensuelles à partir des valeurs quotidiennes).
+- le taux de disponibilité qui est le ratio du temps de bon fonctionnement sur le temps d'ouverture n'est pas scalable (le taux mensuel n'est pas égal à la moyenne des taux journaliers). Par contre, le temps de bon fonctionnement et le temps d'ouverture sont scalables et on peut donc calculer le taux de disponibilité sur une période à partir du temps de bon fonctionnement sur la période et du temps d'ouverture sur la période.
+```
+
+- purge des données anciennes.
+
+```{admonition} Exemple
+Si le nombre de points de recharges fait l'objet de valeurs quotidiennes et de valeurs mensuelles, il n'est pas nécessaire de conserver les valeurs quotidiennes datant de plusieurs mois.
+```
 
 ### Mise en oeuvre
 
-Chaque échelle de temps doit être associée à une (ou plusieurs) table purgée avec une fréquence spécifique. Par exemple, un stockage horaire pourrait être purgé chaque semaine ou chaque mois.
-Le passage d'une échelle de temps à une autre est réalisé de façon automatique en appliquant une fonctiion simple (ex. somme, moyenne, maxi). Par exemple, la puissance installée de l'année peut être calculée comme la moyenne des puissances installées du mois elles-mêmes calculées comme la moyenne des puissances installées quotidiennes. De même, le nombre de sessions de l'année peut être calculé comme la somme des sessions mensuelles elles-mêmes calculées comme la somme des sessions quotidiennes.
+Chaque échelle de temps peut être associée à une (ou plusieurs) table purgée avec une fréquence spécifique. Par exemple, un stockage horaire pourrait être purgé chaque semaine ou chaque mois.
 
-Pour un indicateur externe donnée, il convient donc de définir:
+Le passage d'une échelle de temps à une autre est réalisé de façon automatique en appliquant une fonction simple. On distingue notamment:
 
-- les indicateurs de base historisés à utiliser,
-- pour chaque indicateur de base, la formule d'historisation à appliquer,
-- le mode de calcul en fonction des indicateurs de base utilisés.
+- les données cumulables dont le passage à l'échelle se traduit par un cumul (somme). C'est le cas du nombre de session dont la valeur annuelle peut être calculée comme la somme des sessions mensuelles elles-mêmes calculées comme la somme des sessions quotidiennes,
+- les données ajustables dont le passage à l'échelle se traduit par un ensemble de valeurs (moyenne, maxi, mini, dernière). Par exemple, la puissance moyenne installée de l'année peut être calculée à partir de la moyenne des puissances installées du mois elles-mêmes calculées à partir de la moyenne des puissances installées quotidiennes. 
+
+Le résultat de l'indicateur peut prendre plusieurs formes :
+
+- historique de valeurs
+- variation (relative) : écart (relatif) entre la première et la dernière valeur
+- fonction statistique appliquée à l'ensemble de valeurs (ex. écart-type)
+
+Un indicateur temporel est donc défini par :
+
+- l'indicateur de base à utiliser,
+- le niveau d'historisation choisi,
+- la fonction appliquée
+
+```{admonition} Exemple
+Si l'on souhaite disposer de l'évolution mensuelle du nombre de points de charge par département, on appliquera les traitements suivants:
+
+- calcul quotidien de l'indicateur 'i1--04' sur les données statiques courantes,
+- historisation de la valeur quotidienne,
+- chaque mois, historisation de la valeur mensuelle à partir des données quotidiennes(valeur moyenne ou bien dernière valeur suivant le besoin)
+- restitution de l'indicateur calculé sur les données de l'historisation mensuelle
+```
 
 ### Indicateurs
 
-tableau à faire
+Les indicateurs temporels identifiés sont les suivants :
+
 
 ## Historisation des données
 
