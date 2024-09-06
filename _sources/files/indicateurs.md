@@ -63,6 +63,7 @@ Trois types d'indicateurs sont définis:
 
 - indicateurs d'infrastructure : Ils décrivent le parc installé (évolution temporelle, répartition géographiques, caratéristiques, dimensionnement)
 - indicateurs d'usage : Ils décrivent l'utilisation effective des infrastructures (qualité de service, volumétrie, répartition)
+- indicateurs temporels : Ils analysent l'évolution des deux catégories d'indicateurs précédent sur une période temporelle
 - indicateurs étendus : Ils concernent les indicateurs obtenus avec des jeux de données en lien (ex. relevés ENEDIS)
 
 :::{note}
@@ -73,16 +74,23 @@ Les indicateurs d'exploitation (liés aux opérateurs et aménageurs et enseigne
 
 ## Codification des indicateurs
 
-Les indicateurs sont codifiés par une chaine de caractères *[type]-[périmètre]-[valeur de périmètre]-[critère]* avec:
+Les indicateurs sont codifiés par une chaine de caractères : *[type]-[périmètre]-[valeur de périmètre]-[critère]*
+ou bien pour les indicateurs temporels : *[type]-[période]-[périmètre]-[valeur de périmètre]-[critère]*
+avec:
 
 - type : identifiant du type d'indicateur (ex. 'i1' : nombre de points de recharge)
+- période : périodicité des données utilisées
+  - y : données annuelles
+  - m : données mensuelles
+  - w : données hebdomadaires
+  - d : données quotidiennes
 - périmètre et valeur de périmètre: sous ensemble des données sur lequel appliquer l'indicateur. Les périmètres actuellement définis sont les suivants :
   - 00: national (sans valeur)
   - 01: région (valeur : code de la région)
   - 02: département (valeur : code du département)
   - 03: EPCI (valeur : code de l'EPCI)
   - 04: commune (valeur : code de la commune)
-- critère : paramètre spécifique du type d'indicateur
+- critère : paramètre spécifique du type d'indicateur (ex code de regroupent)
 
 Le périmètre par défaut est l'ensemble des données.
 
@@ -90,6 +98,7 @@ Le périmètre par défaut est l'ensemble des données.
 - **t4-04-74012** : Pourcentage de stations par nombre de points de recharge (t4) pour la ville (04) d'Annemasse (74012)
 - **i1-01-93** : Nombre de points de recharge (i1) pour la région (01) PACA (93)
 - **i1-01-93-03** : Nombre de points de recharge (i1) pour la région (01) PACA (93) par EPCI (03)
+- **i1-m-01-93-03** : Nombre de points de recharge (i1) mensuel (m) pour la région (01) PACA (93) par EPCI (03)
 - **t1** : Nombre de points de recharge par niveau de puissance (t1) pour l'ensemble des données (pas de périmètre choisi)
 ```
 
@@ -126,17 +135,17 @@ Objectif:
 
 - analyse de la répartition géographique (les ratios permettent les comparaisons)
 
-| id          | nom                                              | Pr  | format    | type  | nature    |
-| ----------- | ------------------------------------------------ | --- | --------- | ----- | --------- |
-| i1-xx-yy-zz | Nombre de points de recharge ouverts au public   | 1   | scalaire  | infra | mensuel   |
-| i2-xx-yy-zz | Ratio pour 100 000 habitants                     | 1   | scalaire  | infra | dynamique |
-| i3-xx-yy-zz | Ratio pour 100 km2                               | 2   | scalaire  | infra | dynamique |
-| i4-xx-yy-zz | Nombre de stations de recharge ouverts au public | 1   | scalaire  | infra | mensuel   |
-| i5-xx-yy-zz | Ratio pour 100 000 habitants                     | 1   | scalaire  | infra | dynamique |
-| i6-xx-yy-zz | Ratio pour 100 km2                               | 2   | scalaire  | infra | dynamique |
-| i7-xx-yy-zz | Puissance installée                              | 1   | scalaire  | infra | mensuel   |
-| i8-xx-yy-zz | Ratio pour 100 000 habitants                     | 1   | scalaire  | infra | dynamique |
-| i9-xx-yy-zz | Ratio pour 100 km2                               | 2   | scalaire  | infra | dynamique |
+| id          | nom                                              | Pr  | format   | type  | nature    |
+| ----------- | ------------------------------------------------ | --- | -------- | ----- | --------- |
+| i1-xx-yy-zz | Nombre de points de recharge ouverts au public   | 1   | scalaire | infra | mensuel   |
+| i2-xx-yy-zz | Ratio pour 100 000 habitants                     | 1   | scalaire | infra | dynamique |
+| i3-xx-yy-zz | Ratio pour 100 km2                               | 2   | scalaire | infra | dynamique |
+| i4-xx-yy-zz | Nombre de stations de recharge ouverts au public | 1   | scalaire | infra | mensuel   |
+| i5-xx-yy-zz | Ratio pour 100 000 habitants                     | 1   | scalaire | infra | dynamique |
+| i6-xx-yy-zz | Ratio pour 100 km2                               | 2   | scalaire | infra | dynamique |
+| i7-xx-yy-zz | Puissance installée                              | 1   | scalaire | infra | mensuel   |
+| i8-xx-yy-zz | Ratio pour 100 000 habitants                     | 1   | scalaire | infra | dynamique |
+| i9-xx-yy-zz | Ratio pour 100 km2                               | 2   | scalaire | infra | dynamique |
 
 zz : critère de répartition par périmètre (ex. 02 : répartition par département)
 
@@ -184,12 +193,12 @@ ex. Analyse de la distance interstation (zones blanches).
 
 - analyse de l'évolution temporelle de l'utilisation
 
-| id          | nom                                         | Pr  | format    | type  | nature                       |
-| ----------- | ------------------------------------------- | --- | --------- | ----- | ---------------------------- |
-| u1-xx-yy-zz | Nombre de point de charge actif             | 2   | scalaire  | usage | mensuel (national)           |
-| u2-xx-yy-zz | Pourcentage de point de charge actif        | 2   | scalaire  | usage | synthèse                     |
-| u3-xx-yy-zz | Nombre de sessions                          | 2   | scalaire  | usage | quotidien/mensuel (national) |
-| u4-xx-yy-zz | Energie distribuée                          | 2   | catégorie | usage | quotidien                    |
+| id          | nom                                  | Pr  | format    | type  | nature                       |
+| ----------- | ------------------------------------ | --- | --------- | ----- | ---------------------------- |
+| u1-xx-yy-zz | Nombre de point de charge actif      | 2   | scalaire  | usage | mensuel (national)           |
+| u2-xx-yy-zz | Pourcentage de point de charge actif | 2   | scalaire  | usage | synthèse                     |
+| u3-xx-yy-zz | Nombre de sessions                   | 2   | scalaire  | usage | quotidien/mensuel (national) |
+| u4-xx-yy-zz | Energie distribuée                   | 2   | catégorie | usage | quotidien                    |
 
 u1 est calculé sur une journée
 U2 est calculé à partir de u1 et i1
@@ -201,25 +210,24 @@ exemple d'utilisation : Analyse du profil horaire de l'énergie fournie en fonct
 
 - analyse de la disponibilité et de l'utilisation des points de recharge
 
-| id           | nom                                                           | Pr  | format   | type  | nature    |
-| ------------ | ------------------------------------------------------------- | --- | -------- | ----- | --------- |
-| q1-xx-yy-zz  | Durée de bon fonctionnement                                   | 2   | scalaire | usage | quotidien |
-| q2-xx-yy-zz  | Durée d'utilisation                                           | 2   | scalaire | usage | quotidien |
-| q3-xx-yy-zz  | Durée d'ouverture                                             | 2   | scalaire | usage | quotidien |
-| q4-xx-yy-zz  | Nombre de sessions réussies                                   | 3   | scalaire | usage | quotidien |
-| q5-xx-yy-zz  | Saturation                                                    | 2   | scalaire | usage | quotidien |
-| q6-xx-yy-zz  | Taux de disponibilité d'un point de charge actif              | 2   | scalaire | usage | synthèse  |
-| q7-xx-yy-zz  | Taux d'utilisation d'un point de charge actif                 | 2   | scalaire | usage | synthèse  |
-| q8-xx-yy-zz  | Taux de sessions réussies d'un point de charge actif          | 2   | scalaire | usage | synthèse  |
-| q9-xx-yy-zz  | Taux de saturation d'une station                              | 3   | scalaire | usage | dynamique |
-| q10-xx-yy-zz | Taux mensuel de points de recharge avec indisponibilité > 7 j | 3   | scalaire | usage | mensuel   |
+| id           | nom                                                  | Pr  | format   | type  | nature    |
+| ------------ | ---------------------------------------------------- | --- | -------- | ----- | --------- |
+| q1-xx-yy-zz  | Durée de bon fonctionnement                          | 2   | scalaire | usage | quotidien |
+| q2-xx-yy-zz  | Durée d'utilisation                                  | 2   | scalaire | usage | quotidien |
+| q3-xx-yy-zz  | Durée d'ouverture                                    | 2   | scalaire | usage | quotidien |
+| q4-xx-yy-zz  | Nombre de sessions réussies                          | 3   | scalaire | usage | quotidien |
+| q5-xx-yy-zz  | Saturation                                           | 2   | scalaire | usage | quotidien |
+| q6-xx-yy-zz  | Taux de disponibilité d'un point de charge actif     | 2   | scalaire | usage | synthèse  |
+| q7-xx-yy-zz  | Taux de disponibilité par catégorie de puissance     | 3   | scalaire | usage | synthèse  |
+| q8-xx-yy-zz  | Taux d'utilisation d'un point de charge actif        | 2   | scalaire | usage | synthèse  |
+| q9-xx-yy-zz  | Taux de sessions réussies d'un point de charge actif | 2   | scalaire | usage | synthèse  |
+| q10-xx-yy-zz | Taux de saturation d'une station                     | 3   | scalaire | usage | dynamique |
 
-q1, q2, q3, q4 et q5 sont calculés sur une journée
-q6 est calculé à partir de q1 et q3
-q7 est calculé à partir de q2 et q3
-q8 est calculé à partir de q4 et u3
-q9 est calculé à partir de q5
-q10 à préciser
+q1, q2, q3, q4 et q5 sont les valeurs cumulées sur une journée
+q6, q7 sont calculé à partir de q1 et q3
+q8 est calculé à partir de q2 et q3
+q9 est calculé à partir de q4 et u3
+q10 est calculé à partir de q5
 
 :::{note}
 
@@ -242,7 +250,11 @@ Les indicateurs suivants ont été formalisés par l'AFIREV:
 
 ### Caractéristiques
 
-Il s'agit des indicateurs associés à une période temporelle.
+Il s'agit des indicateurs associés à un intervalle temporel et à une périodicité. Ils peuvent prendre plusieurs formes :
+
+- un historique de valeurs sur l'intervalle (ex. un histogramme),
+- une représentation statistique (ex. une moyenne, une interpolation linéaire)
+- une analyse spécifique
 
 On peut citer par exemple les indicateurs AVERE suivants :
   
@@ -252,31 +264,86 @@ On peut citer par exemple les indicateurs AVERE suivants :
 - Nombre de sessions moyen mensuel par point de recharge
 - Taux de disponibilité du mois par catégorie de puissance
 
-Pour le calcul de ces indicateurs, il est difficilement envisageable d'avoir accès aux données à des échelles de temps faible sur une longue période. Par exemple, il serait couteux de calculer une valeur annuelle à partir de données horaires.
+Le calcul des indicateurs temporels doit pouvoir être réalisé en optimisant les temps de calcul et le volume de données stockées (il serait, par exemple, couteux de calculer une valeur annuelle à partir de données horaires).
 
-Pour être effectif, le calcul des indicateurs temporels doit donc pouvoir être réalisé en autorisant des purges lorsqu'un historique est trop important.
+Les principes proposés pour cela sont les suivants :
 
-Ceci implique en particulier que :
+- historisation des données à différentes échelles de temps (périodicité).
 
-- les données soient historisées à différentes échelles de temps.
-Par exemple, pour présenter l'évolution du nombre de points de recharge par mois sur deux ans, il est nécessaire d'avoir stocké au préalable mensuellement le nombre de points de recharge.
-- les données historisées soient "scalables", c'est à dire qu'on puisse calculer les valeurs à une échelle de temps à partir de données existantes à une échelle plus faible (par exemple, valeurs annuelles à partir des valeurs mensuelles, valeurs mensuelles à partir des valeurs quotidiennes).
-Par exemple, le taux de disponibilité qui est le ratio du temps de bon fonctionnement sur le temps d'ouverture n'est pas scalable (le taux mensuel n'est pas égal à la moyenne des taux journaliers). Par contre, le temps de bon fonctionnement et le temps d'ouverture sont scalables et on peut donc calculer le taux de disponibilité sur une période à partir du temps de bon fonctionnement sur la période et du temps d'ouverture sur la période.
+```{admonition} Exemple
+Pour présenter l'évolution du nombre de points de recharge par mois sur deux ans, il est nécessaire d'avoir stocké au préalable mensuellement le nombre de points de recharge.
+```
+
+- historisation de données "scalables" (qu'on peut calculer pour une périodicité à partir de données existantes à une périodicité plus faible)
+
+```{admonition} Exemples
+- calcul des valeurs annuelles à partir des valeurs mensuelles (et valeurs mensuelles à partir des valeurs quotidiennes).
+- le taux de disponibilité qui est le ratio du temps de bon fonctionnement sur le temps d'ouverture n'est pas scalable (le taux mensuel n'est pas égal à la moyenne des taux journaliers). Par contre, le temps de bon fonctionnement et le temps d'ouverture sont scalables et on peut donc calculer le taux de disponibilité sur une période à partir du temps de bon fonctionnement sur la période et du temps d'ouverture sur la période.
+```
+
+- purge des données anciennes.
+
+```{admonition} Exemple
+Si le nombre de points de recharges fait l'objet de valeurs quotidiennes et de valeurs mensuelles, il n'est pas nécessaire de conserver les valeurs quotidiennes datant de plusieurs mois.
+```
 
 ### Mise en oeuvre
 
-Chaque échelle de temps doit être associée à une (ou plusieurs) table purgée avec une fréquence spécifique. Par exemple, un stockage horaire pourrait être purgé chaque semaine ou chaque mois.
-Le passage d'une échelle de temps à une autre est réalisé de façon automatique en appliquant une fonctiion simple (ex. somme, moyenne, maxi). Par exemple, la puissance installée de l'année peut être calculée comme la moyenne des puissances installées du mois elles-mêmes calculées comme la moyenne des puissances installées quotidiennes. De même, le nombre de sessions de l'année peut être calculé comme la somme des sessions mensuelles elles-mêmes calculées comme la somme des sessions quotidiennes.
+Chaque périodicité peut être associée à une (ou plusieurs) table purgée avec une fréquence spécifique. Par exemple, un stockage horaire pourrait être purgé chaque semaine ou chaque mois.
 
-Pour un indicateur externe donnée, il convient donc de définir:
+Le passage d'une périodicité à une autre est réalisé de façon automatique en appliquant une fonction simple. On distingue notamment:
 
-- les indicateurs de base historisés à utiliser,
-- pour chaque indicateur de base, la formule d'historisation à appliquer,
-- le mode de calcul en fonction des indicateurs de base utilisés.
+- les données cumulables dont le passage à l'échelle se traduit par un cumul (somme). C'est le cas du nombre de session dont la valeur annuelle peut être calculée comme la somme des sessions mensuelles elles-mêmes calculées comme la somme des sessions quotidiennes,
+- les données ajustables dont le passage à l'échelle se traduit par un ensemble de valeurs (moyenne, maxi, mini, dernière). Par exemple, la puissance moyenne installée de l'année peut être calculée à partir de la moyenne des puissances installées du mois elles-mêmes calculées à partir de la moyenne des puissances installées quotidiennes.
+
+Le résultat de l'indicateur peut prendre plusieurs formes :
+
+- historique de valeurs
+- variation (relative) : écart (relatif) entre la première et la dernière valeur
+- fonction statistique appliquée à l'ensemble des valeurs (ex. écart-type)
+
+Un indicateur temporel est donc défini par :
+
+- l'indicateur de base à utiliser,
+- l'intervalle,
+- la périodicité,
+- la valeur historisée,
+- la fonction appliquée.
+
+```{admonition} Exemple
+L'indicateur du taux d'évolution du nombre de stations sur 12 mois au 01/01/2024 par département est défini par :
+
+- l'indicateur de base : 'i4---04',
+- l'intervalle : entre le 01/01/2023 et le 01/01/2024,
+- la périodicité : mensuelle,
+- la valeur historisée : dernière,
+- la fonction : taux d'évolution (1 - valeur mensuelle début / valeur mensuelle fin).
+
+Le résultat est obtenu en appliquant les traitements suivants:
+
+- calcul quotidien de l'indicateur 'i4--04' sur les données statiques courantes,
+- chaque jour, historisation du résultat du calcul,
+- chaque mois, historisation du jeu de valeurs mensuel (moyenne, maxi, mini, dernière) obtenu à partir des données quotidiennes,
+- calcul du taux d'évolution sur les données de l'historisation mensuelle (dernière valeur).
+```
 
 ### Indicateurs
 
-tableau à faire
+Les indicateurs temporels identifiés sont les suivants :
+
+| id  | nom                                              | Pr  | base | valeur   | fonction       |
+| --- | ------------------------------------------------ | --- | ---- | -------- | -------------- |
+| d1  | Taux d'évolution du nombre de stations           | 1   | i4   | dernière | taux évolution |
+| d2  | Evolution du nombre de points de recharge        | 1   | i1   | dernière | historique     |
+| d3  | Nombre de sessions par point de recharge         | 2   | u3   | somme    | historique     |
+| d4  | Taux de disponibilité par catégorie de puissance | 2   | q7   | somme    | historique     |
+| d5  | Taux de points de recharge avec indispo > 7 j    | 3   | q7   | moyenne  | historique     |
+
+Nota : Seule la périodicité est intégrée à la codification (voir chapitre 'codification'), l'intervalle doit donc être ajouté à l'indicateur.
+
+```{admonition} Exemples
+- Evolution du nombre mensuel de points de recharge pour 2024 par département : (d2-m---04, entre 01/01/2023 et le 01/01/2024)
+```
 
 ## Historisation des données
 
@@ -288,7 +355,65 @@ L'historisation est à effectuer pour les indicateurs suivants (voir chapitre li
 - usage - quantitatif: u1 (mensuel), u3 (quotidien)
 - usage - qualité de service : q1 (quotidien), q2 (quotidien), q5 (mensuel)
 
-L'historisation des données est prévue par un stockage de données sous un format simple (une table par indicateur) ou structuré (JSON) dans une table intégrant un index temporel.
+### Solution 1
+
+Chaque résultat d'un indicateur a une structure identique, on peut donc stocker tous les résultats d'un indicateur dans une table. 
+Les indicateurs temporels s'appuient sur les indicateurs historisés, il suffit donc d'effectuer une recherche par rapport à un indicateur.
+
+Pour faciliter les purges, on peut avoir une table par périodicité, la purge peut alors s'effectuer simplement par tri sur le timestamp.
+
+Une table comporte les champs suivants :
+
+Valeurs historisées
+
+- min : valeur mini (ou 0 si donnée cumulée)
+- max : valeur maxi (ou 0 si donnée cumulée)
+- val : valeur moyenne (ou somme si donnée cumulée)
+- last : dernière valeur (ou 0 si donnée cumulée)
+
+Regroupement
+
+- crit_v : valeur du critère (ex. niveau de puissance, implantation)
+
+Indicateur (ex. 't1-01-93-04)
+
+- query: (ex. 't1')
+- périmètre: (ex. '01')
+- valeur de périmètre: (ex. '93')
+- critère: (ex.'04')
+
+Datation
+
+- timestamp
+
+```{admonition} Exemple
+'taux d'évolution du nombre de stations sur 12 mois au 01/01/2024 par département ' :
+
+- recherche dans la table mensuelle les lignes avec 't4-00-00-04' avec un timestamp entre le 01/01/2023 et le 01/01/2024
+- calcul du taux d'évolution pour chaque département ('val') à partir de la valeur 'last'
+
+Le passage d'une table à une autre s'effectue en calculant les nouvelles valeurs min, max, val, last pour chaque couple indicateur - 'crit_v' avec un timestamp compris dans l'intervalle de la période à historiser.
+```
+
+### Solution 2
+
+Idem Solution 1 mais avec une ligne par indicateur, le résultat de l'indicateur étant stocké dans un JSON.
+
+```{admonition} Exemple
+'nombre de station par opérateur'
+
+Solution 1 
+
+| min  | max  | val   | last  | crit_v   | query | perim | perim_v  | crit  |
+|
+
+
+| min  | max  | val   | last  | crit_v   | query | perim | perim_v | crit |
+| ---- | ---- | ----- | ----- | -------- | ----- | ----- | ------- | ---- |
+| 52  | 75  | 60  | 75  | 'oper1' | 't8' | '93' | '13' | ''  |
+```
+
+### Solution 3
 
 L'exemple ci-dessous montre l'enregistrement avec un format structuré (JSON) du nombre de stations (i4), de points de charge (i1) et la puissance installée (i7) pour chaque commune, département, opérateur et région.
 

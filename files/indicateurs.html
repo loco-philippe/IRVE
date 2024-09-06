@@ -423,7 +423,12 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs">1.8.3. Indicateurs</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historisation-des-donnees">1.9. Historisation des données</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historisation-des-donnees">1.9. Historisation des données</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-1">1.9.1. Solution 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-2">1.9.2. Solution 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-3">1.9.3. Solution 3</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-etendus">1.10. Indicateurs étendus</a></li>
 </ul>
             </nav>
@@ -515,6 +520,7 @@ document.write(`
 <ul class="simple">
 <li><p>indicateurs d’infrastructure : Ils décrivent le parc installé (évolution temporelle, répartition géographiques, caratéristiques, dimensionnement)</p></li>
 <li><p>indicateurs d’usage : Ils décrivent l’utilisation effective des infrastructures (qualité de service, volumétrie, répartition)</p></li>
+<li><p>indicateurs temporels : Ils analysent l’évolution des deux catégories d’indicateurs précédent sur une période temporelle</p></li>
 <li><p>indicateurs étendus : Ils concernent les indicateurs obtenus avec des jeux de données en lien (ex. relevés ENEDIS)</p></li>
 </ul>
 <div class="admonition note">
@@ -524,9 +530,19 @@ document.write(`
 </section>
 <section id="codification-des-indicateurs">
 <h2><span class="section-number">1.4. </span>Codification des indicateurs<a class="headerlink" href="#codification-des-indicateurs" title="Link to this heading">#</a></h2>
-<p>Les indicateurs sont codifiés par une chaine de caractères <em>[type]-[périmètre]-[valeur de périmètre]-[critère]</em> avec:</p>
+<p>Les indicateurs sont codifiés par une chaine de caractères : <em>[type]-[périmètre]-[valeur de périmètre]-[critère]</em>
+ou bien pour les indicateurs temporels : <em>[type]-[période]-[périmètre]-[valeur de périmètre]-[critère]</em>
+avec:</p>
 <ul class="simple">
 <li><p>type : identifiant du type d’indicateur (ex. ‘i1’ : nombre de points de recharge)</p></li>
+<li><p>période : périodicité des données utilisées</p>
+<ul>
+<li><p>y : données annuelles</p></li>
+<li><p>m : données mensuelles</p></li>
+<li><p>w : données hebdomadaires</p></li>
+<li><p>d : données quotidiennes</p></li>
+</ul>
+</li>
 <li><p>périmètre et valeur de périmètre: sous ensemble des données sur lequel appliquer l’indicateur. Les périmètres actuellement définis sont les suivants :</p>
 <ul>
 <li><p>00: national (sans valeur)</p></li>
@@ -536,7 +552,7 @@ document.write(`
 <li><p>04: commune (valeur : code de la commune)</p></li>
 </ul>
 </li>
-<li><p>critère : paramètre spécifique du type d’indicateur</p></li>
+<li><p>critère : paramètre spécifique du type d’indicateur (ex code de regroupent)</p></li>
 </ul>
 <p>Le périmètre par défaut est l’ensemble des données.</p>
 <div class="admonition-exemples admonition">
@@ -545,6 +561,7 @@ document.write(`
 <li><p><strong>t4-04-74012</strong> : Pourcentage de stations par nombre de points de recharge (t4) pour la ville (04) d’Annemasse (74012)</p></li>
 <li><p><strong>i1-01-93</strong> : Nombre de points de recharge (i1) pour la région (01) PACA (93)</p></li>
 <li><p><strong>i1-01-93-03</strong> : Nombre de points de recharge (i1) pour la région (01) PACA (93) par EPCI (03)</p></li>
+<li><p><strong>i1-m-01-93-03</strong> : Nombre de points de recharge (i1) mensuel (m) pour la région (01) PACA (93) par EPCI (03)</p></li>
 <li><p><strong>t1</strong> : Nombre de points de recharge par niveau de puissance (t1) pour l’ensemble des données (pas de périmètre choisi)</p></li>
 </ul>
 </div>
@@ -954,42 +971,41 @@ U3 et u4 sont calculés par heure</p>
 <td><p>synthèse</p></td>
 </tr>
 <tr class="row-even"><td><p>q7-xx-yy-zz</p></td>
+<td><p>Taux de disponibilité par catégorie de puissance</p></td>
+<td><p>3</p></td>
+<td><p>scalaire</p></td>
+<td><p>usage</p></td>
+<td><p>synthèse</p></td>
+</tr>
+<tr class="row-odd"><td><p>q8-xx-yy-zz</p></td>
 <td><p>Taux d’utilisation d’un point de charge actif</p></td>
 <td><p>2</p></td>
 <td><p>scalaire</p></td>
 <td><p>usage</p></td>
 <td><p>synthèse</p></td>
 </tr>
-<tr class="row-odd"><td><p>q8-xx-yy-zz</p></td>
+<tr class="row-even"><td><p>q9-xx-yy-zz</p></td>
 <td><p>Taux de sessions réussies d’un point de charge actif</p></td>
 <td><p>2</p></td>
 <td><p>scalaire</p></td>
 <td><p>usage</p></td>
 <td><p>synthèse</p></td>
 </tr>
-<tr class="row-even"><td><p>q9-xx-yy-zz</p></td>
+<tr class="row-odd"><td><p>q10-xx-yy-zz</p></td>
 <td><p>Taux de saturation d’une station</p></td>
 <td><p>3</p></td>
 <td><p>scalaire</p></td>
 <td><p>usage</p></td>
 <td><p>dynamique</p></td>
 </tr>
-<tr class="row-odd"><td><p>q10-xx-yy-zz</p></td>
-<td><p>Taux mensuel de points de recharge avec indisponibilité &gt; 7 j</p></td>
-<td><p>3</p></td>
-<td><p>scalaire</p></td>
-<td><p>usage</p></td>
-<td><p>mensuel</p></td>
-</tr>
 </tbody>
 </table>
 </div>
-<p>q1, q2, q3, q4 et q5 sont calculés sur une journée
-q6 est calculé à partir de q1 et q3
-q7 est calculé à partir de q2 et q3
-q8 est calculé à partir de q4 et u3
-q9 est calculé à partir de q5
-q10 à préciser</p>
+<p>q1, q2, q3, q4 et q5 sont les valeurs cumulées sur une journée
+q6, q7 sont calculé à partir de q1 et q3
+q8 est calculé à partir de q2 et q3
+q9 est calculé à partir de q4 et u3
+q10 est calculé à partir de q5</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Les indicateurs suivants ont été formalisés par l’AFIREV:</p>
@@ -1013,7 +1029,12 @@ q10 à préciser</p>
 <h2><span class="section-number">1.8. </span>Indicateurs temporels<a class="headerlink" href="#indicateurs-temporels" title="Link to this heading">#</a></h2>
 <section id="caracteristiques">
 <h3><span class="section-number">1.8.1. </span>Caractéristiques<a class="headerlink" href="#caracteristiques" title="Link to this heading">#</a></h3>
-<p>Il s’agit des indicateurs associés à une période temporelle.</p>
+<p>Il s’agit des indicateurs associés à un intervalle temporel et à une périodicité. Ils peuvent prendre plusieurs formes :</p>
+<ul class="simple">
+<li><p>un historique de valeurs sur l’intervalle (ex. un histogramme),</p></li>
+<li><p>une représentation statistique (ex. une moyenne, une interpolation linéaire)</p></li>
+<li><p>une analyse spécifique</p></li>
+</ul>
 <p>On peut citer par exemple les indicateurs AVERE suivants :</p>
 <ul class="simple">
 <li><p>Taux d’évolution du nombre de stations sur 12 mois</p></li>
@@ -1022,30 +1043,133 @@ q10 à préciser</p>
 <li><p>Nombre de sessions moyen mensuel par point de recharge</p></li>
 <li><p>Taux de disponibilité du mois par catégorie de puissance</p></li>
 </ul>
-<p>Pour le calcul de ces indicateurs, il est difficilement envisageable d’avoir accès aux données à des échelles de temps faible sur une longue période. Par exemple, il serait couteux de calculer une valeur annuelle à partir de données horaires.</p>
-<p>Pour être effectif, le calcul des indicateurs temporels doit donc pouvoir être réalisé en autorisant des purges lorsqu’un historique est trop important.</p>
-<p>Ceci implique en particulier que :</p>
+<p>Le calcul des indicateurs temporels doit pouvoir être réalisé en optimisant les temps de calcul et le volume de données stockées (il serait, par exemple, couteux de calculer une valeur annuelle à partir de données horaires).</p>
+<p>Les principes proposés pour cela sont les suivants :</p>
 <ul class="simple">
-<li><p>les données soient historisées à différentes échelles de temps.
-Par exemple, pour présenter l’évolution du nombre de points de recharge par mois sur deux ans, il est nécessaire d’avoir stocké au préalable mensuellement le nombre de points de recharge.</p></li>
-<li><p>les données historisées soient “scalables”, c’est à dire qu’on puisse calculer les valeurs à une échelle de temps à partir de données existantes à une échelle plus faible (par exemple, valeurs annuelles à partir des valeurs mensuelles, valeurs mensuelles à partir des valeurs quotidiennes).
-Par exemple, le taux de disponibilité qui est le ratio du temps de bon fonctionnement sur le temps d’ouverture n’est pas scalable (le taux mensuel n’est pas égal à la moyenne des taux journaliers). Par contre, le temps de bon fonctionnement et le temps d’ouverture sont scalables et on peut donc calculer le taux de disponibilité sur une période à partir du temps de bon fonctionnement sur la période et du temps d’ouverture sur la période.</p></li>
+<li><p>historisation des données à différentes échelles de temps (périodicité).</p></li>
 </ul>
+<div class="admonition-exemple admonition">
+<p class="admonition-title">Exemple</p>
+<p>Pour présenter l’évolution du nombre de points de recharge par mois sur deux ans, il est nécessaire d’avoir stocké au préalable mensuellement le nombre de points de recharge.</p>
+</div>
+<ul class="simple">
+<li><p>historisation de données “scalables” (qu’on peut calculer pour une périodicité à partir de données existantes à une périodicité plus faible)</p></li>
+</ul>
+<div class="admonition-exemples admonition">
+<p class="admonition-title">Exemples</p>
+<ul class="simple">
+<li><p>calcul des valeurs annuelles à partir des valeurs mensuelles (et valeurs mensuelles à partir des valeurs quotidiennes).</p></li>
+<li><p>le taux de disponibilité qui est le ratio du temps de bon fonctionnement sur le temps d’ouverture n’est pas scalable (le taux mensuel n’est pas égal à la moyenne des taux journaliers). Par contre, le temps de bon fonctionnement et le temps d’ouverture sont scalables et on peut donc calculer le taux de disponibilité sur une période à partir du temps de bon fonctionnement sur la période et du temps d’ouverture sur la période.</p></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p>purge des données anciennes.</p></li>
+</ul>
+<div class="admonition-exemple admonition">
+<p class="admonition-title">Exemple</p>
+<p>Si le nombre de points de recharges fait l’objet de valeurs quotidiennes et de valeurs mensuelles, il n’est pas nécessaire de conserver les valeurs quotidiennes datant de plusieurs mois.</p>
+</div>
 </section>
 <section id="mise-en-oeuvre">
 <h3><span class="section-number">1.8.2. </span>Mise en oeuvre<a class="headerlink" href="#mise-en-oeuvre" title="Link to this heading">#</a></h3>
-<p>Chaque échelle de temps doit être associée à une (ou plusieurs) table purgée avec une fréquence spécifique. Par exemple, un stockage horaire pourrait être purgé chaque semaine ou chaque mois.
-Le passage d’une échelle de temps à une autre est réalisé de façon automatique en appliquant une fonctiion simple (ex. somme, moyenne, maxi). Par exemple, la puissance installée de l’année peut être calculée comme la moyenne des puissances installées du mois elles-mêmes calculées comme la moyenne des puissances installées quotidiennes. De même, le nombre de sessions de l’année peut être calculé comme la somme des sessions mensuelles elles-mêmes calculées comme la somme des sessions quotidiennes.</p>
-<p>Pour un indicateur externe donnée, il convient donc de définir:</p>
+<p>Chaque périodicité peut être associée à une (ou plusieurs) table purgée avec une fréquence spécifique. Par exemple, un stockage horaire pourrait être purgé chaque semaine ou chaque mois.</p>
+<p>Le passage d’une périodicité à une autre est réalisé de façon automatique en appliquant une fonction simple. On distingue notamment:</p>
 <ul class="simple">
-<li><p>les indicateurs de base historisés à utiliser,</p></li>
-<li><p>pour chaque indicateur de base, la formule d’historisation à appliquer,</p></li>
-<li><p>le mode de calcul en fonction des indicateurs de base utilisés.</p></li>
+<li><p>les données cumulables dont le passage à l’échelle se traduit par un cumul (somme). C’est le cas du nombre de session dont la valeur annuelle peut être calculée comme la somme des sessions mensuelles elles-mêmes calculées comme la somme des sessions quotidiennes,</p></li>
+<li><p>les données ajustables dont le passage à l’échelle se traduit par un ensemble de valeurs (moyenne, maxi, mini, dernière). Par exemple, la puissance moyenne installée de l’année peut être calculée à partir de la moyenne des puissances installées du mois elles-mêmes calculées à partir de la moyenne des puissances installées quotidiennes.</p></li>
 </ul>
+<p>Le résultat de l’indicateur peut prendre plusieurs formes :</p>
+<ul class="simple">
+<li><p>historique de valeurs</p></li>
+<li><p>variation (relative) : écart (relatif) entre la première et la dernière valeur</p></li>
+<li><p>fonction statistique appliquée à l’ensemble des valeurs (ex. écart-type)</p></li>
+</ul>
+<p>Un indicateur temporel est donc défini par :</p>
+<ul class="simple">
+<li><p>l’indicateur de base à utiliser,</p></li>
+<li><p>l’intervalle,</p></li>
+<li><p>la périodicité,</p></li>
+<li><p>la valeur historisée,</p></li>
+<li><p>la fonction appliquée.</p></li>
+</ul>
+<div class="admonition-exemple admonition">
+<p class="admonition-title">Exemple</p>
+<p>L’indicateur du taux d’évolution du nombre de stations sur 12 mois au 01/01/2024 par département est défini par :</p>
+<ul class="simple">
+<li><p>l’indicateur de base : ‘i4—04’,</p></li>
+<li><p>l’intervalle : entre le 01/01/2023 et le 01/01/2024,</p></li>
+<li><p>la périodicité : mensuelle,</p></li>
+<li><p>la valeur historisée : dernière,</p></li>
+<li><p>la fonction : taux d’évolution (1 - valeur mensuelle début / valeur mensuelle fin).</p></li>
+</ul>
+<p>Le résultat est obtenu en appliquant les traitements suivants:</p>
+<ul class="simple">
+<li><p>calcul quotidien de l’indicateur ‘i4–04’ sur les données statiques courantes,</p></li>
+<li><p>chaque jour, historisation du résultat du calcul,</p></li>
+<li><p>chaque mois, historisation du jeu de valeurs mensuel (moyenne, maxi, mini, dernière) obtenu à partir des données quotidiennes,</p></li>
+<li><p>calcul du taux d’évolution sur les données de l’historisation mensuelle (dernière valeur).</p></li>
+</ul>
+</div>
 </section>
 <section id="indicateurs">
 <h3><span class="section-number">1.8.3. </span>Indicateurs<a class="headerlink" href="#indicateurs" title="Link to this heading">#</a></h3>
-<p>tableau à faire</p>
+<p>Les indicateurs temporels identifiés sont les suivants :</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>id</p></th>
+<th class="head"><p>nom</p></th>
+<th class="head"><p>Pr</p></th>
+<th class="head"><p>base</p></th>
+<th class="head"><p>valeur</p></th>
+<th class="head"><p>fonction</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>d1</p></td>
+<td><p>Taux d’évolution du nombre de stations</p></td>
+<td><p>1</p></td>
+<td><p>i4</p></td>
+<td><p>dernière</p></td>
+<td><p>taux évolution</p></td>
+</tr>
+<tr class="row-odd"><td><p>d2</p></td>
+<td><p>Evolution du nombre de points de recharge</p></td>
+<td><p>1</p></td>
+<td><p>i1</p></td>
+<td><p>dernière</p></td>
+<td><p>historique</p></td>
+</tr>
+<tr class="row-even"><td><p>d3</p></td>
+<td><p>Nombre de sessions par point de recharge</p></td>
+<td><p>2</p></td>
+<td><p>u3</p></td>
+<td><p>somme</p></td>
+<td><p>historique</p></td>
+</tr>
+<tr class="row-odd"><td><p>d4</p></td>
+<td><p>Taux de disponibilité par catégorie de puissance</p></td>
+<td><p>2</p></td>
+<td><p>q7</p></td>
+<td><p>somme</p></td>
+<td><p>historique</p></td>
+</tr>
+<tr class="row-even"><td><p>d5</p></td>
+<td><p>Taux de points de recharge avec indispo &gt; 7 j</p></td>
+<td><p>3</p></td>
+<td><p>q7</p></td>
+<td><p>moyenne</p></td>
+<td><p>historique</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Nota : Seule la périodicité est intégrée à la codification (voir chapitre ‘codification’), l’intervalle doit donc être ajouté à l’indicateur.</p>
+<div class="admonition-exemples admonition">
+<p class="admonition-title">Exemples</p>
+<ul class="simple">
+<li><p>Evolution du nombre mensuel de points de recharge pour 2024 par département : (d2-m—04, entre 01/01/2023 et le 01/01/2024)</p></li>
+</ul>
+</div>
 </section>
 </section>
 <section id="historisation-des-donnees">
@@ -1058,7 +1182,84 @@ Le passage d’une échelle de temps à une autre est réalisé de façon automa
 <li><p>usage - quantitatif: u1 (mensuel), u3 (quotidien)</p></li>
 <li><p>usage - qualité de service : q1 (quotidien), q2 (quotidien), q5 (mensuel)</p></li>
 </ul>
-<p>L’historisation des données est prévue par un stockage de données sous un format simple (une table par indicateur) ou structuré (JSON) dans une table intégrant un index temporel.</p>
+<section id="solution-1">
+<h3><span class="section-number">1.9.1. </span>Solution 1<a class="headerlink" href="#solution-1" title="Link to this heading">#</a></h3>
+<p>Chaque résultat d’un indicateur a une structure identique, on peut donc stocker tous les résultats d’un indicateur dans une table.
+Les indicateurs temporels s’appuient sur les indicateurs historisés, il suffit donc d’effectuer une recherche par rapport à un indicateur.</p>
+<p>Pour faciliter les purges, on peut avoir une table par périodicité, la purge peut alors s’effectuer simplement par tri sur le timestamp.</p>
+<p>Une table comporte les champs suivants :</p>
+<p>Valeurs historisées</p>
+<ul class="simple">
+<li><p>min : valeur mini (ou 0 si donnée cumulée)</p></li>
+<li><p>max : valeur maxi (ou 0 si donnée cumulée)</p></li>
+<li><p>val : valeur moyenne (ou somme si donnée cumulée)</p></li>
+<li><p>last : dernière valeur (ou 0 si donnée cumulée)</p></li>
+</ul>
+<p>Regroupement</p>
+<ul class="simple">
+<li><p>crit_v : valeur du critère (ex. niveau de puissance, implantation)</p></li>
+</ul>
+<p>Indicateur (ex. ‘t1-01-93-04)</p>
+<ul class="simple">
+<li><p>query: (ex. ‘t1’)</p></li>
+<li><p>périmètre: (ex. ‘01’)</p></li>
+<li><p>valeur de périmètre: (ex. ‘93’)</p></li>
+<li><p>critère: (ex.’04’)</p></li>
+</ul>
+<p>Datation</p>
+<ul class="simple">
+<li><p>timestamp</p></li>
+</ul>
+<div class="admonition-exemple admonition">
+<p class="admonition-title">Exemple</p>
+<p>‘taux d’évolution du nombre de stations sur 12 mois au 01/01/2024 par département ‘ :</p>
+<ul class="simple">
+<li><p>recherche dans la table mensuelle les lignes avec ‘t4-00-00-04’ avec un timestamp entre le 01/01/2023 et le 01/01/2024</p></li>
+<li><p>calcul du taux d’évolution pour chaque département (‘val’) à partir de la valeur ‘last’</p></li>
+</ul>
+<p>Le passage d’une table à une autre s’effectue en calculant les nouvelles valeurs min, max, val, last pour chaque couple indicateur - ‘crit_v’ avec un timestamp compris dans l’intervalle de la période à historiser.</p>
+</div>
+</section>
+<section id="solution-2">
+<h3><span class="section-number">1.9.2. </span>Solution 2<a class="headerlink" href="#solution-2" title="Link to this heading">#</a></h3>
+<p>Idem Solution 1 mais avec une ligne par indicateur, le résultat de l’indicateur étant stocké dans un JSON.</p>
+<div class="admonition-exemple admonition">
+<p class="admonition-title">Exemple</p>
+<p>‘nombre de station par opérateur’</p>
+<p>Solution 1</p>
+<p>| min  | max  | val   | last  | crit_v   | query | perim | perim_v  | crit  |
+|</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>min</p></th>
+<th class="head"><p>max</p></th>
+<th class="head"><p>val</p></th>
+<th class="head"><p>last</p></th>
+<th class="head"><p>crit_v</p></th>
+<th class="head"><p>query</p></th>
+<th class="head"><p>perim</p></th>
+<th class="head"><p>perim_v</p></th>
+<th class="head"><p>crit</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>52</p></td>
+<td><p>75</p></td>
+<td><p>60</p></td>
+<td><p>75</p></td>
+<td><p>‘oper1’</p></td>
+<td><p>‘t8’</p></td>
+<td><p>‘93’</p></td>
+<td><p>‘13’</p></td>
+<td><p>‘’</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="solution-3">
+<h3><span class="section-number">1.9.3. </span>Solution 3<a class="headerlink" href="#solution-3" title="Link to this heading">#</a></h3>
 <p>L’exemple ci-dessous montre l’enregistrement avec un format structuré (JSON) du nombre de stations (i4), de points de charge (i1) et la puissance installée (i7) pour chaque commune, département, opérateur et région.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;now&quot;</span><span class="p">,</span>
@@ -1133,6 +1334,7 @@ Le passage d’une échelle de temps à une autre est réalisé de façon automa
 <span class="n">operational_unit</span><span class="p">:</span> <span class="n">json</span>
 </pre></div>
 </div>
+</section>
 </section>
 <section id="indicateurs-etendus">
 <h2><span class="section-number">1.10. </span>Indicateurs étendus<a class="headerlink" href="#indicateurs-etendus" title="Link to this heading">#</a></h2>
@@ -1234,7 +1436,12 @@ Le passage d’une échelle de temps à une autre est réalisé de façon automa
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs">1.8.3. Indicateurs</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historisation-des-donnees">1.9. Historisation des données</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historisation-des-donnees">1.9. Historisation des données</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-1">1.9.1. Solution 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-2">1.9.2. Solution 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-3">1.9.3. Solution 3</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-etendus">1.10. Indicateurs étendus</a></li>
 </ul>
   </nav></div>
