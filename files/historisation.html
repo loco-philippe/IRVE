@@ -486,8 +486,6 @@ document.write(`
 <ul class="simple">
 <li><p>nombre,</p></li>
 <li><p>somme</p></li>
-<li><p>mini</p></li>
-<li><p>maxi</p></li>
 </ul>
 <p>A la première étape on aura nombre = 1 et somme = valeur de l’indicateur</p>
 <p>Le passage d’une périodicité à une autre est réalisé de façon automatique :</p>
@@ -614,13 +612,13 @@ C’est le cas également pour le nombre de stations.</p>
 <tr class="row-odd"><td><p>d4</p></td>
 <td><p>Taux de disponibilité par catégorie de puissance</p></td>
 <td><p>2</p></td>
-<td><p>q7</p></td>
+<td><p>q1, q3</p></td>
 <td><p>historique</p></td>
 </tr>
 <tr class="row-even"><td><p>d5</p></td>
 <td><p>Taux de points de recharge avec indispo &gt; 7 j</p></td>
 <td><p>3</p></td>
-<td><p>q7</p></td>
+<td><p>q1, q3</p></td>
 <td><p>historique</p></td>
 </tr>
 </tbody>
@@ -647,9 +645,9 @@ C’est le cas également pour le nombre de stations.</p>
 </ul>
 <p>Plusieurs solutions sont envisageables :</p>
 <ul class="simple">
-<li><p>solution 1 : une table avec les paramètres et les résultats des indicateurs</p></li>
-<li><p>solution 2 : une table avec une valeur JSON par indicateur</p></li>
-<li><p>solution 3 : une table avec une valeur JSON    pour l’ensemble des indicateurs</p></li>
+<li><p>solution 1 : une table avec les résultats des indicateurs (plusieurs lignes par indicateur)</p></li>
+<li><p>solution 2 : une table avec une valeur JSON par indicateur (une ligne par indicateur)</p></li>
+<li><p>solution 3 : une table avec une valeur JSON pour l’ensemble des indicateurs (une ligne pour tous les indicateurs)</p></li>
 </ul>
 <section id="solution-1">
 <h3>Solution 1<a class="headerlink" href="#solution-1" title="Link to this heading">#</a></h3>
@@ -868,7 +866,7 @@ Les indicateurs temporels s’appuient sur les indicateurs historisés, il suffi
 </ul>
 <p>changement d’échelle</p>
 <ul class="simple">
-<li><p>fonction générique : calcul des nouvelles données par requête (min, max, mean), à préciser pour ‘last’</p></li>
+<li><p>fonction générique : calcul des nouvelles données par requête (nombre, somme)</p></li>
 </ul>
 <p>calcul de l’indicateur</p>
 <ul class="simple">

@@ -51,8 +51,6 @@ Pour un résultat d'indicateur, on historise à chaque niveau les valeurs suivan
 
 - nombre,
 - somme
-- mini
-- maxi
 
 A la première étape on aura nombre = 1 et somme = valeur de l'indicateur
 
@@ -136,13 +134,13 @@ Le résultat est obtenu en appliquant les traitements suivants:
 
 Les indicateurs temporels identifiés sont les suivants :
 
-| id  | nom                                              | Pr  | base | fonction       |
-| --- | ------------------------------------------------ | --- | ---- | -------------- |
-| d1  | Taux d'évolution du nombre de stations           | 1   | i4   | taux évolution |
-| d2  | Evolution du nombre de points de recharge        | 1   | i1   | historique     |
-| d3  | Nombre de sessions par point de recharge         | 2   | u3   | historique     |
-| d4  | Taux de disponibilité par catégorie de puissance | 2   | q7   | historique     |
-| d5  | Taux de points de recharge avec indispo > 7 j    | 3   | q7   | historique     |
+| id  | nom                                              | Pr  | base   | fonction       |
+| --- | ------------------------------------------------ | --- | ------ | -------------- |
+| d1  | Taux d'évolution du nombre de stations           | 1   | i4     | taux évolution |
+| d2  | Evolution du nombre de points de recharge        | 1   | i1     | historique     |
+| d3  | Nombre de sessions par point de recharge         | 2   | u3     | historique     |
+| d4  | Taux de disponibilité par catégorie de puissance | 2   | q1, q3 | historique     |
+| d5  | Taux de points de recharge avec indispo > 7 j    | 3   | q1, q3 | historique     |
 
 Nota : Seule la périodicité est intégrée à la codification (voir chapitre 'codification'), l'intervalle doit donc être ajouté à l'indicateur pour fournir un résultat.
 
@@ -162,9 +160,9 @@ L'historisation est à effectuer pour les indicateurs suivants (voir chapitre li
 
 Plusieurs solutions sont envisageables :
 
-- solution 1 : une table avec les paramètres et les résultats des indicateurs
-- solution 2 : une table avec une valeur JSON par indicateur
-- solution 3 : une table avec une valeur JSON    pour l'ensemble des indicateurs
+- solution 1 : une table avec les résultats des indicateurs (plusieurs lignes par indicateur)
+- solution 2 : une table avec une valeur JSON par indicateur (une ligne par indicateur)
+- solution 3 : une table avec une valeur JSON pour l'ensemble des indicateurs (une ligne pour tous les indicateurs)
 
 ### Solution 1
 
@@ -339,7 +337,7 @@ historisation :
 
 changement d'échelle
 
-- fonction générique : calcul des nouvelles données par requête (min, max, mean), à préciser pour 'last'
+- fonction générique : calcul des nouvelles données par requête (nombre, somme)
 
 calcul de l'indicateur
 
