@@ -355,6 +355,12 @@ L'historisation est à effectuer pour les indicateurs suivants (voir chapitre li
 - usage - quantitatif: u1 (mensuel), u3 (quotidien)
 - usage - qualité de service : q1 (quotidien), q2 (quotidien), q5 (mensuel)
 
+Plusieurs solutions sont envisageables :
+
+- solution 1 : une table avec les paramètres et les résultats des indicateurs
+- solution 2 : une table avec une valeur JSON par indicateur
+- solution 3 : une table avec une valeur JSON    pour l'ensemble des indicateurs
+
 ### Solution 1
 
 Chaque résultat d'un indicateur a une structure identique, on peut donc stocker tous les résultats d'un indicateur dans une table. 
@@ -386,6 +392,14 @@ Datation
 
 - timestamp
 
+exemple du nombre de stations par oéprateur en PACA
+
+| min | max | val | last | crit_v  | query | perim | perim_v | crit | timestamp |
+| --- | --- | --- | ---- | ------- | ----- | ----- | ------- | ---- | --------- |
+| 52  | 75  | 60  | 75   | 'oper1' | 't8'  | '01'  | '93'    | ''   | xxxxxxx   |
+| 32  | 55  | 40  | 55   | 'oper2' | 't8'  | '01'  | '93'    | ''   | xxxxxxx   |
+| 72  | 95  | 80  | 95   | 'oper3' | 't8'  | '01'  | '93'    | ''   | xxxxxxx   |
+
 ```{admonition} Exemple
 'taux d'évolution du nombre de stations sur 12 mois au 01/01/2024 par département ' :
 
@@ -399,23 +413,30 @@ Le passage d'une table à une autre s'effectue en calculant les nouvelles valeur
 
 Idem Solution 1 mais avec une ligne par indicateur, le résultat de l'indicateur étant stocké dans un JSON.
 
-```{admonition} Exemple
+:::{admonition} Exemple
 'nombre de station par opérateur'
 
-Solution 1 
+| json    | query | perim | perim_v | crit | timestamp |
+| ------- | ----- | ----- | ------- | ---- | --------- |
+| json_op | 't8'  | '93'  | '13'    | ''   |  xxxxxxx  |
 
-| min  | max  | val   | last  | crit_v   | query | perim | perim_v  | crit  |
-|
 
-
-| min  | max  | val   | last  | crit_v   | query | perim | perim_v | crit |
-| ---- | ---- | ----- | ----- | -------- | ----- | ----- | ------- | ---- |
-| 52  | 75  | 60  | 75  | 'oper1' | 't8' | '93' | '13' | ''  |
+avec json_op :
 ```
+ [
+    {'crit_v': 'oper1', 'min': 52, 'max': 75, 'val': 60, 'last': 75},
+    {'crit_v': 'oper2', ...},
+    ...
+]
+```
+:::
 
 ### Solution 3
 
-L'exemple ci-dessous montre l'enregistrement avec un format structuré (JSON) du nombre de stations (i4), de points de charge (i1) et la puissance installée (i7) pour chaque commune, département, opérateur et région.
+Idem solution 2 mais avec une ligne commune pour tous les indicateurs, les résultats des indicateurs sont stockés dans un JSON
+
+:::{admonition} Exemple
+JSON commun avec les indicateurs du nombre de stations (i4), de points de charge (i1) et la puissance installée (i7) pour chaque commune, département, opérateur et région.
 
 ```json
 {
@@ -491,6 +512,86 @@ department: json
 region: json
 operational_unit: json
 ```
+:::
+
+### Avantages - inconvenients
+
+Les solutions sont comparées sur la base des fonctions suivantes :
+- historisation initiale des données
+- changement d'échelle de temps
+- calcul de l'indicateur temporel
+- purge des données
+- évolutivité
+
+#### solution 1
+
+historisation :
+
+- fonction générique : le format de stockage est identique au résultat de la requête
+
+changement d'échelle
+
+- fonction générique : calcul des nouvelles données par requête (min, max, mean), à préciser pour 'last'
+
+calcul de l'indicateur
+
+- indépendant de la périodicité
+- générique / spécifique : à préciser
+
+purge des données
+
+- suppression de lignes en fonction de la valeur du timestamp
+
+évolutivité
+
+- ajout d'indicateur sans reconfiguration nécessaire
+
+#### solution 2
+
+historisation :
+
+- fonction générique : conversion au format Json du résultat des requêtes
+
+changement d'échelle
+
+- fonction générique : à préciser (traitement par pandas nécessaire ?)
+
+calcul de l'indicateur
+
+- indépendant de la périodicité
+- générique / spécifique : à préciser (conversion json nécessaire)
+
+purge des données
+
+- suppression de lignes en fonction de la valeur du timestamp
+
+évolutivité
+
+- ajout d'indicateur sans reconfiguration nécessaire
+
+#### solution 3
+
+historisation :
+
+- ne peut se faire indicateur par indicateur
+- nécessite de construire le json global (mapping entre indicateur et les 'key' du json)
+
+changement d'échelle
+
+- décodage préalable du format json et traitement de chaque 'key'
+
+calcul de l'indicateur
+
+- indépendant de la périodicité
+- décodage préalable du format json et traitement de chaque 'key'
+
+purge des données
+
+- suppression de lignes en fonction de la valeur du timestamp
+
+évolutivité
+
+- l'ajout d'indicateur nécessite de reconfigurer le format JSON. La cohabitation de plusieurs formats JSON différents est à étudier
 
 ## Indicateurs étendus
 
