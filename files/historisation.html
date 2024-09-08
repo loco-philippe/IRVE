@@ -521,19 +521,35 @@ document.write(`
 </section>
 <section id="periodicite">
 <h3>périodicité<a class="headerlink" href="#periodicite" title="Link to this heading">#</a></h3>
+<p>Les valeurs associées à une périodicité répondent à deux types de données :</p>
+<ul class="simple">
+<li><p>les données cumulables dont le passage à l’échelle se traduit par un cumul.</p></li>
+</ul>
+<div class="admonition-exemple admonition">
+<p class="admonition-title">Exemple</p>
+<p>C’est le cas du nombre de sessions dont la valeur annuelle peut être calculée comme la somme des sessions mensuelles elles-mêmes calculées comme la somme des sessions quotidiennes,</p>
+</div>
+<ul class="simple">
+<li><p>les données ajustables dont le passage à l’échelle se traduit par une moyenne.</p></li>
+</ul>
+<div class="admonition-exemple admonition">
+<p class="admonition-title">Exemple</p>
+<p>Par exemple, la puissance moyenne installée de l’année peut être calculée à partir des puissances moyennes installées du mois elles-mêmes calculées à partir des puissances moyennes installées quotidiennes.</p>
+<p>C’est le cas également pour le nombre de stations.</p>
+</div>
 <p>Chaque périodicité peut être associée à une (ou plusieurs) table purgée avec une fréquence spécifique. Par exemple, un stockage horaire pourrait être purgé chaque semaine ou chaque mois.</p>
 <p>Pour un résultat d’indicateur, on historise à chaque niveau les valeurs suivantes:</p>
 <ul class="simple">
-<li><p>nombre,</p></li>
-<li><p>somme</p></li>
+<li><p>nombre (nombre de valeurs utilisées),</p></li>
+<li><p>somme (cumul des valeurs utilisées)</p></li>
 </ul>
-<p>A la première étape on aura nombre = 1 et somme = valeur de l’indicateur</p>
+<p>Ces deux valeurs permettent de traiter les données cumulable (somme) et les données ajustables (moyenne = somme / nombre)</p>
 <p>Le passage d’une périodicité ‘n’ à une périodicité ‘n+1’ est réalisé de façon automatique :</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(nombre_{n+1} = \sum nombre_n\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(somme_{n+1} = \sum somme_n\)</span></p></li>
+<li><p>à la première étape, nombre = 1 et somme = valeur de l’indicateur</p></li>
 </ul>
-<p>La valeur moyenne se déduit de ‘somme’ et ‘nombre’ (moyenne = somme / nombre).</p>
 <div class="admonition-exemple admonition">
 <p class="admonition-title">Exemple</p>
 <p>On a historisé les valeurs mensuelles suivantes pour un trimestre de l’indicateur du nombre de stations :</p>
@@ -562,22 +578,6 @@ document.write(`
 <li><p>somme : 4550</p></li>
 </ul>
 <p>On a donc pour le trimestre un nombre moyen de stations de 51.1</p>
-</div>
-<p>On distingue notamment deux types d’utilisation :</p>
-<ul class="simple">
-<li><p>les données cumulables dont le passage à l’échelle se traduit par un cumul.</p></li>
-</ul>
-<div class="admonition-exemple admonition">
-<p class="admonition-title">Exemple</p>
-<p>C’est le cas du nombre de sessions dont la valeur annuelle peut être calculée comme la somme des sessions mensuelles elles-mêmes calculées comme la somme des sessions quotidiennes,</p>
-</div>
-<ul class="simple">
-<li><p>les données ajustables dont le passage à l’échelle se traduit par une moyenne.</p></li>
-</ul>
-<div class="admonition-exemple admonition">
-<p class="admonition-title">Exemple</p>
-<p>Par exemple, la puissance moyenne installée de l’année peut être calculée à partir des puissances moyennes installées du mois elles-mêmes calculées à partir des puissances moyennes installées quotidiennes.
-C’est le cas également pour le nombre de stations.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>

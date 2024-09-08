@@ -81,21 +81,36 @@ Si le nombre de points de recharges fait l'objet de valeurs quotidiennes et de v
 
 ### périodicité
 
+Les valeurs associées à une périodicité répondent à deux types de données :
+
+- les données cumulables dont le passage à l'échelle se traduit par un cumul.
+
+```{admonition} Exemple
+C'est le cas du nombre de sessions dont la valeur annuelle peut être calculée comme la somme des sessions mensuelles elles-mêmes calculées comme la somme des sessions quotidiennes,
+```
+
+- les données ajustables dont le passage à l'échelle se traduit par une moyenne.
+
+```{admonition} Exemple
+Par exemple, la puissance moyenne installée de l'année peut être calculée à partir des puissances moyennes installées du mois elles-mêmes calculées à partir des puissances moyennes installées quotidiennes.
+
+C'est le cas également pour le nombre de stations.
+```
+
 Chaque périodicité peut être associée à une (ou plusieurs) table purgée avec une fréquence spécifique. Par exemple, un stockage horaire pourrait être purgé chaque semaine ou chaque mois.
 
 Pour un résultat d'indicateur, on historise à chaque niveau les valeurs suivantes:
 
-- nombre,
-- somme
+- nombre (nombre de valeurs utilisées),
+- somme (cumul des valeurs utilisées)
 
-A la première étape on aura nombre = 1 et somme = valeur de l'indicateur
+Ces deux valeurs permettent de traiter les données cumulable (somme) et les données ajustables (moyenne = somme / nombre)
 
 Le passage d'une périodicité 'n' à une périodicité 'n+1' est réalisé de façon automatique :
 
 - $nombre_{n+1} = \sum nombre_n$
 - $somme_{n+1} = \sum somme_n$
-
-La valeur moyenne se déduit de 'somme' et 'nombre' (moyenne = somme / nombre).
+- à la première étape, nombre = 1 et somme = valeur de l'indicateur
 
 ```{admonition} Exemple
 On a historisé les valeurs mensuelles suivantes pour un trimestre de l'indicateur du nombre de stations :
@@ -113,21 +128,6 @@ La valeur historisée du nombre de stations pour le trimestre est :
 
 On a donc pour le trimestre un nombre moyen de stations de 51.1
 
-```
-
-On distingue notamment deux types d'utilisation :
-
-- les données cumulables dont le passage à l'échelle se traduit par un cumul.
-
-```{admonition} Exemple
-C'est le cas du nombre de sessions dont la valeur annuelle peut être calculée comme la somme des sessions mensuelles elles-mêmes calculées comme la somme des sessions quotidiennes,
-```
-
-- les données ajustables dont le passage à l'échelle se traduit par une moyenne.
-
-```{admonition} Exemple
-Par exemple, la puissance moyenne installée de l'année peut être calculée à partir des puissances moyennes installées du mois elles-mêmes calculées à partir des puissances moyennes installées quotidiennes.
-C'est le cas également pour le nombre de stations.
 ```
 
 :::{note}
