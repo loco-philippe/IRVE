@@ -22,7 +22,43 @@ On peut citer par exemple les indicateurs AVERE suivants :
 
 Le calcul des indicateurs temporels doit pouvoir être réalisé en optimisant les temps de calcul et le volume de données stockées (il serait, par exemple, couteux de calculer une valeur annuelle à partir de données horaires).
 
-Les principes proposés pour cela sont les suivants :
+### Principes
+
+Les principes proposés sont présentés dans le schéma ci-dessous :
+
+:::{mermaid}
+flowchart LR
+    subgraph état courant
+        direction RL
+        dyn[("`base 
+        dynamique`")]
+        stat[("`base 
+        statique`")]
+    end
+
+    subgraph historisation
+        direction RL
+        heure("`histo
+         heure`")
+        jour("`histo
+         jour`")
+        mois("`histo
+         mois`")
+        an("`histo
+         année`")
+
+        heure -->|quotidien| jour
+        jour -->|mensuel| mois
+        mois -->|annuel| an
+        heure -->|purge| heure
+        jour -->|purge| jour
+        mois -->|purge| mois
+        an -->|purge| an
+    end  
+    dyn -->|indicateur horaire| heure   
+    stat -->|indicateur quotidien| jour   
+    historisation -->|indicateur temporel| restitution
+:::
 
 - historisation des données à différentes échelles de temps (périodicité).
 
@@ -54,7 +90,7 @@ Pour un résultat d'indicateur, on historise à chaque niveau les valeurs suivan
 
 A la première étape on aura nombre = 1 et somme = valeur de l'indicateur
 
-Le passage d'une périodicité à une autre est réalisé de façon automatique :
+Le passage d'une périodicité 'n' à une périodicité 'n+1' est réalisé de façon automatique :
 
 - $nombre_{n+1} = \sum nombre_n$
 - $somme_{n+1} = \sum somme_n$
