@@ -1,0 +1,749 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Analyse du modèle de données &#8212; Indicateurs book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script src="https://unpkg.com/mermaid@10.2.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'files/modeles';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Etat des stations et points de recharge" href="etats.html" />
+    <link rel="prev" title="Solutions pour l’historisation des données et les indicateurs temporels" href="historisation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo_fabnum_mtes.png" class="logo__image only-light" alt="Indicateurs book - Home"/>
+    <script>document.write(`<img src="../_static/logo_fabnum_mtes.png" class="logo__image only-dark" alt="Indicateurs book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Qualicharge - Indicateurs et analyses
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs de référence</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="indicateurs.html">1. Indicateurs de  référence</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs génériques</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../gen/intro_gen.html">2. Structuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gen/criteres_gen.html">3. Critères de filtrage ou d’agrégation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gen/valorisation_gen.html">4. Valorisation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs spécifiques</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="planification.html">5. Planification écologique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="validation.html">6. Anomalie de consommation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modelisation.html">7. Modèle prédictif</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Annexes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="IRVE_indicateurs.html">Indicateurs d’intégrité</a></li>
+<li class="toctree-l1"><a class="reference internal" href="historisation.html">Solutions pour l’historisation des données et les indicateurs temporels</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Analyse du modèle de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="etats.html">Etat des stations et points de recharge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stations.html">Analyse de la structure des stations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coherence_geographique.html">Analyse de la cohérence géographique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="puissance.html">Analyse de la puissance des stations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossaire.html">Glossaire</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ffiles/modeles.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/files/modeles.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Analyse du modèle de données</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modele-qualicharge">Modèle Qualicharge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compatibilite-indicateurs">Compatibilité indicateurs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autres-besoins-d-evolutions-du-modele-de-donnees">Autres besoins d’évolutions du modèle de données</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compatibilite-avec-les-donnees-transport-gouv">Compatibilité avec les données <code class="docutils literal notranslate"><span class="pre">transport.gouv</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition-de-conversion-du-format-csv-transport-gouv-au-format-csv-qualicharge">Proposition de conversion du format CSV <code class="docutils literal notranslate"><span class="pre">transport.gouv</span></code> au format CSV Qualicharge</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="analyse-du-modele-de-donnees">
+<h1>Analyse du modèle de données<a class="headerlink" href="#analyse-du-modele-de-donnees" title="Link to this heading">#</a></h1>
+<p>Ce chapitre analyse le modèle de données QualiCharge par rapport aux indicateurs à produire ainsi que vis à vis de la base <code class="docutils literal notranslate"><span class="pre">transport.gouv</span></code>.</p>
+<section id="modele-qualicharge">
+<h2>Modèle Qualicharge<a class="headerlink" href="#modele-qualicharge" title="Link to this heading">#</a></h2>
+<p>Le modèle Qualicharge intègre les données staiques et dynamiques.</p>
+<p>Il est présenté ci-dessous sous la forme “entité-association”</p>
+<div class="mermaid">
+            erDiagram
+    AMENAGEUR ||..|{ STATION : amenage
+    AMENAGEUR {
+        UUID id
+        string nom_amenageur
+        string siren_amenageur
+        string contact_amenageur 
+    }
+    OPERATEUR ||..|{ STATION : &quot;exploite pour le compte de l enseigne&quot;
+    OPERATEUR {
+        UUID id
+        string contact_operateur PK &quot;M&quot;
+        string nom_operateur 
+        string telephone_operateur 
+    }
+    ENSEIGNE ||..|{ STATION : &quot;heberge&quot;
+    ENSEIGNE {
+        UUID id 
+        string nom_enseigne PK &quot;M&quot; 
+    }
+    STATION {
+        UUID id 
+        string  id_station_itinerance PK &quot;M&quot;
+        string  nom_station &quot;M&quot;
+        enum    implantation_station &quot;M&quot;
+        integer nbre_pdc &quot;M&quot;
+        string  condition_acces &quot;M&quot;
+        string  horaires &quot;M&quot;
+        boolean station_deux_roues &quot;M&quot;
+        date    date_maj &quot;M&quot;
+        string  id_station_local
+        enum    raccordement
+        string  num_pdl
+        date    date_mise_en_service 
+    }
+    LOCALISATION ||--|{ STATION : &quot;localise&quot;
+    LOCALISATION {
+       UUID id
+       array   coordonneesXY PK &quot;M&quot;
+       string  adresse_station &quot;M&quot;
+       string  code_insee_commune 
+    }
+    STATION ||--|{ POINT_DE_CHARGE : regroupe
+    POINT_DE_CHARGE {
+        UUID id 
+        string id_pdc_itinerance PK &quot;M Root&quot;
+        number puissance_nominale &quot;M&quot;
+        boolean prise_type_ef &quot;M&quot;
+        boolean prise_type_2 &quot;M&quot; 
+        boolean prise_type_combo_ccs &quot;M&quot;
+        boolean prise_type_chademo &quot;M&quot;
+        boolean prise_type_autre &quot;M&quot;
+        boolean paiement_acte &quot;M&quot;
+        boolean reservation &quot;M&quot;
+        enum    accessibilite_pmr &quot;M&quot;
+        string  restriction_gabarit &quot;M&quot;
+        string  id_pdc_local
+        boolean gratuit
+        boolean paiement_cb
+        boolean paiement_autre
+        string  tarification
+        string  observations
+        boolean cable_t2_attache
+    }
+    OPERATIONAL_UNIT ||--|{ STATION : &quot;relationship&quot;
+    OPERATIONAL_UNIT {
+        UUID id 
+        string code &quot;M&quot;
+        string name &quot;M&quot;
+        enum type &quot;M&quot;
+    }
+    POINT_DE_CHARGE ||--|{ SESSION : &quot;a pour session&quot;
+    SESSION {
+        UUID id 
+        datetime start &quot;M&quot;
+        datetime end &quot;M&quot;
+        number energy &quot;M&quot;
+    }
+    POINT_DE_CHARGE ||--|{ STATUS : &quot;a pour status&quot;
+    STATUS {
+        UUID id 
+        datetime horodatage &quot;M&quot;
+        enum     etat_pdc &quot;M&quot;
+        enum     occupation_pdc &quot;M&quot;
+        enum     etat_prise_type_2
+        enum     etat_prise_type_combo_ccs
+        enum     etat_prise_type_chademo
+        enum     etat_prise_type_ef
+    }
+        </div><p><em>figure 1 :</em> <em>Modele qualicharge - v0.5.0</em></p>
+</section>
+<section id="compatibilite-indicateurs">
+<h2>Compatibilité indicateurs<a class="headerlink" href="#compatibilite-indicateurs" title="Link to this heading">#</a></h2>
+<p>Le modèle contient l’ensemble des informations permettant de générer les indicateurs à l’exception de ceux traitant des informations suivantes :</p>
+<ul class="simple">
+<li><p>état activé ou désactivé d’un point de recharge (ou d’une station): Cette information est nécessaire pour ne pas fausser les indicateurs (ne pas tenir compte des points de recharge désactivés)</p></li>
+<li><p>identification de l’opérateur: La seule information obligatoire concernant l’opérateur est une adresse email (le nom de l’opérateur est optionnel)</p></li>
+<li><p>identification de l’aménageur: L’aménageur n’est pas identifié explicitement (toutes les informations liées à l’aménageur sont optionnelles)</p></li>
+<li><p>site d’implantation: Les types d’implantation définis ne permettent pas de restituer la nature du site telle qu’elle est restituée par l’AVERE (ex. commerce, entreprise)</p></li>
+<li><p>puissance: La puissance est actuellement identifiée par une valeur. Une classification par niveau de puissance permettrait des analyses par gamme de puissance</p></li>
+<li><p>type d’alimentation AC/DC: Cette information est souhaitable</p></li>
+<li><p>Type de session: Cette information permettrait d’identifier par exemple les charges partielles ou interrompues</p></li>
+<li><p>tarification: Cette information est souhaitable (présente dans les indicateurs AVERE)</p></li>
+<li><p>qualité de service: le taux d’occupation ou la disponibilité d’un point de charge nécessite de disposer du temps passé dans chaque état (voir <a class="reference internal" href="etats.html"><span class="std std-doc">état des points de recharge</span></a>). Cette information est présente pour les sessions (table ‘session’) mais pas pour les périodes d’indisponibilité (pannes ou arrêt). Les périoes d’indisponibilité doivent être explicites pour élaborer les indicateurs de qualité de service</p></li>
+</ul>
+</section>
+<section id="autres-besoins-d-evolutions-du-modele-de-donnees">
+<h2>Autres besoins d’évolutions du modèle de données<a class="headerlink" href="#autres-besoins-d-evolutions-du-modele-de-donnees" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>besoin d’identifier de façon unique le “responsable initial” du PDC correctement, et d’avoir également l’email de contact fiable du producteur de la donnée (besoin : pouvoir le notifier de façon fiable en automatique, pour scaler le dispositif d’un point de vue gestion chez nous)</p></li>
+<li><p>énorme point d’attention concernant la “productibilité” (fait d’être produit plus ou moins facilement) des champs. En effet vu la variété des acteurs, et l’historique, on va fragmenter la qualité de la base consolidée si on ne prête pas attention suffisante à ça (certains pourront produire, d’autres pas si facilement), voire, perdre des PDC (situation qui se produisait en v2 initialement, qui nous a amené à rendre optionnels certains champs)</p></li>
+<li><p>sur les formats des attributs, on gagnera à homogénéiser (ou à transformer à la volée quand on consolide si ça peut se faire simplement) et resserrer la vis</p></li>
+<li><p>Une autre option pour simplifier pourrait être de sortir les attributs liés aux opérateurs et aux aménageurs (données quasi-fixes qui sont plus associées à un profil admin et qui pourraient être gérées séparément). Il n’y aurait dans ce cas qu’un seul attribut <code class="docutils literal notranslate"><span class="pre">id_operateur</span></code> et <code class="docutils literal notranslate"><span class="pre">id_amenageur</span></code> à associer aux stations. Ca permettrait également de faciliter les transferts de responsabilité de stations d’un opérateur à l’autre (sinon, c’est plus compliqué à gérér).</p></li>
+</ul>
+</section>
+<section id="compatibilite-avec-les-donnees-transport-gouv">
+<h2>Compatibilité avec les données <code class="docutils literal notranslate"><span class="pre">transport.gouv</span></code><a class="headerlink" href="#compatibilite-avec-les-donnees-transport-gouv" title="Link to this heading">#</a></h2>
+<p>Pour la partie statique, les attributs du modèle de données sont identiques à ceux du dataset <code class="docutils literal notranslate"><span class="pre">transport.gouv</span></code>.
+Les deux structures comportent néanmoins les écarts suivants :</p>
+<ul>
+<li><p>modèle de données:</p>
+<p>Pour QualiCharge, l’intégrité du modèle de données est garantie par la structure de la base de données et les API associés.
+Pour <code class="docutils literal notranslate"><span class="pre">transport.gouv</span></code>, l’intégrité du modèle n’est pas controlée en amont (elle l’est uniquement a posteriori).</p>
+</li>
+<li><p>valeurs des attributs:</p>
+<p>Le niveau de qualité des attributs est contrôlé dans les deux cas en amont (via les API pour QualiCharge, via Validata pour <code class="docutils literal notranslate"><span class="pre">transport.gouv</span></code>).
+De façon générale, la niveau de qualité attendue des valeurs des attributs pour QualiCharge est plus élevé que celui de <code class="docutils literal notranslate"><span class="pre">transport.gouv</span></code>.</p>
+<p>Les différences relevées sont les suivantes :</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>attribut</p></th>
+<th class="head"><p>Qualicharge</p></th>
+<th class="head"><p>Schema statique</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>contact_amenageur</p></td>
+<td><p>EmailStr</p></td>
+<td><p>format email</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>contact_operateur (M)</p></td>
+<td><p>EmailStr</p></td>
+<td><p>format email</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>telephone_operateur</p></td>
+<td><p>FrenchPhoneNumber</p></td>
+<td><p>string</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>nbre_pdc (M)</p></td>
+<td><p>PositiveInt</p></td>
+<td><p>int</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>date_maj (M)</p></td>
+<td><p>PastDate</p></td>
+<td><p>date</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>num_pdl</p></td>
+<td><p>“^\d{14}$”</p></td>
+<td><p>string</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>date_mise_en_service</p></td>
+<td><p>PastDate</p></td>
+<td><p>date</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>puissance_nominale (M)</p></td>
+<td><p>PositiveFloat</p></td>
+<td><p>float</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Qualicharge intègre également le contrôle de cohérence du prefixe AFIREV entre id-station et id_pdc.</p>
+</li>
+</ul>
+<p>L’échange de données entre les deux bases nécessite de mettre en place une stratégie de prise en compte de ces différences (ne concerne que le sens <code class="docutils literal notranslate"><span class="pre">transport.gouv</span></code>vers QualiCharge).</p>
+</section>
+<section id="proposition-de-conversion-du-format-csv-transport-gouv-au-format-csv-qualicharge">
+<h2>Proposition de conversion du format CSV <code class="docutils literal notranslate"><span class="pre">transport.gouv</span></code> au format CSV Qualicharge<a class="headerlink" href="#proposition-de-conversion-du-format-csv-transport-gouv-au-format-csv-qualicharge" title="Link to this heading">#</a></h2>
+<p>L’objectif est de traiter les écarts de structure identifiés ci-dessus et d’éliminer les données erronées.</p>
+<p>Les principes retenus pour traiter les données ne respectant pas le format QualiCharge sont les suivants (pour chaque donnée provoquant une erreur):</p>
+<ul class="simple">
+<li><p>les données facultatives sont transformées en données vides (valeur spécifique à chaque type de donnée),</p></li>
+<li><p>les données obligatoires dont les formats sont différentes sont transformées en données spécifiques:</p>
+<ul>
+<li><p>date_maj: valeur de la date du jour (pour les date postérieures à la date du jour),</p></li>
+<li><p>puissance_nominale: valeur opposée (pour les valeurs négatives)</p></li>
+<li><p>nbre_pdc: valeur nulle (la valeur du champ peut être recalculée si besoin)</p></li>
+<li><p>contact_operateur: à préciser (en fonction des différences entre les formats <code class="docutils literal notranslate"><span class="pre">EmailStr</span></code> et <code class="docutils literal notranslate"><span class="pre">format</span> <span class="pre">email</span></code>)</p></li>
+</ul>
+</li>
+<li><p>les autres données obligatoires dont les formats sont identiques sont traitées comme une erreur portant sur la station (la station n’est pas prise en compte).</p></li>
+</ul>
+<p>Le principe d’implémentation est de tester la création d’une instance de la classe <code class="docutils literal notranslate"><span class="pre">Statique</span></code> pour chaque ligne, et en cas d’erreur d’appliquer les principes ci-dessus (remplacement des données avec des formats différents et suppression des stations erronées).</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./files"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="historisation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Solutions pour l’historisation des données et les indicateurs temporels</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="etats.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Etat des stations et points de recharge</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modele-qualicharge">Modèle Qualicharge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compatibilite-indicateurs">Compatibilité indicateurs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autres-besoins-d-evolutions-du-modele-de-donnees">Autres besoins d’évolutions du modèle de données</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compatibilite-avec-les-donnees-transport-gouv">Compatibilité avec les données <code class="docutils literal notranslate"><span class="pre">transport.gouv</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition-de-conversion-du-format-csv-transport-gouv-au-format-csv-qualicharge">Proposition de conversion du format CSV <code class="docutils literal notranslate"><span class="pre">transport.gouv</span></code> au format CSV Qualicharge</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

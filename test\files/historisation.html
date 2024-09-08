@@ -1,0 +1,1041 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Solutions pour l’historisation des données et les indicateurs temporels &#8212; Indicateurs book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'files/historisation';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Analyse du modèle de données" href="modeles.html" />
+    <link rel="prev" title="Indicateurs d’intégrité" href="IRVE_indicateurs.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo_fabnum_mtes.png" class="logo__image only-light" alt="Indicateurs book - Home"/>
+    <script>document.write(`<img src="../_static/logo_fabnum_mtes.png" class="logo__image only-dark" alt="Indicateurs book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Qualicharge - Indicateurs et analyses
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs de référence</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="indicateurs.html">1. Indicateurs de  référence</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs génériques</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../gen/intro_gen.html">2. Structuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gen/criteres_gen.html">3. Critères de filtrage ou d’agrégation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gen/valorisation_gen.html">4. Valorisation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs spécifiques</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="planification.html">5. Planification écologique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="validation.html">6. Anomalie de consommation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modelisation.html">7. Modèle prédictif</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Annexes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="IRVE_indicateurs.html">Indicateurs d’intégrité</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Solutions pour l’historisation des données et les indicateurs temporels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modeles.html">Analyse du modèle de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="etats.html">Etat des stations et points de recharge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stations.html">Analyse de la structure des stations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coherence_geographique.html">Analyse de la cohérence géographique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="puissance.html">Analyse de la puissance des stations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossaire.html">Glossaire</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ffiles/historisation.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/files/historisation.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Solutions pour l’historisation des données et les indicateurs temporels</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-temporels">Indicateurs temporels</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristiques">Caractéristiques</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mise-en-oeuvre">Mise en oeuvre</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identification">Identification</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historisation-des-donnees">Historisation des données</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-1">Solution 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-2">Solution 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-3">Solution 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avantages-inconvenients">Avantages - inconvenients</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">solution 1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">solution 2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">solution 3</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-etendus">Indicateurs étendus</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="solutions-pour-l-historisation-des-donnees-et-les-indicateurs-temporels">
+<h1>Solutions pour l’historisation des données et les indicateurs temporels<a class="headerlink" href="#solutions-pour-l-historisation-des-donnees-et-les-indicateurs-temporels" title="Link to this heading">#</a></h1>
+<p>Proposition de différentes solutions pour calculer des indicateurs temporels à des échelles de temps variables.</p>
+<section id="indicateurs-temporels">
+<h2>Indicateurs temporels<a class="headerlink" href="#indicateurs-temporels" title="Link to this heading">#</a></h2>
+<section id="caracteristiques">
+<h3>Caractéristiques<a class="headerlink" href="#caracteristiques" title="Link to this heading">#</a></h3>
+<p>Il s’agit des indicateurs associés à un intervalle temporel et à une périodicité. Ils peuvent prendre plusieurs formes :</p>
+<ul class="simple">
+<li><p>un historique de valeurs sur l’intervalle (ex. un histogramme),</p></li>
+<li><p>une représentation statistique (ex. une moyenne, une interpolation linéaire)</p></li>
+<li><p>une analyse spécifique</p></li>
+</ul>
+<p>On peut citer par exemple les indicateurs AVERE suivants :</p>
+<ul class="simple">
+<li><p>Taux d’évolution du nombre de stations sur 12 mois</p></li>
+<li><p>Evolution du nombre de points de recharge par année</p></li>
+<li><p>Évolution du nombre de points de recharge par mois sur deux ans</p></li>
+<li><p>Nombre de sessions moyen mensuel par point de recharge</p></li>
+<li><p>Taux de disponibilité du mois par catégorie de puissance</p></li>
+</ul>
+<p>Le calcul des indicateurs temporels doit pouvoir être réalisé en optimisant les temps de calcul et le volume de données stockées (il serait, par exemple, couteux de calculer une valeur annuelle à partir de données horaires).</p>
+<p>Les principes proposés pour cela sont les suivants :</p>
+<ul class="simple">
+<li><p>historisation des données à différentes échelles de temps (périodicité).</p></li>
+</ul>
+<div class="admonition-exemple admonition">
+<p class="admonition-title">Exemple</p>
+<p>Pour présenter l’évolution du nombre de points de recharge par mois sur deux ans, il est nécessaire d’avoir stocké au préalable mensuellement le nombre de points de recharge.</p>
+</div>
+<ul class="simple">
+<li><p>historisation de données “scalables” (qu’on peut calculer pour une périodicité à partir de données existantes à une périodicité plus faible)</p></li>
+</ul>
+<div class="admonition-exemples admonition">
+<p class="admonition-title">Exemples</p>
+<ul class="simple">
+<li><p>calcul des valeurs annuelles à partir des valeurs mensuelles (et valeurs mensuelles à partir des valeurs quotidiennes).</p></li>
+<li><p>le taux de disponibilité qui est le ratio du temps de bon fonctionnement sur le temps d’ouverture n’est pas scalable (le taux mensuel n’est pas égal à la moyenne des taux journaliers). Par contre, le temps de bon fonctionnement et le temps d’ouverture sont scalables et on peut donc calculer le taux de disponibilité sur une période à partir du temps de bon fonctionnement sur la période et du temps d’ouverture sur la période.</p></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p>purge des données anciennes.</p></li>
+</ul>
+<div class="admonition-exemple admonition">
+<p class="admonition-title">Exemple</p>
+<p>Si le nombre de points de recharges fait l’objet de valeurs quotidiennes et de valeurs mensuelles, il n’est pas nécessaire de conserver les valeurs quotidiennes datant de plusieurs mois.</p>
+</div>
+</section>
+<section id="mise-en-oeuvre">
+<h3>Mise en oeuvre<a class="headerlink" href="#mise-en-oeuvre" title="Link to this heading">#</a></h3>
+<p>Chaque périodicité peut être associée à une (ou plusieurs) table purgée avec une fréquence spécifique. Par exemple, un stockage horaire pourrait être purgé chaque semaine ou chaque mois.</p>
+<p>Le passage d’une périodicité à une autre est réalisé de façon automatique en appliquant une fonction simple. On distingue notamment:</p>
+<ul class="simple">
+<li><p>les données cumulables dont le passage à l’échelle se traduit par un cumul (somme). C’est le cas du nombre de session dont la valeur annuelle peut être calculée comme la somme des sessions mensuelles elles-mêmes calculées comme la somme des sessions quotidiennes,</p></li>
+<li><p>les données ajustables dont le passage à l’échelle se traduit par un ensemble de valeurs (moyenne, maxi, mini, dernière). Par exemple, la puissance moyenne installée de l’année peut être calculée à partir de la moyenne des puissances installées du mois elles-mêmes calculées à partir de la moyenne des puissances installées quotidiennes.</p></li>
+</ul>
+<p>Le résultat de l’indicateur peut prendre plusieurs formes :</p>
+<ul class="simple">
+<li><p>historique de valeurs</p></li>
+<li><p>variation (relative) : écart (relatif) entre la première et la dernière valeur</p></li>
+<li><p>fonction statistique appliquée à l’ensemble des valeurs (ex. écart-type)</p></li>
+</ul>
+<p>Un indicateur temporel est donc défini par :</p>
+<ul class="simple">
+<li><p>l’indicateur de base à utiliser,</p></li>
+<li><p>l’intervalle,</p></li>
+<li><p>la périodicité,</p></li>
+<li><p>la valeur historisée,</p></li>
+<li><p>la fonction appliquée.</p></li>
+</ul>
+<div class="admonition-exemple admonition">
+<p class="admonition-title">Exemple</p>
+<p>L’indicateur du taux d’évolution du nombre de stations sur 12 mois au 01/01/2024 par département est défini par :</p>
+<ul class="simple">
+<li><p>l’indicateur de base : ‘i4—04’,</p></li>
+<li><p>l’intervalle : entre le 01/01/2023 et le 01/01/2024,</p></li>
+<li><p>la périodicité : mensuelle,</p></li>
+<li><p>la valeur historisée : dernière,</p></li>
+<li><p>la fonction : taux d’évolution (1 - valeur mensuelle début / valeur mensuelle fin).</p></li>
+</ul>
+<p>Le résultat est obtenu en appliquant les traitements suivants:</p>
+<ul class="simple">
+<li><p>calcul quotidien de l’indicateur ‘i4–04’ sur les données statiques courantes,</p></li>
+<li><p>chaque jour, historisation du résultat du calcul,</p></li>
+<li><p>chaque mois, historisation du jeu de valeurs mensuel (moyenne, maxi, mini, dernière) obtenu à partir des données quotidiennes,</p></li>
+<li><p>calcul du taux d’évolution sur les données de l’historisation mensuelle (dernière valeur).</p></li>
+</ul>
+</div>
+</section>
+<section id="identification">
+<h3>Identification<a class="headerlink" href="#identification" title="Link to this heading">#</a></h3>
+<p>Les indicateurs temporels identifiés sont les suivants :</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>id</p></th>
+<th class="head"><p>nom</p></th>
+<th class="head"><p>Pr</p></th>
+<th class="head"><p>base</p></th>
+<th class="head"><p>valeur</p></th>
+<th class="head"><p>fonction</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>d1</p></td>
+<td><p>Taux d’évolution du nombre de stations</p></td>
+<td><p>1</p></td>
+<td><p>i4</p></td>
+<td><p>dernière</p></td>
+<td><p>taux évolution</p></td>
+</tr>
+<tr class="row-odd"><td><p>d2</p></td>
+<td><p>Evolution du nombre de points de recharge</p></td>
+<td><p>1</p></td>
+<td><p>i1</p></td>
+<td><p>dernière</p></td>
+<td><p>historique</p></td>
+</tr>
+<tr class="row-even"><td><p>d3</p></td>
+<td><p>Nombre de sessions par point de recharge</p></td>
+<td><p>2</p></td>
+<td><p>u3</p></td>
+<td><p>somme</p></td>
+<td><p>historique</p></td>
+</tr>
+<tr class="row-odd"><td><p>d4</p></td>
+<td><p>Taux de disponibilité par catégorie de puissance</p></td>
+<td><p>2</p></td>
+<td><p>q7</p></td>
+<td><p>somme</p></td>
+<td><p>historique</p></td>
+</tr>
+<tr class="row-even"><td><p>d5</p></td>
+<td><p>Taux de points de recharge avec indispo &gt; 7 j</p></td>
+<td><p>3</p></td>
+<td><p>q7</p></td>
+<td><p>moyenne</p></td>
+<td><p>historique</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Nota : Seule la périodicité est intégrée à la codification (voir chapitre ‘codification’), l’intervalle doit donc être ajouté à l’indicateur pour fournir un résultat.</p>
+<div class="admonition-exemples admonition">
+<p class="admonition-title">Exemples</p>
+<ul class="simple">
+<li><p>Evolution du nombre mensuel de points de recharge pour 2024 par département : (d2-m—04, entre 01/01/2023 et le 01/01/2024)</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="historisation-des-donnees">
+<h2>Historisation des données<a class="headerlink" href="#historisation-des-donnees" title="Link to this heading">#</a></h2>
+<p>L’historisation est à effectuer pour les indicateurs suivants (voir chapitre listant les indicateurs):</p>
+<ul class="simple">
+<li><p>infrastructure - typologie (mensuel) : t1, t5, t7, t8, t9</p></li>
+<li><p>infrastructure - quantitatif (mensuel) : i1, i4, i7</p></li>
+<li><p>infrastructure - autoroute (mensuel) : a5, a6</p></li>
+<li><p>usage - quantitatif: u1 (mensuel), u3 (quotidien)</p></li>
+<li><p>usage - qualité de service : q1 (quotidien), q2 (quotidien), q5 (mensuel)</p></li>
+</ul>
+<p>Plusieurs solutions sont envisageables :</p>
+<ul class="simple">
+<li><p>solution 1 : une table avec les paramètres et les résultats des indicateurs</p></li>
+<li><p>solution 2 : une table avec une valeur JSON par indicateur</p></li>
+<li><p>solution 3 : une table avec une valeur JSON    pour l’ensemble des indicateurs</p></li>
+</ul>
+<section id="solution-1">
+<h3>Solution 1<a class="headerlink" href="#solution-1" title="Link to this heading">#</a></h3>
+<p>Chaque résultat d’un indicateur a une structure identique, on peut donc stocker tous les résultats d’un indicateur dans une table.
+Les indicateurs temporels s’appuient sur les indicateurs historisés, il suffit donc d’effectuer une recherche par rapport à un indicateur.</p>
+<p>Pour faciliter les purges, on peut avoir une table par périodicité, la purge peut alors s’effectuer simplement par tri sur le timestamp.</p>
+<p>Une table comporte les champs suivants :</p>
+<p>Valeurs historisées</p>
+<ul class="simple">
+<li><p>min : valeur mini (ou 0 si donnée cumulée)</p></li>
+<li><p>max : valeur maxi (ou 0 si donnée cumulée)</p></li>
+<li><p>val : valeur moyenne (ou somme si donnée cumulée)</p></li>
+<li><p>last : dernière valeur (ou 0 si donnée cumulée)</p></li>
+</ul>
+<p>Regroupement</p>
+<ul class="simple">
+<li><p>crit_v : valeur du critère (ex. niveau de puissance, implantation)</p></li>
+</ul>
+<p>Indicateur (ex. ‘t1-01-93-04)</p>
+<ul class="simple">
+<li><p>query: (ex. ‘t1’)</p></li>
+<li><p>périmètre: (ex. ‘01’)</p></li>
+<li><p>valeur de périmètre: (ex. ‘93’)</p></li>
+<li><p>critère: (ex.’04’)</p></li>
+</ul>
+<p>Datation</p>
+<ul class="simple">
+<li><p>timestamp</p></li>
+</ul>
+<p>exemple du nombre de stations par oéprateur en PACA</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>min</p></th>
+<th class="head"><p>max</p></th>
+<th class="head"><p>val</p></th>
+<th class="head"><p>last</p></th>
+<th class="head"><p>crit_v</p></th>
+<th class="head"><p>query</p></th>
+<th class="head"><p>perim</p></th>
+<th class="head"><p>perim_v</p></th>
+<th class="head"><p>crit</p></th>
+<th class="head"><p>timestamp</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>52</p></td>
+<td><p>75</p></td>
+<td><p>60</p></td>
+<td><p>75</p></td>
+<td><p>‘oper1’</p></td>
+<td><p>‘t8’</p></td>
+<td><p>‘01’</p></td>
+<td><p>‘93’</p></td>
+<td><p>‘’</p></td>
+<td><p>xxxxxxx</p></td>
+</tr>
+<tr class="row-odd"><td><p>32</p></td>
+<td><p>55</p></td>
+<td><p>40</p></td>
+<td><p>55</p></td>
+<td><p>‘oper2’</p></td>
+<td><p>‘t8’</p></td>
+<td><p>‘01’</p></td>
+<td><p>‘93’</p></td>
+<td><p>‘’</p></td>
+<td><p>xxxxxxx</p></td>
+</tr>
+<tr class="row-even"><td><p>72</p></td>
+<td><p>95</p></td>
+<td><p>80</p></td>
+<td><p>95</p></td>
+<td><p>‘oper3’</p></td>
+<td><p>‘t8’</p></td>
+<td><p>‘01’</p></td>
+<td><p>‘93’</p></td>
+<td><p>‘’</p></td>
+<td><p>xxxxxxx</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition-exemple admonition">
+<p class="admonition-title">Exemple</p>
+<p>‘taux d’évolution du nombre de stations sur 12 mois au 01/01/2024 par département ‘ :</p>
+<ul class="simple">
+<li><p>recherche dans la table mensuelle les lignes avec ‘t4-00-00-04’ avec un timestamp entre le 01/01/2023 et le 01/01/2024</p></li>
+<li><p>calcul du taux d’évolution pour chaque département (‘val’) à partir de la valeur ‘last’</p></li>
+</ul>
+<p>Le passage d’une table à une autre s’effectue en calculant les nouvelles valeurs min, max, val, last pour chaque couple indicateur - ‘crit_v’ avec un timestamp compris dans l’intervalle de la période à historiser.</p>
+</div>
+</section>
+<section id="solution-2">
+<h3>Solution 2<a class="headerlink" href="#solution-2" title="Link to this heading">#</a></h3>
+<p>Idem Solution 1 mais avec une ligne par indicateur, le résultat de l’indicateur étant stocké dans un JSON.</p>
+<div class="admonition-exemple admonition">
+<p class="admonition-title">Exemple</p>
+<p>‘nombre de station par opérateur’</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>json</p></th>
+<th class="head"><p>query</p></th>
+<th class="head"><p>perim</p></th>
+<th class="head"><p>perim_v</p></th>
+<th class="head"><p>crit</p></th>
+<th class="head"><p>timestamp</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>json_op</p></td>
+<td><p>‘t8’</p></td>
+<td><p>‘93’</p></td>
+<td><p>‘13’</p></td>
+<td><p>‘’</p></td>
+<td><p>xxxxxxx</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>avec json_op :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="p">[</span>
+    <span class="p">{</span><span class="s1">&#39;crit_v&#39;</span><span class="p">:</span> <span class="s1">&#39;oper1&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="mi">52</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="mi">75</span><span class="p">,</span> <span class="s1">&#39;val&#39;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span> <span class="s1">&#39;last&#39;</span><span class="p">:</span> <span class="mi">75</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;crit_v&#39;</span><span class="p">:</span> <span class="s1">&#39;oper2&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">},</span>
+    <span class="o">...</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="solution-3">
+<h3>Solution 3<a class="headerlink" href="#solution-3" title="Link to this heading">#</a></h3>
+<p>Idem solution 2 mais avec une ligne commune pour tous les indicateurs, les résultats des indicateurs sont stockés dans un JSON</p>
+<div class="admonition-exemple admonition">
+<p class="admonition-title">Exemple</p>
+<p>JSON commun avec les indicateurs du nombre de stations (i4), de points de charge (i1) et la puissance installée (i7) pour chaque commune, département, opérateur et région.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;now&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;totals&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;stations&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12424</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;psoc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2312314</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;power&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1e19</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;counts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;code_insee&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;01311&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;stations&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;poc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">132</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;power&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30000</span><span class="p">,</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;code_insee&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;13411&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;stations&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;poc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">132</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;power&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30000</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;department&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;code_insee&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;01&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;stations&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;poc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">132</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;power&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30000</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;code_insee&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;13&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;stations&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;poc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">132</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;power&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30000</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;region&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;code_insee&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;13&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;stations&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span>
+<span class="w">                </span><span class="nt">&quot;poc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">132</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;power&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30000</span>
+<span class="w">            </span><span class="p">},</span><span class="w">            </span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;operational_unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FRFAS&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;stations&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;poc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">142</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;power&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30000</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FRS77&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;stations&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">114</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;poc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1445</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;power&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30000</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># iStatic table database fields</span>
+<span class="n">timestamp</span><span class="p">:</span> <span class="n">date</span> <span class="n">time</span>
+<span class="n">total_stations</span><span class="p">:</span> <span class="nb">int</span>
+<span class="n">total_poc</span><span class="p">:</span> <span class="nb">int</span>
+<span class="n">total_power</span><span class="p">:</span> <span class="n">long</span> <span class="nb">float</span>
+<span class="n">city</span><span class="p">:</span> <span class="n">json</span>
+<span class="n">department</span><span class="p">:</span> <span class="n">json</span>
+<span class="n">region</span><span class="p">:</span> <span class="n">json</span>
+<span class="n">operational_unit</span><span class="p">:</span> <span class="n">json</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="avantages-inconvenients">
+<h3>Avantages - inconvenients<a class="headerlink" href="#avantages-inconvenients" title="Link to this heading">#</a></h3>
+<p>Les solutions sont comparées sur la base des fonctions suivantes :</p>
+<ul class="simple">
+<li><p>historisation initiale des données</p></li>
+<li><p>changement d’échelle de temps</p></li>
+<li><p>calcul de l’indicateur temporel</p></li>
+<li><p>purge des données</p></li>
+<li><p>évolutivité</p></li>
+</ul>
+<section id="id1">
+<h4>solution 1<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<p>historisation :</p>
+<ul class="simple">
+<li><p>fonction générique : le format de stockage est identique au résultat de la requête</p></li>
+</ul>
+<p>changement d’échelle</p>
+<ul class="simple">
+<li><p>fonction générique : calcul des nouvelles données par requête (min, max, mean), à préciser pour ‘last’</p></li>
+</ul>
+<p>calcul de l’indicateur</p>
+<ul class="simple">
+<li><p>indépendant de la périodicité</p></li>
+<li><p>générique / spécifique : à préciser</p></li>
+</ul>
+<p>purge des données</p>
+<ul class="simple">
+<li><p>suppression de lignes en fonction de la valeur du timestamp</p></li>
+</ul>
+<p>évolutivité</p>
+<ul class="simple">
+<li><p>ajout d’indicateur sans reconfiguration nécessaire</p></li>
+</ul>
+</section>
+<section id="id2">
+<h4>solution 2<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<p>historisation :</p>
+<ul class="simple">
+<li><p>fonction générique : conversion au format Json du résultat des requêtes</p></li>
+</ul>
+<p>changement d’échelle</p>
+<ul class="simple">
+<li><p>fonction générique : à préciser (traitement par pandas nécessaire ?)</p></li>
+</ul>
+<p>calcul de l’indicateur</p>
+<ul class="simple">
+<li><p>indépendant de la périodicité</p></li>
+<li><p>générique / spécifique : à préciser (conversion json nécessaire)</p></li>
+</ul>
+<p>purge des données</p>
+<ul class="simple">
+<li><p>suppression de lignes en fonction de la valeur du timestamp</p></li>
+</ul>
+<p>évolutivité</p>
+<ul class="simple">
+<li><p>ajout d’indicateur sans reconfiguration nécessaire</p></li>
+</ul>
+</section>
+<section id="id3">
+<h4>solution 3<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<p>historisation :</p>
+<ul class="simple">
+<li><p>ne peut se faire indicateur par indicateur</p></li>
+<li><p>nécessite de construire le json global (mapping entre indicateur et les ‘key’ du json)</p></li>
+</ul>
+<p>changement d’échelle</p>
+<ul class="simple">
+<li><p>décodage préalable du format json et traitement de chaque ‘key’</p></li>
+</ul>
+<p>calcul de l’indicateur</p>
+<ul class="simple">
+<li><p>indépendant de la périodicité</p></li>
+<li><p>décodage préalable du format json et traitement de chaque ‘key’</p></li>
+</ul>
+<p>purge des données</p>
+<ul class="simple">
+<li><p>suppression de lignes en fonction de la valeur du timestamp</p></li>
+</ul>
+<p>évolutivité</p>
+<ul class="simple">
+<li><p>l’ajout d’indicateur nécessite de reconfigurer le format JSON. La cohabitation de plusieurs formats JSON différents est à étudier</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="indicateurs-etendus">
+<h2>Indicateurs étendus<a class="headerlink" href="#indicateurs-etendus" title="Link to this heading">#</a></h2>
+<p>Ils concernent le couplage des données avec des jeux de données complémentaires (à définir dans un second temps):</p>
+<ul class="simple">
+<li><p>couplage consommation / trafic</p></li>
+<li><p>couplage nombre de véhicules électriques vendus/immatriculés</p></li>
+<li><p>couplage consommation / relevés ENEDIS des points de livraison</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./files"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="IRVE_indicateurs.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Indicateurs d’intégrité</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="modeles.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Analyse du modèle de données</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-temporels">Indicateurs temporels</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristiques">Caractéristiques</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mise-en-oeuvre">Mise en oeuvre</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identification">Identification</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historisation-des-donnees">Historisation des données</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-1">Solution 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-2">Solution 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-3">Solution 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avantages-inconvenients">Avantages - inconvenients</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">solution 1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">solution 2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">solution 3</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-etendus">Indicateurs étendus</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
