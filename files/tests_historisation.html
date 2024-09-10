@@ -18,12 +18,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
@@ -34,15 +34,15 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
@@ -139,6 +139,8 @@
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../intro.html">
   
@@ -160,7 +162,7 @@
 
  <script>
  document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -361,10 +363,10 @@
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -372,7 +374,7 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
@@ -401,6 +403,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests-solution-1">Tests Solution 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests-solution-2">Tests solution 2</a></li>
 </ul>
             </nav>
         </div>
@@ -419,7 +422,7 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
-<span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span><span class="p">,</span> <span class="n">types</span>
 <span class="kn">from</span> <span class="nn">create_query</span> <span class="kn">import</span> <span class="n">to_indicator</span>
 
 <span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;DATABASE_URL&quot;</span><span class="p">))</span>
@@ -431,7 +434,7 @@ document.write(`
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span><span class="p">,</span> <span class="n">types</span>
 <span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">create_query</span> <span class="kn">import</span> <span class="n">to_indicator</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;DATABASE_URL&quot;</span><span class="p">))</span>
 
@@ -1287,6 +1290,426 @@ document.write(`
 </div></div></div>
 </div>
 </section>
+<section id="tests-solution-2">
+<h2>Tests solution 2<a class="headerlink" href="#tests-solution-2" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">val_t8_01_93_02</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;department&quot;</span><span class="p">:</span> <span class="s2">&quot;01&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;operators&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bouygues&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sum&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span>
+                <span class="s2">&quot;delta&quot;</span><span class="p">:</span> <span class="mi">3</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Electra&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sum&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+                <span class="s2">&quot;delta&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Engie&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sum&quot;</span><span class="p">:</span> <span class="mi">252</span><span class="p">,</span>
+                <span class="s2">&quot;delta&quot;</span><span class="p">:</span> <span class="mi">154</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;department&quot;</span><span class="p">:</span> <span class="s2">&quot;02&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;operators&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bouygues&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sum&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                <span class="s2">&quot;delta&quot;</span><span class="p">:</span> <span class="mi">3</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Electra&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sum&quot;</span><span class="p">:</span> <span class="mi">52</span><span class="p">,</span>
+                <span class="s2">&quot;delta&quot;</span><span class="p">:</span> <span class="mi">23</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Engie&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sum&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">&quot;delta&quot;</span><span class="p">:</span> <span class="mi">1</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">val_t8_01_93_02</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;[{&quot;department&quot;: &quot;01&quot;, &quot;operators&quot;: [{&quot;name&quot;: &quot;Bouygues&quot;, &quot;sum&quot;: 42, &quot;delta&quot;: 3}, {&quot;name&quot;: &quot;Electra&quot;, &quot;sum&quot;: 12, &quot;delta&quot;: -2}, {&quot;name&quot;: &quot;Engie&quot;, &quot;sum&quot;: 252, &quot;delta&quot;: 154}]}, {&quot;department&quot;: &quot;02&quot;, &quot;operators&quot;: [{&quot;name&quot;: &quot;Bouygues&quot;, &quot;sum&quot;: 4, &quot;delta&quot;: 3}, {&quot;name&quot;: &quot;Electra&quot;, &quot;sum&quot;: 52, &quot;delta&quot;: 23}, {&quot;name&quot;: &quot;Engie&quot;, &quot;sum&quot;: 1, &quot;delta&quot;: 1}]}]&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t8_01_93_02</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;t8&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;target&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">93</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;sub_level&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">val_t8_01_93_02</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> 
+                            <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;2024-09-09T15:05:28+00:00&#39;</span><span class="p">,</span> <span class="s1">&#39;2024-09-10T15:05:28+00:00&#39;</span><span class="p">,</span> <span class="s1">&#39;2024-09-11T15:05:28+00:00&#39;</span><span class="p">]})</span>
+<span class="n">t8_01_93_02</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>code</th>
+      <th>level</th>
+      <th>target</th>
+      <th>sub_level</th>
+      <th>value</th>
+      <th>timestamp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>t8</td>
+      <td>1</td>
+      <td>93</td>
+      <td>2</td>
+      <td>[{'department': '01', 'operators': [{'name': '...</td>
+      <td>2024-09-09T15:05:28+00:00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>t8</td>
+      <td>1</td>
+      <td>93</td>
+      <td>2</td>
+      <td>[{'department': '01', 'operators': [{'name': '...</td>
+      <td>2024-09-10T15:05:28+00:00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>t8</td>
+      <td>1</td>
+      <td>93</td>
+      <td>2</td>
+      <td>[{'department': '01', 'operators': [{'name': '...</td>
+      <td>2024-09-11T15:05:28+00:00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">TEXT</span><span class="p">,</span> <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">SMALLINT</span><span class="p">,</span> <span class="s1">&#39;target&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">TEXT</span><span class="p">,</span> <span class="s1">&#39;sub_level&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">SMALLINT</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">JSON</span><span class="p">,</span> <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">TIMESTAMP</span><span class="p">}</span>
+<span class="n">t8_01_93_02</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s2">&quot;mensuel_3&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s2">&quot;replace&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">with dpt_ext as</span>
+<span class="s2">    (select </span>
+<span class="s2">        target, level, code, sub_level, jsonb_path_query(to_jsonb(value), &#39;$.department&#39;) as department, jsonb_path_query(to_jsonb(value), &#39; $.operators&#39;) as oper_json, timestamp</span>
+<span class="s2">    from </span>
+<span class="s2">        mensuel_3)</span>
+<span class="s2">select </span>
+<span class="s2">    target, level, code, sub_level, department, jsonb_path_query(to_jsonb(oper_json), &#39; $.name&#39;) as operator, jsonb_path_query(to_jsonb(oper_json), &#39; $.sum&#39;) as sum, jsonb_path_query(to_jsonb(oper_json), &#39; $.delta&#39;) as delta, timestamp</span>
+<span class="s2">from </span>
+<span class="s2">    dpt_ext</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="k">with</span> <span class="n">engine</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+    <span class="n">test_json</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+<span class="n">test_json</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>target</th>
+      <th>level</th>
+      <th>code</th>
+      <th>sub_level</th>
+      <th>department</th>
+      <th>operator</th>
+      <th>sum</th>
+      <th>delta</th>
+      <th>timestamp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>01</td>
+      <td>Bouygues</td>
+      <td>42</td>
+      <td>3</td>
+      <td>2024-09-09 15:05:28</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>01</td>
+      <td>Electra</td>
+      <td>12</td>
+      <td>-2</td>
+      <td>2024-09-09 15:05:28</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>01</td>
+      <td>Engie</td>
+      <td>252</td>
+      <td>154</td>
+      <td>2024-09-09 15:05:28</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>02</td>
+      <td>Bouygues</td>
+      <td>4</td>
+      <td>3</td>
+      <td>2024-09-09 15:05:28</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>02</td>
+      <td>Electra</td>
+      <td>52</td>
+      <td>23</td>
+      <td>2024-09-09 15:05:28</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>02</td>
+      <td>Engie</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2024-09-09 15:05:28</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>01</td>
+      <td>Bouygues</td>
+      <td>42</td>
+      <td>3</td>
+      <td>2024-09-10 15:05:28</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>01</td>
+      <td>Electra</td>
+      <td>12</td>
+      <td>-2</td>
+      <td>2024-09-10 15:05:28</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>01</td>
+      <td>Engie</td>
+      <td>252</td>
+      <td>154</td>
+      <td>2024-09-10 15:05:28</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>02</td>
+      <td>Bouygues</td>
+      <td>4</td>
+      <td>3</td>
+      <td>2024-09-10 15:05:28</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>02</td>
+      <td>Electra</td>
+      <td>52</td>
+      <td>23</td>
+      <td>2024-09-10 15:05:28</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>02</td>
+      <td>Engie</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2024-09-10 15:05:28</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>01</td>
+      <td>Bouygues</td>
+      <td>42</td>
+      <td>3</td>
+      <td>2024-09-11 15:05:28</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>01</td>
+      <td>Electra</td>
+      <td>12</td>
+      <td>-2</td>
+      <td>2024-09-11 15:05:28</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>01</td>
+      <td>Engie</td>
+      <td>252</td>
+      <td>154</td>
+      <td>2024-09-11 15:05:28</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>02</td>
+      <td>Bouygues</td>
+      <td>4</td>
+      <td>3</td>
+      <td>2024-09-11 15:05:28</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>02</td>
+      <td>Electra</td>
+      <td>52</td>
+      <td>23</td>
+      <td>2024-09-11 15:05:28</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>02</td>
+      <td>Engie</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2024-09-11 15:05:28</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1354,6 +1777,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests-solution-1">Tests Solution 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests-solution-2">Tests solution 2</a></li>
 </ul>
   </nav></div>
 
@@ -1402,8 +1826,8 @@ By The Jupyter Book Community
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
