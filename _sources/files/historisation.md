@@ -194,7 +194,7 @@ L'historisation est à effectuer pour les indicateurs suivants (voir chapitre li
 - usage - quantitatif: u1 (mensuel), u3 (quotidien)
 - usage - qualité de service : q1 (quotidien), q2 (quotidien), q5 (mensuel)
 
-Plusieurs solutions sont envisageables :
+Plusieurs solutions sont envisageables (pour chaque niveau d'historisation):
 
 - solution 1 : une table avec les résultats des indicateurs (plusieurs lignes par indicateur)
 - solution 2 : une table avec une valeur JSON par indicateur (une ligne par indicateur)
