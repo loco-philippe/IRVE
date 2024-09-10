@@ -1349,20 +1349,10 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">val_t8_01_93_02</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;[{&quot;department&quot;: &quot;01&quot;, &quot;operators&quot;: [{&quot;name&quot;: &quot;Bouygues&quot;, &quot;sum&quot;: 42, &quot;delta&quot;: 3}, {&quot;name&quot;: &quot;Electra&quot;, &quot;sum&quot;: 12, &quot;delta&quot;: -2}, {&quot;name&quot;: &quot;Engie&quot;, &quot;sum&quot;: 252, &quot;delta&quot;: 154}]}, {&quot;department&quot;: &quot;02&quot;, &quot;operators&quot;: [{&quot;name&quot;: &quot;Bouygues&quot;, &quot;sum&quot;: 4, &quot;delta&quot;: 3}, {&quot;name&quot;: &quot;Electra&quot;, &quot;sum&quot;: 52, &quot;delta&quot;: 23}, {&quot;name&quot;: &quot;Engie&quot;, &quot;sum&quot;: 1, &quot;delta&quot;: 1}]}]&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t8_01_93_02</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;t8&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;target&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">93</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;sub_level&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">val_t8_01_93_02</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> 
-                            <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;2024-09-09T15:05:28+00:00&#39;</span><span class="p">,</span> <span class="s1">&#39;2024-09-10T15:05:28+00:00&#39;</span><span class="p">,</span> <span class="s1">&#39;2024-09-11T15:05:28+00:00&#39;</span><span class="p">]})</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t8_01_93_02</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;t8&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;target&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">93</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;sub_level&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> 
+                            <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">val_t8_01_93_02</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> 
+                            <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;2024-09-09T15:05:28+00:00&#39;</span><span class="p">,</span> <span class="s1">&#39;2024-09-10T15:05:28+00:00&#39;</span><span class="p">,</span> 
+                                          <span class="s1">&#39;2024-09-11T15:05:28+00:00&#39;</span><span class="p">]})</span>
 <span class="n">t8_01_93_02</span>
 </pre></div>
 </div>
@@ -1428,7 +1418,8 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">TEXT</span><span class="p">,</span> <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">SMALLINT</span><span class="p">,</span> <span class="s1">&#39;target&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">TEXT</span><span class="p">,</span> <span class="s1">&#39;sub_level&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">SMALLINT</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">JSON</span><span class="p">,</span> <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">TIMESTAMP</span><span class="p">}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">TEXT</span><span class="p">,</span> <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">SMALLINT</span><span class="p">,</span> <span class="s1">&#39;target&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">TEXT</span><span class="p">,</span> <span class="s1">&#39;sub_level&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">SMALLINT</span><span class="p">,</span> 
+       <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">JSON</span><span class="p">,</span> <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">TIMESTAMP</span><span class="p">}</span>
 <span class="n">t8_01_93_02</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s2">&quot;mensuel_3&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s2">&quot;replace&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1444,11 +1435,18 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">with dpt_ext as</span>
 <span class="s2">    (select </span>
-<span class="s2">        target, level, code, sub_level, jsonb_path_query(to_jsonb(value), &#39;$.department&#39;) as department, jsonb_path_query(to_jsonb(value), &#39; $.operators&#39;) as oper_json, timestamp</span>
+<span class="s2">        target, level, code, sub_level, </span>
+<span class="s2">        jsonb_path_query(to_jsonb(value), &#39;$.department&#39;) as department, </span>
+<span class="s2">        jsonb_path_query(to_jsonb(value), &#39; $.operators&#39;) as oper_json, </span>
+<span class="s2">        timestamp</span>
 <span class="s2">    from </span>
 <span class="s2">        mensuel_3)</span>
 <span class="s2">select </span>
-<span class="s2">    target, level, code, sub_level, department, jsonb_path_query(to_jsonb(oper_json), &#39; $.name&#39;) as operator, jsonb_path_query(to_jsonb(oper_json), &#39; $.sum&#39;) as sum, jsonb_path_query(to_jsonb(oper_json), &#39; $.delta&#39;) as delta, timestamp</span>
+<span class="s2">    target, level, code, sub_level, department, </span>
+<span class="s2">    jsonb_path_query(to_jsonb(oper_json), &#39; $.name&#39;) as operator, </span>
+<span class="s2">    jsonb_path_query(to_jsonb(oper_json), &#39; $.sum&#39;) as sum, </span>
+<span class="s2">    jsonb_path_query(to_jsonb(oper_json), &#39; $.delta&#39;) as delta, </span>
+<span class="s2">    timestamp</span>
 <span class="s2">from </span>
 <span class="s2">    dpt_ext</span>
 <span class="s2">&quot;&quot;&quot;</span>
