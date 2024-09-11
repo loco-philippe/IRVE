@@ -416,6 +416,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historisation-des-donnees">Historisation des données</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-1">Solution 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-1bis">Solution 1bis</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-2">Solution 2</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-3">Solution 3</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avantages-inconvenients">Avantages - inconvenients</a><ul class="nav section-nav flex-column">
@@ -531,7 +532,7 @@ document.write(`
 <p>C’est le cas du nombre de sessions dont la valeur annuelle peut être calculée comme la somme des sessions mensuelles elles-mêmes calculées comme la somme des sessions quotidiennes,</p>
 </div>
 <ul class="simple">
-<li><p>les données ajustables dont le passage à l’échelle se traduit par une moyenne.</p></li>
+<li><p>les données ajustables dont le passage à l’échelle se traduit par un calcul sur des données cumulables.</p></li>
 </ul>
 <div class="admonition-exemple admonition">
 <p class="admonition-title">Exemple</p>
@@ -539,50 +540,62 @@ document.write(`
 <p>C’est le cas également pour le nombre de stations.</p>
 </div>
 <p>Chaque périodicité peut être associée à une (ou plusieurs) table purgée avec une fréquence spécifique. Par exemple, un stockage horaire pourrait être purgé chaque semaine ou chaque mois.</p>
-<p>Pour un résultat d’indicateur, on historise à chaque niveau les valeurs suivantes:</p>
+<p>Pour un indicateur, on historise à chaque niveau une valeur qui est un ensemble de propriétés issues des valeurs (propriétés) du niveau précédent (cet ensemble peut être variable):</p>
 <ul class="simple">
-<li><p>nombre (nombre de valeurs utilisées),</p></li>
+<li><p>propriétés obligatoire :</p>
+<ul>
+<li><p>quantité (nombre de valeurs utilisées),</p></li>
+<li><p>moyenne (cumul des valeurs utilisées / nombre de valeurs utilisées)</p></li>
+</ul>
+</li>
+<li><p>propriétés facultatives :</p>
+<ul>
 <li><p>somme (cumul des valeurs utilisées)</p></li>
+<li><p>variance (moyenne du cumul des carrés des valeurs utilisées - carré de la moyenne des valeurs utilisées)</p></li>
+<li><p>valeur maximale</p></li>
+<li><p>valeur minimale</p></li>
+<li><p>dernière valeur</p></li>
 </ul>
-<p>Ces deux valeurs permettent de traiter les données cumulable (somme) et les données ajustables (moyenne = somme / nombre)</p>
-<p>Le passage d’une périodicité ‘n’ à une périodicité ‘n+1’ est réalisé de façon automatique :</p>
+</li>
+</ul>
+<p>Le passage d’une périodicité ‘n’ à une périodicité ‘n+1’ est réalisé de façon automatique avec :</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(nombre_{n+1} = \sum nombre_n\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(quantite_{n+1} = \sum quantite_n\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(moyenne_{n+1} = \frac {\sum quantite_n . moyenne_n} {\sum quantite_n}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(somme_{n+1} = \sum somme_n\)</span></p></li>
-<li><p>à la première étape, nombre = 1 et somme = valeur de l’indicateur</p></li>
+<li><p><span class="math notranslate nohighlight">\(variance_{n+1} = \frac {1} {quantite_{n+1}} \sum quantite_n . (variance_n + (moyenne_{n+1} - moyenne_n)^2)\)</span></p></li>
+<li><p>$maxi_{n+1} = MAX(maxi_n)</p></li>
+<li><p>$mini_{n+1} = MIN(mini_n)</p></li>
+<li><p>$dernier_{n+1} = LAST(dernier_n)</p></li>
 </ul>
+<p>Au premier niveau (une seule valeur) , nombre = 1, variance = 0 et somme = moyenne = mini = maxi = dernier = valeur de l’indicateur</p>
 <div class="admonition-exemple admonition">
 <p class="admonition-title">Exemple</p>
 <p>On a historisé les valeurs mensuelles suivantes pour un trimestre de l’indicateur du nombre de stations :</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>nombre</p></th>
-<th class="head"><p>somme</p></th>
+<tr class="row-odd"><th class="head"><p>quantite</p></th>
+<th class="head"><p>moyenne</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>30</p></td>
-<td><p>1350</p></td>
+<td><p>50</p></td>
 </tr>
 <tr class="row-odd"><td><p>28</p></td>
-<td><p>1500</p></td>
+<td><p>55</p></td>
 </tr>
 <tr class="row-even"><td><p>31</p></td>
-<td><p>1700</p></td>
+<td><p>60</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <p>La valeur historisée du nombre de stations pour le trimestre est :</p>
 <ul class="simple">
-<li><p>nombre : 89</p></li>
-<li><p>somme : 4550</p></li>
+<li><p>quantite : 89</p></li>
+<li><p>moyenne : 55,06</p></li>
 </ul>
-<p>On a donc pour le trimestre un nombre moyen de stations de 51.1</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Des informations complémentaires peuvent être ajoutées si un indicateur nécessite d’utiliser ces informations (ex. valeur mini, valeur maxi, dernière valeur)</p>
 </div>
 </section>
 <section id="mise-en-oeuvre">
@@ -614,7 +627,7 @@ document.write(`
 <ul class="simple">
 <li><p>calcul quotidien de l’indicateur ‘i4–04’ sur les données statiques courantes,</p></li>
 <li><p>chaque jour, historisation du résultat du calcul,</p></li>
-<li><p>chaque mois, historisation du jeu de valeurs mensuel (nombre, somme) obtenu à partir des données quotidiennes,</p></li>
+<li><p>chaque mois, historisation du jeu de valeurs mensuel (propriétés) obtenu à partir des données quotidiennes,</p></li>
 <li><p>calcul du taux d’évolution sur les données de l’historisation mensuelle.</p></li>
 </ul>
 </div>
@@ -684,9 +697,11 @@ document.write(`
 <li><p>usage - quantitatif: u1 (mensuel), u3 (quotidien)</p></li>
 <li><p>usage - qualité de service : q1 (quotidien), q2 (quotidien), q5 (mensuel)</p></li>
 </ul>
+<p>Pour tenir compte de la variabilité des propriétés à historiser, celles-ci sont stockées dans un champ JSON.</p>
 <p>Plusieurs solutions sont envisageables (pour chaque niveau d’historisation):</p>
 <ul class="simple">
 <li><p>solution 1 : une table avec les résultats des indicateurs (plusieurs lignes par indicateur)</p></li>
+<li><p>solution 1bis : une table avec un champ JSON pour les valeurs (plusieurs lignes par indicateur)</p></li>
 <li><p>solution 2 : une table avec une valeur JSON par indicateur (une ligne par indicateur)</p></li>
 <li><p>solution 3 : une table avec une valeur JSON pour l’ensemble des indicateurs (une ligne pour tous les indicateurs)</p></li>
 </ul>
@@ -696,10 +711,18 @@ document.write(`
 Les indicateurs temporels s’appuient sur les indicateurs historisés, il suffit donc d’effectuer une recherche par rapport à un indicateur.</p>
 <p>Pour faciliter les purges, on peut avoir une table par périodicité, la purge peut alors s’effectuer simplement par tri sur le timestamp.</p>
 <p>Une table comporte les champs suivants :</p>
-<p>Valeurs historisées</p>
+<p>Propriétés</p>
 <ul class="simple">
-<li><p>nombre : nombre de valeurs qui composent le résultat</p></li>
-<li><p>somme : cumul des valeurs qui composent le résultat</p></li>
+<li><p>value (JSON)</p>
+<ul>
+<li><p>quantite</p></li>
+<li><p>moyenne</p></li>
+<li><p>variance (optionnel)</p></li>
+<li><p>mini (optionnel)</p></li>
+<li><p>maxi (optionnel)</p></li>
+<li><p>dernier (optionnel)</p></li>
+</ul>
+</li>
 </ul>
 <p>Regroupement</p>
 <ul class="simple">
@@ -719,8 +742,8 @@ Les indicateurs temporels s’appuient sur les indicateurs historisés, il suffi
 <p>exemple du nombre mensuel de stations par opérateur en PACA :</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>nombre</p></th>
-<th class="head"><p>somme</p></th>
+<tr class="row-odd"><th class="head"><p>quantite</p></th>
+<th class="head"><p>moyenne</p></th>
 <th class="head"><p>crit_v</p></th>
 <th class="head"><p>query</p></th>
 <th class="head"><p>perim</p></th>
@@ -731,7 +754,7 @@ Les indicateurs temporels s’appuient sur les indicateurs historisés, il suffi
 </thead>
 <tbody>
 <tr class="row-even"><td><p>30</p></td>
-<td><p>1500</p></td>
+<td><p>50</p></td>
 <td><p>‘oper1’</p></td>
 <td><p>‘t8’</p></td>
 <td><p>‘01’</p></td>
@@ -740,7 +763,7 @@ Les indicateurs temporels s’appuient sur les indicateurs historisés, il suffi
 <td><p>xxxxxxx</p></td>
 </tr>
 <tr class="row-odd"><td><p>30</p></td>
-<td><p>2500</p></td>
+<td><p>80</p></td>
 <td><p>‘oper2’</p></td>
 <td><p>‘t8’</p></td>
 <td><p>‘01’</p></td>
@@ -749,7 +772,7 @@ Les indicateurs temporels s’appuient sur les indicateurs historisés, il suffi
 <td><p>xxxxxxx</p></td>
 </tr>
 <tr class="row-even"><td><p>30</p></td>
-<td><p>5000</p></td>
+<td><p>100</p></td>
 <td><p>‘oper3’</p></td>
 <td><p>‘t8’</p></td>
 <td><p>‘01’</p></td>
@@ -771,15 +794,16 @@ Les indicateurs temporels s’appuient sur les indicateurs historisés, il suffi
 <p>Le passage d’une table à une autre s’effectue en calculant les nouvelles valeurs ‘nombre’ et ‘somme’ pour chaque couple indicateur - ‘crit_v’ avec un timestamp compris dans l’intervalle de la période à historiser.</p>
 </div>
 </section>
-<section id="solution-2">
-<h3>Solution 2<a class="headerlink" href="#solution-2" title="Link to this heading">#</a></h3>
-<p>Idem Solution 1 mais avec une ligne par indicateur, le résultat de l’indicateur étant stocké dans un JSON.</p>
+<section id="solution-1bis">
+<h3>Solution 1bis<a class="headerlink" href="#solution-1bis" title="Link to this heading">#</a></h3>
+<p>Idem Solution 1 mais avec les propriétés stockée dans le champ JSON ‘value’.</p>
 <div class="admonition-exemple admonition">
 <p class="admonition-title">Exemple</p>
 <p>‘nombre de station par opérateur’</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>json</p></th>
+<tr class="row-odd"><th class="head"><p>value</p></th>
+<th class="head"><p>crit_v</p></th>
 <th class="head"><p>query</p></th>
 <th class="head"><p>perim</p></th>
 <th class="head"><p>perim_v</p></th>
@@ -788,7 +812,24 @@ Les indicateurs temporels s’appuient sur les indicateurs historisés, il suffi
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>json_op</p></td>
+<tr class="row-even"><td><p>json_op1</p></td>
+<td><p>‘oper1’</p></td>
+<td><p>‘t8’</p></td>
+<td><p>‘01’</p></td>
+<td><p>‘93’</p></td>
+<td><p>‘’</p></td>
+<td><p>xxxxxxx</p></td>
+</tr>
+<tr class="row-odd"><td><p>json_op2</p></td>
+<td><p>‘oper2’</p></td>
+<td><p>‘t8’</p></td>
+<td><p>‘01’</p></td>
+<td><p>‘93’</p></td>
+<td><p>‘’</p></td>
+<td><p>xxxxxxx</p></td>
+</tr>
+<tr class="row-even"><td><p>json_op3</p></td>
+<td><p>‘oper3’</p></td>
 <td><p>‘t8’</p></td>
 <td><p>‘01’</p></td>
 <td><p>‘93’</p></td>
@@ -798,11 +839,44 @@ Les indicateurs temporels s’appuient sur les indicateurs historisés, il suffi
 </tbody>
 </table>
 </div>
-<p>avec json_op :</p>
+<p>avec json_op1 :</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="p">{</span><span class="err">&#39;</span><span class="kc">n</span><span class="err">ombre</span><span class="w"> </span><span class="err">&#39;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;moye</span><span class="kc">nne</span><span class="err">&#39;</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">}</span><span class="w"> </span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="solution-2">
+<h3>Solution 2<a class="headerlink" href="#solution-2" title="Link to this heading">#</a></h3>
+<p>Idem Solution 1bis mais avec une ligne par indicateur stocké dans un JSON.</p>
+<div class="admonition-exemple admonition">
+<p class="admonition-title">Exemple</p>
+<p>‘nombre de station par opérateur’</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>result</p></th>
+<th class="head"><p>query</p></th>
+<th class="head"><p>perim</p></th>
+<th class="head"><p>perim_v</p></th>
+<th class="head"><p>crit</p></th>
+<th class="head"><p>timestamp</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>json_res</p></td>
+<td><p>‘t8’</p></td>
+<td><p>‘01’</p></td>
+<td><p>‘93’</p></td>
+<td><p>‘’</p></td>
+<td><p>xxxxxxx</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>avec json_res :</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span><span class="err">&#39;cri</span><span class="kc">t</span><span class="err">_v&#39;</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;oper</span><span class="mi">1</span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;</span><span class="kc">n</span><span class="err">ombre</span><span class="w"> </span><span class="err">&#39;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;somme&#39;</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span><span class="err">&#39;cri</span><span class="kc">t</span><span class="err">_v&#39;</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;oper</span><span class="mi">2</span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;</span><span class="kc">n</span><span class="err">ombre</span><span class="w"> </span><span class="err">&#39;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;somme&#39;</span><span class="p">:</span><span class="w"> </span><span class="mi">2500</span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span><span class="err">&#39;cri</span><span class="kc">t</span><span class="err">_v&#39;</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;oper</span><span class="mi">3</span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;</span><span class="kc">n</span><span class="err">ombre</span><span class="w"> </span><span class="err">&#39;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;somme&#39;</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">}</span>
+<span class="w">    </span><span class="p">{</span><span class="err">&#39;cri</span><span class="kc">t</span><span class="err">_v&#39;</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;oper</span><span class="mi">1</span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;value&#39;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">&#39;</span><span class="kc">n</span><span class="err">ombre</span><span class="w"> </span><span class="err">&#39;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;moye</span><span class="kc">nne</span><span class="err">&#39;</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">}},</span>
+<span class="w">    </span><span class="p">{</span><span class="err">&#39;cri</span><span class="kc">t</span><span class="err">_v&#39;</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;oper</span><span class="mi">2</span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;value&#39;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">&#39;</span><span class="kc">n</span><span class="err">ombre</span><span class="w"> </span><span class="err">&#39;</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;moye</span><span class="kc">nne</span><span class="err">&#39;</span><span class="p">:</span><span class="w"> </span><span class="mf">52.1</span><span class="p">}},</span>
+<span class="w">    </span><span class="p">{</span><span class="err">&#39;cri</span><span class="kc">t</span><span class="err">_v&#39;</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;oper</span><span class="mi">3</span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;value&#39;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">&#39;</span><span class="kc">n</span><span class="err">ombre</span><span class="w"> </span><span class="err">&#39;</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;moye</span><span class="kc">nne</span><span class="err">&#39;</span><span class="p">:</span><span class="w"> </span><span class="mi">55</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">]</span>
 </pre></div>
 </div>
@@ -1050,6 +1124,7 @@ Les indicateurs temporels s’appuient sur les indicateurs historisés, il suffi
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historisation-des-donnees">Historisation des données</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-1">Solution 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-1bis">Solution 1bis</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-2">Solution 2</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-3">Solution 3</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avantages-inconvenients">Avantages - inconvenients</a><ul class="nav section-nav flex-column">

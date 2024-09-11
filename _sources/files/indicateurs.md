@@ -57,9 +57,11 @@ Les indicateurs présentés dans le {term}`Baromètre AVERE` sont les suivants :
   - Nombre de sessions moyen mensuel par point de recharge
   - Taux de disponibilité du mois par catégorie de puissance
 
-## Types d'indicateurs
+## Structure des indicateurs
 
-Trois types d'indicateurs sont définis:
+### Types d'indicateurs
+
+Quatre types d'indicateurs sont définis:
 
 - indicateurs d'infrastructure : Ils décrivent le parc installé (évolution temporelle, répartition géographiques, caratéristiques, dimensionnement)
 - indicateurs d'usage : Ils décrivent l'utilisation effective des infrastructures (qualité de service, volumétrie, répartition)
@@ -72,10 +74,10 @@ Les indicateurs d'exploitation (liés aux opérateurs et aménageurs et enseigne
 
 :::
 
-## Codification des indicateurs
+### Codification des indicateurs
 
-Les indicateurs sont codifiés par une chaine de caractères : *[type]-[périmètre]-[valeur de périmètre]-[critère]*
-ou bien pour les indicateurs temporels : *[type]-[période]-[périmètre]-[valeur de périmètre]-[critère]*
+Les indicateurs sont codifiés par une chaine de caractères : *[type]-[périmètre]-[valeur de périmètre]-[zone]*
+ou bien pour les indicateurs temporels : *[type]-[période]-[périmètre]-[valeur de périmètre]-[zone]*
 avec:
 
 - type : identifiant du type d'indicateur (ex. 'i1' : nombre de points de recharge)
@@ -90,7 +92,7 @@ avec:
   - 02: département (valeur : code du département)
   - 03: EPCI (valeur : code de l'EPCI)
   - 04: commune (valeur : code de la commune)
-- critère : paramètre spécifique du type d'indicateur (ex code de regroupent)
+- zone : paramètre spécifique du type d'indicateur (ex découpage du périmètre défini)
 
 Le périmètre par défaut est l'ensemble des données.
 
@@ -102,6 +104,72 @@ Le périmètre par défaut est l'ensemble des données.
 - **t1** : Nombre de points de recharge par niveau de puissance (t1) pour l'ensemble des données (pas de périmètre choisi)
 ```
 
+### Résultat des indicateurs
+
+Le résultat d'un indicateur peut être représenté par une structure tabulaire composée des champs suivants :
+
+- valeur : résultat de l'indicateur pour une catégorie et une zone,
+- catégorie (facultative) : décomposition associée à l'indicateur
+- zone (facultative) : découpage du périmètre choisi pour l'indicateur
+
+Si aucune catégorie et aucune zone ne sont définies, le résultat se réduit à une valeur,
+
+```{admonition} Exemple
+'i1' : le résultat est le nombre de points de recharge
+```
+
+Si uniquement une catégorie est définie, le résultat est une liste de valeurs associées à chaque valeur de la catégorie.
+
+```{admonition} Exemple
+'t1' : le résultat est le nombre de points de recharge par niveau de puissance (catégorie)
+
+| nb_pdc | p_range      |
+| ------ | ------------ |
+| 10892  | [15.0, 26.0) |
+| 4807   | [175, 360.0) |
+| 3282   | [65, 175.0)  |
+| 2359   | [26, 65.0)   |
+| 2157   | [0, 15.0)    |
+| 25     | [360, None)  |
+```
+
+Si uniquement une zone est définie, le résultat est une liste de valeurs associées à chaque valeur de la zone.
+
+```{admonition} Exemple
+i1-01-93-02 : Nombre de points de recharge (i1) pour la région (01) PACA (93) par département (02)
+La zone est ici le département.
+
+| nb_pdc | code |
+| ------ | ---- |
+| 473    | 13   |
+| 450    | 06   |
+| 175    | 83   |
+| 170    | 84   |
+| 105    | 04   |
+| 57     | 05   |
+```
+
+Si une catégorie et une zone sont définies, le résultat est une liste de valeurs associées à chaque valeur de zone et à chaque valeur de catégorie.
+
+```{admonition} Exemple
+t8-01-93-02 : Nombre de stations par opérateur (t8) pour la région (01) PACA (93) par département (02)
+La 'zone' est ici le département et la 'catégorie' est l'opérateur.
+
+| nb_stat    | nom_operateur                   | code |
+| ---------- | ------------------------------- | ---- |
+| b_stations | nom_operateur                   | code |
+| 273        | IZIVIA                          | 06   |
+| 31         | IZIVIA                          | 13   |
+| 28         | TotalEnergies Charging Services | 13   |
+| 21         | LUMI'IN                         | 84   |
+| 16         | Power Dot France                | 13   |
+| 10         | LUMI'IN                         | 04   |
+| 8          | Last Mile Solutions             | 13   |
+| 7          | CAR2PLUG                        | 83   |
+| 7          | Bump                            | 13   |
+| 7          | Power Dot France                | 84   |
+```
+
 ## Indicateurs d'infrastructure
 
 ### Infrastructure - typologie
@@ -110,22 +178,21 @@ Objectif :
 
 - analyse de la typologie (comparaison des ratios)
 
-| id       | nom                                                       | Pr  | format    | type  | nature             |
-| -------- | --------------------------------------------------------- | --- | --------- | ----- | ------------------ |
-| t1-xx-yy | Nombre de points de recharge par niveau de puissance      | 1   | catégorie | infra | mensuel (national) |
-| t2-xx-yy | Pourcentage de points de recharge par niveau de puissance | 2   | catégorie | infra | dynamique          |
-| t3-xx-yy | Nombre stations par nombre de points de recharge          | 1   | catégorie | infra | dynamique          |
-| t4-xx-yy | Pourcentage de stations par nombre de points de recharge  | 2   | catégorie | infra | dynamique          |
-| t5-xx-yy | Nombre de stations par type d'implantation                | 1   | catégorie | infra | mensuel (national) |
-| t6-xx-yy | Pourcentage de stations par type d'implantation           | 2   | catégorie | infra | dynamique          |
-| t7-xx-yy | Densité EPCI (nb EPCI avec / nb EPCI total)               | 3   | scalaire  | infra | mensuel (national) |
-| t8-xx-yy | Nombre stations par opérateur                             | 1   | scalaire  | infra | mensuel (national) |
-| t9-xx-yy | Pourcentage de stations par opérateur                     | 2   | scalaire  | infra | mensuel (national) |
+| id          | nom                                                       | Pr  | format    | type  | nature             |
+| ----------- | --------------------------------------------------------- | --- | --------- | ----- | ------------------ |
+| t1-xx-yy-zz | Nombre de points de recharge par niveau de puissance      | 1   | catégorie | infra | mensuel (national) |
+| t2-xx-yy-zz | Pourcentage de points de recharge par niveau de puissance | 2   | catégorie | infra | dynamique          |
+| t3-xx-yy-zz | Nombre stations par nombre de points de recharge          | 1   | catégorie | infra | dynamique          |
+| t4-xx-yy-zz | Pourcentage de stations par nombre de points de recharge  | 2   | catégorie | infra | dynamique          |
+| t5-xx-yy-zz | Nombre de stations par type d'implantation                | 1   | catégorie | infra | mensuel (national) |
+| t6-xx-yy-zz | Pourcentage de stations par type d'implantation           | 2   | catégorie | infra | dynamique          |
+| t7-xx-yy-zz | Densité EPCI (nb EPCI avec / nb EPCI total)               | 3   | scalaire  | infra | mensuel (national) |
+| t8-xx-yy-zz | Nombre stations par opérateur                             | 1   | scalaire  | infra | mensuel (national) |
+| t9-xx-yy-zz | Pourcentage de stations par opérateur                     | 2   | scalaire  | infra | mensuel (national) |
 
 :::{note}
-Pas de critères identifiés pour ces indicateurs.
 
-L'identification des opérateurs est à préciser (actuellement, uniquement une adresse mail).
+L'identification des opérateurs (nom) est actuellment facultative (à rendre obligatoire).
 La classification des niveaux de puissances nominale est à valider (en liaison avec le type d'alimentation AC/DC). La classification retenue actuellement est la suivante : 0-15 / 15-26 / 26-65 / 65-175 / 175-360 / > 360 (valeurs de seuil choisies à partir de l'existant Qualicharge).
 :::
 
@@ -201,8 +268,8 @@ ex. Analyse de la distance interstation (zones blanches).
 | u4-xx-yy-zz | Energie distribuée                   | 2   | catégorie | usage | quotidien                    |
 
 u1 est calculé sur une journée
-U2 est calculé à partir de u1 et i1
-U3 et u4 sont calculés par heure
+u2 est calculé à partir de u1 et i1
+u3 et u4 sont calculés par heure
 
 exemple d'utilisation : Analyse du profil horaire de l'énergie fournie en fonction des périodes et de la localisation.
 
