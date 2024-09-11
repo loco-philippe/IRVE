@@ -22,7 +22,43 @@ On peut citer par exemple les indicateurs AVERE suivants :
 
 Le calcul des indicateurs temporels doit pouvoir être réalisé en optimisant les temps de calcul et le volume de données stockées (il serait, par exemple, couteux de calculer une valeur annuelle à partir de données horaires).
 
-Les principes proposés pour cela sont les suivants :
+### Principes
+
+Les principes proposés sont présentés dans le schéma ci-dessous :
+
+:::{mermaid}
+flowchart LR
+    subgraph état courant
+        direction RL
+        dyn[("`base 
+        dynamique`")]
+        stat[("`base 
+        statique`")]
+    end
+
+    subgraph historisation
+        direction RL
+        heure("`histo
+         heure`")
+        jour("`histo
+         jour`")
+        mois("`histo
+         mois`")
+        an("`histo
+         année`")
+
+        heure -->|quotidien| jour
+        jour -->|mensuel| mois
+        mois -->|annuel| an
+        heure -->|purge| heure
+        jour -->|purge| jour
+        mois -->|purge| mois
+        an -->|purge| an
+    end  
+    dyn -->|indicateur horaire| heure   
+    stat -->|indicateur quotidien| jour   
+    historisation -->|indicateur temporel| restitution
+:::
 
 - historisation des données à différentes échelles de temps (périodicité).
 
@@ -45,41 +81,7 @@ Si le nombre de points de recharges fait l'objet de valeurs quotidiennes et de v
 
 ### périodicité
 
-Chaque périodicité peut être associée à une (ou plusieurs) table purgée avec une fréquence spécifique. Par exemple, un stockage horaire pourrait être purgé chaque semaine ou chaque mois.
-
-Pour un résultat d'indicateur, on historise à chaque niveau les valeurs suivantes:
-
-- nombre,
-- somme
-
-A la première étape on aura nombre = 1 et somme = valeur de l'indicateur
-
-Le passage d'une périodicité à une autre est réalisé de façon automatique :
-
-- $nombre_{n+1} = \sum nombre_n$
-- $somme_{n+1} = \sum somme_n$
-
-La valeur moyenne se déduit de 'somme' et 'nombre' (moyenne = somme / nombre).
-
-```{admonition} Exemple
-On a historisé les valeurs mensuelles suivantes pour un trimestre de l'indicateur du nombre de stations :
-
-| nombre | somme |
-| ------ | ----- |
-| 30     | 1350  |
-| 28     | 1500  |
-| 31     | 1700  |
-
-La valeur historisée du nombre de stations pour le trimestre est : 
-
-- nombre : 89
-- somme : 4550
-
-On a donc pour le trimestre un nombre moyen de stations de 51.1
-
-```
-
-On distingue notamment deux types d'utilisation :
+Les valeurs associées à une périodicité répondent à deux types de données :
 
 - les données cumulables dont le passage à l'échelle se traduit par un cumul.
 
@@ -87,16 +89,54 @@ On distingue notamment deux types d'utilisation :
 C'est le cas du nombre de sessions dont la valeur annuelle peut être calculée comme la somme des sessions mensuelles elles-mêmes calculées comme la somme des sessions quotidiennes,
 ```
 
-- les données ajustables dont le passage à l'échelle se traduit par une moyenne.
+- les données ajustables dont le passage à l'échelle se traduit par un calcul sur des données cumulables.
 
 ```{admonition} Exemple
 Par exemple, la puissance moyenne installée de l'année peut être calculée à partir des puissances moyennes installées du mois elles-mêmes calculées à partir des puissances moyennes installées quotidiennes.
+
 C'est le cas également pour le nombre de stations.
 ```
 
-:::{note}
-Des informations complémentaires peuvent être ajoutées si un indicateur nécessite d'utiliser ces informations (ex. valeur mini, valeur maxi, dernière valeur)
-:::
+Chaque périodicité peut être associée à une (ou plusieurs) table purgée avec une fréquence spécifique. Par exemple, un stockage horaire pourrait être purgé chaque semaine ou chaque mois.
+
+Pour un indicateur, on historise à chaque niveau une valeur qui est un ensemble de propriétés issues des valeurs (propriétés) du niveau précédent (cet ensemble peut être variable):
+
+- propriétés obligatoire :
+  - quantité (nombre de valeurs utilisées),
+  - moyenne (cumul des valeurs utilisées / nombre de valeurs utilisées)
+- propriétés facultatives :
+  - somme (cumul des valeurs utilisées)
+  - variance (moyenne du cumul des carrés des valeurs utilisées - carré de la moyenne des valeurs utilisées)
+  - valeur maximale
+  - valeur minimale
+  - dernière valeur
+
+Le passage d'une périodicité 'n' à une périodicité 'n+1' est réalisé de façon automatique avec :
+
+- $quantite_{n+1} = \sum quantite_n$
+- $moyenne_{n+1} = \frac {\sum quantite_n . moyenne_n} {\sum quantite_n}$
+- $somme_{n+1} = \sum somme_n$
+- $variance_{n+1} = \frac {1} {quantite_{n+1}} \sum quantite_n . (variance_n + (moyenne_{n+1} - moyenne_n)^2)$
+- $maxi_{n+1} = MAX(maxi_n)
+- $mini_{n+1} = MIN(mini_n)
+- $dernier_{n+1} = LAST(dernier_n)
+
+Au premier niveau (une seule valeur) , nombre = 1, variance = 0 et somme = moyenne = mini = maxi = dernier = valeur de l'indicateur
+
+```{admonition} Exemple
+On a historisé les valeurs mensuelles suivantes pour un trimestre de l'indicateur du nombre de stations :
+
+| quantite | moyenne |
+| ------ | ----- |
+| 30     | 50  |
+| 28     | 55  |
+| 31     | 60  |
+
+La valeur historisée du nombre de stations pour le trimestre est : 
+
+- quantite : 89
+- moyenne : 55,06
+```
 
 ### Mise en oeuvre
 
@@ -126,7 +166,7 @@ Le résultat est obtenu en appliquant les traitements suivants:
 
 - calcul quotidien de l'indicateur 'i4--04' sur les données statiques courantes,
 - chaque jour, historisation du résultat du calcul,
-- chaque mois, historisation du jeu de valeurs mensuel (nombre, somme) obtenu à partir des données quotidiennes,
+- chaque mois, historisation du jeu de valeurs mensuel (propriétés) obtenu à partir des données quotidiennes,
 - calcul du taux d'évolution sur les données de l'historisation mensuelle.
 ```
 
@@ -158,9 +198,12 @@ L'historisation est à effectuer pour les indicateurs suivants (voir chapitre li
 - usage - quantitatif: u1 (mensuel), u3 (quotidien)
 - usage - qualité de service : q1 (quotidien), q2 (quotidien), q5 (mensuel)
 
-Plusieurs solutions sont envisageables :
+Pour tenir compte de la variabilité des propriétés à historiser, celles-ci sont stockées dans un champ JSON.
+
+Plusieurs solutions sont envisageables (pour chaque niveau d'historisation):
 
 - solution 1 : une table avec les résultats des indicateurs (plusieurs lignes par indicateur)
+- solution 1bis : une table avec un champ JSON pour les valeurs (plusieurs lignes par indicateur)
 - solution 2 : une table avec une valeur JSON par indicateur (une ligne par indicateur)
 - solution 3 : une table avec une valeur JSON pour l'ensemble des indicateurs (une ligne pour tous les indicateurs)
 
@@ -173,10 +216,15 @@ Pour faciliter les purges, on peut avoir une table par périodicité, la purge p
 
 Une table comporte les champs suivants :
 
-Valeurs historisées
+Propriétés
 
-- nombre : nombre de valeurs qui composent le résultat
-- somme : cumul des valeurs qui composent le résultat
+- value (JSON)
+  - quantite
+  - moyenne
+  - variance (optionnel)
+  - mini (optionnel)
+  - maxi (optionnel)
+  - dernier (optionnel)
 
 Regroupement
 
@@ -195,11 +243,11 @@ Datation
 
 exemple du nombre mensuel de stations par opérateur en PACA :
 
-| nombre | somme | crit_v  | query | perim | perim_v | crit | timestamp |
-| ------ | ----- | ------- | ----- | ----- | ------- | ---- | --------- |
-| 30     | 1500  | 'oper1' | 't8'  | '01'  | '93'    | ''   | xxxxxxx   |
-| 30     | 2500  | 'oper2' | 't8'  | '01'  | '93'    | ''   | xxxxxxx   |
-| 30     | 5000  | 'oper3' | 't8'  | '01'  | '93'    | ''   | xxxxxxx   |
+| quantite | moyenne | crit_v  | query | perim | perim_v | crit | timestamp |
+| -------- | ------- | ------- | ----- | ----- | ------- | ---- | --------- |
+| 30       | 50      | 'oper1' | 't8'  | '01'  | '93'    | ''   | xxxxxxx   |
+| 30       | 80      | 'oper2' | 't8'  | '01'  | '93'    | ''   | xxxxxxx   |
+| 30       | 100     | 'oper3' | 't8'  | '01'  | '93'    | ''   | xxxxxxx   |
 
 L'opérateur 'oper1' dispose pour le mois 'xxxxxxx' d'une moyenne de 50 stations :
 
@@ -212,24 +260,45 @@ indicateur d1 : 'taux d'évolution du nombre de stations par département' sur 1
 Le passage d'une table à une autre s'effectue en calculant les nouvelles valeurs 'nombre' et 'somme' pour chaque couple indicateur - 'crit_v' avec un timestamp compris dans l'intervalle de la période à historiser.
 ```
 
-### Solution 2
+### Solution 1bis
 
-Idem Solution 1 mais avec une ligne par indicateur, le résultat de l'indicateur étant stocké dans un JSON.
+Idem Solution 1 mais avec les propriétés stockée dans le champ JSON 'value'.
 
 :::{admonition} Exemple
 'nombre de station par opérateur'
 
-| json    | query | perim | perim_v | crit | timestamp |
-| ------- | ----- | ----- | ------- | ---- | --------- |
-| json_op | 't8'  | '01'  | '93'    | ''   | xxxxxxx   |
+| value    | crit_v  | query | perim | perim_v | crit | timestamp |
+| -------- | ------- | ----- | ----- | ------- | ---- | --------- |
+| json_op1 | 'oper1' | 't8'  | '01'  | '93'    | ''   | xxxxxxx   |
+| json_op2 | 'oper2' | 't8'  | '01'  | '93'    | ''   | xxxxxxx   |
+| json_op3 | 'oper3' | 't8'  | '01'  | '93'    | ''   | xxxxxxx   |
 
-avec json_op :
+avec json_op1 :
+
+```json
+    {'nombre ': 30, 'moyenne': 50} 
+```
+
+:::
+
+### Solution 2
+
+Idem Solution 1bis mais avec une ligne par indicateur stocké dans un JSON.
+
+:::{admonition} Exemple
+'nombre de station par opérateur'
+
+| result   | query | perim | perim_v | crit | timestamp |
+| -------- | ----- | ----- | ------- | ---- | --------- |
+| json_res | 't8'  | '01'  | '93'    | ''   | xxxxxxx   |
+
+avec json_res :
 
 ```json
 [
-    {'crit_v': 'oper1', 'nombre ': 30, 'somme': 1500},
-    {'crit_v': 'oper2', 'nombre ': 30, 'somme': 2500},
-    {'crit_v': 'oper3', 'nombre ': 30, 'somme': 5000}
+    {'crit_v': 'oper1', 'value': {'nombre ': 30, 'moyenne': 50}},
+    {'crit_v': 'oper2', 'value': {'nombre ': 28, 'moyenne': 52.1}},
+    {'crit_v': 'oper3', 'value': {'nombre ': 31, 'moyenne': 55 }}
 ]
 ```
 
