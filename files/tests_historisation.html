@@ -402,6 +402,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principes-indicateurs">Principes indicateurs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#historisation-pour-ne-pas-stocker-un-ensemble-des-valeurs-on-stocke-des-donnees-agregees-scalables">Historisation : Pour ne pas stocker un ensemble des valeurs on stocke des données agrégées ‘scalables’</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-d-indicateur">Types d’indicateur</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests-solution-1">Tests Solution 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests-solution-1-bis">Tests solution 1 bis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests-solution-2">Tests solution 2</a></li>
@@ -450,6 +455,33 @@ document.write(`
 <li><p>solution 1bis : une table avec un champ JSON pour les valeurs (plusieurs lignes par indicateur)</p></li>
 <li><p>solution 2 : une table avec une valeur JSON par indicateur (une ligne par indicateur)</p></li>
 </ul>
+<section id="principes-indicateurs">
+<h2>Principes indicateurs<a class="headerlink" href="#principes-indicateurs" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>résultat instantané : valeur unique (ex. puissance, nombre de stations…)</p></li>
+<li><p>résultat sur une période : ensemble de valeurs (ex. puissance quotidienne…)</p></li>
+</ul>
+<section id="historisation-pour-ne-pas-stocker-un-ensemble-des-valeurs-on-stocke-des-donnees-agregees-scalables">
+<h3>Historisation : Pour ne pas stocker un ensemble des valeurs on stocke des données agrégées ‘scalables’<a class="headerlink" href="#historisation-pour-ne-pas-stocker-un-ensemble-des-valeurs-on-stocke-des-donnees-agregees-scalables" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>quantité de valeurs (nécessaire pour les calculs)</p></li>
+<li><p>valeur moyenne</p></li>
+<li><p>dernière valeur de la période (optionnel ou obligatoire ?)</p></li>
+<li><p>écart-type (optionnel)</p></li>
+<li><p>valeur mini (optionnel)</p></li>
+<li><p>valeur maxi (optionnel)</p></li>
+</ul>
+<p>ex. ‘dernière valeur’ utile quand on veut comparer une évolution entre deux dates (ex entre fin 2023 et fin 2024) ou avoir une courbe des valeurs mensuelles</p>
+</section>
+<section id="types-d-indicateur">
+<h3>Types d’indicateur<a class="headerlink" href="#types-d-indicateur" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>valeur unique (tableau avec une colonne et une valeur)</p></li>
+<li><p>avec un paramètre -&gt; liste de valeurs (tableau avec deux colonnes et n valeurs)</p></li>
+<li><p>avec deux paramètres -&gt; liste de valeurs (tableau avec trois colonnes et n x n valeurs)</p></li>
+</ul>
+</section>
+</section>
 <section id="tests-solution-1">
 <h2>Tests Solution 1<a class="headerlink" href="#tests-solution-1" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -2160,6 +2192,11 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principes-indicateurs">Principes indicateurs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#historisation-pour-ne-pas-stocker-un-ensemble-des-valeurs-on-stocke-des-donnees-agregees-scalables">Historisation : Pour ne pas stocker un ensemble des valeurs on stocke des données agrégées ‘scalables’</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-d-indicateur">Types d’indicateur</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests-solution-1">Tests Solution 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests-solution-1-bis">Tests solution 1 bis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests-solution-2">Tests solution 2</a></li>
