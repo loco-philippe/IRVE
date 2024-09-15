@@ -420,7 +420,6 @@ document.write(`
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#annexe-autres-tests">Annexe : autres tests</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests-sol-1-autres">Tests sol 1 autres</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests-solution-1-bis">Tests solution 1 bis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests-solution-2-bis">Tests solution 2 bis</a></li>
 </ul>
 </li>
@@ -505,65 +504,35 @@ document.write(`
 <li><p>requête t8 annuelle à partir des résultats des requêtes quotidiennes stockées sur un an dans une table.</p></li>
 <li><p>avec t8 : nb station par opérateur et par région-01/département-02/EPCI-03/communes-04</p></li>
 </ul>
-<section id="tests-perf-solution-1">
-<h3>Tests perf Solution 1<a class="headerlink" href="#tests-perf-solution-1" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dd</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ti</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="s1">&#39;2024-01-01&#39;</span><span class="p">)</span>
 <span class="n">test</span> <span class="o">=</span> <span class="s1">&#39;t8---01&#39;</span>
-<span class="c1">#test = &#39;t8---02&#39;</span>
-<span class="c1">#test = &#39;t8---03&#39;</span>
-<span class="c1">#test = &#39;t8---04&#39;</span>
+<span class="n">test</span> <span class="o">=</span> <span class="s1">&#39;t8---02&#39;</span>
+<span class="n">test</span> <span class="o">=</span> <span class="s1">&#39;t8---03&#39;</span>
+<span class="n">test</span> <span class="o">=</span> <span class="s1">&#39;t8---04&#39;</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#%%timeit</span>
-<span class="n">to_indicator</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">histo</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;table&#39;</span><span class="p">,</span> <span class="n">histo_timest</span><span class="o">=</span> <span class="n">ti</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span> <span class="n">table_name</span><span class="o">=</span><span class="s1">&#39;quotidien_1&#39;</span><span class="p">,</span> <span class="n">table_option</span><span class="o">=</span><span class="s1">&#39;replace&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>count</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>3949</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
+<section id="tests-perf-solution-1">
+<h3>Tests perf Solution 1<a class="headerlink" href="#tests-perf-solution-1" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">to_indicator</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">histo</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;table&#39;</span><span class="p">,</span> <span class="n">histo_timest</span><span class="o">=</span> <span class="n">ti</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span> <span class="n">table_name</span><span class="o">=</span><span class="s1">&#39;quotidien_1&#39;</span><span class="p">,</span> <span class="n">table_option</span><span class="o">=</span><span class="s1">&#39;replace&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">365</span><span class="p">):</span>
     <span class="n">ti</span> <span class="o">+=</span> <span class="n">dd</span>
-    <span class="n">count</span> <span class="o">=</span> <span class="n">to_indicator</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">histo</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;table&#39;</span><span class="p">,</span> <span class="n">histo_timest</span><span class="o">=</span> <span class="n">ti</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span> <span class="n">table_name</span><span class="o">=</span><span class="s1">&#39;quotidien_1&#39;</span><span class="p">,</span> <span class="n">table_option</span><span class="o">=</span><span class="s1">&#39;append&#39;</span><span class="p">)</span>
-<span class="n">count</span>
+    <span class="n">to_indicator</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">histo</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;table&#39;</span><span class="p">,</span> <span class="n">histo_timest</span><span class="o">=</span> <span class="n">ti</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span> <span class="n">table_name</span><span class="o">=</span><span class="s1">&#39;quotidien_1&#39;</span><span class="p">,</span> <span class="n">table_option</span><span class="o">=</span><span class="s1">&#39;append&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">engine</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+    <span class="n">quotidien_1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM quotidien_1&quot;</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+<span class="n">quotidien_1</span>
 </pre></div>
 </div>
 </div>
@@ -586,16 +555,165 @@ document.write(`
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>count</th>
+      <th>quantity</th>
+      <th>mean</th>
+      <th>last</th>
+      <th>crit_v</th>
+      <th>code</th>
+      <th>query</th>
+      <th>level</th>
+      <th>val</th>
+      <th>area</th>
+      <th>timest</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>1445334</td>
+      <td>1</td>
+      <td>266.0</td>
+      <td>266.0</td>
+      <td>IZIVIA</td>
+      <td>86233</td>
+      <td>t8</td>
+      <td>00</td>
+      <td>00</td>
+      <td>04</td>
+      <td>2024-01-01</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>133.0</td>
+      <td>133.0</td>
+      <td>IZIVIA</td>
+      <td>92026</td>
+      <td>t8</td>
+      <td>00</td>
+      <td>00</td>
+      <td>04</td>
+      <td>2024-01-01</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>IZIVIA</td>
+      <td>33073</td>
+      <td>t8</td>
+      <td>00</td>
+      <td>00</td>
+      <td>04</td>
+      <td>2024-01-01</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>90.0</td>
+      <td>90.0</td>
+      <td>IZIVIA</td>
+      <td>92044</td>
+      <td>t8</td>
+      <td>00</td>
+      <td>00</td>
+      <td>04</td>
+      <td>2024-01-01</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>84.0</td>
+      <td>84.0</td>
+      <td>UBITRICITY GMBH</td>
+      <td>76351</td>
+      <td>t8</td>
+      <td>00</td>
+      <td>00</td>
+      <td>04</td>
+      <td>2024-01-01</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1445329</th>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>Bouygues Energies et Services</td>
+      <td>77512</td>
+      <td>t8</td>
+      <td>00</td>
+      <td>00</td>
+      <td>04</td>
+      <td>2024-12-31</td>
+    </tr>
+    <tr>
+      <th>1445330</th>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>Last Mile Solutions</td>
+      <td>76341</td>
+      <td>t8</td>
+      <td>00</td>
+      <td>00</td>
+      <td>04</td>
+      <td>2024-12-31</td>
+    </tr>
+    <tr>
+      <th>1445331</th>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>IONITY</td>
+      <td>62239</td>
+      <td>t8</td>
+      <td>00</td>
+      <td>00</td>
+      <td>04</td>
+      <td>2024-12-31</td>
+    </tr>
+    <tr>
+      <th>1445332</th>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>RossiniEnergy</td>
+      <td>52292</td>
+      <td>t8</td>
+      <td>00</td>
+      <td>00</td>
+      <td>04</td>
+      <td>2024-12-31</td>
+    </tr>
+    <tr>
+      <th>1445333</th>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>Power Dot France</td>
+      <td>95219</td>
+      <td>t8</td>
+      <td>00</td>
+      <td>00</td>
+      <td>04</td>
+      <td>2024-12-31</td>
     </tr>
   </tbody>
 </table>
+<p>1445334 rows × 10 columns</p>
 </div></div></div>
 </div>
 <div class="cell docutils container">
@@ -606,40 +724,19 @@ document.write(`
 
 <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">SELECT</span>
-<span class="s2">  SUM(quantity) AS quantity,  SUM(quantity * mean) AS somme,  last, crit_v,  code, query,  level,  val,  area</span>
+<span class="s2">  SUM(quantity) AS quantity,  SUM(quantity * mean) AS somme,  LAST(last) AS last, crit_v,  code, query,  level,  val,  area</span>
 <span class="s2">FROM</span>
 <span class="s2">  quotidien_1</span>
 <span class="s2">WHERE</span>
 <span class="s2">  (timest &gt;= to_timestamp(&#39;2024-01-01&#39;, &#39;YYYY-MM-DD&#39;)   AND   timest &lt; to_timestamp(&#39;2025-01-01&#39;, &#39;YYYY-MM-DD&#39;))</span>
 <span class="s2">GROUP BY</span>
-<span class="s2">  last, crit_v,  code, query,  level,  val,  area</span>
+<span class="s2">  crit_v,  code, query,  level,  val,  area</span>
 <span class="s2">ORDER BY</span>
 <span class="s2">  query,  level,  val,  area</span>
 <span class="s2">&quot;&quot;&quot;</span>
 
 <span class="k">with</span> <span class="n">engine</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
     <span class="n">mensuel</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
-<span class="k">with</span> <span class="n">engine</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
-    <span class="n">mensuel</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>861 ms ± 50.1 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mensuel</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s1">&#39;mensuel_1&#39;</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s1">&#39;replace&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">mensuel</span>
 </pre></div>
 </div>
@@ -812,6 +909,32 @@ document.write(`
 <p>3949 rows × 9 columns</p>
 </div></div></div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
+<span class="k">with</span> <span class="n">engine</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+    <span class="n">mensuel</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>895 ms ± 72.1 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mensuel</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s1">&#39;mensuel_1&#39;</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s1">&#39;replace&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="tests-perf-sol-1-bis">
 <h3>tests perf sol 1 bis<a class="headerlink" href="#tests-perf-sol-1-bis" title="Link to this heading">#</a></h3>
@@ -825,50 +948,20 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#%%timeit</span>
-<span class="n">to_indicator</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">histo</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;table&#39;</span><span class="p">,</span> <span class="n">histo_timest</span><span class="o">=</span> <span class="n">ti</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span> <span class="n">table_name</span><span class="o">=</span><span class="s1">&#39;quotidien_1_bis&#39;</span><span class="p">,</span> <span class="n">table_option</span><span class="o">=</span><span class="s1">&#39;replace&#39;</span><span class="p">,</span> <span class="n">table_dtype</span><span class="o">=</span><span class="n">dtype_1_bis</span><span class="p">,</span> <span class="n">test</span><span class="o">=</span><span class="s1">&#39;1bis&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>count</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>3949</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ti</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="s1">&#39;2024-01-01&#39;</span><span class="p">)</span>
 <span class="n">to_indicator</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">histo</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;table&#39;</span><span class="p">,</span> <span class="n">histo_timest</span><span class="o">=</span> <span class="n">ti</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span> <span class="n">table_name</span><span class="o">=</span><span class="s1">&#39;quotidien_1_bis&#39;</span><span class="p">,</span> <span class="n">table_option</span><span class="o">=</span><span class="s1">&#39;replace&#39;</span><span class="p">,</span> <span class="n">table_dtype</span><span class="o">=</span><span class="n">dtype_1_bis</span><span class="p">,</span> <span class="n">test</span><span class="o">=</span><span class="s1">&#39;1bis&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">365</span><span class="p">):</span>
     <span class="n">ti</span> <span class="o">+=</span> <span class="n">dd</span>
-    <span class="n">count</span> <span class="o">=</span> <span class="n">to_indicator</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">histo</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;table&#39;</span><span class="p">,</span> <span class="n">histo_timest</span><span class="o">=</span> <span class="n">ti</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span> <span class="n">table_name</span><span class="o">=</span><span class="s1">&#39;quotidien_1_bis&#39;</span><span class="p">,</span> <span class="n">table_option</span><span class="o">=</span><span class="s1">&#39;append&#39;</span><span class="p">,</span> <span class="n">table_dtype</span><span class="o">=</span><span class="n">dtype_1_bis</span><span class="p">,</span> <span class="n">test</span><span class="o">=</span><span class="s1">&#39;1bis&#39;</span><span class="p">)</span>
-<span class="n">count</span>
+    <span class="n">to_indicator</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">histo</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;table&#39;</span><span class="p">,</span> <span class="n">histo_timest</span><span class="o">=</span> <span class="n">ti</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span> <span class="n">table_name</span><span class="o">=</span><span class="s1">&#39;quotidien_1_bis&#39;</span><span class="p">,</span> <span class="n">table_option</span><span class="o">=</span><span class="s1">&#39;append&#39;</span><span class="p">,</span> <span class="n">table_dtype</span><span class="o">=</span><span class="n">dtype_1_bis</span><span class="p">,</span> <span class="n">test</span><span class="o">=</span><span class="s1">&#39;1bis&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">engine</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+    <span class="n">quotidien_1_bis</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM quotidien_1_bis&quot;</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+<span class="n">quotidien_1_bis</span>
 </pre></div>
 </div>
 </div>
@@ -891,16 +984,141 @@ document.write(`
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>count</th>
+      <th>crit_v</th>
+      <th>code</th>
+      <th>query</th>
+      <th>level</th>
+      <th>val</th>
+      <th>area</th>
+      <th>timest</th>
+      <th>value</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>1445334</td>
+      <td>IZIVIA</td>
+      <td>86233</td>
+      <td>t8</td>
+      <td>00</td>
+      <td>00</td>
+      <td>04</td>
+      <td>2024-01-01</td>
+      <td>{'last': 266.0, 'mean': 266.0, 'quantity': 1}</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>IZIVIA</td>
+      <td>92026</td>
+      <td>t8</td>
+      <td>00</td>
+      <td>00</td>
+      <td>04</td>
+      <td>2024-01-01</td>
+      <td>{'last': 133.0, 'mean': 133.0, 'quantity': 1}</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>IZIVIA</td>
+      <td>33073</td>
+      <td>t8</td>
+      <td>00</td>
+      <td>00</td>
+      <td>04</td>
+      <td>2024-01-01</td>
+      <td>{'last': 100.0, 'mean': 100.0, 'quantity': 1}</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>IZIVIA</td>
+      <td>92044</td>
+      <td>t8</td>
+      <td>00</td>
+      <td>00</td>
+      <td>04</td>
+      <td>2024-01-01</td>
+      <td>{'last': 90.0, 'mean': 90.0, 'quantity': 1}</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>UBITRICITY GMBH</td>
+      <td>76351</td>
+      <td>t8</td>
+      <td>00</td>
+      <td>00</td>
+      <td>04</td>
+      <td>2024-01-01</td>
+      <td>{'last': 84.0, 'mean': 84.0, 'quantity': 1}</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1445329</th>
+      <td>Bouygues Energies et Services</td>
+      <td>77512</td>
+      <td>t8</td>
+      <td>00</td>
+      <td>00</td>
+      <td>04</td>
+      <td>2024-12-31</td>
+      <td>{'last': 1.0, 'mean': 1.0, 'quantity': 1}</td>
+    </tr>
+    <tr>
+      <th>1445330</th>
+      <td>Last Mile Solutions</td>
+      <td>76341</td>
+      <td>t8</td>
+      <td>00</td>
+      <td>00</td>
+      <td>04</td>
+      <td>2024-12-31</td>
+      <td>{'last': 1.0, 'mean': 1.0, 'quantity': 1}</td>
+    </tr>
+    <tr>
+      <th>1445331</th>
+      <td>IONITY</td>
+      <td>62239</td>
+      <td>t8</td>
+      <td>00</td>
+      <td>00</td>
+      <td>04</td>
+      <td>2024-12-31</td>
+      <td>{'last': 1.0, 'mean': 1.0, 'quantity': 1}</td>
+    </tr>
+    <tr>
+      <th>1445332</th>
+      <td>RossiniEnergy</td>
+      <td>52292</td>
+      <td>t8</td>
+      <td>00</td>
+      <td>00</td>
+      <td>04</td>
+      <td>2024-12-31</td>
+      <td>{'last': 1.0, 'mean': 1.0, 'quantity': 1}</td>
+    </tr>
+    <tr>
+      <th>1445333</th>
+      <td>Power Dot France</td>
+      <td>95219</td>
+      <td>t8</td>
+      <td>00</td>
+      <td>00</td>
+      <td>04</td>
+      <td>2024-12-31</td>
+      <td>{'last': 1.0, 'mean': 1.0, 'quantity': 1}</td>
     </tr>
   </tbody>
 </table>
+<p>1445334 rows × 8 columns</p>
 </div></div></div>
 </div>
 <div class="cell docutils container">
@@ -1105,7 +1323,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.24 s ± 68.8 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.31 s ± 39.8 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -1137,12 +1355,6 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">quotidien_2</span> <span class="o">=</span> <span class="n">quotidien_1_bis</span><span class="p">[[</span><span class="s1">&#39;query&#39;</span><span class="p">,</span> <span class="s1">&#39;level&#39;</span><span class="p">,</span> <span class="s1">&#39;val&#39;</span><span class="p">,</span> <span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="s1">&#39;timest&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">quotidien_2</span><span class="p">[</span><span class="s1">&#39;timest&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">quotidien_2</span><span class="p">[</span><span class="s1">&#39;timest&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)</span>
-<span class="nb">len</span><span class="p">(</span><span class="n">quotidien_2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>366
 </pre></div>
 </div>
 </div>
@@ -1161,26 +1373,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">quotidien_1_bis</span><span class="p">[</span><span class="s1">&#39;timest&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">quotidien_1_bis</span><span class="p">[</span><span class="s1">&#39;timest&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)</span>
 <span class="n">quotidien_2</span><span class="p">[</span><span class="s1">&#39;result&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="n">value_2</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">quotidien_1_bis</span><span class="p">)</span> <span class="k">for</span> <span class="n">row_idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">quotidien_2</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dtype_2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;result&#39;</span><span class="p">:</span> <span class="n">dialects</span><span class="o">.</span><span class="n">postgresql</span><span class="o">.</span><span class="n">JSONB</span><span class="p">,</span> <span class="s1">&#39;query&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">TEXT</span><span class="p">,</span> <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">TEXT</span><span class="p">,</span> <span class="s1">&#39;val&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">TEXT</span><span class="p">,</span> <span class="s1">&#39;area&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">TEXT</span><span class="p">,</span> <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">TIMESTAMP</span><span class="p">}</span>
-<span class="n">quotidien_2</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s2">&quot;quotidien_2&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s2">&quot;replace&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype_2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">quotidien_2</span>
+<span class="n">quotidien_2</span>
 </pre></div>
 </div>
 </div>
@@ -1273,7 +1466,7 @@ document.write(`
       <td>00</td>
       <td>04</td>
       <td>2024-12-27</td>
-      <td>[{'code': '50592', 'crit_v': None, 'value': {'...</td>
+      <td>[{'code': '83019', 'crit_v': 'Bump', 'value': ...</td>
     </tr>
     <tr>
       <th>362</th>
@@ -1282,7 +1475,7 @@ document.write(`
       <td>00</td>
       <td>04</td>
       <td>2024-12-28</td>
-      <td>[{'code': '85127', 'crit_v': 'Bump', 'value': ...</td>
+      <td>[{'code': '52399', 'crit_v': 'Tesla', 'value':...</td>
     </tr>
     <tr>
       <th>363</th>
@@ -1291,7 +1484,7 @@ document.write(`
       <td>00</td>
       <td>04</td>
       <td>2024-12-29</td>
-      <td>[{'code': '21054', 'crit_v': 'Tesla', 'value':...</td>
+      <td>[{'code': '50592', 'crit_v': None, 'value': {'...</td>
     </tr>
     <tr>
       <th>364</th>
@@ -1300,7 +1493,7 @@ document.write(`
       <td>00</td>
       <td>04</td>
       <td>2024-12-30</td>
-      <td>[{'code': '75056', 'crit_v': 'Bump', 'value': ...</td>
+      <td>[{'code': '85127', 'crit_v': 'Bump', 'value': ...</td>
     </tr>
     <tr>
       <th>365</th>
@@ -1309,12 +1502,25 @@ document.write(`
       <td>00</td>
       <td>04</td>
       <td>2024-12-31</td>
-      <td>[{'code': '76165', 'crit_v': 'VIRTA', 'value':...</td>
+      <td>[{'code': '52399', 'crit_v': 'Tesla', 'value':...</td>
     </tr>
   </tbody>
 </table>
 <p>366 rows × 6 columns</p>
 </div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dtype_2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;result&#39;</span><span class="p">:</span> <span class="n">dialects</span><span class="o">.</span><span class="n">postgresql</span><span class="o">.</span><span class="n">JSONB</span><span class="p">,</span> <span class="s1">&#39;query&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">TEXT</span><span class="p">,</span> <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">TEXT</span><span class="p">,</span> <span class="s1">&#39;val&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">TEXT</span><span class="p">,</span> <span class="s1">&#39;area&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">TEXT</span><span class="p">,</span> <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">TIMESTAMP</span><span class="p">}</span>
+<span class="n">quotidien_2</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s2">&quot;quotidien_2&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s2">&quot;replace&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype_2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1527,7 +1733,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.98 s ± 52.7 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.97 s ± 65.5 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -1621,6 +1827,36 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>33</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1631,6 +1867,470 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>quantity</th>
+      <th>mean</th>
+      <th>last</th>
+      <th>crit_v</th>
+      <th>code</th>
+      <th>query</th>
+      <th>level</th>
+      <th>val</th>
+      <th>area</th>
+      <th>timest</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>23522.0</td>
+      <td>23522.0</td>
+      <td></td>
+      <td></td>
+      <td>i1</td>
+      <td>00</td>
+      <td>00</td>
+      <td>00</td>
+      <td>2024-09-15 21:13:52.758505+00:00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>473.0</td>
+      <td>473.0</td>
+      <td></td>
+      <td>13</td>
+      <td>i1</td>
+      <td>01</td>
+      <td>93</td>
+      <td>02</td>
+      <td>2024-09-15 21:13:52.850220+00:00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>450.0</td>
+      <td>450.0</td>
+      <td></td>
+      <td>06</td>
+      <td>i1</td>
+      <td>01</td>
+      <td>93</td>
+      <td>02</td>
+      <td>2024-09-15 21:13:52.850220+00:00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>175.0</td>
+      <td>175.0</td>
+      <td></td>
+      <td>83</td>
+      <td>i1</td>
+      <td>01</td>
+      <td>93</td>
+      <td>02</td>
+      <td>2024-09-15 21:13:52.850220+00:00</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>170.0</td>
+      <td>170.0</td>
+      <td></td>
+      <td>84</td>
+      <td>i1</td>
+      <td>01</td>
+      <td>93</td>
+      <td>02</td>
+      <td>2024-09-15 21:13:52.850220+00:00</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1</td>
+      <td>105.0</td>
+      <td>105.0</td>
+      <td></td>
+      <td>04</td>
+      <td>i1</td>
+      <td>01</td>
+      <td>93</td>
+      <td>02</td>
+      <td>2024-09-15 21:13:52.850220+00:00</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1</td>
+      <td>57.0</td>
+      <td>57.0</td>
+      <td></td>
+      <td>05</td>
+      <td>i1</td>
+      <td>01</td>
+      <td>93</td>
+      <td>02</td>
+      <td>2024-09-15 21:13:52.850220+00:00</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1</td>
+      <td>73.0</td>
+      <td>73.0</td>
+      <td>[15.0,26.0)</td>
+      <td></td>
+      <td>t1</td>
+      <td>02</td>
+      <td>75</td>
+      <td>00</td>
+      <td>2024-09-15 21:13:52.918944+00:00</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1</td>
+      <td>13.0</td>
+      <td>13.0</td>
+      <td>[26,65.0)</td>
+      <td></td>
+      <td>t1</td>
+      <td>02</td>
+      <td>75</td>
+      <td>00</td>
+      <td>2024-09-15 21:13:52.918944+00:00</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>1</td>
+      <td>9.0</td>
+      <td>9.0</td>
+      <td>[0,15.0)</td>
+      <td></td>
+      <td>t1</td>
+      <td>02</td>
+      <td>75</td>
+      <td>00</td>
+      <td>2024-09-15 21:13:52.918944+00:00</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>1</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>[65,175.0)</td>
+      <td></td>
+      <td>t1</td>
+      <td>02</td>
+      <td>75</td>
+      <td>00</td>
+      <td>2024-09-15 21:13:52.918944+00:00</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>1</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>[175,360.0)</td>
+      <td></td>
+      <td>t1</td>
+      <td>02</td>
+      <td>75</td>
+      <td>00</td>
+      <td>2024-09-15 21:13:52.918944+00:00</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>1</td>
+      <td>19.0</td>
+      <td>19.0</td>
+      <td>1</td>
+      <td></td>
+      <td>t3</td>
+      <td>04</td>
+      <td>13001</td>
+      <td>00</td>
+      <td>2024-09-15 21:13:52.981486+00:00</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3</td>
+      <td></td>
+      <td>t3</td>
+      <td>04</td>
+      <td>13001</td>
+      <td>00</td>
+      <td>2024-09-15 21:13:52.981486+00:00</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>5</td>
+      <td></td>
+      <td>t3</td>
+      <td>04</td>
+      <td>13001</td>
+      <td>00</td>
+      <td>2024-09-15 21:13:52.981486+00:00</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>13</td>
+      <td></td>
+      <td>t3</td>
+      <td>04</td>
+      <td>13001</td>
+      <td>00</td>
+      <td>2024-09-15 21:13:52.981486+00:00</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>16</td>
+      <td></td>
+      <td>t3</td>
+      <td>04</td>
+      <td>13001</td>
+      <td>00</td>
+      <td>2024-09-15 21:13:52.981486+00:00</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>1</td>
+      <td>23522.0</td>
+      <td>23522.0</td>
+      <td></td>
+      <td></td>
+      <td>i1</td>
+      <td>00</td>
+      <td>00</td>
+      <td>00</td>
+      <td>2024-09-15 21:13:53.018731+00:00</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>1</td>
+      <td>73.0</td>
+      <td>73.0</td>
+      <td>[15.0,26.0)</td>
+      <td></td>
+      <td>t1</td>
+      <td>02</td>
+      <td>75</td>
+      <td>00</td>
+      <td>2024-09-15 21:13:53.033815+00:00</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>1</td>
+      <td>13.0</td>
+      <td>13.0</td>
+      <td>[26,65.0)</td>
+      <td></td>
+      <td>t1</td>
+      <td>02</td>
+      <td>75</td>
+      <td>00</td>
+      <td>2024-09-15 21:13:53.033815+00:00</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>1</td>
+      <td>9.0</td>
+      <td>9.0</td>
+      <td>[0,15.0)</td>
+      <td></td>
+      <td>t1</td>
+      <td>02</td>
+      <td>75</td>
+      <td>00</td>
+      <td>2024-09-15 21:13:53.033815+00:00</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>1</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>[65,175.0)</td>
+      <td></td>
+      <td>t1</td>
+      <td>02</td>
+      <td>75</td>
+      <td>00</td>
+      <td>2024-09-15 21:13:53.033815+00:00</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>1</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>[175,360.0)</td>
+      <td></td>
+      <td>t1</td>
+      <td>02</td>
+      <td>75</td>
+      <td>00</td>
+      <td>2024-09-15 21:13:53.033815+00:00</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>1</td>
+      <td>19.0</td>
+      <td>19.0</td>
+      <td>1</td>
+      <td></td>
+      <td>t3</td>
+      <td>04</td>
+      <td>13001</td>
+      <td>00</td>
+      <td>2024-09-15 21:13:53.065959+00:00</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3</td>
+      <td></td>
+      <td>t3</td>
+      <td>04</td>
+      <td>13001</td>
+      <td>00</td>
+      <td>2024-09-15 21:13:53.065959+00:00</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>5</td>
+      <td></td>
+      <td>t3</td>
+      <td>04</td>
+      <td>13001</td>
+      <td>00</td>
+      <td>2024-09-15 21:13:53.065959+00:00</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>13</td>
+      <td></td>
+      <td>t3</td>
+      <td>04</td>
+      <td>13001</td>
+      <td>00</td>
+      <td>2024-09-15 21:13:53.065959+00:00</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>16</td>
+      <td></td>
+      <td>t3</td>
+      <td>04</td>
+      <td>13001</td>
+      <td>00</td>
+      <td>2024-09-15 21:13:53.065959+00:00</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>1</td>
+      <td>73.0</td>
+      <td>73.0</td>
+      <td>[15.0,26.0)</td>
+      <td></td>
+      <td>t1</td>
+      <td>02</td>
+      <td>75</td>
+      <td>00</td>
+      <td>2024-09-15 21:13:53.100541+00:00</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>1</td>
+      <td>13.0</td>
+      <td>13.0</td>
+      <td>[26,65.0)</td>
+      <td></td>
+      <td>t1</td>
+      <td>02</td>
+      <td>75</td>
+      <td>00</td>
+      <td>2024-09-15 21:13:53.100541+00:00</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>1</td>
+      <td>9.0</td>
+      <td>9.0</td>
+      <td>[0,15.0)</td>
+      <td></td>
+      <td>t1</td>
+      <td>02</td>
+      <td>75</td>
+      <td>00</td>
+      <td>2024-09-15 21:13:53.100541+00:00</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>1</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>[65,175.0)</td>
+      <td></td>
+      <td>t1</td>
+      <td>02</td>
+      <td>75</td>
+      <td>00</td>
+      <td>2024-09-15 21:13:53.100541+00:00</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>1</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>[175,360.0)</td>
+      <td></td>
+      <td>t1</td>
+      <td>02</td>
+      <td>75</td>
+      <td>00</td>
+      <td>2024-09-15 21:13:53.100541+00:00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1640,13 +2340,13 @@ document.write(`
 
 <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">SELECT</span>
-<span class="s2">  SUM(nombre) AS nombre,  SUM(somme) AS somme,  crit_v,  code, query,  level,  val,  area</span>
+<span class="s2">  SUM(quantity) AS quantity,  SUM(quantity * mean) / SUM(quantity) AS mean,  last, crit_v,  code, query,  level,  val,  area</span>
 <span class="s2">FROM</span>
 <span class="s2">  quotidien_1</span>
 <span class="s2">WHERE</span>
 <span class="s2">  (timest &gt;= CAST(NOW() AS date))   AND   (timest &lt; CAST((NOW() + INTERVAL &#39;1 month&#39;) AS date))</span>
 <span class="s2">GROUP BY</span>
-<span class="s2">  crit_v,  code, query,  level,  val,  area</span>
+<span class="s2">  last, crit_v,  code, query,  level,  val,  area</span>
 <span class="s2">ORDER BY</span>
 <span class="s2">  query,  level,  val,  area</span>
 <span class="s2">&quot;&quot;&quot;</span>
@@ -1657,10 +2357,253 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>quantity</th>
+      <th>mean</th>
+      <th>last</th>
+      <th>crit_v</th>
+      <th>code</th>
+      <th>query</th>
+      <th>level</th>
+      <th>val</th>
+      <th>area</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2.0</td>
+      <td>23522.0</td>
+      <td>23522.0</td>
+      <td></td>
+      <td></td>
+      <td>i1</td>
+      <td>00</td>
+      <td>00</td>
+      <td>00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.0</td>
+      <td>57.0</td>
+      <td>57.0</td>
+      <td></td>
+      <td>05</td>
+      <td>i1</td>
+      <td>01</td>
+      <td>93</td>
+      <td>02</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.0</td>
+      <td>105.0</td>
+      <td>105.0</td>
+      <td></td>
+      <td>04</td>
+      <td>i1</td>
+      <td>01</td>
+      <td>93</td>
+      <td>02</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.0</td>
+      <td>170.0</td>
+      <td>170.0</td>
+      <td></td>
+      <td>84</td>
+      <td>i1</td>
+      <td>01</td>
+      <td>93</td>
+      <td>02</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.0</td>
+      <td>175.0</td>
+      <td>175.0</td>
+      <td></td>
+      <td>83</td>
+      <td>i1</td>
+      <td>01</td>
+      <td>93</td>
+      <td>02</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1.0</td>
+      <td>450.0</td>
+      <td>450.0</td>
+      <td></td>
+      <td>06</td>
+      <td>i1</td>
+      <td>01</td>
+      <td>93</td>
+      <td>02</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1.0</td>
+      <td>473.0</td>
+      <td>473.0</td>
+      <td></td>
+      <td>13</td>
+      <td>i1</td>
+      <td>01</td>
+      <td>93</td>
+      <td>02</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>[175,360.0)</td>
+      <td></td>
+      <td>t1</td>
+      <td>02</td>
+      <td>75</td>
+      <td>00</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>[65,175.0)</td>
+      <td></td>
+      <td>t1</td>
+      <td>02</td>
+      <td>75</td>
+      <td>00</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>3.0</td>
+      <td>9.0</td>
+      <td>9.0</td>
+      <td>[0,15.0)</td>
+      <td></td>
+      <td>t1</td>
+      <td>02</td>
+      <td>75</td>
+      <td>00</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>3.0</td>
+      <td>13.0</td>
+      <td>13.0</td>
+      <td>[26,65.0)</td>
+      <td></td>
+      <td>t1</td>
+      <td>02</td>
+      <td>75</td>
+      <td>00</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>3.0</td>
+      <td>73.0</td>
+      <td>73.0</td>
+      <td>[15.0,26.0)</td>
+      <td></td>
+      <td>t1</td>
+      <td>02</td>
+      <td>75</td>
+      <td>00</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>13</td>
+      <td></td>
+      <td>t3</td>
+      <td>04</td>
+      <td>13001</td>
+      <td>00</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>16</td>
+      <td></td>
+      <td>t3</td>
+      <td>04</td>
+      <td>13001</td>
+      <td>00</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3</td>
+      <td></td>
+      <td>t3</td>
+      <td>04</td>
+      <td>13001</td>
+      <td>00</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>5</td>
+      <td></td>
+      <td>t3</td>
+      <td>04</td>
+      <td>13001</td>
+      <td>00</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>2.0</td>
+      <td>19.0</td>
+      <td>19.0</td>
+      <td>1</td>
+      <td></td>
+      <td>t3</td>
+      <td>04</td>
+      <td>13001</td>
+      <td>00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mensuel</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s1">&#39;mensuel_1&#39;</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s1">&#39;replace&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1
 </pre></div>
 </div>
 </div>
@@ -1672,7 +2615,7 @@ document.write(`
 
 <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">SELECT</span>
-<span class="s2">  (somme / nombre)::int AS nb_pdc,  crit_v AS p_range</span>
+<span class="s2">  mean::int AS nb_pdc,  crit_v AS p_range</span>
 <span class="s2">FROM</span>
 <span class="s2">  mensuel_1</span>
 <span class="s2">WHERE</span>
@@ -1686,71 +2629,117 @@ document.write(`
 </pre></div>
 </div>
 </div>
-</div>
-</section>
-<section id="tests-solution-1-bis">
-<h2>Tests solution 1 bis<a class="headerlink" href="#tests-solution-1-bis" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">val_t8_01_93_02</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;quantite&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;moyenne&#39;</span><span class="p">:</span> <span class="mi">50</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;quantite&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;moyenne&#39;</span><span class="p">:</span> <span class="mi">60</span><span class="p">}]</span>
-                   
-<span class="n">quotidien_1_bis</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="n">val_t8_01_93_02</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;crit_v&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;01&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;query&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;t8&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;val&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">93</span><span class="p">]</span><span class="o">*</span><span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;area&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="mi">6</span><span class="p">,</span> 
-                            <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;2024-09-09T15:05:28+00:00&#39;</span><span class="p">,</span> <span class="s1">&#39;2024-09-09T15:05:28+00:00&#39;</span><span class="p">,</span> <span class="s1">&#39;2024-09-10T15:05:28+00:00&#39;</span><span class="p">,</span> 
-                                          <span class="s1">&#39;2024-09-10T15:05:28+00:00&#39;</span><span class="p">,</span> <span class="s1">&#39;2024-09-11T15:05:28+00:00&#39;</span><span class="p">,</span> <span class="s1">&#39;2024-09-11T15:05:28+00:00&#39;</span><span class="p">]})</span>
-<span class="n">quotidien_1_bis</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dtype_1_bis</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="n">dialects</span><span class="o">.</span><span class="n">postgresql</span><span class="o">.</span><span class="n">JSONB</span><span class="p">,</span> <span class="s1">&#39;crit_v&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">TEXT</span><span class="p">,</span> <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">TEXT</span><span class="p">,</span> <span class="s1">&#39;query&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">TEXT</span><span class="p">,</span> <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">SMALLINT</span><span class="p">,</span> <span class="s1">&#39;val&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">TEXT</span><span class="p">,</span> <span class="s1">&#39;area&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">SMALLINT</span><span class="p">,</span> 
-        <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">TIMESTAMP</span><span class="p">}</span>
-<span class="n">quotidien_1_bis</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s2">&quot;quotidien_1_bis&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s2">&quot;replace&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype_1_bis</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># passage de la table &#39;quotidien&#39; à la table &#39;mensuel&#39;</span>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">SELECT</span>
-<span class="s2">  SUM((value-&gt;&gt;&#39;quantite&#39;)::float) AS quantite,  </span>
-<span class="s2">  SUM(((value-&gt;&gt;&#39;moyenne&#39;)::float) * (value-&gt;&gt;&#39;quantite&#39;)::float) / SUM((value-&gt;&gt;&#39;quantite&#39;)::float) AS moyenne,  </span>
-<span class="s2">  crit_v,  code, query,  level,  val,  area</span>
-<span class="s2">FROM</span>
-<span class="s2">  quotidien_1_bis</span>
-<span class="s2">GROUP BY</span>
-<span class="s2">  crit_v,  code, query,  level,  val,  area</span>
-<span class="s2">ORDER BY</span>
-<span class="s2">  query,  level,  val,  area</span>
-<span class="s2">&quot;&quot;&quot;</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="k">with</span> <span class="n">engine</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
-    <span class="n">mensuel</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
-<span class="n">mensuel</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s1">&#39;mensuel_1_bis&#39;</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s1">&#39;replace&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">mensuel</span>
-</pre></div>
-</div>
-</div>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>nb_pdc</th>
+      <th>p_range</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3</td>
+      <td>[175,360.0)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4</td>
+      <td>[65,175.0)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>9</td>
+      <td>[0,15.0)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>13</td>
+      <td>[26,65.0)</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>73</td>
+      <td>[15.0,26.0)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mensuel</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([{</span><span class="s1">&#39;quantite&#39;</span><span class="p">:</span> <span class="n">quantite</span><span class="p">,</span> <span class="s1">&#39;moyenne&#39;</span><span class="p">:</span> <span class="n">moyenne</span><span class="p">}</span> <span class="k">for</span> <span class="n">quantite</span><span class="p">,</span> <span class="n">moyenne</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">mensuel</span><span class="p">[</span><span class="s1">&#39;quantite&#39;</span><span class="p">],</span> <span class="n">mensuel</span><span class="p">[</span><span class="s1">&#39;moyenne&#39;</span><span class="p">])])</span>
-<span class="n">mensuel_1_bis</span> <span class="o">=</span> <span class="n">mensuel</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;crit_v&#39;</span><span class="p">,</span> <span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="s1">&#39;query&#39;</span><span class="p">,</span> <span class="s1">&#39;level&#39;</span><span class="p">,</span>  <span class="s1">&#39;val&#39;</span><span class="p">,</span>  <span class="s1">&#39;area&#39;</span><span class="p">]]</span>
-<span class="n">mensuel_1_bis</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">to_indicator</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="s1">&#39;t1-02-75&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mensuel_1_bis</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s1">&#39;mensuel_1_bis&#39;</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s1">&#39;replace&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype_1_bis</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>nb_pdc</th>
+      <th>p_range</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>73</td>
+      <td>[15.0, 26.0)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>13</td>
+      <td>[26, 65.0)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>9</td>
+      <td>[0, 15.0)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>[65, 175.0)</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3</td>
+      <td>[175, 360.0)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </section>
 <section id="tests-solution-2-bis">
@@ -1820,12 +2809,75 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>code</th>
+      <th>level</th>
+      <th>target</th>
+      <th>sub_level</th>
+      <th>value</th>
+      <th>timestamp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>t8</td>
+      <td>1</td>
+      <td>93</td>
+      <td>2</td>
+      <td>[{'department': '01', 'operators': [{'name': '...</td>
+      <td>2024-09-09T15:05:28+00:00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>t8</td>
+      <td>1</td>
+      <td>93</td>
+      <td>2</td>
+      <td>[{'department': '01', 'operators': [{'name': '...</td>
+      <td>2024-09-10T15:05:28+00:00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>t8</td>
+      <td>1</td>
+      <td>93</td>
+      <td>2</td>
+      <td>[{'department': '01', 'operators': [{'name': '...</td>
+      <td>2024-09-11T15:05:28+00:00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">TEXT</span><span class="p">,</span> <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">SMALLINT</span><span class="p">,</span> <span class="s1">&#39;target&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">TEXT</span><span class="p">,</span> <span class="s1">&#39;sub_level&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">SMALLINT</span><span class="p">,</span> 
        <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="n">dialects</span><span class="o">.</span><span class="n">postgresql</span><span class="o">.</span><span class="n">JSONB</span><span class="p">,</span> <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">TIMESTAMP</span><span class="p">}</span>
 <span class="n">t8_01_93_02</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s2">&quot;mensuel_3&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s2">&quot;replace&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1
 </pre></div>
 </div>
 </div>
@@ -1856,6 +2908,256 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>target</th>
+      <th>level</th>
+      <th>code</th>
+      <th>sub_level</th>
+      <th>department</th>
+      <th>operator</th>
+      <th>sum</th>
+      <th>delta</th>
+      <th>timestamp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>01</td>
+      <td>Bouygues</td>
+      <td>42</td>
+      <td>3</td>
+      <td>2024-09-09 15:05:28</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>01</td>
+      <td>Electra</td>
+      <td>12</td>
+      <td>-2</td>
+      <td>2024-09-09 15:05:28</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>01</td>
+      <td>Engie</td>
+      <td>252</td>
+      <td>154</td>
+      <td>2024-09-09 15:05:28</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>02</td>
+      <td>Bouygues</td>
+      <td>4</td>
+      <td>3</td>
+      <td>2024-09-09 15:05:28</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>02</td>
+      <td>Electra</td>
+      <td>52</td>
+      <td>23</td>
+      <td>2024-09-09 15:05:28</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>02</td>
+      <td>Engie</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2024-09-09 15:05:28</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>01</td>
+      <td>Bouygues</td>
+      <td>42</td>
+      <td>3</td>
+      <td>2024-09-10 15:05:28</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>01</td>
+      <td>Electra</td>
+      <td>12</td>
+      <td>-2</td>
+      <td>2024-09-10 15:05:28</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>01</td>
+      <td>Engie</td>
+      <td>252</td>
+      <td>154</td>
+      <td>2024-09-10 15:05:28</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>02</td>
+      <td>Bouygues</td>
+      <td>4</td>
+      <td>3</td>
+      <td>2024-09-10 15:05:28</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>02</td>
+      <td>Electra</td>
+      <td>52</td>
+      <td>23</td>
+      <td>2024-09-10 15:05:28</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>02</td>
+      <td>Engie</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2024-09-10 15:05:28</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>01</td>
+      <td>Bouygues</td>
+      <td>42</td>
+      <td>3</td>
+      <td>2024-09-11 15:05:28</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>01</td>
+      <td>Electra</td>
+      <td>12</td>
+      <td>-2</td>
+      <td>2024-09-11 15:05:28</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>01</td>
+      <td>Engie</td>
+      <td>252</td>
+      <td>154</td>
+      <td>2024-09-11 15:05:28</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>02</td>
+      <td>Bouygues</td>
+      <td>4</td>
+      <td>3</td>
+      <td>2024-09-11 15:05:28</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>02</td>
+      <td>Electra</td>
+      <td>52</td>
+      <td>23</td>
+      <td>2024-09-11 15:05:28</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>93</td>
+      <td>1</td>
+      <td>t8</td>
+      <td>2</td>
+      <td>02</td>
+      <td>Engie</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2024-09-11 15:05:28</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1980,7 +3282,6 @@ document.write(`
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#annexe-autres-tests">Annexe : autres tests</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests-sol-1-autres">Tests sol 1 autres</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests-solution-1-bis">Tests solution 1 bis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests-solution-2-bis">Tests solution 2 bis</a></li>
 </ul>
 </li>
