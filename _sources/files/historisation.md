@@ -255,11 +255,11 @@ Les indicateurs d'état identifiés (voir [présentation des indicateurs](./indi
 
 L'historisation est à effectuer pour les indicateurs suivants (voir chapitre listant les indicateurs): 
 
-- infrastructure - typologie : t1, t1---1, t5, t5---1, t7, t8, t8---1
-- infrastructure - quantitatif : i1---3, i1---4, i4---3, i4---4, i7---3, i7---4
+- infrastructure - typologie : t1, t1- - -1, t5, t5- - -1, t7, t8, t8- - -1
+- infrastructure - quantitatif : i1- - -3, i1- - -4, i4- - -3, i4- - -4, i7- - -3, i7- - -4
 - infrastructure - autoroute : a1, a2, a3, a5, a6
 - usage - quantitatif: u1, u3, u4
-- usage - qualité de service : q1, q1---1, q2, q2---1, q3, q3---1, q4, q4---1
+- usage - qualité de service : q1, q1- - -1, q2, q2- - -1, q3, q3- - -1, q4, q4- - -1
 - état : e1 (mensuel)
 
 ### Structure
