@@ -417,20 +417,19 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-d-etat">2.1.2. Indicateurs d’état</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.1.2.1. Principes d’historisation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.1.2.2. Périodicité</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.1.2.3. Mise en oeuvre</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">2.1.2.4. Indicateurs retenus</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#historisation-des-indicateurs-d-etat">2.1.2.1. Historisation des indicateurs d’état</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#application">2.1.2.2. Application</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-d-etat-retenus">2.1.2.3. Indicateurs d’état retenus</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historisation">2.2. Historisation</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-d-historisation">2.2. Solution d’historisation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#besoin">2.2.1. Besoin</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#structure">2.2.2. Structure</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#donnees-temporelles">2.2.3. Données temporelles</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#donnees-d-etat">2.2.4. Données d’état</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">2.2.5. Indicateurs temporels</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prise-en-compte-des-donnees-temporelles">2.2.3. Prise en compte des données temporelles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prise-en-compte-des-donnees-d-etat">2.2.4. Prise en compte des données d’état</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#construction-des-indicateurs-temporels">2.2.5. Construction des indicateurs temporels</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#purge-des-donnees">2.2.6. Purge des données</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modification-de-la-liste-des-indicateurs">2.2.7. Modification de la liste des indicateurs</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interruption-de-flux">2.2.8. Interruption de flux</a></li>
@@ -706,12 +705,9 @@ La moyenne annuelle du nombre quotidien de session peut être calculé à partir
 <li><p>(autres exemples à indiquer)</p></li>
 </ul>
 <p>Le calcul des indicateurs temporels doit pouvoir être réalisé en optimisant les temps de calcul et le volume de données stockées (il serait, par exemple, couteux de calculer une valeur annuelle à partir de données horaires).</p>
-<section id="id1">
-<h4><span class="section-number">2.1.2.1. </span>Principes d’historisation<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<section id="historisation-des-indicateurs-d-etat">
+<h4><span class="section-number">2.1.2.1. </span>Historisation des indicateurs d’état<a class="headerlink" href="#historisation-des-indicateurs-d-etat" title="Link to this heading">#</a></h4>
 <p>L’historisation ne fait l’objet d’aucun traitement statistique ni de retraitement temporel.</p>
-</section>
-<section id="id2">
-<h4><span class="section-number">2.1.2.2. </span>Périodicité<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
 <p>L’historisation peut s’effectuer avec une périodicité quelconque.</p>
 <p>Pour un indicateur, on historise une valeur principale ainsi qu’un ensemble de valeurs additionnelles.</p>
 <ul class="simple">
@@ -727,8 +723,8 @@ La moyenne annuelle du nombre quotidien de session peut être calculé à partir
 </li>
 </ul>
 </section>
-<section id="id3">
-<h4><span class="section-number">2.1.2.3. </span>Mise en oeuvre<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<section id="application">
+<h4><span class="section-number">2.1.2.2. </span>Application<a class="headerlink" href="#application" title="Link to this heading">#</a></h4>
 <p>Le résultat de l’indicateur d’état est identique à la valeur historisée.</p>
 <p>Un indicateur d’état est donc défini par :</p>
 <ul class="simple">
@@ -755,24 +751,20 @@ La moyenne annuelle du nombre quotidien de session peut être calculé à partir
 </ul>
 </div>
 </section>
-<section id="id4">
-<h4><span class="section-number">2.1.2.4. </span>Indicateurs retenus<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
-<p>Les indicateurs temporels identifiés (voir présentation des indicateurs) sont les suivants :</p>
+<section id="indicateurs-d-etat-retenus">
+<h4><span class="section-number">2.1.2.3. </span>Indicateurs d’état retenus<a class="headerlink" href="#indicateurs-d-etat-retenus" title="Link to this heading">#</a></h4>
+<p>Les indicateurs d’état identifiés (voir <a class="reference internal" href="indicateurs.html"><span class="std std-doc">présentation des indicateurs</span></a>) sont les suivants :</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>id</p></th>
 <th class="head"><p>nom</p></th>
 <th class="head"><p>Pr</p></th>
-<th class="head"><p>base</p></th>
-<th class="head"><p>fonction</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>d1</p></td>
-<td><p>Taux d’évolution du nombre de stations</p></td>
-<td><p>1</p></td>
-<td><p>i4</p></td>
-<td><p>taux évolution</p></td>
+<tr class="row-even"><td><p>e1-xx-yy-zz</p></td>
+<td><p>Liste des stations du réseau autoroutier</p></td>
+<td><p>2</p></td>
 </tr>
 </tbody>
 </table>
@@ -780,8 +772,8 @@ La moyenne annuelle du nombre quotidien de session peut être calculé à partir
 </section>
 </section>
 </section>
-<section id="historisation">
-<h2><span class="section-number">2.2. </span>Historisation<a class="headerlink" href="#historisation" title="Link to this heading">#</a></h2>
+<section id="solution-d-historisation">
+<h2><span class="section-number">2.2. </span>Solution d’historisation<a class="headerlink" href="#solution-d-historisation" title="Link to this heading">#</a></h2>
 <section id="besoin">
 <h3><span class="section-number">2.2.1. </span>Besoin<a class="headerlink" href="#besoin" title="Link to this heading">#</a></h3>
 <p>L’historisation est à effectuer pour les indicateurs suivants (voir chapitre listant les indicateurs):</p>
@@ -892,8 +884,8 @@ La moyenne annuelle du nombre quotidien de session peut être calculé à partir
 </div>
 <p>L’opérateur ‘oper1’ dispose pour le mois ‘xxxxxxx’ d’une moyenne de 50 stations dans la région ‘93’</p>
 </section>
-<section id="donnees-temporelles">
-<h3><span class="section-number">2.2.3. </span>Données temporelles<a class="headerlink" href="#donnees-temporelles" title="Link to this heading">#</a></h3>
+<section id="prise-en-compte-des-donnees-temporelles">
+<h3><span class="section-number">2.2.3. </span>Prise en compte des données temporelles<a class="headerlink" href="#prise-en-compte-des-donnees-temporelles" title="Link to this heading">#</a></h3>
 <p>Au premier niveau de périodicité on dispose pour chaque décomposition et chaque indicateur d’une valeur. On a alors :</p>
 <ul class="simple">
 <li><p>quantity = 1</p></li>
@@ -911,18 +903,18 @@ La moyenne annuelle du nombre quotidien de session peut être calculé à partir
 <li><p><span class="math notranslate nohighlight">\(quantity_{n+1} = \sum quantity_n\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(value_{n+1} = \frac {\sum quantity_n . value_n} {\sum quantity_n}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(variance_{n+1} = \frac {1} {quantity_{n+1}} \sum quantity_n . (variance_n + (value_{n+1} - value_n)^2)\)</span></p></li>
-<li><p>$maxi_{n+1} = MAX(maxi_n)</p></li>
-<li><p>$mini_{n+1} = MIN(mini_n)</p></li>
-<li><p>$last_{n+1} = LAST(last_n)</p></li>
+<li><p><span class="math notranslate nohighlight">\(maxi_{n+1} = MAX(maxi_n)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(mini_{n+1} = MIN(mini_n)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(last_{n+1} = LAST(last_n)\)</span></p></li>
 </ul>
 <p>Une valeur facultative à un niveau ‘n+1’ n’est pas présente si elle n’est pas présente au niveau ‘n’</p>
 </section>
-<section id="donnees-d-etat">
-<h3><span class="section-number">2.2.4. </span>Données d’état<a class="headerlink" href="#donnees-d-etat" title="Link to this heading">#</a></h3>
+<section id="prise-en-compte-des-donnees-d-etat">
+<h3><span class="section-number">2.2.4. </span>Prise en compte des données d’état<a class="headerlink" href="#prise-en-compte-des-donnees-d-etat" title="Link to this heading">#</a></h3>
 <p>Pour les données d’état, le champ ‘valeur’ est une donnée spécifique de l’indicateur (ex. pour une liste ce pourrait être le nombre de lignes) et le champ ‘valeur additionnelle’ également.</p>
 </section>
-<section id="id5">
-<h3><span class="section-number">2.2.5. </span>Indicateurs temporels<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<section id="construction-des-indicateurs-temporels">
+<h3><span class="section-number">2.2.5. </span>Construction des indicateurs temporels<a class="headerlink" href="#construction-des-indicateurs-temporels" title="Link to this heading">#</a></h3>
 <p>Les indicateurs temporels sont construits à partir des données historisées exclusivement suivant les règls propres à chaque indicateur.</p>
 <div class="admonition-exemple admonition">
 <p class="admonition-title">Exemple</p>
@@ -1026,20 +1018,19 @@ La moyenne annuelle du nombre quotidien de session peut être calculé à partir
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-d-etat">2.1.2. Indicateurs d’état</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.1.2.1. Principes d’historisation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.1.2.2. Périodicité</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.1.2.3. Mise en oeuvre</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">2.1.2.4. Indicateurs retenus</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#historisation-des-indicateurs-d-etat">2.1.2.1. Historisation des indicateurs d’état</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#application">2.1.2.2. Application</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-d-etat-retenus">2.1.2.3. Indicateurs d’état retenus</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historisation">2.2. Historisation</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-d-historisation">2.2. Solution d’historisation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#besoin">2.2.1. Besoin</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#structure">2.2.2. Structure</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#donnees-temporelles">2.2.3. Données temporelles</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#donnees-d-etat">2.2.4. Données d’état</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">2.2.5. Indicateurs temporels</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prise-en-compte-des-donnees-temporelles">2.2.3. Prise en compte des données temporelles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prise-en-compte-des-donnees-d-etat">2.2.4. Prise en compte des données d’état</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#construction-des-indicateurs-temporels">2.2.5. Construction des indicateurs temporels</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#purge-des-donnees">2.2.6. Purge des données</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modification-de-la-liste-des-indicateurs">2.2.7. Modification de la liste des indicateurs</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interruption-de-flux">2.2.8. Interruption de flux</a></li>

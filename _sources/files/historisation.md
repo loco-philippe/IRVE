@@ -201,11 +201,9 @@ On peut citer par exemple les besoins suivants :
 
 Le calcul des indicateurs temporels doit pouvoir être réalisé en optimisant les temps de calcul et le volume de données stockées (il serait, par exemple, couteux de calculer une valeur annuelle à partir de données horaires).
 
-#### Principes d'historisation
+#### Historisation des indicateurs d'état
 
 L'historisation ne fait l'objet d'aucun traitement statistique ni de retraitement temporel.
-
-#### Périodicité
 
 L'historisation peut s'effectuer avec une périodicité quelconque.
 
@@ -216,7 +214,7 @@ Pour un indicateur, on historise une valeur principale ainsi qu'un ensemble de v
 - valeurs additionnelles :
   - ensemble de valeurs spécifique de chaque indicateur
 
-#### Mise en oeuvre
+#### Application
 
 Le résultat de l'indicateur d'état est identique à la valeur historisée.
 
@@ -243,15 +241,15 @@ Le résultat est obtenu en appliquant les traitements suivants:
 - calcul du taux d'évolution sur les données de l'historisation mensuelle.
 ```
 
-#### Indicateurs retenus
+#### Indicateurs d'état retenus
 
-Les indicateurs temporels identifiés (voir présentation des indicateurs) sont les suivants :
+Les indicateurs d'état identifiés (voir [présentation des indicateurs](./indicateurs.md)) sont les suivants :
 
-| id  | nom                                    | Pr  | base | fonction       |
-| --- | -------------------------------------- | --- | ---- | -------------- |
-| d1  | Taux d'évolution du nombre de stations | 1   | i4   | taux évolution |
+| id          | nom                                      | Pr  |
+| ----------- | ---------------------------------------- | --- |
+| e1-xx-yy-zz | Liste des stations du réseau autoroutier | 2   |
 
-## Historisation
+## Solution d'historisation
 
 ### Besoin
 
@@ -312,7 +310,7 @@ exemple du nombre mensuel de stations par opérateur en PACA :
 
 L'opérateur 'oper1' dispose pour le mois 'xxxxxxx' d'une moyenne de 50 stations dans la région '93'
 
-### Données temporelles
+### Prise en compte des données temporelles
 
 Au premier niveau de périodicité on dispose pour chaque décomposition et chaque indicateur d'une valeur. On a alors :
 
@@ -331,17 +329,17 @@ Les formules de calcul sont les suivantes:
 - $quantity_{n+1} = \sum quantity_n$
 - $value_{n+1} = \frac {\sum quantity_n . value_n} {\sum quantity_n}$
 - $variance_{n+1} = \frac {1} {quantity_{n+1}} \sum quantity_n . (variance_n + (value_{n+1} - value_n)^2)$
-- $maxi_{n+1} = MAX(maxi_n)
-- $mini_{n+1} = MIN(mini_n)
-- $last_{n+1} = LAST(last_n)
+- $maxi_{n+1} = MAX(maxi_n)$
+- $mini_{n+1} = MIN(mini_n)$
+- $last_{n+1} = LAST(last_n)$
 
 Une valeur facultative à un niveau 'n+1' n'est pas présente si elle n'est pas présente au niveau 'n'
 
-### Données d'état
+### Prise en compte des données d'état
 
 Pour les données d'état, le champ 'valeur' est une donnée spécifique de l'indicateur (ex. pour une liste ce pourrait être le nombre de lignes) et le champ 'valeur additionnelle' également.
 
-### Indicateurs temporels
+### Construction des indicateurs temporels
 
 Les indicateurs temporels sont construits à partir des données historisées exclusivement suivant les règls propres à chaque indicateur.
 
