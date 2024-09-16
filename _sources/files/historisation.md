@@ -31,8 +31,6 @@ Le calcul des indicateurs temporels doit pouvoir être réalisé en optimisant l
 
 #### Principes d'historisation
 
-Les principes proposés sont présentés dans le schéma ci-dessous :
-
 :::{mermaid}
 flowchart LR
     subgraph état courant
@@ -67,24 +65,26 @@ flowchart LR
     historisation -->|indicateur temporel| restitution
 :::
 
+Le schéma ci-dessus illustre les principes suivants :
+
 - historisation des données à différentes échelles de temps (périodicité).
 
-```{admonition} Exemple
+:::{admonition} Exemple
 Pour présenter l'évolution du nombre de points de recharge par mois sur deux ans, il est nécessaire d'avoir stocké au préalable mensuellement le nombre de points de recharge.
-```
+:::
 
 - historisation de données "scalables" (qu'on peut calculer pour une périodicité à partir de données existantes à une périodicité plus faible)
 
-```{admonition} Exemples
+:::{admonition} Exemples
 - calcul des valeurs annuelles à partir des valeurs mensuelles (et valeurs mensuelles à partir des valeurs quotidiennes).
 - le taux de disponibilité qui est le ratio du temps de bon fonctionnement sur le temps d'ouverture n'est pas scalable (le taux mensuel n'est pas égal à la moyenne des taux journaliers). Par contre, le temps de bon fonctionnement et le temps d'ouverture sont scalables et on peut donc calculer le taux de disponibilité sur une période à partir du temps de bon fonctionnement sur la période et du temps d'ouverture sur la période.
-```
+:::
 
 - purge des données anciennes.
 
-```{admonition} Exemple
+:::{admonition} Exemple
 Si le nombre de points de recharges fait l'objet de valeurs quotidiennes et de valeurs mensuelles, il n'est pas nécessaire de conserver les valeurs quotidiennes datant de plusieurs mois.
-```
+:::
 
 #### périodicité
 
