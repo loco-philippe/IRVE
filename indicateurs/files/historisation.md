@@ -1,13 +1,13 @@
-# Historisation des données
+# Historisation des indicateurs
 
 ## objectif
 
-L'historisation des données a pour objectif de conserver un état des données à une date donnée.
+L'historisation des indicateurs a pour objectif de disposer des données nécessaires à la mise à disposition des [indicateurs définis](./indicateurs.md) à une date donnée.
 
 Il adresse deux besoins :
 
-- calculer les indicateurs temporels (voir indicateurs),
-- restituer un état partiel des données (ex. une liste de stations)
+- calculer les indicateurs temporels,
+- restituer les indicateurs d'état,
 
 ### Indicateurs temporels
 
@@ -105,7 +105,7 @@ La moyenne annuelle du nombre quotidien de session peut être calculé à partir
 
 Chaque périodicité peut être associée à une (ou plusieurs) table purgée avec une fréquence spécifique. Par exemple, un stockage horaire pourrait être purgé chaque semaine ou chaque mois.
 
-Pour un indicateur, on historise à chaque niveau une valeur principale qui correspond à une valeur moyenne ainsi qu'un ensemble de valeurs additionnelles.  Ces valeurs sont calculées à partir des valeurs du niveau précédent :
+Pour un indicateur, on historise à chaque niveau la valeur principale qui correspond à une valeur moyenne ainsi qu'un ensemble de valeurs additionnelles. Ces valeurs sont calculées à partir des valeurs du niveau précédent :
 
 - valeur principale :
   - moyenne (cumul des valeurs utilisées / nombre de valeurs utilisées)
@@ -117,17 +117,6 @@ Pour un indicateur, on historise à chaque niveau une valeur principale qui corr
   - dernière valeur -> optionnel
 
 Nota : Le cumul des valeurs utilisées se déduit de la quantité et de la moyenne ( cumul = quantité x moyenne)
-
-Le passage d'une périodicité 'n' à une périodicité 'n+1' est réalisé de façon automatique avec :
-
-- $quantite_{n+1} = \sum quantite_n$
-- $moyenne_{n+1} = \frac {\sum quantite_n . moyenne_n} {\sum quantite_n}$
-- $variance_{n+1} = \frac {1} {quantite_{n+1}} \sum quantite_n . (variance_n + (moyenne_{n+1} - moyenne_n)^2)$
-- $maxi_{n+1} = MAX(maxi_n)
-- $mini_{n+1} = MIN(mini_n)
-- $dernier_{n+1} = LAST(dernier_n)
-
-Au premier niveau (une seule valeur) , quantité = 1, variance = 0 et moyenne = mini = maxi = dernier = valeur de l'indicateur
 
 ```{admonition} Exemple
 On a historisé les valeurs mensuelles suivantes pour un trimestre de l'indicateur du nombre de stations :
@@ -168,14 +157,14 @@ Un indicateur temporel est donc défini par :
 ```{admonition} Exemple
 L'indicateur du taux d'évolution du nombre de stations sur 12 mois au 01/01/2024 par département est défini par :
 
-- l'indicateur de base : 'i4---04',
+- l'indicateur de base : 'i4---4',
 - l'intervalle : entre le 01/01/2023 et le 01/01/2024,
 - la périodicité : mensuelle,
 - la fonction : taux d'évolution (valeur mensuelle fin - valeur mensuelle début) / valeur mensuelle début.
 
 Le résultat est obtenu en appliquant les traitements suivants:
 
-- calcul quotidien de l'indicateur 'i4--04' sur les données statiques courantes,
+- calcul quotidien de l'indicateur 'i4---4' sur les données statiques courantes,
 - chaque jour, historisation du résultat du calcul,
 - chaque mois, historisation du jeu de valeurs mensuel obtenu à partir des données quotidiennes,
 - calcul du taux d'évolution sur les données de l'historisation mensuelle.
@@ -193,10 +182,10 @@ Les indicateurs temporels identifiés (voir présentation des indicateurs) sont 
 | d4  | Taux de disponibilité par catégorie de puissance | 2   | q1, q3 | historique     |
 | d5  | Taux de points de recharge avec indispo > 7 j    | 3   | q1, q3 | historique     |
 
-Nota : Seule la périodicité est intégrée à la codification (voir chapitre 'codification'), l'intervalle doit donc être ajouté à l'indicateur pour fournir un résultat.
+Nota : Seule la périodicité est intégrée à la codification (voir chapitre '[codification](./indicateurs.md)'), l'intervalle doit donc être ajouté à l'indicateur pour fournir un résultat.
 
 ```{admonition} Exemples
-- Evolution du nombre mensuel de points de recharge pour 2024 par département : (d2-m---04, entre 01/01/2023 et le 01/01/2024)
+- Evolution du nombre mensuel de points de recharge pour 2024 par département : (d2-m---4, entre 01/01/2023 et le 01/01/2024)
 ```
 
 ### Indicateurs d'état
@@ -241,14 +230,14 @@ Un indicateur d'état est donc défini par :
 ```{admonition} Exemple
 L'indicateur de la liste des stations du réseau autoroutier au 01/01/2024 est défini par :
 
-- l'indicateur de base : 'e1---04',
+- l'indicateur de base : 'e1---4',
 - l'intervalle : entre le 01/01/2023 et le 01/01/2024,
 - la périodicité : mensuelle,
 - la fonction : taux d'évolution (valeur mensuelle fin - valeur mensuelle début) / valeur mensuelle début.
 
 Le résultat est obtenu en appliquant les traitements suivants:
 
-- calcul quotidien de l'indicateur 'i4--04' sur les données statiques courantes,
+- calcul quotidien de l'indicateur 'i4---4' sur les données statiques courantes,
 - chaque jour, historisation du résultat du calcul,
 - chaque mois, historisation du jeu de valeurs mensuel obtenu à partir des données quotidiennes,
 - calcul du taux d'évolution sur les données de l'historisation mensuelle.
@@ -258,287 +247,127 @@ Le résultat est obtenu en appliquant les traitements suivants:
 
 Les indicateurs temporels identifiés (voir présentation des indicateurs) sont les suivants :
 
-| id  | nom                                              | Pr  | base   | fonction       |
-| --- | ------------------------------------------------ | --- | ------ | -------------- |
-| d1  | Taux d'évolution du nombre de stations           | 1   | i4     | taux évolution |
+| id  | nom                                    | Pr  | base | fonction       |
+| --- | -------------------------------------- | --- | ---- | -------------- |
+| d1  | Taux d'évolution du nombre de stations | 1   | i4   | taux évolution |
 
 ## Historisation
 
+### Besoin
+
 L'historisation est à effectuer pour les indicateurs suivants (voir chapitre listant les indicateurs): 
 
-- infrastructure - typologie (mensuel) : t1, t5, t7, t8, t9
-- infrastructure - quantitatif (mensuel) : i1, i4, i7
-- infrastructure - autoroute (mensuel) : a5, a6
-- usage - quantitatif: u1 (mensuel), u3 (quotidien)
-- usage - qualité de service : q1 (quotidien), q2 (quotidien), q5 (mensuel)
+- infrastructure - typologie : t1, t1---1, t5, t5---1, t7, t8, t8---1
+- infrastructure - quantitatif : i1---3, i1---4, i4---3, i4---4, i7---3, i7---4
+- infrastructure - autoroute : a1, a2, a3, a5, a6
+- usage - quantitatif: u1, u3, u4
+- usage - qualité de service : q1, q1---1, q2, q2---1, q3, q3---1, q4, q4---1
 - état : e1 (mensuel)
 
-Pour tenir compte de la variabilité des propriétés à historiser, celles-ci sont stockées dans un champ JSON.
+### Structure
 
-Plusieurs solutions sont envisageables (pour chaque niveau d'historisation):
+Les données historisées sont réparties suivant plusieurs tables:
 
-- solution 1 : une table avec les résultats des indicateurs (plusieurs lignes par indicateur)
-- solution 1bis : une table avec un champ JSON pour les valeurs (plusieurs lignes par indicateur)
-- solution 2 : une table avec une valeur JSON par indicateur (une ligne par indicateur)
-- solution 3 : une table avec une valeur JSON pour l'ensemble des indicateurs (une ligne pour tous les indicateurs)
+- histo_h : historisation horaire,
+- histo_d : historisation quotidienne,
+- histo_m : historisation mensuelle,
+- histo_y : historisation annuelle
+- histo-e : historisation des états
 
-### Solution 1
+Si besoin, une historisation hebdomadaire ou trimestrielle pourra être ajoutée.
 
-Chaque résultat d'un indicateur a une structure identique, on peut donc stocker tous les résultats d'un indicateur dans une table.
-Les indicateurs temporels s'appuient sur les indicateurs historisés, il suffit donc d'effectuer une recherche par rapport à un indicateur.
+La structure des tables est identique pour toutes les tables :
 
-Pour faciliter les purges, on peut avoir une table par périodicité, la purge peut alors s'effectuer simplement par tri sur le timestamp.
+- valeur :
+  - VALUE(int) : valeur principale (instantanée ou moyenne)
+  - ADD_VALUE(json) - optionnel : valeur additionnelle
+- décomposition :
+  - CATEGORY(string ou enum) - optionnel : décomposition associée à l'indicateur (ex. niveau de puissance, implantation)
+  - CODE_Z(string) - optionnel : valeur de zoning (ex. '13200')
+- indicateur (ex. 't1-01-93-04) :
+  - QUERY(string ou enum) : nom de la requête (ex. 't1')
+  - PERIMETER(int) : périmètre choisi pour l'indicateur
+  - CODE_P(string) : valeur de périmètre (ex. '93')
+  - ZONING(int) : découpage du périmètre choisi pour l'indicateur
+- Datation
+  - TIMESTAMP(datetime) : datation du résultat du calcul de l'indicateur
 
-Une table comporte les champs suivants :
+Le champ ADD_VALUE est json-object pour les indicateurs temporels composé des champs (key) suivants :
 
-Propriétés
+- QUANTITY(int) : nombre de valeurs utilisées
+- VARIANCE(float) - optionnel : variance des valeurs utilisées
+- MINI(float) - optionnel : valeur minimale des valeurs utilisées
+- MAXI(float) - optionnel : valeur maximale des valeurs utilisées
+- LAST(float) - optionnel : dernière valeur utilisée
 
-- value (JSON)
-  - quantite
-  - moyenne
-  - variance (optionnel)
-  - mini (optionnel)
-  - maxi (optionnel)
-  - dernier (optionnel)
-
-Regroupement
-
-- crit_v : valeur du critère (ex. niveau de puissance, implantation)
-
-Indicateur (ex. 't1-01-93-04)
-
-- query: (ex. 't1')
-- périmètre: (ex. '01')
-- valeur de périmètre: (ex. '93')
-- critère: (ex.'04')
-
-Datation
-
-- timestamp
+Pour les indicateurs d'état, le champ ADD_VALUE est spécifique de chaque indicateur.
 
 exemple du nombre mensuel de stations par opérateur en PACA :
 
-| quantite | moyenne | crit_v  | query | perim | perim_v | crit | timestamp |
-| -------- | ------- | ------- | ----- | ----- | ------- | ---- | --------- |
-| 30       | 50      | 'oper1' | 't8'  | '01'  | '93'    | ''   | xxxxxxx   |
-| 30       | 80      | 'oper2' | 't8'  | '01'  | '93'    | ''   | xxxxxxx   |
-| 30       | 100     | 'oper3' | 't8'  | '01'  | '93'    | ''   | xxxxxxx   |
+| value | add_value        | category | code_z | query | perimeter | code_p | zoning | timestamp |
+| ----- | ---------------- | -------- | ------ | ----- | --------- | ------ | ------ | --------- |
+| 50    | {'quantity': 30} | 'oper1'  | ''     | 't8'  | '01'      | '93'   | ''     | xxxxxxx   |
+| 80    | {'quantity': 30} | 'oper2'  | ''     | 't8'  | '01'      | '93'   | ''     | xxxxxxx   |
+| 100   | {'quantity': 30} | 'oper3'  | ''     | 't8'  | '01'      | '93'   | ''     | xxxxxxx   |
 
-L'opérateur 'oper1' dispose pour le mois 'xxxxxxx' d'une moyenne de 50 stations :
+L'opérateur 'oper1' dispose pour le mois 'xxxxxxx' d'une moyenne de 50 stations dans la région '93'
 
-```{admonition} Exemple d'utilisation
+### Données temporelles
+
+Au premier niveau de périodicité on dispose pour chaque décomposition et chaque indicateur d'une valeur. On a alors :
+
+- quantity = 1
+- variance = 0
+- mini = maxi = last = value
+
+Le passage d'une périodicité 'n' (ex. mensuelle) à une périodicité 'n+1' (ex. annuelle) est réalisé en regroupant toutes les lignes de la périodicité 'n' qui ont des champs 'décomposition' et 'indicateurs' identiques et dont le 'timestamp' est dans la période d'historisation choisie en une seule avec les règles suivantes :
+
+- les champs 'décomposition' et 'indicateurs' sont reconduits,
+- le champ 'timestamp' prend la valeur associée à la période d'historisation,
+- les champs valeurs sont calculés à partir des champs valeurs des lignes à regrouper.
+
+Les formules de calcul sont les suivantes:
+
+- $quantity_{n+1} = \sum quantity_n$
+- $value_{n+1} = \frac {\sum quantity_n . value_n} {\sum quantity_n}$
+- $variance_{n+1} = \frac {1} {quantity_{n+1}} \sum quantity_n . (variance_n + (value_{n+1} - value_n)^2)$
+- $maxi_{n+1} = MAX(maxi_n)
+- $mini_{n+1} = MIN(mini_n)
+- $last_{n+1} = LAST(last_n)
+
+Une valeur facultative à un niveau 'n+1' n'est pas présente si elle n'est pas présente au niveau 'n'
+
+### Données d'état
+
+Pour les données d'état, le champ 'valeur' est une donnée spécifique de l'indicateur (ex. pour une liste ce pourrait être le nombre de lignes) et le champ 'valeur additionnelle' également.
+
+### Indicateurs temporels
+
+Les indicateurs temporels sont construits à partir des données historisées exclusivement suivant les règls propres à chaque indicateur.
+
+```{admonition} Exemple
 indicateur d1 : 'taux d'évolution du nombre de stations par département' sur 12 mois au 01/01/2024 '
 
 - recherche dans la table mensuelle les lignes correspondant à 't4-00-00-04' et avec un timestamp entre le 01/01/2023 et le 01/01/2024
 - calcul du taux d'évolution pour chaque département (1 - valeur moyenne du dernier mois / valeur moyenne du premier mois)
-
-Le passage d'une table à une autre s'effectue en calculant les nouvelles valeurs 'nombre' et 'somme' pour chaque couple indicateur - 'crit_v' avec un timestamp compris dans l'intervalle de la période à historiser.
 ```
 
-### Solution 1bis
+### Purge des données
 
-Idem Solution 1 mais avec les propriétés stockée dans le champ JSON 'value'.
+Les données d'un niveau 'n' déjà utilisées pour calculer les données d'un niveau 'n+1' peuvent être supprimées (suppression de lignes).
 
-:::{admonition} Exemple
-'nombre de station par opérateur'
+Par exemple, on peut purger les données quotidiennes après deux mois, la table des données quotidienne ne contient alors qu'un "stock glissant" de deux mois.
 
-| value    | crit_v  | query | perim | perim_v | crit | timestamp |
-| -------- | ------- | ----- | ----- | ------- | ---- | --------- |
-| json_op1 | 'oper1' | 't8'  | '01'  | '93'    | ''   | xxxxxxx   |
-| json_op2 | 'oper2' | 't8'  | '01'  | '93'    | ''   | xxxxxxx   |
-| json_op3 | 'oper3' | 't8'  | '01'  | '93'    | ''   | xxxxxxx   |
+Pour les données d'état, les règles de purge sont spécifiques.
 
-avec json_op1 :
+### Modification de la liste des indicateurs
 
-```json
-    {'nombre ': 30, 'moyenne': 50} 
-```
+L'ajout d'un indicateur à historiser (ou sa suppression) est sans impact pour les données temporelles (la propagation se fait automatiquement d'un niveau d'historisation à un autre).
 
-:::
+Pour les indicateurs d'état la situation est similaire (la suppression d'un indicateur se fera en suivant les règles de purge choisies).
 
-### Solution 2
+### Interruption de flux
 
-Idem Solution 1bis mais avec une ligne par indicateur stocké dans un JSON.
+L'historisation s'applique sur la base d'un flux continu. En cas de discontinuité (ex si des données arrivent après la première historisation), il est nécessaire de modifier les données préalablement historisées.
 
-:::{admonition} Exemple
-'nombre de station par opérateur'
-
-| result   | query | perim | perim_v | crit | timestamp |
-| -------- | ----- | ----- | ------- | ---- | --------- |
-| json_res | 't8'  | '01'  | '93'    | ''   | xxxxxxx   |
-
-avec json_res :
-
-```json
-[
-    {'crit_v': 'oper1', 'value': {'nombre ': 30, 'moyenne': 50}},
-    {'crit_v': 'oper2', 'value': {'nombre ': 28, 'moyenne': 52.1}},
-    {'crit_v': 'oper3', 'value': {'nombre ': 31, 'moyenne': 55 }}
-]
-```
-
-:::
-
-### Solution 3
-
-Idem solution 2 mais avec une ligne commune pour tous les indicateurs, les résultats des indicateurs sont stockés dans un JSON
-
-:::{admonition} Exemple
-JSON commun avec les indicateurs du nombre de stations (i4), de points de charge (i1) et la puissance installée (i7) pour chaque commune, département, opérateur et région.
-
-```json
-{
-    "timestamp": "now",
-    "totals": {
-        "stations": 12424,
-        "psoc": 2312314,
-        "power": 1e19
-    },
-    "counts": {
-        "city": [
-            {
-                "code_insee": "01311",
-                "stations": 12,
-                "poc": 132,
-                "power": 30000,
-            },
-            {
-                "code_insee": "13411",
-                "stations": 15,
-                "poc": 132,
-                "power": 30000
-            }
-        ],
-        "department": [
-            {
-                "code_insee": "01",
-                "stations": 12,
-                "poc": 132,
-                "power": 30000
-            },
-            {
-                "code_insee": "13",
-                "stations": 15,
-                "poc": 132,
-                "power": 30000
-            }
-        ],
-        "region": [
-            {
-                "code_insee": "13",
-                "stations": 15
-                "poc": 132,
-                "power": 30000
-            },            
-        ],
-        "operational_unit": [
-            {
-                "name": "FRFAS",
-                "stations": 12,
-                "poc": 142,
-                "power": 30000
-            },
-            {
-                "name": "FRS77",
-                "stations": 114,
-                "poc": 1445,
-                "power": 30000
-            },
-        ]
-    }
-}
-```
-
-```python
-# iStatic table database fields
-timestamp: date time
-total_stations: int
-total_poc: int
-total_power: long float
-city: json
-department: json
-region: json
-operational_unit: json
-```
-
-:::
-
-### Avantages - inconvenients
-
-Les solutions sont comparées sur la base des fonctions suivantes :
-
-- historisation initiale des données
-- changement d'échelle de temps
-- calcul de l'indicateur temporel
-- purge des données
-- évolutivité
-
-#### solution 1
-
-historisation :
-
-- fonction générique : le format de stockage est identique au résultat de la requête
-
-changement d'échelle
-
-- fonction générique : calcul des nouvelles données par requête (nombre, somme)
-
-calcul de l'indicateur
-
-- indépendant de la périodicité
-- générique / spécifique : à préciser
-
-purge des données
-
-- suppression de lignes en fonction de la valeur du timestamp
-
-évolutivité
-
-- ajout d'indicateur sans reconfiguration nécessaire
-
-#### solution 2
-
-historisation :
-
-- fonction générique : conversion au format Json du résultat des requêtes
-
-changement d'échelle
-
-- fonction générique : à préciser (traitement par pandas nécessaire ?)
-
-calcul de l'indicateur
-
-- indépendant de la périodicité
-- générique / spécifique : à préciser (conversion json nécessaire)
-
-purge des données
-
-- suppression de lignes en fonction de la valeur du timestamp
-
-évolutivité
-
-- ajout d'indicateur sans reconfiguration nécessaire
-
-#### solution 3
-
-historisation :
-
-- ne peut se faire indicateur par indicateur
-- nécessite de construire le json global (mapping entre indicateur et les 'key' du json)
-
-changement d'échelle
-
-- décodage préalable du format json et traitement de chaque 'key'
-
-calcul de l'indicateur
-
-- indépendant de la périodicité
-- décodage préalable du format json et traitement de chaque 'key'
-
-purge des données
-
-- suppression de lignes en fonction de la valeur du timestamp
-
-évolutivité
-
-- l'ajout d'indicateur nécessite de reconfigurer le format JSON. La cohabitation de plusieurs formats JSON différents est à étudier
+Les règles associées restent à définir.

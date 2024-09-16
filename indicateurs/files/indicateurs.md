@@ -25,7 +25,7 @@ Un indicateur peut être visualisé suivant différentes représentations. Par e
 - un diagramme circulaire,
 - une carte choroplèthe (si l'index de l'indicateur est associé à une carte).
 
-Un indicateur historisé peut être représenté en fonction de sa dimension temporelle. Par exemple:
+Un [indicateur historisé](./historisation.md) peut être représenté en fonction de sa dimension temporelle. Par exemple:
 
 - une moyenne sur une période,
 - un historique sur une période,
@@ -77,8 +77,8 @@ Les indicateurs d'exploitation (liés aux aménageurs et enseignes) ainsi que le
 
 ### Codification des indicateurs
 
-Les indicateurs sont codifiés par une chaine de caractères : *[type]-[périmètre]-[valeur de périmètre]-[zone]*
-ou bien pour les indicateurs temporels : *[type]-[périodicité]-[périmètre]-[valeur de périmètre]-[zone]*
+Les indicateurs sont codifiés par une chaine de caractères : *[type]-[périmètre]-[valeur de périmètre]-[zoning]*
+ou bien pour les indicateurs temporels : *[type]-[périodicité]-[périmètre]-[valeur de périmètre]-[zoning]*
 avec:
 
 - type : identifiant du type d'indicateur (ex. 'i1' : nombre de points de recharge)
@@ -88,20 +88,20 @@ avec:
   - w : données hebdomadaires
   - d : données quotidiennes
 - périmètre et valeur de périmètre: sous ensemble des données sur lequel appliquer l'indicateur. Les périmètres actuellement définis sont les suivants :
-  - 00: national (sans valeur)
-  - 01: région (valeur : code de la région)
-  - 02: département (valeur : code du département)
-  - 03: EPCI (valeur : code de l'EPCI)
-  - 04: commune (valeur : code de la commune)
-- zone : paramètre spécifique du type d'indicateur (ex découpage du périmètre défini)
+  - 0: national (sans valeur)
+  - 1: région (valeur : code de la région)
+  - 2: département (valeur : code du département)
+  - 3: EPCI (valeur : code de l'EPCI)
+  - 4: commune (valeur : code de la commune)
+- zoning : paramètre spécifique du type d'indicateur (ex découpage du périmètre défini)
 
 Le périmètre par défaut est l'ensemble des données.
 
 ```{admonition} Exemples
-- **t4-04-74012** : Pourcentage de stations par nombre de points de recharge (t4) pour la ville (04) d'Annemasse (74012)
-- **i1-01-93** : Nombre de points de recharge (i1) pour la région (01) PACA (93)
-- **i1-01-93-03** : Nombre de points de recharge (i1) pour la région (01) PACA (93) par EPCI (03)
-- **i1-m-01-93-03** : Nombre de points de recharge (i1) mensuel (m) pour la région (01) PACA (93) par EPCI (03)
+- **t4-4-74012** : Pourcentage de stations par nombre de points de recharge (t4) pour la ville (4) d'Annemasse (74012)
+- **i1-1-93** : Nombre de points de recharge (i1) pour la région (1) PACA (93)
+- **i1-1-93-3** : Nombre de points de recharge (i1) pour la région (1) PACA (93) par EPCI (3)
+- **i1-m-1-93-3** : Nombre de points de recharge (i1) mensuel (m) pour la région (1) PACA (93) par EPCI (3)
 - **t1** : Nombre de points de recharge par niveau de puissance (t1) pour l'ensemble des données (pas de périmètre choisi)
 - **e1** : liste des stations du réseau autoroutier (e1)
 ```
@@ -113,18 +113,18 @@ Le résultat d'un indicateur peut être représenté par une structure tabulaire
 - valeur : résultat de l'indicateur pour une catégorie et une zone,
 - valeur additionnelle : informations associées à la valeur
 - catégorie (facultative) : décomposition associée à l'indicateur
-- zone (facultative) : découpage du périmètre choisi pour l'indicateur
+- zone (facultative) : découpage associé au zoning choisi
 
 Le champ 'valeur additionnelle' est utilisé pour les données structurées associées au champ 'valeur'.
 Ce champ est au format JSON et concerne les informations liées à l'historisation ainsi que les données des indicateurs d'état ou bioen les .
 
-Si aucune catégorie et aucune zone ne sont définies, le résultat se réduit à une valeur,
+Si aucune catégorisation et aucun zoning ne sont définis, le résultat se réduit à une valeur,
 
 ```{admonition} Exemple
 'i1' : le résultat est le nombre de points de recharge
 ```
 
-Si uniquement une catégorie est définie, le résultat est une liste de valeurs associées à chaque valeur de la catégorie.
+Si uniquement une catégorisation est définie, le résultat est une liste de valeurs associées à chaque catégorie.
 
 ```{admonition} Exemple
 't1' : le résultat est le nombre de points de recharge par niveau de puissance (catégorie)
@@ -139,40 +139,40 @@ Si uniquement une catégorie est définie, le résultat est une liste de valeurs
 | 25     | [360, None)  |
 ```
 
-Si uniquement une zone est définie, le résultat est une liste de valeurs associées à chaque valeur de la zone.
+Si uniquement un zoning est défini, le résultat est une liste de valeurs associées à chaque zone.
 
 ```{admonition} Exemple
-i1-01-93-02 : Nombre de points de recharge (i1) pour la région (01) PACA (93) par département (02)
+i1-1-93-2 : Nombre de points de recharge (i1) pour la région (1) PACA (93) par département (2)
 La zone est ici le département (représenté par son code).
 
-| nb_pdc | code |
-| ------ | ---- |
-| 473    | 13   |
-| 450    | 06   |
-| 175    | 83   |
-| 170    | 84   |
-| 105    | 04   |
-| 57     | 05   |
+| nb_pdc | code_z |
+| ------ | ------ |
+| 473    | 13     |
+| 450    | 06     |
+| 175    | 83     |
+| 170    | 84     |
+| 105    | 04     |
+| 57     | 05     |
 ```
 
-Si une catégorie et une zone sont définies, le résultat est une liste de valeurs associées à chaque valeur de zone et à chaque valeur de catégorie.
+Si une catégorisation et un zoning sont définis, le résultat est une liste de valeurs associées à chaque zone et à chaque catégorie.
 
 ```{admonition} Exemple
-t8-01-93-02 : Nombre de stations par opérateur (t8) pour la région (01) PACA (93) par département (02)
+t8-1-93-2 : Nombre de stations par opérateur (t8) pour la région (1) PACA (93) par département (2)
 La 'zone' est ici le département (représenté par son code) et la 'catégorie' est l'opérateur.
 
-| nb_stat    | nom_operateur                   | code |
-| ---------- | ------------------------------- | ---- |
-| 273        | IZIVIA                          | 06   |
-| 31         | IZIVIA                          | 13   |
-| 28         | TotalEnergies Charging Services | 13   |
-| 21         | LUMI'IN                         | 84   |
-| 16         | Power Dot France                | 13   |
-| 10         | LUMI'IN                         | 04   |
-| 8          | Last Mile Solutions             | 13   |
-| 7          | CAR2PLUG                        | 83   |
-| 7          | Bump                            | 13   |
-| 7          | Power Dot France                | 84   |
+| nb_stat | nom_operateur                   | code_z |
+| ------- | ------------------------------- | ------ |
+| 273     | IZIVIA                          | 06     |
+| 31      | IZIVIA                          | 13     |
+| 28      | TotalEnergies Charging Services | 13     |
+| 21      | LUMI'IN                         | 84     |
+| 16      | Power Dot France                | 13     |
+| 10      | LUMI'IN                         | 04     |
+| 8       | Last Mile Solutions             | 13     |
+| 7       | CAR2PLUG                        | 83     |
+| 7       | Bump                            | 13     |
+| 7       | Power Dot France                | 84     |
 ```
 
 ## Indicateurs d'infrastructure
@@ -183,17 +183,17 @@ Objectif :
 
 - analyse de la typologie (comparaison des ratios)
 
-| id          | nom                                                       | Pr  | format    | type  | nature             |
-| ----------- | --------------------------------------------------------- | --- | --------- | ----- | ------------------ |
-| t1-xx-yy-zz | Nombre de points de recharge par niveau de puissance      | 1   | catégorie | infra | mensuel (national) |
-| t2-xx-yy-zz | Pourcentage de points de recharge par niveau de puissance | 2   | catégorie | infra | dynamique          |
-| t3-xx-yy-zz | Nombre stations par nombre de points de recharge          | 1   | catégorie | infra | dynamique          |
-| t4-xx-yy-zz | Pourcentage de stations par nombre de points de recharge  | 2   | catégorie | infra | dynamique          |
-| t5-xx-yy-zz | Nombre de stations par type d'implantation                | 1   | catégorie | infra | mensuel (national) |
-| t6-xx-yy-zz | Pourcentage de stations par type d'implantation           | 2   | catégorie | infra | dynamique          |
-| t7-xx-yy-zz | Densité EPCI (nb EPCI avec / nb EPCI total)               | 3   | scalaire  | infra | mensuel (national) |
-| t8-xx-yy-zz | Nombre stations par opérateur                             | 1   | scalaire  | infra | mensuel (national) |
-| t9-xx-yy-zz | Pourcentage de stations par opérateur                     | 2   | scalaire  | infra | mensuel (national) |
+| id          | nom                                                       | Pr  | type  | historisé             |
+| ----------- | --------------------------------------------------------- | --- | ----- | --------------------- |
+| t1-xx-yy-zz | Nombre de points de recharge par niveau de puissance      | 1   | infra | oui (national/région) |
+| t2-xx-yy-zz | Pourcentage de points de recharge par niveau de puissance | 2   | infra | synthèse              |
+| t3-xx-yy-zz | Nombre stations par nombre de points de recharge          | 1   | infra | non                   |
+| t4-xx-yy-zz | Pourcentage de stations par nombre de points de recharge  | 2   | infra | non                   |
+| t5-xx-yy-zz | Nombre de stations par type d'implantation                | 1   | infra | oui (national/région) |
+| t6-xx-yy-zz | Pourcentage de stations par type d'implantation           | 2   | infra | synthèse              |
+| t7-xx-yy-zz | Densité EPCI (nb EPCI avec / nb EPCI total)               | 3   | infra | oui (national/région) |
+| t8-xx-yy-zz | Nombre stations par opérateur                             | 1   | infra | oui (national/région) |
+| t9-xx-yy-zz | Pourcentage de stations par opérateur                     | 2   | infra | synthèse              |
 
 :::{note}
 
@@ -207,17 +207,17 @@ Objectif:
 
 - analyse de la répartition géographique (les ratios permettent les comparaisons)
 
-| id          | nom                                              | Pr  | format   | type  | nature    |
-| ----------- | ------------------------------------------------ | --- | -------- | ----- | --------- |
-| i1-xx-yy-zz | Nombre de points de recharge ouverts au public   | 1   | scalaire | infra | mensuel   |
-| i2-xx-yy-zz | Ratio pour 100 000 habitants                     | 1   | scalaire | infra | dynamique |
-| i3-xx-yy-zz | Ratio pour 100 km2                               | 2   | scalaire | infra | dynamique |
-| i4-xx-yy-zz | Nombre de stations de recharge ouverts au public | 1   | scalaire | infra | mensuel   |
-| i5-xx-yy-zz | Ratio pour 100 000 habitants                     | 1   | scalaire | infra | dynamique |
-| i6-xx-yy-zz | Ratio pour 100 km2                               | 2   | scalaire | infra | dynamique |
-| i7-xx-yy-zz | Puissance installée                              | 1   | scalaire | infra | mensuel   |
-| i8-xx-yy-zz | Ratio pour 100 000 habitants                     | 1   | scalaire | infra | dynamique |
-| i9-xx-yy-zz | Ratio pour 100 km2                               | 2   | scalaire | infra | dynamique |
+| id          | nom                                              | Pr  | type  | historisé              |
+| ----------- | ------------------------------------------------ | --- | ----- | ---------------------- |
+| i1-xx-yy-zz | Nombre de points de recharge ouverts au public   | 1   | infra | oui (département/EPCI) |
+| i2-xx-yy-zz | Ratio pour 100 000 habitants                     | 1   | infra | synthèse               |
+| i3-xx-yy-zz | Ratio pour 100 km2                               | 2   | infra | synthèse               |
+| i4-xx-yy-zz | Nombre de stations de recharge ouverts au public | 1   | infra | oui (département/EPCI) |
+| i5-xx-yy-zz | Ratio pour 100 000 habitants                     | 1   | infra | synthèse               |
+| i6-xx-yy-zz | Ratio pour 100 km2                               | 2   | infra | synthèse               |
+| i7-xx-yy-zz | Puissance installée                              | 1   | infra | oui (département/EPCI) |
+| i8-xx-yy-zz | Ratio pour 100 000 habitants                     | 1   | infra | synthèse               |
+| i9-xx-yy-zz | Ratio pour 100 km2                               | 2   | infra | synthèse               |
 
 zz : critère de répartition par périmètre (ex. 02 : répartition par département)
 
@@ -231,14 +231,14 @@ Objectif:
 
 ### Indicateurs globaux
 
-| id  | nom                                                                | Pr  | format    | type  | nature    |
-| --- | ------------------------------------------------------------------ | --- | --------- | ----- | --------- |
-| a1  | Nombre de points de recharge (i1-xx)                               | 1   | scalaire  | infra | mensuel   |
-| a2  | Nombre de stations de recharge (i4-xx)                             | 2   | scalaire  | infra | mensuel   |
-| a3  | Puissance installée (i7-xx)                                        | 2   | scalaire  | infra | mensuel   |
-| a4  | Nombre de points de recharge par niveau de puissance (t1-xx)       | 1   | scalaire  | infra | dynamique |
-| a5  | Densité des stations équipées (nb stations équipées / nb stations) | 3   | scalaire  | infra | mensuel   |
-| a6  | Distance moyenne inter-station de recharge                         | 3   | catégorie | infra | mensuel   |
+| id  | nom                                                                | Pr  | type  | historisé |
+| --- | ------------------------------------------------------------------ | --- | ----- | --------- |
+| a1  | Nombre de points de recharge (i1-xx)                               | 1   | infra | oui       |
+| a2  | Nombre de stations de recharge (i4-xx)                             | 2   | infra | oui       |
+| a3  | Puissance installée (i7-xx)                                        | 2   | infra | oui       |
+| a4  | Nombre de points de recharge par niveau de puissance (t1-xx)       | 1   | infra | non       |
+| a5  | Densité des stations équipées (nb stations équipées / nb stations) | 3   | infra | oui       |
+| a6  | Distance moyenne inter-station de recharge                         | 3   | infra | oui       |
 
 ex. Suivi du déploiement des IRVE dans les stations (nécessite de disposer du nombre de stations).
 ex. Suivi temporel de la distance interstation (utilisation du graphe pour calculer les distances de recharge associée à chaque station).
@@ -251,11 +251,11 @@ Le graphe autoroutier doit permettre d'associer plusieurs stations à un noeud (
 
 ### Indicateurs par station
 
-| id  | nom                                    | Pr  | format    | type  | nature    |
-| --- | -------------------------------------- | --- | --------- | ----- | --------- |
-| a7  | Puissance installée par station        | 2   | catégorie | infra | dynamique |
-| a8  | Nombre de points de charge par station | 2   | catégorie | infra | dynamique |
-| a9  | Distance de recharge par station       | 2   | catégorie | infra | dynamique |
+| id  | nom                                    | Pr  | type  | historisé |
+| --- | -------------------------------------- | --- | ----- | --------- |
+| a7  | Puissance installée par station        | 2   | infra | non       |
+| a8  | Nombre de points de charge par station | 2   | infra | non       |
+| a9  | Distance de recharge par station       | 2   | infra | non       |
 
 ex. Analyse de la distance interstation (zones blanches).
 
@@ -265,12 +265,12 @@ ex. Analyse de la distance interstation (zones blanches).
 
 - analyse de l'évolution temporelle de l'utilisation
 
-| id          | nom                                  | Pr  | format    | type  | nature                       |
-| ----------- | ------------------------------------ | --- | --------- | ----- | ---------------------------- |
-| u1-xx-yy-zz | Nombre de point de charge actif      | 2   | scalaire  | usage | mensuel (national)           |
-| u2-xx-yy-zz | Pourcentage de point de charge actif | 2   | scalaire  | usage | synthèse                     |
-| u3-xx-yy-zz | Nombre de sessions                   | 2   | scalaire  | usage | quotidien/mensuel (national) |
-| u4-xx-yy-zz | Energie distribuée                   | 2   | catégorie | usage | quotidien                    |
+| id          | nom                                  | Pr  | type  | historisé             |
+| ----------- | ------------------------------------ | --- | ----- | --------------------- |
+| u1-xx-yy-zz | Nombre de point de charge actif      | 2   | usage | oui (national/région) |
+| u2-xx-yy-zz | Pourcentage de point de charge actif | 2   | usage | synthèse              |
+| u3-xx-yy-zz | Nombre de sessions                   | 2   | usage | oui (national/région) |
+| u4-xx-yy-zz | Energie distribuée                   | 2   | usage | oui (national/région) |
 
 u1 est calculé sur une journée
 u2 est calculé à partir de u1 et i1
@@ -282,18 +282,18 @@ exemple d'utilisation : Analyse du profil horaire de l'énergie fournie en fonct
 
 - analyse de la disponibilité et de l'utilisation des points de recharge
 
-| id           | nom                                                  | Pr  | format   | type  | nature    |
-| ------------ | ---------------------------------------------------- | --- | -------- | ----- | --------- |
-| q1-xx-yy-zz  | Durée de bon fonctionnement                          | 2   | scalaire | usage | quotidien |
-| q2-xx-yy-zz  | Durée d'utilisation                                  | 2   | scalaire | usage | quotidien |
-| q3-xx-yy-zz  | Durée d'ouverture                                    | 2   | scalaire | usage | quotidien |
-| q4-xx-yy-zz  | Nombre de sessions réussies                          | 3   | scalaire | usage | quotidien |
-| q5-xx-yy-zz  | Saturation                                           | 2   | scalaire | usage | quotidien |
-| q6-xx-yy-zz  | Taux de disponibilité d'un point de charge actif     | 2   | scalaire | usage | synthèse  |
-| q7-xx-yy-zz  | Taux de disponibilité par catégorie de puissance     | 3   | scalaire | usage | synthèse  |
-| q8-xx-yy-zz  | Taux d'utilisation d'un point de charge actif        | 2   | scalaire | usage | synthèse  |
-| q9-xx-yy-zz  | Taux de sessions réussies d'un point de charge actif | 2   | scalaire | usage | synthèse  |
-| q10-xx-yy-zz | Taux de saturation d'une station                     | 3   | scalaire | usage | dynamique |
+| id           | nom                                                  | Pr  | type  | historisé             |
+| ------------ | ---------------------------------------------------- | --- | ----- | --------------------- |
+| q1-xx-yy-zz  | Durée de bon fonctionnement                          | 2   | usage | oui (national/région) |
+| q2-xx-yy-zz  | Durée d'utilisation                                  | 2   | usage | oui (national/région) |
+| q3-xx-yy-zz  | Durée d'ouverture                                    | 2   | usage | oui (national/région) |
+| q4-xx-yy-zz  | Nombre de sessions réussies                          | 3   | usage | oui (national/région) |
+| q5-xx-yy-zz  | Saturation                                           | 2   | usage | non                   |
+| q6-xx-yy-zz  | Taux de disponibilité d'un point de charge actif     | 2   | usage | synthèse              |
+| q7-xx-yy-zz  | Taux de disponibilité par catégorie de puissance     | 3   | usage | synthèse              |
+| q8-xx-yy-zz  | Taux d'utilisation d'un point de charge actif        | 2   | usage | synthèse              |
+| q9-xx-yy-zz  | Taux de sessions réussies d'un point de charge actif | 2   | usage | synthèse              |
+| q10-xx-yy-zz | Taux de saturation d'une station                     | 3   | usage | non                   |
 
 q1, q2, q3, q4 et q5 sont les valeurs cumulées sur une journée
 q6, q7 sont calculé à partir de q1 et q3
@@ -333,16 +333,16 @@ Les indicateurs temporels identifiés sont les suivants :
 Nota : Seule la périodicité est intégrée à la codification (voir chapitre 'codification'), l'intervalle doit donc être ajouté à l'indicateur.
 
 ```{admonition} Exemples
-- Evolution du nombre mensuel de points de recharge pour 2024 par département : (d2-m---04, entre 01/01/2023 et le 01/01/2024)
+- Evolution du nombre mensuel de points de recharge pour 2024 par département : (d2-m---4, entre 01/01/2023 et le 01/01/2024)
 ```
 
 ## Indicateurs d'état
 
 Les indicateurs d'état identifiés sont les suivants :
 
-| id          | nom                                              | Pr  |
-| ----------- | ------------------------------------------------ | --- |
-| e1-xx-yy-zz | Liste des stations du réseau autoroutier         | 2   |
+| id          | nom                                      | Pr  |
+| ----------- | ---------------------------------------- | --- |
+| e1-xx-yy-zz | Liste des stations du réseau autoroutier | 2   |
 
 Nota : La périodicité d'historisation n'est pas intégrée à la codification (voir chapitre 'codification'), la date doit donc être ajouté à l'indicateur.
 
