@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Solutions pour les indicateurs temporels &#8212; Indicateurs book</title>
+    <title>Historisation des indicateurs &#8212; Indicateurs book</title>
   
   
   
@@ -202,7 +202,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Annexes</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="IRVE_indicateurs.html">Indicateurs d’intégrité</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Solutions pour les indicateurs temporels</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Historisation des indicateurs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tests_historisation.html">Tests historisation</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="modeles.html">Analyse du modèle de données</a></li>
@@ -397,7 +397,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Solutions pour les indicateurs temporels</h1>
+    <h1>Historisation des indicateurs</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -407,25 +407,33 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-temporels">Indicateurs temporels</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristiques">Caractéristiques</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principes">Principes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#periodicite">périodicité</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mise-en-oeuvre">Mise en oeuvre</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-retenus">Indicateurs retenus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectif">objectif</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-temporels">Indicateurs temporels</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristiques">Caractéristiques</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#principes-d-historisation">Principes d’historisation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#periodicite">périodicité</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mise-en-oeuvre">Mise en oeuvre</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-retenus">Indicateurs retenus</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historisation-des-donnees">Historisation des données</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-1">Solution 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-1bis">Solution 1bis</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-2">Solution 2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-3">Solution 3</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avantages-inconvenients">Avantages - inconvenients</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">solution 1</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">solution 2</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">solution 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-d-etat">Indicateurs d’état</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Principes d’historisation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Périodicité</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Mise en oeuvre</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Indicateurs retenus</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historisation">Historisation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#besoin">Besoin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#structure">Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#donnees-temporelles">Données temporelles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#donnees-d-etat">Données d’état</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Indicateurs temporels</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#purge-des-donnees">Purge des données</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modification-de-la-liste-des-indicateurs">Modification de la liste des indicateurs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interruption-de-flux">Interruption de flux</a></li>
 </ul>
 </li>
 </ul>
@@ -439,13 +447,20 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="solutions-pour-les-indicateurs-temporels">
-<h1>Solutions pour les indicateurs temporels<a class="headerlink" href="#solutions-pour-les-indicateurs-temporels" title="Link to this heading">#</a></h1>
-<p>Proposition de différentes solutions pour calculer des indicateurs temporels à des échelles de temps variables.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="historisation-des-indicateurs">
+<h1>Historisation des indicateurs<a class="headerlink" href="#historisation-des-indicateurs" title="Link to this heading">#</a></h1>
+<section id="objectif">
+<h2>objectif<a class="headerlink" href="#objectif" title="Link to this heading">#</a></h2>
+<p>L’historisation des indicateurs a pour objectif de disposer des données nécessaires à la mise à disposition des <a class="reference internal" href="indicateurs.html"><span class="std std-doc">indicateurs définis</span></a> à une date donnée.</p>
+<p>Il adresse deux besoins :</p>
+<ul class="simple">
+<li><p>calculer les indicateurs temporels,</p></li>
+<li><p>restituer les indicateurs d’état,</p></li>
+</ul>
 <section id="indicateurs-temporels">
-<h2>Indicateurs temporels<a class="headerlink" href="#indicateurs-temporels" title="Link to this heading">#</a></h2>
+<h3>Indicateurs temporels<a class="headerlink" href="#indicateurs-temporels" title="Link to this heading">#</a></h3>
 <section id="caracteristiques">
-<h3>Caractéristiques<a class="headerlink" href="#caracteristiques" title="Link to this heading">#</a></h3>
+<h4>Caractéristiques<a class="headerlink" href="#caracteristiques" title="Link to this heading">#</a></h4>
 <p>Il s’agit des indicateurs associés à un intervalle temporel et à une périodicité. Ils peuvent prendre plusieurs formes :</p>
 <ul class="simple">
 <li><p>un historique de valeurs sur l’intervalle (ex. un histogramme),</p></li>
@@ -462,8 +477,8 @@ document.write(`
 </ul>
 <p>Le calcul des indicateurs temporels doit pouvoir être réalisé en optimisant les temps de calcul et le volume de données stockées (il serait, par exemple, couteux de calculer une valeur annuelle à partir de données horaires).</p>
 </section>
-<section id="principes">
-<h3>Principes<a class="headerlink" href="#principes" title="Link to this heading">#</a></h3>
+<section id="principes-d-historisation">
+<h4>Principes d’historisation<a class="headerlink" href="#principes-d-historisation" title="Link to this heading">#</a></h4>
 <p>Les principes proposés sont présentés dans le schéma ci-dessous :</p>
 <div class="mermaid">
             flowchart LR
@@ -523,53 +538,42 @@ document.write(`
 </div>
 </section>
 <section id="periodicite">
-<h3>périodicité<a class="headerlink" href="#periodicite" title="Link to this heading">#</a></h3>
-<p>Les valeurs associées à une périodicité répondent à deux types de données :</p>
+<h4>périodicité<a class="headerlink" href="#periodicite" title="Link to this heading">#</a></h4>
+<p>Les valeurs associées à une périodicité permettent de restituer deux informations principales :</p>
 <ul class="simple">
-<li><p>les données cumulables dont le passage à l’échelle se traduit par un cumul.</p></li>
+<li><p>une information cumulées dont le passage à l’échelle se traduit par une somme.</p></li>
 </ul>
 <div class="admonition-exemple admonition">
 <p class="admonition-title">Exemple</p>
-<p>C’est le cas du nombre de sessions dont la valeur annuelle peut être calculée comme la somme des sessions mensuelles elles-mêmes calculées comme la somme des sessions quotidiennes,</p>
+<p>Le nombre annuel de sessions peut être calculée comme la somme des nombres mensuels de session eux-mêmes calculés comme la somme des nombres mensuels de sessions,</p>
 </div>
 <ul class="simple">
-<li><p>les données ajustables dont le passage à l’échelle se traduit par un calcul sur des données cumulables.</p></li>
+<li><p>une information ajustables dont le passage à l’échelle se traduit par une moyenne.</p></li>
 </ul>
 <div class="admonition-exemple admonition">
 <p class="admonition-title">Exemple</p>
-<p>Par exemple, la puissance moyenne installée de l’année peut être calculée à partir des puissances moyennes installées du mois elles-mêmes calculées à partir des puissances moyennes installées quotidiennes.</p>
-<p>C’est le cas également pour le nombre de stations.</p>
+<p>La puissance moyenne installée de l’année peut être calculée à partir des puissances moyennes installées du mois elles-mêmes calculées à partir des puissances moyennes installées quotidiennes.
+La moyenne annuelle du nombre quotidien de session peut être calculé à partir des moyennes mensuelles du nombre quotidien de sessions.</p>
 </div>
 <p>Chaque périodicité peut être associée à une (ou plusieurs) table purgée avec une fréquence spécifique. Par exemple, un stockage horaire pourrait être purgé chaque semaine ou chaque mois.</p>
-<p>Pour un indicateur, on historise à chaque niveau une valeur qui est un ensemble de propriétés issues des valeurs (propriétés) du niveau précédent (cet ensemble peut être variable):</p>
+<p>Pour un indicateur, on historise à chaque niveau la valeur principale qui correspond à une valeur moyenne ainsi qu’un ensemble de valeurs additionnelles. Ces valeurs sont calculées à partir des valeurs du niveau précédent :</p>
 <ul class="simple">
-<li><p>propriétés obligatoire :</p>
+<li><p>valeur principale :</p>
 <ul>
-<li><p>quantité (nombre de valeurs utilisées),</p></li>
 <li><p>moyenne (cumul des valeurs utilisées / nombre de valeurs utilisées)</p></li>
 </ul>
 </li>
-<li><p>propriétés facultatives :</p>
+<li><p>valeurs additionnelles :</p>
 <ul>
-<li><p>somme (cumul des valeurs utilisées)</p></li>
-<li><p>variance (moyenne du cumul des carrés des valeurs utilisées - carré de la moyenne des valeurs utilisées)</p></li>
-<li><p>valeur maximale</p></li>
-<li><p>valeur minimale</p></li>
-<li><p>dernière valeur</p></li>
+<li><p>quantité (nombre de valeurs utilisées) -&gt; obligatoire,</p></li>
+<li><p>variance (moyenne du cumul des carrés des valeurs utilisées - carré de la moyenne des valeurs utilisées) -&gt; optionnel</p></li>
+<li><p>valeur maximale -&gt; optionnel</p></li>
+<li><p>valeur minimale -&gt; optionnel</p></li>
+<li><p>dernière valeur -&gt; optionnel</p></li>
 </ul>
 </li>
 </ul>
-<p>Le passage d’une périodicité ‘n’ à une périodicité ‘n+1’ est réalisé de façon automatique avec :</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(quantite_{n+1} = \sum quantite_n\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(moyenne_{n+1} = \frac {\sum quantite_n . moyenne_n} {\sum quantite_n}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(somme_{n+1} = \sum somme_n\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(variance_{n+1} = \frac {1} {quantite_{n+1}} \sum quantite_n . (variance_n + (moyenne_{n+1} - moyenne_n)^2)\)</span></p></li>
-<li><p>$maxi_{n+1} = MAX(maxi_n)</p></li>
-<li><p>$mini_{n+1} = MIN(mini_n)</p></li>
-<li><p>$dernier_{n+1} = LAST(dernier_n)</p></li>
-</ul>
-<p>Au premier niveau (une seule valeur) , nombre = 1, variance = 0 et somme = moyenne = mini = maxi = dernier = valeur de l’indicateur</p>
+<p>Nota : Le cumul des valeurs utilisées se déduit de la quantité et de la moyenne ( cumul = quantité x moyenne)</p>
 <div class="admonition-exemple admonition">
 <p class="admonition-title">Exemple</p>
 <p>On a historisé les valeurs mensuelles suivantes pour un trimestre de l’indicateur du nombre de stations :</p>
@@ -594,13 +598,17 @@ document.write(`
 </div>
 <p>La valeur historisée du nombre de stations pour le trimestre est :</p>
 <ul class="simple">
-<li><p>quantite : 89</p></li>
 <li><p>moyenne : 55,06</p></li>
 </ul>
+<p>La valeur additionnelle pour le trimestre est :</p>
+<ul class="simple">
+<li><p>quantite : 89</p></li>
+</ul>
+<p>Les autres valeurs additionnelles ne sont calculables que si elles sont documentées au niveau précédent.</p>
 </div>
 </section>
 <section id="mise-en-oeuvre">
-<h3>Mise en oeuvre<a class="headerlink" href="#mise-en-oeuvre" title="Link to this heading">#</a></h3>
+<h4>Mise en oeuvre<a class="headerlink" href="#mise-en-oeuvre" title="Link to this heading">#</a></h4>
 <p>Le résultat de l’indicateur temporel peut prendre plusieurs formes :</p>
 <ul class="simple">
 <li><p>historique de valeurs</p></li>
@@ -619,23 +627,23 @@ document.write(`
 <p class="admonition-title">Exemple</p>
 <p>L’indicateur du taux d’évolution du nombre de stations sur 12 mois au 01/01/2024 par département est défini par :</p>
 <ul class="simple">
-<li><p>l’indicateur de base : ‘i4—04’,</p></li>
+<li><p>l’indicateur de base : ‘i4—4’,</p></li>
 <li><p>l’intervalle : entre le 01/01/2023 et le 01/01/2024,</p></li>
 <li><p>la périodicité : mensuelle,</p></li>
 <li><p>la fonction : taux d’évolution (valeur mensuelle fin - valeur mensuelle début) / valeur mensuelle début.</p></li>
 </ul>
 <p>Le résultat est obtenu en appliquant les traitements suivants:</p>
 <ul class="simple">
-<li><p>calcul quotidien de l’indicateur ‘i4–04’ sur les données statiques courantes,</p></li>
+<li><p>calcul quotidien de l’indicateur ‘i4—4’ sur les données statiques courantes,</p></li>
 <li><p>chaque jour, historisation du résultat du calcul,</p></li>
-<li><p>chaque mois, historisation du jeu de valeurs mensuel (propriétés) obtenu à partir des données quotidiennes,</p></li>
+<li><p>chaque mois, historisation du jeu de valeurs mensuel obtenu à partir des données quotidiennes,</p></li>
 <li><p>calcul du taux d’évolution sur les données de l’historisation mensuelle.</p></li>
 </ul>
 </div>
 </section>
 <section id="indicateurs-retenus">
-<h3>Indicateurs retenus<a class="headerlink" href="#indicateurs-retenus" title="Link to this heading">#</a></h3>
-<p>Les indicateurs temporels identifiés sont les suivants :</p>
+<h4>Indicateurs retenus<a class="headerlink" href="#indicateurs-retenus" title="Link to this heading">#</a></h4>
+<p>Les indicateurs temporels identifiés (voir présentation des indicateurs) sont les suivants :</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>id</p></th>
@@ -679,102 +687,200 @@ document.write(`
 </tbody>
 </table>
 </div>
-<p>Nota : Seule la périodicité est intégrée à la codification (voir chapitre ‘codification’), l’intervalle doit donc être ajouté à l’indicateur pour fournir un résultat.</p>
+<p>Nota : Seule la périodicité est intégrée à la codification (voir chapitre ‘<a class="reference internal" href="indicateurs.html"><span class="std std-doc">codification</span></a>’), l’intervalle doit donc être ajouté à l’indicateur pour fournir un résultat.</p>
 <div class="admonition-exemples admonition">
 <p class="admonition-title">Exemples</p>
 <ul class="simple">
-<li><p>Evolution du nombre mensuel de points de recharge pour 2024 par département : (d2-m—04, entre 01/01/2023 et le 01/01/2024)</p></li>
+<li><p>Evolution du nombre mensuel de points de recharge pour 2024 par département : (d2-m—4, entre 01/01/2023 et le 01/01/2024)</p></li>
 </ul>
 </div>
 </section>
 </section>
-<section id="historisation-des-donnees">
-<h2>Historisation des données<a class="headerlink" href="#historisation-des-donnees" title="Link to this heading">#</a></h2>
-<p>L’historisation est à effectuer pour les indicateurs suivants (voir chapitre listant les indicateurs):</p>
+<section id="indicateurs-d-etat">
+<h3>Indicateurs d’état<a class="headerlink" href="#indicateurs-d-etat" title="Link to this heading">#</a></h3>
+<p>Il s’agit des indicateurs associés à un état de la base de données à un instant donné.</p>
+<p>Il n’est imposé aucune structure spécifique pour les données incluses dans ces indicateurs.</p>
+<p>On peut citer par exemple les besoins suivants :</p>
 <ul class="simple">
-<li><p>infrastructure - typologie (mensuel) : t1, t5, t7, t8, t9</p></li>
-<li><p>infrastructure - quantitatif (mensuel) : i1, i4, i7</p></li>
-<li><p>infrastructure - autoroute (mensuel) : a5, a6</p></li>
-<li><p>usage - quantitatif: u1 (mensuel), u3 (quotidien)</p></li>
-<li><p>usage - qualité de service : q1 (quotidien), q2 (quotidien), q5 (mensuel)</p></li>
+<li><p>Suivre la liste des stations du réseau autoroutier</p></li>
+<li><p>(autres exemples à indiquer)</p></li>
 </ul>
-<p>Pour tenir compte de la variabilité des propriétés à historiser, celles-ci sont stockées dans un champ JSON.</p>
-<p>Plusieurs solutions sont envisageables (pour chaque niveau d’historisation):</p>
+<p>Le calcul des indicateurs temporels doit pouvoir être réalisé en optimisant les temps de calcul et le volume de données stockées (il serait, par exemple, couteux de calculer une valeur annuelle à partir de données horaires).</p>
+<section id="id1">
+<h4>Principes d’historisation<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<p>L’historisation ne fait l’objet d’aucun traitement statistique ni de retraitement temporel.</p>
+</section>
+<section id="id2">
+<h4>Périodicité<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<p>L’historisation peut s’effectuer avec une périodicité quelconque.</p>
+<p>Pour un indicateur, on historise une valeur principale ainsi qu’un ensemble de valeurs additionnelles.</p>
 <ul class="simple">
-<li><p>solution 1 : une table avec les résultats des indicateurs (plusieurs lignes par indicateur)</p></li>
-<li><p>solution 1bis : une table avec un champ JSON pour les valeurs (plusieurs lignes par indicateur)</p></li>
-<li><p>solution 2 : une table avec une valeur JSON par indicateur (une ligne par indicateur)</p></li>
-<li><p>solution 3 : une table avec une valeur JSON pour l’ensemble des indicateurs (une ligne pour tous les indicateurs)</p></li>
-</ul>
-<section id="solution-1">
-<h3>Solution 1<a class="headerlink" href="#solution-1" title="Link to this heading">#</a></h3>
-<p>Chaque résultat d’un indicateur a une structure identique, on peut donc stocker tous les résultats d’un indicateur dans une table.
-Les indicateurs temporels s’appuient sur les indicateurs historisés, il suffit donc d’effectuer une recherche par rapport à un indicateur.</p>
-<p>Pour faciliter les purges, on peut avoir une table par périodicité, la purge peut alors s’effectuer simplement par tri sur le timestamp.</p>
-<p>Une table comporte les champs suivants :</p>
-<p>Propriétés</p>
-<ul class="simple">
-<li><p>value (JSON)</p>
+<li><p>valeur principale :</p>
 <ul>
-<li><p>quantite</p></li>
-<li><p>moyenne</p></li>
-<li><p>variance (optionnel)</p></li>
-<li><p>mini (optionnel)</p></li>
-<li><p>maxi (optionnel)</p></li>
-<li><p>dernier (optionnel)</p></li>
+<li><p>valeur numérique spécifique de chaque indicateur</p></li>
+</ul>
+</li>
+<li><p>valeurs additionnelles :</p>
+<ul>
+<li><p>ensemble de valeurs spécifique de chaque indicateur</p></li>
 </ul>
 </li>
 </ul>
-<p>Regroupement</p>
+</section>
+<section id="id3">
+<h4>Mise en oeuvre<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<p>Le résultat de l’indicateur d’état est identique à la valeur historisée.</p>
+<p>Un indicateur d’état est donc défini par :</p>
 <ul class="simple">
-<li><p>crit_v : valeur du critère (ex. niveau de puissance, implantation)</p></li>
+<li><p>l’indicateur de base à utiliser,</p></li>
+<li><p>la date de l’état pris en compte,</p></li>
+<li><p>la périodicité,</p></li>
+<li><p>la valeur historisée,</p></li>
 </ul>
-<p>Indicateur (ex. ‘t1-01-93-04)</p>
+<div class="admonition-exemple admonition">
+<p class="admonition-title">Exemple</p>
+<p>L’indicateur de la liste des stations du réseau autoroutier au 01/01/2024 est défini par :</p>
 <ul class="simple">
-<li><p>query: (ex. ‘t1’)</p></li>
-<li><p>périmètre: (ex. ‘01’)</p></li>
-<li><p>valeur de périmètre: (ex. ‘93’)</p></li>
-<li><p>critère: (ex.’04’)</p></li>
+<li><p>l’indicateur de base : ‘e1—4’,</p></li>
+<li><p>l’intervalle : entre le 01/01/2023 et le 01/01/2024,</p></li>
+<li><p>la périodicité : mensuelle,</p></li>
+<li><p>la fonction : taux d’évolution (valeur mensuelle fin - valeur mensuelle début) / valeur mensuelle début.</p></li>
 </ul>
-<p>Datation</p>
+<p>Le résultat est obtenu en appliquant les traitements suivants:</p>
 <ul class="simple">
-<li><p>timestamp</p></li>
+<li><p>calcul quotidien de l’indicateur ‘i4—4’ sur les données statiques courantes,</p></li>
+<li><p>chaque jour, historisation du résultat du calcul,</p></li>
+<li><p>chaque mois, historisation du jeu de valeurs mensuel obtenu à partir des données quotidiennes,</p></li>
+<li><p>calcul du taux d’évolution sur les données de l’historisation mensuelle.</p></li>
 </ul>
+</div>
+</section>
+<section id="id4">
+<h4>Indicateurs retenus<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<p>Les indicateurs temporels identifiés (voir présentation des indicateurs) sont les suivants :</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>id</p></th>
+<th class="head"><p>nom</p></th>
+<th class="head"><p>Pr</p></th>
+<th class="head"><p>base</p></th>
+<th class="head"><p>fonction</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>d1</p></td>
+<td><p>Taux d’évolution du nombre de stations</p></td>
+<td><p>1</p></td>
+<td><p>i4</p></td>
+<td><p>taux évolution</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+</section>
+<section id="historisation">
+<h2>Historisation<a class="headerlink" href="#historisation" title="Link to this heading">#</a></h2>
+<section id="besoin">
+<h3>Besoin<a class="headerlink" href="#besoin" title="Link to this heading">#</a></h3>
+<p>L’historisation est à effectuer pour les indicateurs suivants (voir chapitre listant les indicateurs):</p>
+<ul class="simple">
+<li><p>infrastructure - typologie : t1, t1—1, t5, t5—1, t7, t8, t8—1</p></li>
+<li><p>infrastructure - quantitatif : i1—3, i1—4, i4—3, i4—4, i7—3, i7—4</p></li>
+<li><p>infrastructure - autoroute : a1, a2, a3, a5, a6</p></li>
+<li><p>usage - quantitatif: u1, u3, u4</p></li>
+<li><p>usage - qualité de service : q1, q1—1, q2, q2—1, q3, q3—1, q4, q4—1</p></li>
+<li><p>état : e1 (mensuel)</p></li>
+</ul>
+</section>
+<section id="structure">
+<h3>Structure<a class="headerlink" href="#structure" title="Link to this heading">#</a></h3>
+<p>Les données historisées sont réparties suivant plusieurs tables:</p>
+<ul class="simple">
+<li><p>histo_h : historisation horaire,</p></li>
+<li><p>histo_d : historisation quotidienne,</p></li>
+<li><p>histo_m : historisation mensuelle,</p></li>
+<li><p>histo_y : historisation annuelle</p></li>
+<li><p>histo-e : historisation des états</p></li>
+</ul>
+<p>Si besoin, une historisation hebdomadaire ou trimestrielle pourra être ajoutée.</p>
+<p>La structure des tables est identique pour toutes les tables :</p>
+<ul class="simple">
+<li><p>valeur :</p>
+<ul>
+<li><p>VALUE(int) : valeur principale (instantanée ou moyenne)</p></li>
+<li><p>ADD_VALUE(json) - optionnel : valeur additionnelle</p></li>
+</ul>
+</li>
+<li><p>décomposition :</p>
+<ul>
+<li><p>CATEGORY(string ou enum) - optionnel : décomposition associée à l’indicateur (ex. niveau de puissance, implantation)</p></li>
+<li><p>CODE_Z(string) - optionnel : valeur de zoning (ex. ‘13200’)</p></li>
+</ul>
+</li>
+<li><p>indicateur (ex. ‘t1-01-93-04) :</p>
+<ul>
+<li><p>QUERY(string ou enum) : nom de la requête (ex. ‘t1’)</p></li>
+<li><p>PERIMETER(int) : périmètre choisi pour l’indicateur</p></li>
+<li><p>CODE_P(string) : valeur de périmètre (ex. ‘93’)</p></li>
+<li><p>ZONING(int) : découpage du périmètre choisi pour l’indicateur</p></li>
+</ul>
+</li>
+<li><p>Datation</p>
+<ul>
+<li><p>TIMESTAMP(datetime) : datation du résultat du calcul de l’indicateur</p></li>
+</ul>
+</li>
+</ul>
+<p>Le champ ADD_VALUE est json-object pour les indicateurs temporels composé des champs (key) suivants :</p>
+<ul class="simple">
+<li><p>QUANTITY(int) : nombre de valeurs utilisées</p></li>
+<li><p>VARIANCE(float) - optionnel : variance des valeurs utilisées</p></li>
+<li><p>MINI(float) - optionnel : valeur minimale des valeurs utilisées</p></li>
+<li><p>MAXI(float) - optionnel : valeur maximale des valeurs utilisées</p></li>
+<li><p>LAST(float) - optionnel : dernière valeur utilisée</p></li>
+</ul>
+<p>Pour les indicateurs d’état, le champ ADD_VALUE est spécifique de chaque indicateur.</p>
 <p>exemple du nombre mensuel de stations par opérateur en PACA :</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>quantite</p></th>
-<th class="head"><p>moyenne</p></th>
-<th class="head"><p>crit_v</p></th>
+<tr class="row-odd"><th class="head"><p>value</p></th>
+<th class="head"><p>add_value</p></th>
+<th class="head"><p>category</p></th>
+<th class="head"><p>code_z</p></th>
 <th class="head"><p>query</p></th>
-<th class="head"><p>perim</p></th>
-<th class="head"><p>perim_v</p></th>
-<th class="head"><p>crit</p></th>
+<th class="head"><p>perimeter</p></th>
+<th class="head"><p>code_p</p></th>
+<th class="head"><p>zoning</p></th>
 <th class="head"><p>timestamp</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>30</p></td>
-<td><p>50</p></td>
+<tr class="row-even"><td><p>50</p></td>
+<td><p>{‘quantity’: 30}</p></td>
 <td><p>‘oper1’</p></td>
+<td><p>‘’</p></td>
 <td><p>‘t8’</p></td>
 <td><p>‘01’</p></td>
 <td><p>‘93’</p></td>
 <td><p>‘’</p></td>
 <td><p>xxxxxxx</p></td>
 </tr>
-<tr class="row-odd"><td><p>30</p></td>
-<td><p>80</p></td>
+<tr class="row-odd"><td><p>80</p></td>
+<td><p>{‘quantity’: 30}</p></td>
 <td><p>‘oper2’</p></td>
+<td><p>‘’</p></td>
 <td><p>‘t8’</p></td>
 <td><p>‘01’</p></td>
 <td><p>‘93’</p></td>
 <td><p>‘’</p></td>
 <td><p>xxxxxxx</p></td>
 </tr>
-<tr class="row-even"><td><p>30</p></td>
-<td><p>100</p></td>
+<tr class="row-even"><td><p>100</p></td>
+<td><p>{‘quantity’: 30}</p></td>
 <td><p>‘oper3’</p></td>
+<td><p>‘’</p></td>
 <td><p>‘t8’</p></td>
 <td><p>‘01’</p></td>
 <td><p>‘93’</p></td>
@@ -784,269 +890,64 @@ Les indicateurs temporels s’appuient sur les indicateurs historisés, il suffi
 </tbody>
 </table>
 </div>
-<p>L’opérateur ‘oper1’ dispose pour le mois ‘xxxxxxx’ d’une moyenne de 50 stations :</p>
-<div class="admonition-exemple-d-utilisation admonition">
-<p class="admonition-title">Exemple d’utilisation</p>
+<p>L’opérateur ‘oper1’ dispose pour le mois ‘xxxxxxx’ d’une moyenne de 50 stations dans la région ‘93’</p>
+</section>
+<section id="donnees-temporelles">
+<h3>Données temporelles<a class="headerlink" href="#donnees-temporelles" title="Link to this heading">#</a></h3>
+<p>Au premier niveau de périodicité on dispose pour chaque décomposition et chaque indicateur d’une valeur. On a alors :</p>
+<ul class="simple">
+<li><p>quantity = 1</p></li>
+<li><p>variance = 0</p></li>
+<li><p>mini = maxi = last = value</p></li>
+</ul>
+<p>Le passage d’une périodicité ‘n’ (ex. mensuelle) à une périodicité ‘n+1’ (ex. annuelle) est réalisé en regroupant toutes les lignes de la périodicité ‘n’ qui ont des champs ‘décomposition’ et ‘indicateurs’ identiques et dont le ‘timestamp’ est dans la période d’historisation choisie en une seule avec les règles suivantes :</p>
+<ul class="simple">
+<li><p>les champs ‘décomposition’ et ‘indicateurs’ sont reconduits,</p></li>
+<li><p>le champ ‘timestamp’ prend la valeur associée à la période d’historisation,</p></li>
+<li><p>les champs valeurs sont calculés à partir des champs valeurs des lignes à regrouper.</p></li>
+</ul>
+<p>Les formules de calcul sont les suivantes:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(quantity_{n+1} = \sum quantity_n\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(value_{n+1} = \frac {\sum quantity_n . value_n} {\sum quantity_n}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(variance_{n+1} = \frac {1} {quantity_{n+1}} \sum quantity_n . (variance_n + (value_{n+1} - value_n)^2)\)</span></p></li>
+<li><p>$maxi_{n+1} = MAX(maxi_n)</p></li>
+<li><p>$mini_{n+1} = MIN(mini_n)</p></li>
+<li><p>$last_{n+1} = LAST(last_n)</p></li>
+</ul>
+<p>Une valeur facultative à un niveau ‘n+1’ n’est pas présente si elle n’est pas présente au niveau ‘n’</p>
+</section>
+<section id="donnees-d-etat">
+<h3>Données d’état<a class="headerlink" href="#donnees-d-etat" title="Link to this heading">#</a></h3>
+<p>Pour les données d’état, le champ ‘valeur’ est une donnée spécifique de l’indicateur (ex. pour une liste ce pourrait être le nombre de lignes) et le champ ‘valeur additionnelle’ également.</p>
+</section>
+<section id="id5">
+<h3>Indicateurs temporels<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>Les indicateurs temporels sont construits à partir des données historisées exclusivement suivant les règls propres à chaque indicateur.</p>
+<div class="admonition-exemple admonition">
+<p class="admonition-title">Exemple</p>
 <p>indicateur d1 : ‘taux d’évolution du nombre de stations par département’ sur 12 mois au 01/01/2024 ‘</p>
 <ul class="simple">
 <li><p>recherche dans la table mensuelle les lignes correspondant à ‘t4-00-00-04’ et avec un timestamp entre le 01/01/2023 et le 01/01/2024</p></li>
 <li><p>calcul du taux d’évolution pour chaque département (1 - valeur moyenne du dernier mois / valeur moyenne du premier mois)</p></li>
 </ul>
-<p>Le passage d’une table à une autre s’effectue en calculant les nouvelles valeurs ‘nombre’ et ‘somme’ pour chaque couple indicateur - ‘crit_v’ avec un timestamp compris dans l’intervalle de la période à historiser.</p>
 </div>
 </section>
-<section id="solution-1bis">
-<h3>Solution 1bis<a class="headerlink" href="#solution-1bis" title="Link to this heading">#</a></h3>
-<p>Idem Solution 1 mais avec les propriétés stockée dans le champ JSON ‘value’.</p>
-<div class="admonition-exemple admonition">
-<p class="admonition-title">Exemple</p>
-<p>‘nombre de station par opérateur’</p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>value</p></th>
-<th class="head"><p>crit_v</p></th>
-<th class="head"><p>query</p></th>
-<th class="head"><p>perim</p></th>
-<th class="head"><p>perim_v</p></th>
-<th class="head"><p>crit</p></th>
-<th class="head"><p>timestamp</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>json_op1</p></td>
-<td><p>‘oper1’</p></td>
-<td><p>‘t8’</p></td>
-<td><p>‘01’</p></td>
-<td><p>‘93’</p></td>
-<td><p>‘’</p></td>
-<td><p>xxxxxxx</p></td>
-</tr>
-<tr class="row-odd"><td><p>json_op2</p></td>
-<td><p>‘oper2’</p></td>
-<td><p>‘t8’</p></td>
-<td><p>‘01’</p></td>
-<td><p>‘93’</p></td>
-<td><p>‘’</p></td>
-<td><p>xxxxxxx</p></td>
-</tr>
-<tr class="row-even"><td><p>json_op3</p></td>
-<td><p>‘oper3’</p></td>
-<td><p>‘t8’</p></td>
-<td><p>‘01’</p></td>
-<td><p>‘93’</p></td>
-<td><p>‘’</p></td>
-<td><p>xxxxxxx</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>avec json_op1 :</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="p">{</span><span class="err">&#39;</span><span class="kc">n</span><span class="err">ombre</span><span class="w"> </span><span class="err">&#39;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;moye</span><span class="kc">nne</span><span class="err">&#39;</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">}</span><span class="w"> </span>
-</pre></div>
-</div>
-</div>
+<section id="purge-des-donnees">
+<h3>Purge des données<a class="headerlink" href="#purge-des-donnees" title="Link to this heading">#</a></h3>
+<p>Les données d’un niveau ‘n’ déjà utilisées pour calculer les données d’un niveau ‘n+1’ peuvent être supprimées (suppression de lignes).</p>
+<p>Par exemple, on peut purger les données quotidiennes après deux mois, la table des données quotidienne ne contient alors qu’un “stock glissant” de deux mois.</p>
+<p>Pour les données d’état, les règles de purge sont spécifiques.</p>
 </section>
-<section id="solution-2">
-<h3>Solution 2<a class="headerlink" href="#solution-2" title="Link to this heading">#</a></h3>
-<p>Idem Solution 1bis mais avec une ligne par indicateur stocké dans un JSON.</p>
-<div class="admonition-exemple admonition">
-<p class="admonition-title">Exemple</p>
-<p>‘nombre de station par opérateur’</p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>result</p></th>
-<th class="head"><p>query</p></th>
-<th class="head"><p>perim</p></th>
-<th class="head"><p>perim_v</p></th>
-<th class="head"><p>crit</p></th>
-<th class="head"><p>timestamp</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>json_res</p></td>
-<td><p>‘t8’</p></td>
-<td><p>‘01’</p></td>
-<td><p>‘93’</p></td>
-<td><p>‘’</p></td>
-<td><p>xxxxxxx</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>avec json_res :</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span><span class="err">&#39;cri</span><span class="kc">t</span><span class="err">_v&#39;</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;oper</span><span class="mi">1</span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;value&#39;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">&#39;</span><span class="kc">n</span><span class="err">ombre</span><span class="w"> </span><span class="err">&#39;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;moye</span><span class="kc">nne</span><span class="err">&#39;</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">}},</span>
-<span class="w">    </span><span class="p">{</span><span class="err">&#39;cri</span><span class="kc">t</span><span class="err">_v&#39;</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;oper</span><span class="mi">2</span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;value&#39;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">&#39;</span><span class="kc">n</span><span class="err">ombre</span><span class="w"> </span><span class="err">&#39;</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;moye</span><span class="kc">nne</span><span class="err">&#39;</span><span class="p">:</span><span class="w"> </span><span class="mf">52.1</span><span class="p">}},</span>
-<span class="w">    </span><span class="p">{</span><span class="err">&#39;cri</span><span class="kc">t</span><span class="err">_v&#39;</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;oper</span><span class="mi">3</span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;value&#39;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">&#39;</span><span class="kc">n</span><span class="err">ombre</span><span class="w"> </span><span class="err">&#39;</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;moye</span><span class="kc">nne</span><span class="err">&#39;</span><span class="p">:</span><span class="w"> </span><span class="mi">55</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">]</span>
-</pre></div>
-</div>
-</div>
+<section id="modification-de-la-liste-des-indicateurs">
+<h3>Modification de la liste des indicateurs<a class="headerlink" href="#modification-de-la-liste-des-indicateurs" title="Link to this heading">#</a></h3>
+<p>L’ajout d’un indicateur à historiser (ou sa suppression) est sans impact pour les données temporelles (la propagation se fait automatiquement d’un niveau d’historisation à un autre).</p>
+<p>Pour les indicateurs d’état la situation est similaire (la suppression d’un indicateur se fera en suivant les règles de purge choisies).</p>
 </section>
-<section id="solution-3">
-<h3>Solution 3<a class="headerlink" href="#solution-3" title="Link to this heading">#</a></h3>
-<p>Idem solution 2 mais avec une ligne commune pour tous les indicateurs, les résultats des indicateurs sont stockés dans un JSON</p>
-<div class="admonition-exemple admonition">
-<p class="admonition-title">Exemple</p>
-<p>JSON commun avec les indicateurs du nombre de stations (i4), de points de charge (i1) et la puissance installée (i7) pour chaque commune, département, opérateur et région.</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;now&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;totals&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;stations&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12424</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;psoc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2312314</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;power&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1e19</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nt">&quot;counts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="nt">&quot;code_insee&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;01311&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;stations&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;poc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">132</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;power&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30000</span><span class="p">,</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="nt">&quot;code_insee&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;13411&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;stations&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;poc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">132</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;power&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30000</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">],</span>
-<span class="w">        </span><span class="nt">&quot;department&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="nt">&quot;code_insee&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;01&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;stations&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;poc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">132</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;power&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30000</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="nt">&quot;code_insee&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;13&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;stations&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;poc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">132</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;power&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30000</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">],</span>
-<span class="w">        </span><span class="nt">&quot;region&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="nt">&quot;code_insee&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;13&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;stations&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span>
-<span class="w">                </span><span class="nt">&quot;poc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">132</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;power&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30000</span>
-<span class="w">            </span><span class="p">},</span><span class="w">            </span>
-<span class="w">        </span><span class="p">],</span>
-<span class="w">        </span><span class="nt">&quot;operational_unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FRFAS&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;stations&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;poc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">142</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;power&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30000</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FRS77&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;stations&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">114</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;poc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1445</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;power&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30000</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">        </span><span class="p">]</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># iStatic table database fields</span>
-<span class="n">timestamp</span><span class="p">:</span> <span class="n">date</span> <span class="n">time</span>
-<span class="n">total_stations</span><span class="p">:</span> <span class="nb">int</span>
-<span class="n">total_poc</span><span class="p">:</span> <span class="nb">int</span>
-<span class="n">total_power</span><span class="p">:</span> <span class="n">long</span> <span class="nb">float</span>
-<span class="n">city</span><span class="p">:</span> <span class="n">json</span>
-<span class="n">department</span><span class="p">:</span> <span class="n">json</span>
-<span class="n">region</span><span class="p">:</span> <span class="n">json</span>
-<span class="n">operational_unit</span><span class="p">:</span> <span class="n">json</span>
-</pre></div>
-</div>
-</div>
-</section>
-<section id="avantages-inconvenients">
-<h3>Avantages - inconvenients<a class="headerlink" href="#avantages-inconvenients" title="Link to this heading">#</a></h3>
-<p>Les solutions sont comparées sur la base des fonctions suivantes :</p>
-<ul class="simple">
-<li><p>historisation initiale des données</p></li>
-<li><p>changement d’échelle de temps</p></li>
-<li><p>calcul de l’indicateur temporel</p></li>
-<li><p>purge des données</p></li>
-<li><p>évolutivité</p></li>
-</ul>
-<section id="id1">
-<h4>solution 1<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
-<p>historisation :</p>
-<ul class="simple">
-<li><p>fonction générique : le format de stockage est identique au résultat de la requête</p></li>
-</ul>
-<p>changement d’échelle</p>
-<ul class="simple">
-<li><p>fonction générique : calcul des nouvelles données par requête (nombre, somme)</p></li>
-</ul>
-<p>calcul de l’indicateur</p>
-<ul class="simple">
-<li><p>indépendant de la périodicité</p></li>
-<li><p>générique / spécifique : à préciser</p></li>
-</ul>
-<p>purge des données</p>
-<ul class="simple">
-<li><p>suppression de lignes en fonction de la valeur du timestamp</p></li>
-</ul>
-<p>évolutivité</p>
-<ul class="simple">
-<li><p>ajout d’indicateur sans reconfiguration nécessaire</p></li>
-</ul>
-</section>
-<section id="id2">
-<h4>solution 2<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
-<p>historisation :</p>
-<ul class="simple">
-<li><p>fonction générique : conversion au format Json du résultat des requêtes</p></li>
-</ul>
-<p>changement d’échelle</p>
-<ul class="simple">
-<li><p>fonction générique : à préciser (traitement par pandas nécessaire ?)</p></li>
-</ul>
-<p>calcul de l’indicateur</p>
-<ul class="simple">
-<li><p>indépendant de la périodicité</p></li>
-<li><p>générique / spécifique : à préciser (conversion json nécessaire)</p></li>
-</ul>
-<p>purge des données</p>
-<ul class="simple">
-<li><p>suppression de lignes en fonction de la valeur du timestamp</p></li>
-</ul>
-<p>évolutivité</p>
-<ul class="simple">
-<li><p>ajout d’indicateur sans reconfiguration nécessaire</p></li>
-</ul>
-</section>
-<section id="id3">
-<h4>solution 3<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
-<p>historisation :</p>
-<ul class="simple">
-<li><p>ne peut se faire indicateur par indicateur</p></li>
-<li><p>nécessite de construire le json global (mapping entre indicateur et les ‘key’ du json)</p></li>
-</ul>
-<p>changement d’échelle</p>
-<ul class="simple">
-<li><p>décodage préalable du format json et traitement de chaque ‘key’</p></li>
-</ul>
-<p>calcul de l’indicateur</p>
-<ul class="simple">
-<li><p>indépendant de la périodicité</p></li>
-<li><p>décodage préalable du format json et traitement de chaque ‘key’</p></li>
-</ul>
-<p>purge des données</p>
-<ul class="simple">
-<li><p>suppression de lignes en fonction de la valeur du timestamp</p></li>
-</ul>
-<p>évolutivité</p>
-<ul class="simple">
-<li><p>l’ajout d’indicateur nécessite de reconfigurer le format JSON. La cohabitation de plusieurs formats JSON différents est à étudier</p></li>
-</ul>
-</section>
+<section id="interruption-de-flux">
+<h3>Interruption de flux<a class="headerlink" href="#interruption-de-flux" title="Link to this heading">#</a></h3>
+<p>L’historisation s’applique sur la base d’un flux continu. En cas de discontinuité (ex si des données arrivent après la première historisation), il est nécessaire de modifier les données préalablement historisées.</p>
+<p>Les règles associées restent à définir.</p>
 </section>
 </section>
 </section>
@@ -1115,25 +1016,33 @@ Les indicateurs temporels s’appuient sur les indicateurs historisés, il suffi
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-temporels">Indicateurs temporels</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristiques">Caractéristiques</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principes">Principes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#periodicite">périodicité</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mise-en-oeuvre">Mise en oeuvre</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-retenus">Indicateurs retenus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectif">objectif</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-temporels">Indicateurs temporels</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristiques">Caractéristiques</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#principes-d-historisation">Principes d’historisation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#periodicite">périodicité</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mise-en-oeuvre">Mise en oeuvre</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-retenus">Indicateurs retenus</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historisation-des-donnees">Historisation des données</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-1">Solution 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-1bis">Solution 1bis</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-2">Solution 2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-3">Solution 3</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avantages-inconvenients">Avantages - inconvenients</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">solution 1</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">solution 2</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">solution 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-d-etat">Indicateurs d’état</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Principes d’historisation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Périodicité</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Mise en oeuvre</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Indicateurs retenus</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historisation">Historisation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#besoin">Besoin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#structure">Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#donnees-temporelles">Données temporelles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#donnees-d-etat">Données d’état</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Indicateurs temporels</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#purge-des-donnees">Purge des données</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modification-de-la-liste-des-indicateurs">Modification de la liste des indicateurs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interruption-de-flux">Interruption de flux</a></li>
 </ul>
 </li>
 </ul>
