@@ -8,6 +8,7 @@ parts:
     numbered: True
     chapters:
     - file: files/indicateurs
+    - file: files/historisation
   - caption: Indicateurs génériques
     numbered: True
     chapters:
@@ -23,7 +24,6 @@ parts:
   - caption: Annexes
     chapters:
     - file: files/IRVE_indicateurs
-    - file: files/historisation
     - file: files/tests_historisation
     - file: files/modeles
     - file: files/etats
