@@ -1,10 +1,17 @@
-# Solutions pour les indicateurs temporels
+# Historisation des données
 
-Proposition de différentes solutions pour calculer des indicateurs temporels à des échelles de temps variables.
+## objectif
 
-## Indicateurs temporels
+L'historisation des données a pour objectif de conserver un état des données à une date donnée.
 
-### Caractéristiques
+Il adresse deux besoins :
+
+- calculer les indicateurs temporels (voir indicateurs),
+- restituer un état partiel des données (ex. une liste de stations)
+
+### Indicateurs temporels
+
+#### Caractéristiques
 
 Il s'agit des indicateurs associés à un intervalle temporel et à une périodicité. Ils peuvent prendre plusieurs formes :
 
@@ -22,7 +29,7 @@ On peut citer par exemple les indicateurs AVERE suivants :
 
 Le calcul des indicateurs temporels doit pouvoir être réalisé en optimisant les temps de calcul et le volume de données stockées (il serait, par exemple, couteux de calculer une valeur annuelle à partir de données horaires).
 
-### Principes
+#### Principes d'historisation
 
 Les principes proposés sont présentés dans le schéma ci-dessous :
 
@@ -79,66 +86,70 @@ Pour présenter l'évolution du nombre de points de recharge par mois sur deux a
 Si le nombre de points de recharges fait l'objet de valeurs quotidiennes et de valeurs mensuelles, il n'est pas nécessaire de conserver les valeurs quotidiennes datant de plusieurs mois.
 ```
 
-### périodicité
+#### périodicité
 
-Les valeurs associées à une périodicité répondent à deux types de données :
+Les valeurs associées à une périodicité permettent de restituer deux informations principales :
 
-- les données cumulables dont le passage à l'échelle se traduit par un cumul.
+- une information cumulées dont le passage à l'échelle se traduit par une somme.
 
 ```{admonition} Exemple
-C'est le cas du nombre de sessions dont la valeur annuelle peut être calculée comme la somme des sessions mensuelles elles-mêmes calculées comme la somme des sessions quotidiennes,
+Le nombre annuel de sessions peut être calculée comme la somme des nombres mensuels de session eux-mêmes calculés comme la somme des nombres mensuels de sessions,
 ```
 
-- les données ajustables dont le passage à l'échelle se traduit par un calcul sur des données cumulables.
+- une information ajustables dont le passage à l'échelle se traduit par une moyenne.
 
 ```{admonition} Exemple
-Par exemple, la puissance moyenne installée de l'année peut être calculée à partir des puissances moyennes installées du mois elles-mêmes calculées à partir des puissances moyennes installées quotidiennes.
-
-C'est le cas également pour le nombre de stations.
+La puissance moyenne installée de l'année peut être calculée à partir des puissances moyennes installées du mois elles-mêmes calculées à partir des puissances moyennes installées quotidiennes.
+La moyenne annuelle du nombre quotidien de session peut être calculé à partir des moyennes mensuelles du nombre quotidien de sessions.
 ```
 
 Chaque périodicité peut être associée à une (ou plusieurs) table purgée avec une fréquence spécifique. Par exemple, un stockage horaire pourrait être purgé chaque semaine ou chaque mois.
 
-Pour un indicateur, on historise à chaque niveau une valeur qui est un ensemble de propriétés issues des valeurs (propriétés) du niveau précédent (cet ensemble peut être variable):
+Pour un indicateur, on historise à chaque niveau une valeur principale qui correspond à une valeur moyenne ainsi qu'un ensemble de valeurs additionnelles.  Ces valeurs sont calculées à partir des valeurs du niveau précédent :
 
-- propriétés obligatoire :
-  - quantité (nombre de valeurs utilisées),
+- valeur principale :
   - moyenne (cumul des valeurs utilisées / nombre de valeurs utilisées)
-- propriétés facultatives :
-  - somme (cumul des valeurs utilisées)
-  - variance (moyenne du cumul des carrés des valeurs utilisées - carré de la moyenne des valeurs utilisées)
-  - valeur maximale
-  - valeur minimale
-  - dernière valeur
+- valeurs additionnelles :
+  - quantité (nombre de valeurs utilisées) -> obligatoire,
+  - variance (moyenne du cumul des carrés des valeurs utilisées - carré de la moyenne des valeurs utilisées) -> optionnel
+  - valeur maximale -> optionnel
+  - valeur minimale -> optionnel
+  - dernière valeur -> optionnel
+
+Nota : Le cumul des valeurs utilisées se déduit de la quantité et de la moyenne ( cumul = quantité x moyenne)
 
 Le passage d'une périodicité 'n' à une périodicité 'n+1' est réalisé de façon automatique avec :
 
 - $quantite_{n+1} = \sum quantite_n$
 - $moyenne_{n+1} = \frac {\sum quantite_n . moyenne_n} {\sum quantite_n}$
-- $somme_{n+1} = \sum somme_n$
 - $variance_{n+1} = \frac {1} {quantite_{n+1}} \sum quantite_n . (variance_n + (moyenne_{n+1} - moyenne_n)^2)$
 - $maxi_{n+1} = MAX(maxi_n)
 - $mini_{n+1} = MIN(mini_n)
 - $dernier_{n+1} = LAST(dernier_n)
 
-Au premier niveau (une seule valeur) , nombre = 1, variance = 0 et somme = moyenne = mini = maxi = dernier = valeur de l'indicateur
+Au premier niveau (une seule valeur) , quantité = 1, variance = 0 et moyenne = mini = maxi = dernier = valeur de l'indicateur
 
 ```{admonition} Exemple
 On a historisé les valeurs mensuelles suivantes pour un trimestre de l'indicateur du nombre de stations :
 
 | quantite | moyenne |
-| ------ | ----- |
-| 30     | 50  |
-| 28     | 55  |
-| 31     | 60  |
+| -------- | ------- |
+| 30       | 50      |
+| 28       | 55      |
+| 31       | 60      |
 
 La valeur historisée du nombre de stations pour le trimestre est : 
 
-- quantite : 89
 - moyenne : 55,06
+
+La valeur additionnelle pour le trimestre est :
+
+- quantite : 89
+
+Les autres valeurs additionnelles ne sont calculables que si elles sont documentées au niveau précédent.
 ```
 
-### Mise en oeuvre
+#### Mise en oeuvre
 
 Le résultat de l'indicateur temporel peut prendre plusieurs formes :
 
@@ -166,13 +177,13 @@ Le résultat est obtenu en appliquant les traitements suivants:
 
 - calcul quotidien de l'indicateur 'i4--04' sur les données statiques courantes,
 - chaque jour, historisation du résultat du calcul,
-- chaque mois, historisation du jeu de valeurs mensuel (propriétés) obtenu à partir des données quotidiennes,
+- chaque mois, historisation du jeu de valeurs mensuel obtenu à partir des données quotidiennes,
 - calcul du taux d'évolution sur les données de l'historisation mensuelle.
 ```
 
-### Indicateurs retenus
+#### Indicateurs retenus
 
-Les indicateurs temporels identifiés sont les suivants :
+Les indicateurs temporels identifiés (voir présentation des indicateurs) sont les suivants :
 
 | id  | nom                                              | Pr  | base   | fonction       |
 | --- | ------------------------------------------------ | --- | ------ | -------------- |
@@ -188,7 +199,70 @@ Nota : Seule la périodicité est intégrée à la codification (voir chapitre '
 - Evolution du nombre mensuel de points de recharge pour 2024 par département : (d2-m---04, entre 01/01/2023 et le 01/01/2024)
 ```
 
-## Historisation des données
+### Indicateurs d'état
+
+Il s'agit des indicateurs associés à un état de la base de données à un instant donné.
+
+Il n'est imposé aucune structure spécifique pour les données incluses dans ces indicateurs.
+
+On peut citer par exemple les besoins suivants :
+
+- Suivre la liste des stations du réseau autoroutier
+- (autres exemples à indiquer)
+
+Le calcul des indicateurs temporels doit pouvoir être réalisé en optimisant les temps de calcul et le volume de données stockées (il serait, par exemple, couteux de calculer une valeur annuelle à partir de données horaires).
+
+#### Principes d'historisation
+
+L'historisation ne fait l'objet d'aucun traitement statistique ni de retraitement temporel.
+
+#### Périodicité
+
+L'historisation peut s'effectuer avec une périodicité quelconque.
+
+Pour un indicateur, on historise une valeur principale ainsi qu'un ensemble de valeurs additionnelles.
+
+- valeur principale :
+  - valeur numérique spécifique de chaque indicateur
+- valeurs additionnelles :
+  - ensemble de valeurs spécifique de chaque indicateur
+
+#### Mise en oeuvre
+
+Le résultat de l'indicateur d'état est identique à la valeur historisée.
+
+Un indicateur d'état est donc défini par :
+
+- l'indicateur de base à utiliser,
+- la date de l'état pris en compte,
+- la périodicité,
+- la valeur historisée,
+
+```{admonition} Exemple
+L'indicateur de la liste des stations du réseau autoroutier au 01/01/2024 est défini par :
+
+- l'indicateur de base : 'e1---04',
+- l'intervalle : entre le 01/01/2023 et le 01/01/2024,
+- la périodicité : mensuelle,
+- la fonction : taux d'évolution (valeur mensuelle fin - valeur mensuelle début) / valeur mensuelle début.
+
+Le résultat est obtenu en appliquant les traitements suivants:
+
+- calcul quotidien de l'indicateur 'i4--04' sur les données statiques courantes,
+- chaque jour, historisation du résultat du calcul,
+- chaque mois, historisation du jeu de valeurs mensuel obtenu à partir des données quotidiennes,
+- calcul du taux d'évolution sur les données de l'historisation mensuelle.
+```
+
+#### Indicateurs retenus
+
+Les indicateurs temporels identifiés (voir présentation des indicateurs) sont les suivants :
+
+| id  | nom                                              | Pr  | base   | fonction       |
+| --- | ------------------------------------------------ | --- | ------ | -------------- |
+| d1  | Taux d'évolution du nombre de stations           | 1   | i4     | taux évolution |
+
+## Historisation
 
 L'historisation est à effectuer pour les indicateurs suivants (voir chapitre listant les indicateurs): 
 
@@ -197,6 +271,7 @@ L'historisation est à effectuer pour les indicateurs suivants (voir chapitre li
 - infrastructure - autoroute (mensuel) : a5, a6
 - usage - quantitatif: u1 (mensuel), u3 (quotidien)
 - usage - qualité de service : q1 (quotidien), q2 (quotidien), q5 (mensuel)
+- état : e1 (mensuel)
 
 Pour tenir compte de la variabilité des propriétés à historiser, celles-ci sont stockées dans un champ JSON.
 

@@ -2,7 +2,7 @@
 
 Les indicateurs de référence sont les indicateurs générés et actualisés par QualiCharge.
 
-## Structuration
+## Présentation
 
 Les indicateurs sont constitués d'une liste de valeurs. On distingue les types suivants :
 
@@ -61,23 +61,24 @@ Les indicateurs présentés dans le {term}`Baromètre AVERE` sont les suivants :
 
 ### Types d'indicateurs
 
-Quatre types d'indicateurs sont définis:
+Cinq types d'indicateurs sont définis:
 
 - indicateurs d'infrastructure : Ils décrivent le parc installé (évolution temporelle, répartition géographiques, caratéristiques, dimensionnement)
 - indicateurs d'usage : Ils décrivent l'utilisation effective des infrastructures (qualité de service, volumétrie, répartition)
 - indicateurs temporels : Ils analysent l'évolution des deux catégories d'indicateurs précédent sur une période temporelle
+- indicateurs d'état : Ils représentent un état d'une partie des données (ex. liste des stations du réseau autoroutier)
 - indicateurs étendus : Ils concernent les indicateurs obtenus avec des jeux de données en lien (ex. relevés ENEDIS)
 
 :::{note}
 
-Les indicateurs d'exploitation (liés aux opérateurs et aménageurs et enseignes) ainsi que les indicateurs liés à des attributs spécifiques (ex. accès deux roues, période d'ouverture, accès handicapés...) sont à ajouter.
+Les indicateurs d'exploitation (liés aux aménageurs et enseignes) ainsi que les indicateurs liés à des attributs spécifiques (ex. accès deux roues, période d'ouverture, accès handicapés...) sont à ajouter.
 
 :::
 
 ### Codification des indicateurs
 
 Les indicateurs sont codifiés par une chaine de caractères : *[type]-[périmètre]-[valeur de périmètre]-[zone]*
-ou bien pour les indicateurs temporels : *[type]-[période]-[périmètre]-[valeur de périmètre]-[zone]*
+ou bien pour les indicateurs temporels : *[type]-[périodicité]-[périmètre]-[valeur de périmètre]-[zone]*
 avec:
 
 - type : identifiant du type d'indicateur (ex. 'i1' : nombre de points de recharge)
@@ -102,6 +103,7 @@ Le périmètre par défaut est l'ensemble des données.
 - **i1-01-93-03** : Nombre de points de recharge (i1) pour la région (01) PACA (93) par EPCI (03)
 - **i1-m-01-93-03** : Nombre de points de recharge (i1) mensuel (m) pour la région (01) PACA (93) par EPCI (03)
 - **t1** : Nombre de points de recharge par niveau de puissance (t1) pour l'ensemble des données (pas de périmètre choisi)
+- **e1** : liste des stations du réseau autoroutier (e1)
 ```
 
 ### Résultat des indicateurs
@@ -109,8 +111,12 @@ Le périmètre par défaut est l'ensemble des données.
 Le résultat d'un indicateur peut être représenté par une structure tabulaire composée des champs suivants :
 
 - valeur : résultat de l'indicateur pour une catégorie et une zone,
+- valeur additionnelle : informations associées à la valeur
 - catégorie (facultative) : décomposition associée à l'indicateur
 - zone (facultative) : découpage du périmètre choisi pour l'indicateur
+
+Le champ 'valeur additionnelle' est utilisé pour les données structurées associées au champ 'valeur'.
+Ce champ est au format JSON et concerne les informations liées à l'historisation ainsi que les données des indicateurs d'état ou bioen les .
 
 Si aucune catégorie et aucune zone ne sont définies, le résultat se réduit à une valeur,
 
@@ -137,7 +143,7 @@ Si uniquement une zone est définie, le résultat est une liste de valeurs assoc
 
 ```{admonition} Exemple
 i1-01-93-02 : Nombre de points de recharge (i1) pour la région (01) PACA (93) par département (02)
-La zone est ici le département.
+La zone est ici le département (représenté par son code).
 
 | nb_pdc | code |
 | ------ | ---- |
@@ -153,11 +159,10 @@ Si une catégorie et une zone sont définies, le résultat est une liste de vale
 
 ```{admonition} Exemple
 t8-01-93-02 : Nombre de stations par opérateur (t8) pour la région (01) PACA (93) par département (02)
-La 'zone' est ici le département et la 'catégorie' est l'opérateur.
+La 'zone' est ici le département (représenté par son code) et la 'catégorie' est l'opérateur.
 
 | nb_stat    | nom_operateur                   | code |
 | ---------- | ------------------------------- | ---- |
-| b_stations | nom_operateur                   | code |
 | 273        | IZIVIA                          | 06   |
 | 31         | IZIVIA                          | 13   |
 | 28         | TotalEnergies Charging Services | 13   |
@@ -329,6 +334,20 @@ Nota : Seule la périodicité est intégrée à la codification (voir chapitre '
 
 ```{admonition} Exemples
 - Evolution du nombre mensuel de points de recharge pour 2024 par département : (d2-m---04, entre 01/01/2023 et le 01/01/2024)
+```
+
+## Indicateurs d'état
+
+Les indicateurs d'état identifiés sont les suivants :
+
+| id          | nom                                              | Pr  |
+| ----------- | ------------------------------------------------ | --- |
+| e1-xx-yy-zz | Liste des stations du réseau autoroutier         | 2   |
+
+Nota : La périodicité d'historisation n'est pas intégrée à la codification (voir chapitre 'codification'), la date doit donc être ajouté à l'indicateur.
+
+```{admonition} Exemples
+- Liste des stations du réseau autoroutier (d2) au 31/12/2024 
 ```
 
 ## Indicateurs étendus
