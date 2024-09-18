@@ -31,8 +31,6 @@ Le calcul des indicateurs temporels doit pouvoir être réalisé en optimisant l
 
 #### Principes d'historisation
 
-Les principes proposés sont présentés dans le schéma ci-dessous :
-
 :::{mermaid}
 flowchart LR
     subgraph état courant
@@ -45,14 +43,10 @@ flowchart LR
 
     subgraph historisation
         direction RL
-        heure("`histo
-         heure`")
-        jour("`histo
-         jour`")
-        mois("`histo
-         mois`")
-        an("`histo
-         année`")
+        heure("`histo`")
+        jour("`histo`")
+        mois("`histo`")
+        an("`histo`")
 
         heure -->|quotidien| jour
         jour -->|mensuel| mois
@@ -66,25 +60,28 @@ flowchart LR
     stat -->|indicateur quotidien| jour   
     historisation -->|indicateur temporel| restitution
 :::
+NOTA : Le stockage peut être identique pour toutes les périodicités.
+
+Le schéma ci-dessus illustre les principes suivants :
 
 - historisation des données à différentes échelles de temps (périodicité).
 
-```{admonition} Exemple
+:::{admonition} Exemple
 Pour présenter l'évolution du nombre de points de recharge par mois sur deux ans, il est nécessaire d'avoir stocké au préalable mensuellement le nombre de points de recharge.
-```
+:::
 
 - historisation de données "scalables" (qu'on peut calculer pour une périodicité à partir de données existantes à une périodicité plus faible)
 
-```{admonition} Exemples
+:::{admonition} Exemples
 - calcul des valeurs annuelles à partir des valeurs mensuelles (et valeurs mensuelles à partir des valeurs quotidiennes).
 - le taux de disponibilité qui est le ratio du temps de bon fonctionnement sur le temps d'ouverture n'est pas scalable (le taux mensuel n'est pas égal à la moyenne des taux journaliers). Par contre, le temps de bon fonctionnement et le temps d'ouverture sont scalables et on peut donc calculer le taux de disponibilité sur une période à partir du temps de bon fonctionnement sur la période et du temps d'ouverture sur la période.
-```
+:::
 
 - purge des données anciennes.
 
-```{admonition} Exemple
+:::{admonition} Exemple
 Si le nombre de points de recharges fait l'objet de valeurs quotidiennes et de valeurs mensuelles, il n'est pas nécessaire de conserver les valeurs quotidiennes datant de plusieurs mois.
-```
+:::
 
 #### périodicité
 
@@ -93,7 +90,7 @@ Les valeurs associées à une périodicité permettent de restituer deux informa
 - une information cumulées dont le passage à l'échelle se traduit par une somme.
 
 ```{admonition} Exemple
-Le nombre annuel de sessions peut être calculée comme la somme des nombres mensuels de session eux-mêmes calculés comme la somme des nombres mensuels de sessions,
+Le nombre annuel de sessions peut être calculée comme la somme des nombres mensuels de session eux-mêmes calculés comme la somme des nombres quotidiens de sessions,
 ```
 
 - une information ajustables dont le passage à l'échelle se traduit par une moyenne.
@@ -103,7 +100,7 @@ La puissance moyenne installée de l'année peut être calculée à partir des p
 La moyenne annuelle du nombre quotidien de session peut être calculé à partir des moyennes mensuelles du nombre quotidien de sessions.
 ```
 
-Chaque périodicité peut être associée à une (ou plusieurs) table purgée avec une fréquence spécifique. Par exemple, un stockage horaire pourrait être purgé chaque semaine ou chaque mois.
+Chaque périodicité peut être associée à une (ou plusieurs) table purgée avec une fréquence spécifique. Par exemple, les données horaires pourraient être purgées chaque semaine ou chaque mois.
 
 Pour un indicateur, on historise à chaque niveau la valeur principale qui correspond à une valeur moyenne ainsi qu'un ensemble de valeurs additionnelles. Ces valeurs sont calculées à partir des valeurs du niveau précédent :
 
@@ -212,7 +209,7 @@ Pour un indicateur, on historise une valeur principale ainsi qu'un ensemble de v
 - valeur principale :
   - valeur numérique spécifique de chaque indicateur
 - valeurs additionnelles :
-  - ensemble de valeurs spécifique de chaque indicateur
+  - ensemble de valeurs spécifiques de chaque indicateur
 
 #### Application
 
@@ -248,49 +245,45 @@ Les indicateurs d'état identifiés (voir [présentation des indicateurs](./indi
 | id          | nom                                      | Pr  |
 | ----------- | ---------------------------------------- | --- |
 | e1-xx-yy-zz | Liste des stations du réseau autoroutier | 2   |
+| e2-xx-yy-zz | Liste des stations actives               | 2   |
 
 ## Solution d'historisation
 
 ### Besoin
 
-L'historisation est à effectuer pour les indicateurs suivants (voir chapitre listant les indicateurs): 
+L'historisation s'effectue pour les indicateurs suivants (voir chapitre listant les indicateurs):
 
-- infrastructure - typologie : t1, t1---1, t5, t5---1, t7, t8, t8---1
-- infrastructure - quantitatif : i1---3, i1---4, i4---3, i4---4, i7---3, i7---4
+- infrastructure - typologie : t1, t1- - -1, t5, t5- - -1, t7, t8, t8- - -1
+- infrastructure - quantitatif : i1- - -3, i1- - -4, i4- - -3, i4- - -4, i7- - -3, i7- - -4
 - infrastructure - autoroute : a1, a2, a3, a5, a6
 - usage - quantitatif: u1, u3, u4
-- usage - qualité de service : q1, q1---1, q2, q2---1, q3, q3---1, q4, q4---1
+- usage - qualité de service : q1, q1- - -1, q2, q2- - -1, q3, q3- - -1, q4, q4- - -1
 - état : e1 (mensuel)
+
+NOTA : L'historisation concerne le périmètre complet de chaque indicateur.
 
 ### Structure
 
-Les données historisées sont réparties suivant plusieurs tables:
-
-- histo_h : historisation horaire,
-- histo_d : historisation quotidienne,
-- histo_m : historisation mensuelle,
-- histo_y : historisation annuelle
-- histo-e : historisation des états
+Les données historisées sont regroupées sur une seule table:
 
 Si besoin, une historisation hebdomadaire ou trimestrielle pourra être ajoutée.
 
-La structure des tables est identique pour toutes les tables :
+La structure des historisation est identique pour toutes les périodicités :
 
 - valeur :
   - VALUE(int) : valeur principale (instantanée ou moyenne)
-  - ADD_VALUE(json) - optionnel : valeur additionnelle
+  - EXTRAS(json) - optionnel : valeur additionnelle
 - décomposition :
   - CATEGORY(string ou enum) - optionnel : décomposition associée à l'indicateur (ex. niveau de puissance, implantation)
-  - CODE_Z(string) - optionnel : valeur de zoning (ex. '13200')
+  - TARGET(string) - optionnel : valeur de zoning (ex. '13200')
 - indicateur (ex. 't1-01-93-04) :
-  - QUERY(string ou enum) : nom de la requête (ex. 't1')
-  - PERIMETER(int) : périmètre choisi pour l'indicateur
-  - CODE_P(string) : valeur de périmètre (ex. '93')
-  - ZONING(int) : découpage du périmètre choisi pour l'indicateur
+  - CODE(string ou enum) : nom de la requête (ex. 't1')
+  - LEVEL(int) : découpage du périmètre choisi pour l'indicateur
 - Datation
+  - PERIOD(enum) : périodicité de l'historisation (hour, day, week, month, year)
   - TIMESTAMP(datetime) : datation du résultat du calcul de l'indicateur
 
-Le champ ADD_VALUE est json-object pour les indicateurs temporels composé des champs (key) suivants :
+Le champ EXTRAS est json-object pour les indicateurs temporels composé des champs (key) suivants :
 
 - QUANTITY(int) : nombre de valeurs utilisées
 - VARIANCE(float) - optionnel : variance des valeurs utilisées
@@ -298,17 +291,17 @@ Le champ ADD_VALUE est json-object pour les indicateurs temporels composé des c
 - MAXI(float) - optionnel : valeur maximale des valeurs utilisées
 - LAST(float) - optionnel : dernière valeur utilisée
 
-Pour les indicateurs d'état, le champ ADD_VALUE est spécifique de chaque indicateur.
+Pour les indicateurs d'état, le champ EXTRAS est spécifique de chaque indicateur.
 
-exemple du nombre mensuel de stations par opérateur en PACA :
+exemple du nombre mensuel de stations par opérateur :
 
-| value | add_value        | category | code_z | query | perimeter | code_p | zoning | timestamp |
-| ----- | ---------------- | -------- | ------ | ----- | --------- | ------ | ------ | --------- |
-| 50    | {'quantity': 30} | 'oper1'  | ''     | 't8'  | '01'      | '93'   | ''     | xxxxxxx   |
-| 80    | {'quantity': 30} | 'oper2'  | ''     | 't8'  | '01'      | '93'   | ''     | xxxxxxx   |
-| 100   | {'quantity': 30} | 'oper3'  | ''     | 't8'  | '01'      | '93'   | ''     | xxxxxxx   |
+| value | extras           | category | target | code  | level  | period | timestamp |
+| ----- | ---------------- | -------- | ------ | ----- | ------ | ------ | --------- |
+| 50    | {'quantity': 30} | 'oper1'  | ''     | 't8'  | ''     | month  | xxxxxxx   |
+| 80    | {'quantity': 30} | 'oper2'  | ''     | 't8'  | ''     | month  | xxxxxxx   |
+| 100   | {'quantity': 30} | 'oper3'  | ''     | 't8'  | ''     | month  | xxxxxxx   |
 
-L'opérateur 'oper1' dispose pour le mois 'xxxxxxx' d'une moyenne de 50 stations dans la région '93'
+L'opérateur 'oper1' dispose pour le mois 'xxxxxxx' d'une moyenne de 50 stations.
 
 ### Prise en compte des données temporelles
 
@@ -318,10 +311,11 @@ Au premier niveau de périodicité on dispose pour chaque décomposition et chaq
 - variance = 0
 - mini = maxi = last = value
 
-Le passage d'une périodicité 'n' (ex. mensuelle) à une périodicité 'n+1' (ex. annuelle) est réalisé en regroupant toutes les lignes de la périodicité 'n' qui ont des champs 'décomposition' et 'indicateurs' identiques et dont le 'timestamp' est dans la période d'historisation choisie en une seule avec les règles suivantes :
+Le passage d'une périodicité 'n' (ex. mensuelle) à une périodicité 'n+1' (ex. annuelle) est réalisé en regroupant en une seule toutes les lignes de la périodicité 'n' qui ont des champs 'décomposition' et 'indicateurs' identiques et dont le 'timestamp' est dans la période d'historisation choisie avec les règles suivantes :
 
 - les champs 'décomposition' et 'indicateurs' sont reconduits,
 - le champ 'timestamp' prend la valeur associée à la période d'historisation,
+- le champ 'periode' prend la valeur de la nouvelle périodicité
 - les champs valeurs sont calculés à partir des champs valeurs des lignes à regrouper.
 
 Les formules de calcul sont les suivantes:
@@ -354,7 +348,7 @@ indicateur d1 : 'taux d'évolution du nombre de stations par département' sur 1
 
 Les données d'un niveau 'n' déjà utilisées pour calculer les données d'un niveau 'n+1' peuvent être supprimées (suppression de lignes).
 
-Par exemple, on peut purger les données quotidiennes après deux mois, la table des données quotidienne ne contient alors qu'un "stock glissant" de deux mois.
+Par exemple, on peut purger les données quotidiennes après deux mois, les données quotidienne constituent alors un "stock glissant" de deux mois.
 
 Pour les données d'état, les règles de purge sont spécifiques.
 
