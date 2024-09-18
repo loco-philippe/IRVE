@@ -490,14 +490,10 @@ document.write(`
 
     subgraph historisation
         direction RL
-        heure(&quot;`histo
-         heure`&quot;)
-        jour(&quot;`histo
-         jour`&quot;)
-        mois(&quot;`histo
-         mois`&quot;)
-        an(&quot;`histo
-         année`&quot;)
+        heure(&quot;`histo`&quot;)
+        jour(&quot;`histo`&quot;)
+        mois(&quot;`histo`&quot;)
+        an(&quot;`histo`&quot;)
 
         heure --&gt;|quotidien| jour
         jour --&gt;|mensuel| mois
@@ -510,7 +506,8 @@ document.write(`
     dyn --&gt;|indicateur horaire| heure   
     stat --&gt;|indicateur quotidien| jour   
     historisation --&gt;|indicateur temporel| restitution
-        </div><p>Le schéma ci-dessus illustre les principes suivants :</p>
+        </div><p>NOTA : Le stockage peut être identique pour toutes les périodicités.</p>
+<p>Le schéma ci-dessus illustre les principes suivants :</p>
 <ul class="simple">
 <li><p>historisation des données à différentes échelles de temps (périodicité).</p></li>
 </ul>
@@ -544,7 +541,7 @@ document.write(`
 </ul>
 <div class="admonition-exemple admonition">
 <p class="admonition-title">Exemple</p>
-<p>Le nombre annuel de sessions peut être calculée comme la somme des nombres mensuels de session eux-mêmes calculés comme la somme des nombres mensuels de sessions,</p>
+<p>Le nombre annuel de sessions peut être calculée comme la somme des nombres mensuels de session eux-mêmes calculés comme la somme des nombres quotidiens de sessions,</p>
 </div>
 <ul class="simple">
 <li><p>une information ajustables dont le passage à l’échelle se traduit par une moyenne.</p></li>
@@ -554,7 +551,7 @@ document.write(`
 <p>La puissance moyenne installée de l’année peut être calculée à partir des puissances moyennes installées du mois elles-mêmes calculées à partir des puissances moyennes installées quotidiennes.
 La moyenne annuelle du nombre quotidien de session peut être calculé à partir des moyennes mensuelles du nombre quotidien de sessions.</p>
 </div>
-<p>Chaque périodicité peut être associée à une (ou plusieurs) table purgée avec une fréquence spécifique. Par exemple, un stockage horaire pourrait être purgé chaque semaine ou chaque mois.</p>
+<p>Chaque périodicité peut être associée à une (ou plusieurs) table purgée avec une fréquence spécifique. Par exemple, les données horaires pourraient être purgées chaque semaine ou chaque mois.</p>
 <p>Pour un indicateur, on historise à chaque niveau la valeur principale qui correspond à une valeur moyenne ainsi qu’un ensemble de valeurs additionnelles. Ces valeurs sont calculées à partir des valeurs du niveau précédent :</p>
 <ul class="simple">
 <li><p>valeur principale :</p>
@@ -718,7 +715,7 @@ La moyenne annuelle du nombre quotidien de session peut être calculé à partir
 </li>
 <li><p>valeurs additionnelles :</p>
 <ul>
-<li><p>ensemble de valeurs spécifique de chaque indicateur</p></li>
+<li><p>ensemble de valeurs spécifiques de chaque indicateur</p></li>
 </ul>
 </li>
 </ul>
@@ -766,6 +763,10 @@ La moyenne annuelle du nombre quotidien de session peut être calculé à partir
 <td><p>Liste des stations du réseau autoroutier</p></td>
 <td><p>2</p></td>
 </tr>
+<tr class="row-odd"><td><p>e2-xx-yy-zz</p></td>
+<td><p>Liste des stations actives</p></td>
+<td><p>2</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -776,7 +777,7 @@ La moyenne annuelle du nombre quotidien de session peut être calculé à partir
 <h2><span class="section-number">2.2. </span>Solution d’historisation<a class="headerlink" href="#solution-d-historisation" title="Link to this heading">#</a></h2>
 <section id="besoin">
 <h3><span class="section-number">2.2.1. </span>Besoin<a class="headerlink" href="#besoin" title="Link to this heading">#</a></h3>
-<p>L’historisation est à effectuer pour les indicateurs suivants (voir chapitre listant les indicateurs):</p>
+<p>L’historisation s’effectue pour les indicateurs suivants (voir chapitre listant les indicateurs):</p>
 <ul class="simple">
 <li><p>infrastructure - typologie : t1, t1- - -1, t5, t5- - -1, t7, t8, t8- - -1</p></li>
 <li><p>infrastructure - quantitatif : i1- - -3, i1- - -4, i4- - -3, i4- - -4, i7- - -3, i7- - -4</p></li>
@@ -785,47 +786,40 @@ La moyenne annuelle du nombre quotidien de session peut être calculé à partir
 <li><p>usage - qualité de service : q1, q1- - -1, q2, q2- - -1, q3, q3- - -1, q4, q4- - -1</p></li>
 <li><p>état : e1 (mensuel)</p></li>
 </ul>
+<p>NOTA : L’historisation concerne le périmètre complet de chaque indicateur.</p>
 </section>
 <section id="structure">
 <h3><span class="section-number">2.2.2. </span>Structure<a class="headerlink" href="#structure" title="Link to this heading">#</a></h3>
-<p>Les données historisées sont réparties suivant plusieurs tables:</p>
-<ul class="simple">
-<li><p>histo_h : historisation horaire,</p></li>
-<li><p>histo_d : historisation quotidienne,</p></li>
-<li><p>histo_m : historisation mensuelle,</p></li>
-<li><p>histo_y : historisation annuelle</p></li>
-<li><p>histo-e : historisation des états</p></li>
-</ul>
+<p>Les données historisées sont regroupées sur une seule table:</p>
 <p>Si besoin, une historisation hebdomadaire ou trimestrielle pourra être ajoutée.</p>
-<p>La structure des tables est identique pour toutes les tables :</p>
+<p>La structure des historisation est identique pour toutes les périodicités :</p>
 <ul class="simple">
 <li><p>valeur :</p>
 <ul>
 <li><p>VALUE(int) : valeur principale (instantanée ou moyenne)</p></li>
-<li><p>ADD_VALUE(json) - optionnel : valeur additionnelle</p></li>
+<li><p>EXTRAS(json) - optionnel : valeur additionnelle</p></li>
 </ul>
 </li>
 <li><p>décomposition :</p>
 <ul>
 <li><p>CATEGORY(string ou enum) - optionnel : décomposition associée à l’indicateur (ex. niveau de puissance, implantation)</p></li>
-<li><p>CODE_Z(string) - optionnel : valeur de zoning (ex. ‘13200’)</p></li>
+<li><p>TARGET(string) - optionnel : valeur de zoning (ex. ‘13200’)</p></li>
 </ul>
 </li>
 <li><p>indicateur (ex. ‘t1-01-93-04) :</p>
 <ul>
-<li><p>QUERY(string ou enum) : nom de la requête (ex. ‘t1’)</p></li>
-<li><p>PERIMETER(int) : périmètre choisi pour l’indicateur</p></li>
-<li><p>CODE_P(string) : valeur de périmètre (ex. ‘93’)</p></li>
-<li><p>ZONING(int) : découpage du périmètre choisi pour l’indicateur</p></li>
+<li><p>CODE(string ou enum) : nom de la requête (ex. ‘t1’)</p></li>
+<li><p>LEVEL(int) : découpage du périmètre choisi pour l’indicateur</p></li>
 </ul>
 </li>
 <li><p>Datation</p>
 <ul>
+<li><p>PERIOD(enum) : périodicité de l’historisation (hour, day, week, month, year)</p></li>
 <li><p>TIMESTAMP(datetime) : datation du résultat du calcul de l’indicateur</p></li>
 </ul>
 </li>
 </ul>
-<p>Le champ ADD_VALUE est json-object pour les indicateurs temporels composé des champs (key) suivants :</p>
+<p>Le champ EXTRAS est json-object pour les indicateurs temporels composé des champs (key) suivants :</p>
 <ul class="simple">
 <li><p>QUANTITY(int) : nombre de valeurs utilisées</p></li>
 <li><p>VARIANCE(float) - optionnel : variance des valeurs utilisées</p></li>
@@ -833,18 +827,17 @@ La moyenne annuelle du nombre quotidien de session peut être calculé à partir
 <li><p>MAXI(float) - optionnel : valeur maximale des valeurs utilisées</p></li>
 <li><p>LAST(float) - optionnel : dernière valeur utilisée</p></li>
 </ul>
-<p>Pour les indicateurs d’état, le champ ADD_VALUE est spécifique de chaque indicateur.</p>
-<p>exemple du nombre mensuel de stations par opérateur en PACA :</p>
+<p>Pour les indicateurs d’état, le champ EXTRAS est spécifique de chaque indicateur.</p>
+<p>exemple du nombre mensuel de stations par opérateur :</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>value</p></th>
-<th class="head"><p>add_value</p></th>
+<th class="head"><p>extras</p></th>
 <th class="head"><p>category</p></th>
-<th class="head"><p>code_z</p></th>
-<th class="head"><p>query</p></th>
-<th class="head"><p>perimeter</p></th>
-<th class="head"><p>code_p</p></th>
-<th class="head"><p>zoning</p></th>
+<th class="head"><p>target</p></th>
+<th class="head"><p>code</p></th>
+<th class="head"><p>level</p></th>
+<th class="head"><p>period</p></th>
 <th class="head"><p>timestamp</p></th>
 </tr>
 </thead>
@@ -854,9 +847,8 @@ La moyenne annuelle du nombre quotidien de session peut être calculé à partir
 <td><p>‘oper1’</p></td>
 <td><p>‘’</p></td>
 <td><p>‘t8’</p></td>
-<td><p>‘01’</p></td>
-<td><p>‘93’</p></td>
 <td><p>‘’</p></td>
+<td><p>month</p></td>
 <td><p>xxxxxxx</p></td>
 </tr>
 <tr class="row-odd"><td><p>80</p></td>
@@ -864,9 +856,8 @@ La moyenne annuelle du nombre quotidien de session peut être calculé à partir
 <td><p>‘oper2’</p></td>
 <td><p>‘’</p></td>
 <td><p>‘t8’</p></td>
-<td><p>‘01’</p></td>
-<td><p>‘93’</p></td>
 <td><p>‘’</p></td>
+<td><p>month</p></td>
 <td><p>xxxxxxx</p></td>
 </tr>
 <tr class="row-even"><td><p>100</p></td>
@@ -874,15 +865,14 @@ La moyenne annuelle du nombre quotidien de session peut être calculé à partir
 <td><p>‘oper3’</p></td>
 <td><p>‘’</p></td>
 <td><p>‘t8’</p></td>
-<td><p>‘01’</p></td>
-<td><p>‘93’</p></td>
 <td><p>‘’</p></td>
+<td><p>month</p></td>
 <td><p>xxxxxxx</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>L’opérateur ‘oper1’ dispose pour le mois ‘xxxxxxx’ d’une moyenne de 50 stations dans la région ‘93’</p>
+<p>L’opérateur ‘oper1’ dispose pour le mois ‘xxxxxxx’ d’une moyenne de 50 stations.</p>
 </section>
 <section id="prise-en-compte-des-donnees-temporelles">
 <h3><span class="section-number">2.2.3. </span>Prise en compte des données temporelles<a class="headerlink" href="#prise-en-compte-des-donnees-temporelles" title="Link to this heading">#</a></h3>
@@ -892,10 +882,11 @@ La moyenne annuelle du nombre quotidien de session peut être calculé à partir
 <li><p>variance = 0</p></li>
 <li><p>mini = maxi = last = value</p></li>
 </ul>
-<p>Le passage d’une périodicité ‘n’ (ex. mensuelle) à une périodicité ‘n+1’ (ex. annuelle) est réalisé en regroupant toutes les lignes de la périodicité ‘n’ qui ont des champs ‘décomposition’ et ‘indicateurs’ identiques et dont le ‘timestamp’ est dans la période d’historisation choisie en une seule avec les règles suivantes :</p>
+<p>Le passage d’une périodicité ‘n’ (ex. mensuelle) à une périodicité ‘n+1’ (ex. annuelle) est réalisé en regroupant en une seule toutes les lignes de la périodicité ‘n’ qui ont des champs ‘décomposition’ et ‘indicateurs’ identiques et dont le ‘timestamp’ est dans la période d’historisation choisie avec les règles suivantes :</p>
 <ul class="simple">
 <li><p>les champs ‘décomposition’ et ‘indicateurs’ sont reconduits,</p></li>
 <li><p>le champ ‘timestamp’ prend la valeur associée à la période d’historisation,</p></li>
+<li><p>le champ ‘periode’ prend la valeur de la nouvelle périodicité</p></li>
 <li><p>les champs valeurs sont calculés à partir des champs valeurs des lignes à regrouper.</p></li>
 </ul>
 <p>Les formules de calcul sont les suivantes:</p>
@@ -928,7 +919,7 @@ La moyenne annuelle du nombre quotidien de session peut être calculé à partir
 <section id="purge-des-donnees">
 <h3><span class="section-number">2.2.6. </span>Purge des données<a class="headerlink" href="#purge-des-donnees" title="Link to this heading">#</a></h3>
 <p>Les données d’un niveau ‘n’ déjà utilisées pour calculer les données d’un niveau ‘n+1’ peuvent être supprimées (suppression de lignes).</p>
-<p>Par exemple, on peut purger les données quotidiennes après deux mois, la table des données quotidienne ne contient alors qu’un “stock glissant” de deux mois.</p>
+<p>Par exemple, on peut purger les données quotidiennes après deux mois, les données quotidienne constituent alors un “stock glissant” de deux mois.</p>
 <p>Pour les données d’état, les règles de purge sont spécifiques.</p>
 </section>
 <section id="modification-de-la-liste-des-indicateurs">

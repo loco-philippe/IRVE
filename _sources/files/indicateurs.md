@@ -77,8 +77,8 @@ Les indicateurs d'exploitation (liés aux aménageurs et enseignes) ainsi que le
 
 ### Codification des indicateurs
 
-Les indicateurs sont codifiés par une chaine de caractères : *[type]-[périmètre]-[valeur de périmètre]-[zoning]*
-ou bien pour les indicateurs temporels : *[type]-[périodicité]-[périmètre]-[valeur de périmètre]-[zoning]*
+Les indicateurs sont codifiés par une chaine de caractères : *[type]-[périmètre]-[valeur de périmètre]-[level]*
+ou bien pour les indicateurs temporels : *[type]-[périodicité]-[périmètre]-[valeur de périmètre]-[level]*
 avec:
 
 - type : identifiant du type d'indicateur (ex. 'i1' : nombre de points de recharge)
@@ -87,13 +87,14 @@ avec:
   - m : données mensuelles
   - w : données hebdomadaires
   - d : données quotidiennes
-- périmètre et valeur de périmètre: sous ensemble des données sur lequel appliquer l'indicateur. Les périmètres actuellement définis sont les suivants :
+- périmètre et valeur de périmètre: sous ensemble des données sur lequel appliquer l'indicateur. Les périmètres actuellement définis sont les découpages administratifs :
   - 0: national (sans valeur)
   - 1: région (valeur : code de la région)
   - 2: département (valeur : code du département)
   - 3: EPCI (valeur : code de l'EPCI)
   - 4: commune (valeur : code de la commune)
-- zoning : paramètre spécifique du type d'indicateur (ex découpage du périmètre défini)
+  - 5: métropole (sans valeur)
+- level : niveau de découpage du résultat (découpage administratif - voir périmètre). Les valeurs associées à un 'level' sont dénommées 'target'.
 
 Le périmètre par défaut est l'ensemble des données.
 
@@ -110,15 +111,15 @@ Le périmètre par défaut est l'ensemble des données.
 
 Le résultat d'un indicateur peut être représenté par une structure tabulaire composée des champs suivants :
 
-- valeur : résultat de l'indicateur pour une catégorie et une zone,
+- valeur : résultat de l'indicateur pour une catégorie et une target,
 - valeur additionnelle : informations associées à la valeur
 - catégorie (facultative) : décomposition associée à l'indicateur
-- zone (facultative) : découpage associé au zoning choisi
+- target (facultative) : découpage associé au level choisi
 
 Le champ 'valeur additionnelle' est utilisé pour les données structurées associées au champ 'valeur'.
 Ce champ est au format JSON et concerne les informations liées à l'historisation ainsi que les données des indicateurs d'état ou bioen les .
 
-Si aucune catégorisation et aucun zoning ne sont définis, le résultat se réduit à une valeur,
+Si aucune catégorisation et aucun level ne sont définis, le résultat se réduit à une valeur,
 
 ```{admonition} Exemple
 'i1' : le résultat est le nombre de points de recharge
@@ -139,13 +140,13 @@ Si uniquement une catégorisation est définie, le résultat est une liste de va
 | 25     | [360, None)  |
 ```
 
-Si uniquement un zoning est défini, le résultat est une liste de valeurs associées à chaque zone.
+Si uniquement un level est défini, le résultat est une liste de valeurs associées à chaque target.
 
 ```{admonition} Exemple
 i1-1-93-2 : Nombre de points de recharge (i1) pour la région (1) PACA (93) par département (2)
-La zone est ici le département (représenté par son code).
+La target est ici le département (représenté par son code).
 
-| nb_pdc | code_z |
+| nb_pdc | target |
 | ------ | ------ |
 | 473    | 13     |
 | 450    | 06     |
@@ -155,13 +156,13 @@ La zone est ici le département (représenté par son code).
 | 57     | 05     |
 ```
 
-Si une catégorisation et un zoning sont définis, le résultat est une liste de valeurs associées à chaque zone et à chaque catégorie.
+Si une catégorisation et un level sont définis, le résultat est une liste de valeurs associées à chaque target et à chaque catégorie.
 
 ```{admonition} Exemple
 t8-1-93-2 : Nombre de stations par opérateur (t8) pour la région (1) PACA (93) par département (2)
-La 'zone' est ici le département (représenté par son code) et la 'catégorie' est l'opérateur.
+La 'target' est ici le département (représenté par son code) et la 'catégorie' est l'opérateur.
 
-| nb_stat | nom_operateur                   | code_z |
+| nb_stat | nom_operateur                   | target |
 | ------- | ------------------------------- | ------ |
 | 273     | IZIVIA                          | 06     |
 | 31      | IZIVIA                          | 13     |
@@ -343,6 +344,7 @@ Les indicateurs d'état identifiés sont les suivants :
 | id          | nom                                      | Pr  |
 | ----------- | ---------------------------------------- | --- |
 | e1-xx-yy-zz | Liste des stations du réseau autoroutier | 2   |
+| e2-xx-yy-zz | Liste des stations actives               | 2   |
 
 Nota : La périodicité d'historisation n'est pas intégrée à la codification (voir chapitre 'codification'), la date doit donc être ajouté à l'indicateur.
 

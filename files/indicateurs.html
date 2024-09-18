@@ -532,8 +532,8 @@ document.write(`
 </section>
 <section id="codification-des-indicateurs">
 <h3><span class="section-number">1.3.2. </span>Codification des indicateurs<a class="headerlink" href="#codification-des-indicateurs" title="Link to this heading">#</a></h3>
-<p>Les indicateurs sont codifiés par une chaine de caractères : <em>[type]-[périmètre]-[valeur de périmètre]-[zoning]</em>
-ou bien pour les indicateurs temporels : <em>[type]-[périodicité]-[périmètre]-[valeur de périmètre]-[zoning]</em>
+<p>Les indicateurs sont codifiés par une chaine de caractères : <em>[type]-[périmètre]-[valeur de périmètre]-[level]</em>
+ou bien pour les indicateurs temporels : <em>[type]-[périodicité]-[périmètre]-[valeur de périmètre]-[level]</em>
 avec:</p>
 <ul class="simple">
 <li><p>type : identifiant du type d’indicateur (ex. ‘i1’ : nombre de points de recharge)</p></li>
@@ -545,16 +545,17 @@ avec:</p>
 <li><p>d : données quotidiennes</p></li>
 </ul>
 </li>
-<li><p>périmètre et valeur de périmètre: sous ensemble des données sur lequel appliquer l’indicateur. Les périmètres actuellement définis sont les suivants :</p>
+<li><p>périmètre et valeur de périmètre: sous ensemble des données sur lequel appliquer l’indicateur. Les périmètres actuellement définis sont les découpages administratifs :</p>
 <ul>
 <li><p>0: national (sans valeur)</p></li>
 <li><p>1: région (valeur : code de la région)</p></li>
 <li><p>2: département (valeur : code du département)</p></li>
 <li><p>3: EPCI (valeur : code de l’EPCI)</p></li>
 <li><p>4: commune (valeur : code de la commune)</p></li>
+<li><p>5: métropole (sans valeur)</p></li>
 </ul>
 </li>
-<li><p>zoning : paramètre spécifique du type d’indicateur (ex découpage du périmètre défini)</p></li>
+<li><p>level : niveau de découpage du résultat (découpage administratif - voir périmètre). Les valeurs associées à un ‘level’ sont dénommées ‘target’.</p></li>
 </ul>
 <p>Le périmètre par défaut est l’ensemble des données.</p>
 <div class="admonition-exemples admonition">
@@ -573,14 +574,14 @@ avec:</p>
 <h3><span class="section-number">1.3.3. </span>Résultat des indicateurs<a class="headerlink" href="#resultat-des-indicateurs" title="Link to this heading">#</a></h3>
 <p>Le résultat d’un indicateur peut être représenté par une structure tabulaire composée des champs suivants :</p>
 <ul class="simple">
-<li><p>valeur : résultat de l’indicateur pour une catégorie et une zone,</p></li>
+<li><p>valeur : résultat de l’indicateur pour une catégorie et une target,</p></li>
 <li><p>valeur additionnelle : informations associées à la valeur</p></li>
 <li><p>catégorie (facultative) : décomposition associée à l’indicateur</p></li>
-<li><p>zone (facultative) : découpage associé au zoning choisi</p></li>
+<li><p>target (facultative) : découpage associé au level choisi</p></li>
 </ul>
 <p>Le champ ‘valeur additionnelle’ est utilisé pour les données structurées associées au champ ‘valeur’.
 Ce champ est au format JSON et concerne les informations liées à l’historisation ainsi que les données des indicateurs d’état ou bioen les .</p>
-<p>Si aucune catégorisation et aucun zoning ne sont définis, le résultat se réduit à une valeur,</p>
+<p>Si aucune catégorisation et aucun level ne sont définis, le résultat se réduit à une valeur,</p>
 <div class="admonition-exemple admonition">
 <p class="admonition-title">Exemple</p>
 <p>‘i1’ : le résultat est le nombre de points de recharge</p>
@@ -618,15 +619,15 @@ Ce champ est au format JSON et concerne les informations liées à l’historisa
 </table>
 </div>
 </div>
-<p>Si uniquement un zoning est défini, le résultat est une liste de valeurs associées à chaque zone.</p>
+<p>Si uniquement un level est défini, le résultat est une liste de valeurs associées à chaque target.</p>
 <div class="admonition-exemple admonition">
 <p class="admonition-title">Exemple</p>
 <p>i1-1-93-2 : Nombre de points de recharge (i1) pour la région (1) PACA (93) par département (2)
-La zone est ici le département (représenté par son code).</p>
+La target est ici le département (représenté par son code).</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>nb_pdc</p></th>
-<th class="head"><p>code_z</p></th>
+<th class="head"><p>target</p></th>
 </tr>
 </thead>
 <tbody>
@@ -652,16 +653,16 @@ La zone est ici le département (représenté par son code).</p>
 </table>
 </div>
 </div>
-<p>Si une catégorisation et un zoning sont définis, le résultat est une liste de valeurs associées à chaque zone et à chaque catégorie.</p>
+<p>Si une catégorisation et un level sont définis, le résultat est une liste de valeurs associées à chaque target et à chaque catégorie.</p>
 <div class="admonition-exemple admonition">
 <p class="admonition-title">Exemple</p>
 <p>t8-1-93-2 : Nombre de stations par opérateur (t8) pour la région (1) PACA (93) par département (2)
-La ‘zone’ est ici le département (représenté par son code) et la ‘catégorie’ est l’opérateur.</p>
+La ‘target’ est ici le département (représenté par son code) et la ‘catégorie’ est l’opérateur.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>nb_stat</p></th>
 <th class="head"><p>nom_operateur</p></th>
-<th class="head"><p>code_z</p></th>
+<th class="head"><p>target</p></th>
 </tr>
 </thead>
 <tbody>
@@ -1189,6 +1190,10 @@ q10 est calculé à partir de q5</p>
 <tbody>
 <tr class="row-even"><td><p>e1-xx-yy-zz</p></td>
 <td><p>Liste des stations du réseau autoroutier</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>e2-xx-yy-zz</p></td>
+<td><p>Liste des stations actives</p></td>
 <td><p>2</p></td>
 </tr>
 </tbody>
