@@ -623,14 +623,14 @@ La moyenne annuelle du nombre quotidien de session peut être calculé à partir
 <p class="admonition-title">Exemple</p>
 <p>L’indicateur du taux d’évolution du nombre de stations sur 12 mois au 01/01/2024 par département est défini par :</p>
 <ul class="simple">
-<li><p>l’indicateur de base : ‘i4—4’,</p></li>
+<li><p>l’indicateur de base : ‘i4- - -4’,</p></li>
 <li><p>l’intervalle : entre le 01/01/2023 et le 01/01/2024,</p></li>
 <li><p>la périodicité : mensuelle,</p></li>
 <li><p>la fonction : taux d’évolution (valeur mensuelle fin - valeur mensuelle début) / valeur mensuelle début.</p></li>
 </ul>
 <p>Le résultat est obtenu en appliquant les traitements suivants:</p>
 <ul class="simple">
-<li><p>calcul quotidien de l’indicateur ‘i4—4’ sur les données statiques courantes,</p></li>
+<li><p>calcul quotidien de l’indicateur ‘i4- - -4’ sur les données statiques courantes,</p></li>
 <li><p>chaque jour, historisation du résultat du calcul,</p></li>
 <li><p>chaque mois, historisation du jeu de valeurs mensuel obtenu à partir des données quotidiennes,</p></li>
 <li><p>calcul du taux d’évolution sur les données de l’historisation mensuelle.</p></li>
@@ -687,7 +687,7 @@ La moyenne annuelle du nombre quotidien de session peut être calculé à partir
 <div class="admonition-exemples admonition">
 <p class="admonition-title">Exemples</p>
 <ul class="simple">
-<li><p>Evolution du nombre mensuel de points de recharge pour 2024 par département : (d2-m—4, entre 01/01/2023 et le 01/01/2024)</p></li>
+<li><p>Evolution du nombre mensuel de points de recharge pour 2024 par département : (d2-m- - -4, entre 01/01/2023 et le 01/01/2024)</p></li>
 </ul>
 </div>
 </section>
@@ -734,14 +734,14 @@ La moyenne annuelle du nombre quotidien de session peut être calculé à partir
 <p class="admonition-title">Exemple</p>
 <p>L’indicateur de la liste des stations du réseau autoroutier au 01/01/2024 est défini par :</p>
 <ul class="simple">
-<li><p>l’indicateur de base : ‘e1—4’,</p></li>
+<li><p>l’indicateur de base : ‘e1- - -4’,</p></li>
 <li><p>l’intervalle : entre le 01/01/2023 et le 01/01/2024,</p></li>
 <li><p>la périodicité : mensuelle,</p></li>
 <li><p>la fonction : taux d’évolution (valeur mensuelle fin - valeur mensuelle début) / valeur mensuelle début.</p></li>
 </ul>
 <p>Le résultat est obtenu en appliquant les traitements suivants:</p>
 <ul class="simple">
-<li><p>calcul quotidien de l’indicateur ‘i4—4’ sur les données statiques courantes,</p></li>
+<li><p>calcul quotidien de l’indicateur ‘i4- - -4’ sur les données statiques courantes,</p></li>
 <li><p>chaque jour, historisation du résultat du calcul,</p></li>
 <li><p>chaque mois, historisation du jeu de valeurs mensuel obtenu à partir des données quotidiennes,</p></li>
 <li><p>calcul du taux d’évolution sur les données de l’historisation mensuelle.</p></li>
@@ -792,7 +792,7 @@ La moyenne annuelle du nombre quotidien de session peut être calculé à partir
 <h3><span class="section-number">2.2.2. </span>Structure<a class="headerlink" href="#structure" title="Link to this heading">#</a></h3>
 <p>Les données historisées sont regroupées sur une seule table:</p>
 <p>Si besoin, une historisation hebdomadaire ou trimestrielle pourra être ajoutée.</p>
-<p>La structure des historisation est identique pour toutes les périodicités :</p>
+<p>La structure des historisations est identique pour toutes les périodicités :</p>
 <ul class="simple">
 <li><p>valeur :</p>
 <ul>
@@ -803,7 +803,7 @@ La moyenne annuelle du nombre quotidien de session peut être calculé à partir
 <li><p>décomposition :</p>
 <ul>
 <li><p>CATEGORY(string ou enum) - optionnel : décomposition associée à l’indicateur (ex. niveau de puissance, implantation)</p></li>
-<li><p>TARGET(string) - optionnel : valeur de zoning (ex. ‘13200’)</p></li>
+<li><p>TARGET(string) - optionnel : valeur du niveau de découpage ‘level’ (ex. ‘13200’)</p></li>
 </ul>
 </li>
 <li><p>indicateur (ex. ‘t1-01-93-04) :</p>

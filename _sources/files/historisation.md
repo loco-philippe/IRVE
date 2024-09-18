@@ -154,14 +154,14 @@ Un indicateur temporel est donc défini par :
 ```{admonition} Exemple
 L'indicateur du taux d'évolution du nombre de stations sur 12 mois au 01/01/2024 par département est défini par :
 
-- l'indicateur de base : 'i4---4',
+- l'indicateur de base : 'i4- - -4',
 - l'intervalle : entre le 01/01/2023 et le 01/01/2024,
 - la périodicité : mensuelle,
 - la fonction : taux d'évolution (valeur mensuelle fin - valeur mensuelle début) / valeur mensuelle début.
 
 Le résultat est obtenu en appliquant les traitements suivants:
 
-- calcul quotidien de l'indicateur 'i4---4' sur les données statiques courantes,
+- calcul quotidien de l'indicateur 'i4- - -4' sur les données statiques courantes,
 - chaque jour, historisation du résultat du calcul,
 - chaque mois, historisation du jeu de valeurs mensuel obtenu à partir des données quotidiennes,
 - calcul du taux d'évolution sur les données de l'historisation mensuelle.
@@ -182,7 +182,7 @@ Les indicateurs temporels identifiés (voir présentation des indicateurs) sont 
 Nota : Seule la périodicité est intégrée à la codification (voir chapitre '[codification](./indicateurs.md)'), l'intervalle doit donc être ajouté à l'indicateur pour fournir un résultat.
 
 ```{admonition} Exemples
-- Evolution du nombre mensuel de points de recharge pour 2024 par département : (d2-m---4, entre 01/01/2023 et le 01/01/2024)
+- Evolution du nombre mensuel de points de recharge pour 2024 par département : (d2-m- - -4, entre 01/01/2023 et le 01/01/2024)
 ```
 
 ### Indicateurs d'état
@@ -225,14 +225,14 @@ Un indicateur d'état est donc défini par :
 ```{admonition} Exemple
 L'indicateur de la liste des stations du réseau autoroutier au 01/01/2024 est défini par :
 
-- l'indicateur de base : 'e1---4',
+- l'indicateur de base : 'e1- - -4',
 - l'intervalle : entre le 01/01/2023 et le 01/01/2024,
 - la périodicité : mensuelle,
 - la fonction : taux d'évolution (valeur mensuelle fin - valeur mensuelle début) / valeur mensuelle début.
 
 Le résultat est obtenu en appliquant les traitements suivants:
 
-- calcul quotidien de l'indicateur 'i4---4' sur les données statiques courantes,
+- calcul quotidien de l'indicateur 'i4- - -4' sur les données statiques courantes,
 - chaque jour, historisation du résultat du calcul,
 - chaque mois, historisation du jeu de valeurs mensuel obtenu à partir des données quotidiennes,
 - calcul du taux d'évolution sur les données de l'historisation mensuelle.
@@ -268,14 +268,14 @@ Les données historisées sont regroupées sur une seule table:
 
 Si besoin, une historisation hebdomadaire ou trimestrielle pourra être ajoutée.
 
-La structure des historisation est identique pour toutes les périodicités :
+La structure des historisations est identique pour toutes les périodicités :
 
 - valeur :
   - VALUE(int) : valeur principale (instantanée ou moyenne)
   - EXTRAS(json) - optionnel : valeur additionnelle
 - décomposition :
   - CATEGORY(string ou enum) - optionnel : décomposition associée à l'indicateur (ex. niveau de puissance, implantation)
-  - TARGET(string) - optionnel : valeur de zoning (ex. '13200')
+  - TARGET(string) - optionnel : valeur du niveau de découpage 'level' (ex. '13200')
 - indicateur (ex. 't1-01-93-04) :
   - CODE(string ou enum) : nom de la requête (ex. 't1')
   - LEVEL(int) : découpage du périmètre choisi pour l'indicateur
