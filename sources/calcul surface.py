@@ -31,8 +31,8 @@ print(gdf_geo)
 
 '''
 crs (hors territoires outre-mer):
-    metropole 2154 / 9794
-    antilles 4559 / 5490
+    metropole 2154 (rgf 93 v1) / 9794 (rgf 93 v2b)
+    antilles 4559 (rraf91) / 5490 (rgaf09)
     guyane 2972
     mayotte 4471
 
@@ -55,5 +55,11 @@ autres
     polynésie 3297
 
 saint pierre 97502 25 km2 -> résultat  absent
+
+
+référentiel :
+    https://geodesie.ign.fr/contenu/fichiers/documentation/SRCfrance.pdf
+    décret du 26/12/2000 https://www.legifrance.gouv.fr/loda/id/JORFTEXT000038203601
+
 '''
 
