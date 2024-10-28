@@ -4,10 +4,11 @@
 
 L'historisation des indicateurs a pour objectif de disposer des données nécessaires à la mise à disposition des [indicateurs définis](./indicateurs.md) à une date donnée.
 
-Il adresse deux besoins :
+Il adresse trois besoins :
 
 - calculer les indicateurs temporels,
 - restituer les indicateurs d'état,
+- fournir les indicateurs pour une ancienne date
 
 ### Indicateurs temporels
 
@@ -247,6 +248,16 @@ Les indicateurs d'état identifiés (voir [présentation des indicateurs](./indi
 | e1-xx-yy-zz | Liste des stations du réseau autoroutier | 2   |
 | e2-xx-yy-zz | Liste des stations actives               | 2   |
 
+### Indicateurs à date
+
+L'historisation maintient une archive des indicateurs sous sa forme exacte pour un passé récent et sous une forme agrégée (valeurs hedomadaire, mensuelle ou annuelle) sur des périodes plus longues.
+
+L'historisation s'effectue pour une granularité définie, il est alors possible d'accéder aux indicateurs avec une granularité plus faible.
+
+```{admonition} Exemple
+Si l'indicateur 'i7' est historisé pour les communes , il est possible de restituer cet indicateur pour une date ou une période antérieure et pour tous les niveaux de regroupement (communes, département, région, EPCI) ainsi que les indicateurs dérivés 'i8' et 'i9'.
+```
+
 ## Solution d'historisation
 
 ### Besoin
@@ -260,7 +271,12 @@ L'historisation s'effectue pour les indicateurs suivants (voir chapitre listant 
 - usage - qualité de service : q1, q1- - -1, q2, q2- - -1, q3, q3- - -1, q4, q4- - -1
 - état : e1 (mensuel)
 
-NOTA : L'historisation concerne le périmètre complet de chaque indicateur.
+:::{note}
+
+- L'historisation concerne le périmètre complet de chaque indicateur.
+- Le volume de données peut être réduit en n'historisant que la granularité la plus faible (ex. i4- - -3 n'est pas nécessaire si i4- - -4 est présent)
+
+:::
 
 ### Structure
 
@@ -271,7 +287,7 @@ Si besoin, une historisation hebdomadaire ou trimestrielle pourra être ajoutée
 La structure des historisations est identique pour toutes les périodicités :
 
 - valeur :
-  - VALUE(int) : valeur principale (instantanée ou moyenne)
+  - VALUE(float) : valeur principale (instantanée ou moyenne)
   - EXTRAS(json) - optionnel : valeur additionnelle
 - décomposition :
   - CATEGORY(string ou enum) - optionnel : décomposition associée à l'indicateur (ex. niveau de puissance, implantation)
@@ -307,9 +323,9 @@ L'opérateur 'oper1' dispose pour le mois 'xxxxxxx' d'une moyenne de 50 stations
 
 Au premier niveau de périodicité on dispose pour chaque décomposition et chaque indicateur d'une valeur. On a alors :
 
-- quantity = 1
-- variance = 0
-- mini = maxi = last = value
+- QUANTITY = 1
+- VARIANCE = 0.0
+- MINI = MAXI = LAST = value
 
 Le passage d'une périodicité 'n' (ex. mensuelle) à une périodicité 'n+1' (ex. annuelle) est réalisé en regroupant en une seule toutes les lignes de la périodicité 'n' qui ont des champs 'décomposition' et 'indicateurs' identiques et dont le 'timestamp' est dans la période d'historisation choisie avec les règles suivantes :
 
@@ -321,7 +337,7 @@ Le passage d'une périodicité 'n' (ex. mensuelle) à une périodicité 'n+1' (e
 Les formules de calcul sont les suivantes:
 
 - $quantity_{n+1} = \sum quantity_n$
-- $value_{n+1} = \frac {\sum quantity_n . value_n} {\sum quantity_n}$
+- $value_{n+1} = \frac {\sum quantity_n . value_n} {quantity_{n+1}}$
 - $variance_{n+1} = \frac {1} {quantity_{n+1}} \sum quantity_n . (variance_n + (value_{n+1} - value_n)^2)$
 - $maxi_{n+1} = MAX(maxi_n)$
 - $mini_{n+1} = MIN(mini_n)$
@@ -335,7 +351,7 @@ Pour les données d'état, le champ 'valeur' est une donnée spécifique de l'in
 
 ### Construction des indicateurs temporels
 
-Les indicateurs temporels sont construits à partir des données historisées exclusivement suivant les règls propres à chaque indicateur.
+Les indicateurs temporels sont construits à partir des données historisées exclusivement suivant les règles propres à chaque indicateur.
 
 ```{admonition} Exemple
 indicateur d1 : 'taux d'évolution du nombre de stations par département' sur 12 mois au 01/01/2024 '
@@ -343,6 +359,10 @@ indicateur d1 : 'taux d'évolution du nombre de stations par département' sur 1
 - recherche dans la table mensuelle les lignes correspondant à 't4-00-00-04' et avec un timestamp entre le 01/01/2023 et le 01/01/2024
 - calcul du taux d'évolution pour chaque département (1 - valeur moyenne du dernier mois / valeur moyenne du premier mois)
 ```
+
+### Construction des indicateurs à date
+
+Les requètes utilisées pour le calcul des indicateurs à date consistent à agréger les données VALUE pour une valeur donnée de LEVEL / TARGET tout en conservant les données CATEGORY, CODE, TIMESTAMP et PERIOD.
 
 ### Purge des données
 

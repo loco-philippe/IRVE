@@ -4,6 +4,11 @@
 format: jb-book
 root: intro
 parts:
+  - caption: Avancement
+    numbered: True
+    chapters:
+    - file: suivi/activites
+    - file: suivi/avancement
   - caption: Indicateurs de référence
     numbered: True
     chapters:

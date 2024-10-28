@@ -88,12 +88,11 @@ avec:
   - w : données hebdomadaires
   - d : données quotidiennes
 - périmètre et valeur de périmètre: sous ensemble des données sur lequel appliquer l'indicateur. Les périmètres actuellement définis sont les découpages administratifs :
-  - 0: national (sans valeur)
+  - 0: national (valeur : code 00 tout, 01 métropole, 02 DOM, 03 TOM, 04 métropole et DOM)
   - 1: région (valeur : code de la région)
   - 2: département (valeur : code du département)
   - 3: EPCI (valeur : code de l'EPCI)
   - 4: commune (valeur : code de la commune)
-  - 5: métropole (sans valeur)
 - level : niveau de découpage du résultat (découpage administratif - voir périmètre). Les valeurs associées à un 'level' sont dénommées 'target'.
 
 Le périmètre par défaut est l'ensemble des données.
