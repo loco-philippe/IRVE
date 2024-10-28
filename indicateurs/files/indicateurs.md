@@ -1,4 +1,4 @@
-# Indicateurs de  référence
+# Indicateurs de référence
 
 Les indicateurs de référence sont les indicateurs générés et actualisés par QualiCharge.
 
@@ -116,18 +116,18 @@ Le résultat d'un indicateur peut être représenté par une structure tabulaire
 - target (facultative) : découpage associé au level choisi
 
 Le champ 'valeur additionnelle' est utilisé pour les données structurées associées au champ 'valeur'.
-Ce champ est au format JSON et concerne les informations liées à l'historisation ainsi que les données des indicateurs d'état ou bioen les .
+Ce champ est au format JSON et concerne les informations liées à l'historisation ainsi que les données des indicateurs d'état.
 
-Si aucune catégorisation et aucun level ne sont définis, le résultat se réduit à une valeur,
+Si aucune catégorisation et aucun level ne sont définis, le résultat se réduit à une valeur.
 
 ```{admonition} Exemple
-'i1' : le résultat est le nombre de points de recharge
+'i1' : le résultat est le nombre de points de recharge (valeur)
 ```
 
 Si uniquement une catégorisation est définie, le résultat est une liste de valeurs associées à chaque catégorie.
 
 ```{admonition} Exemple
-'t1' : le résultat est le nombre de points de recharge par niveau de puissance (catégorie)
+'t1' : le résultat est le nombre de points de recharge (valeur : nb_pdc) par niveau de puissance (catégorie : p_range)
 
 | nb_pdc | p_range      |
 | ------ | ------------ |
@@ -143,9 +143,9 @@ Si uniquement un level est défini, le résultat est une liste de valeurs associ
 
 ```{admonition} Exemple
 i1-1-93-2 : Nombre de points de recharge (i1) pour la région (1) PACA (93) par département (2)
-La target est ici le département (représenté par son code).
+Le résultat est le nombre de points de recharge (valeur : nb_pdc) par département (target : code du département).
 
-| nb_pdc | target |
+| nb_pdc | code   |
 | ------ | ------ |
 | 473    | 13     |
 | 450    | 06     |
@@ -159,9 +159,9 @@ Si une catégorisation et un level sont définis, le résultat est une liste de 
 
 ```{admonition} Exemple
 t8-1-93-2 : Nombre de stations par opérateur (t8) pour la région (1) PACA (93) par département (2)
-La 'target' est ici le département (représenté par son code) et la 'catégorie' est l'opérateur.
+La 'target' est ici le département (représenté par son code) et la 'catégorie' est l'opérateur (nom_operateur).
 
-| nb_stat | nom_operateur                   | target |
+| nb_stat | nom_operateur                   | code   |
 | ------- | ------------------------------- | ------ |
 | 273     | IZIVIA                          | 06     |
 | 31      | IZIVIA                          | 13     |
