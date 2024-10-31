@@ -67,6 +67,7 @@ Cinq types d'indicateurs sont définis:
 - indicateurs d'usage : Ils décrivent l'utilisation effective des infrastructures (qualité de service, volumétrie, répartition)
 - indicateurs temporels : Ils analysent l'évolution des deux catégories d'indicateurs précédent sur une période temporelle
 - indicateurs d'état : Ils représentent un état d'une partie des données (ex. liste des stations du réseau autoroutier)
+- Indicateurs AFIR : Ce sont les indicateurs associés à la règlementation européenne AFIR
 - indicateurs étendus : Ils concernent les indicateurs obtenus avec des jeux de données en lien (ex. relevés ENEDIS)
 
 :::{note}
@@ -183,17 +184,17 @@ Objectif :
 
 - analyse de la typologie (comparaison des ratios)
 
-| id          | nom                                                       | Pr  | type  | historisé             |
-| ----------- | --------------------------------------------------------- | --- | ----- | --------------------- |
-| t1-xx-yy-zz | Nombre de points de recharge par niveau de puissance      | 1   | infra | oui (national/région) |
-| t2-xx-yy-zz | Pourcentage de points de recharge par niveau de puissance | 2   | infra | synthèse              |
-| t3-xx-yy-zz | Nombre stations par nombre de points de recharge          | 1   | infra | non                   |
-| t4-xx-yy-zz | Pourcentage de stations par nombre de points de recharge  | 2   | infra | non                   |
-| t5-xx-yy-zz | Nombre de stations par type d'implantation                | 1   | infra | oui (national/région) |
-| t6-xx-yy-zz | Pourcentage de stations par type d'implantation           | 2   | infra | synthèse              |
-| t7-xx-yy-zz | Densité EPCI (nb EPCI avec / nb EPCI total)               | 3   | infra | oui (national/région) |
-| t8-xx-yy-zz | Nombre stations par opérateur                             | 1   | infra | oui (national/région) |
-| t9-xx-yy-zz | Pourcentage de stations par opérateur                     | 2   | infra | synthèse              |
+| id        | nom                                                       | Pr  | type  | historisé             |
+| --------- | --------------------------------------------------------- | --- | ----- | --------------------- |
+| t1-x-yy-z | Nombre de points de recharge par niveau de puissance      | 1   | infra | oui (national/région) |
+| t2-x-yy-z | Pourcentage de points de recharge par niveau de puissance | 2   | infra | synthèse              |
+| t3-x-yy-z | Nombre stations par nombre de points de recharge          | 1   | infra | non                   |
+| t4-x-yy-z | Pourcentage de stations par nombre de points de recharge  | 2   | infra | non                   |
+| t5-x-yy-z | Nombre de stations par type d'implantation                | 1   | infra | oui (national/région) |
+| t6-x-yy-z | Pourcentage de stations par type d'implantation           | 2   | infra | synthèse              |
+| t7-x-yy-z | Densité EPCI (nb EPCI avec / nb EPCI total)               | 3   | infra | oui (national/région) |
+| t8-x-yy-z | Nombre stations par opérateur                             | 1   | infra | oui (national/région) |
+| t9-x-yy-z | Pourcentage de stations par opérateur                     | 2   | infra | synthèse              |
 
 :::{note}
 
@@ -207,19 +208,17 @@ Objectif:
 
 - analyse de la répartition géographique (les ratios permettent les comparaisons)
 
-| id          | nom                                              | Pr  | type  | historisé              |
-| ----------- | ------------------------------------------------ | --- | ----- | ---------------------- |
-| i1-xx-yy-zz | Nombre de points de recharge ouverts au public   | 1   | infra | oui (département/EPCI) |
-| i2-xx-yy-zz | Ratio pour 100 000 habitants                     | 1   | infra | synthèse               |
-| i3-xx-yy-zz | Ratio pour 100 km2                               | 2   | infra | synthèse               |
-| i4-xx-yy-zz | Nombre de stations de recharge ouverts au public | 1   | infra | oui (département/EPCI) |
-| i5-xx-yy-zz | Ratio pour 100 000 habitants                     | 1   | infra | synthèse               |
-| i6-xx-yy-zz | Ratio pour 100 km2                               | 2   | infra | synthèse               |
-| i7-xx-yy-zz | Puissance installée                              | 1   | infra | oui (département/EPCI) |
-| i8-xx-yy-zz | Ratio pour 100 000 habitants                     | 1   | infra | synthèse               |
-| i9-xx-yy-zz | Ratio pour 100 km2                               | 2   | infra | synthèse               |
-
-zz : critère de répartition par périmètre (ex. 02 : répartition par département)
+| id        | nom                                              | Pr  | type  | historisé              |
+| --------- | ------------------------------------------------ | --- | ----- | ---------------------- |
+| i1-x-yy-z | Nombre de points de recharge ouverts au public   | 1   | infra | oui (département/EPCI) |
+| i2-x-yy-z | Ratio pour 100 000 habitants                     | 1   | infra | synthèse               |
+| i3-x-yy-z | Ratio pour 100 km2                               | 2   | infra | synthèse               |
+| i4-x-yy-z | Nombre de stations de recharge ouverts au public | 1   | infra | oui (département/EPCI) |
+| i5-x-yy-z | Ratio pour 100 000 habitants                     | 1   | infra | synthèse               |
+| i6-x-yy-z | Ratio pour 100 km2                               | 2   | infra | synthèse               |
+| i7-x-yy-z | Puissance installée                              | 1   | infra | oui (département/EPCI) |
+| i8-x-yy-z | Ratio pour 100 000 habitants                     | 1   | infra | synthèse               |
+| i9-x-yy-z | Ratio pour 100 km2                               | 2   | infra | synthèse               |
 
 ## Indicateurs d'infrastructure du réseau autoroutes
 
@@ -265,12 +264,12 @@ ex. Analyse de la distance interstation (zones blanches).
 
 - analyse de l'évolution temporelle de l'utilisation
 
-| id          | nom                                  | Pr  | type  | historisé             |
-| ----------- | ------------------------------------ | --- | ----- | --------------------- |
-| u1-xx-yy-zz | Nombre de point de charge actif      | 2   | usage | oui (national/région) |
-| u2-xx-yy-zz | Pourcentage de point de charge actif | 2   | usage | synthèse              |
-| u3-xx-yy-zz | Nombre de sessions                   | 2   | usage | oui (national/région) |
-| u4-xx-yy-zz | Energie distribuée                   | 2   | usage | oui (national/région) |
+| id        | nom                                  | Pr  | type  | historisé             |
+| --------- | ------------------------------------ | --- | ----- | --------------------- |
+| u1-x-yy-z | Nombre de point de charge actif      | 2   | usage | oui (national/région) |
+| u2-x-yy-z | Pourcentage de point de charge actif | 2   | usage | synthèse              |
+| u3-x-yy-z | Nombre de sessions                   | 2   | usage | oui (national/région) |
+| u4-x-yy-z | Energie distribuée                   | 2   | usage | oui (national/région) |
 
 u1 est calculé sur une journée
 u2 est calculé à partir de u1 et i1
@@ -282,18 +281,18 @@ exemple d'utilisation : Analyse du profil horaire de l'énergie fournie en fonct
 
 - analyse de la disponibilité et de l'utilisation des points de recharge
 
-| id           | nom                                                  | Pr  | type  | historisé             |
-| ------------ | ---------------------------------------------------- | --- | ----- | --------------------- |
-| q1-xx-yy-zz  | Durée de bon fonctionnement                          | 2   | usage | oui (national/région) |
-| q2-xx-yy-zz  | Durée d'utilisation                                  | 2   | usage | oui (national/région) |
-| q3-xx-yy-zz  | Durée d'ouverture                                    | 2   | usage | oui (national/région) |
-| q4-xx-yy-zz  | Nombre de sessions réussies                          | 3   | usage | oui (national/région) |
-| q5-xx-yy-zz  | Saturation                                           | 2   | usage | non                   |
-| q6-xx-yy-zz  | Taux de disponibilité d'un point de charge actif     | 2   | usage | synthèse              |
-| q7-xx-yy-zz  | Taux de disponibilité par catégorie de puissance     | 3   | usage | synthèse              |
-| q8-xx-yy-zz  | Taux d'utilisation d'un point de charge actif        | 2   | usage | synthèse              |
-| q9-xx-yy-zz  | Taux de sessions réussies d'un point de charge actif | 2   | usage | synthèse              |
-| q10-xx-yy-zz | Taux de saturation d'une station                     | 3   | usage | non                   |
+| id         | nom                                                  | Pr  | type  | historisé             |
+| ---------- | ---------------------------------------------------- | --- | ----- | --------------------- |
+| q1-x-yy-z  | Durée de bon fonctionnement                          | 2   | usage | oui (national/région) |
+| q2-x-yy-z  | Durée d'utilisation                                  | 2   | usage | oui (national/région) |
+| q3-x-yy-z  | Durée d'ouverture                                    | 2   | usage | oui (national/région) |
+| q4-x-yy-z  | Nombre de sessions réussies                          | 3   | usage | oui (national/région) |
+| q5-x-yy-z  | Saturation                                           | 2   | usage | non                   |
+| q6-x-yy-z  | Taux de disponibilité d'un point de charge actif     | 2   | usage | synthèse              |
+| q7-x-yy-z  | Taux de disponibilité par catégorie de puissance     | 3   | usage | synthèse              |
+| q8-x-yy-z  | Taux d'utilisation d'un point de charge actif        | 2   | usage | synthèse              |
+| q9-x-yy-z  | Taux de sessions réussies d'un point de charge actif | 2   | usage | synthèse              |
+| q10-x-yy-z | Taux de saturation d'une station                     | 3   | usage | non                   |
 
 q1, q2, q3, q4 et q5 sont les valeurs cumulées sur une journée
 q6, q7 sont calculé à partir de q1 et q3
@@ -322,15 +321,19 @@ Les indicateurs suivants ont été formalisés par l'AFIREV:
 
 Les indicateurs temporels identifiés sont les suivants :
 
-| id            | nom                                              | Pr  | base   | fonction       |
-| ------------- | ------------------------------------------------ | --- | ------ | -------------- |
-| d1-w-xx-yy-zz | Taux d'évolution du nombre de stations           | 1   | i4     | taux évolution |
-| d2-w-xx-yy-zz | Evolution du nombre de points de recharge        | 1   | i1     | historique     |
-| d3-w-xx-yy-zz | Nombre de sessions par point de recharge         | 2   | u3     | historique     |
-| d4-w-xx-yy-zz | Taux de disponibilité par catégorie de puissance | 2   | q1, q3 | historique     |
-| d5-w-xx-yy-zz | Taux de points de recharge avec indispo > 7 j    | 3   | q1, q3 | historique     |
+| id          | nom                                              | Pr  | base   | fonction       |
+| ----------- | ------------------------------------------------ | --- | ------ | -------------- |
+| d1-w-x-yy-z | Taux d'évolution du nombre de stations           | 1   | i4     | taux évolution |
+| d2-w-x-yy-z | Evolution du nombre de points de recharge        | 1   | i1     | historique     |
+| d3-w-x-yy-z | Nombre de sessions par point de recharge         | 2   | u3     | historique     |
+| d4-w-x-yy-z | Taux de disponibilité par catégorie de puissance | 2   | q1, q3 | historique     |
+| d5-w-x-yy-z | Taux de points de recharge avec indispo > 7 j    | 3   | q1, q3 | historique     |
 
-Nota : Seule la périodicité est intégrée à la codification (voir chapitre 'codification'), l'intervalle doit donc être ajouté à l'indicateur.
+:::{note}
+
+- Seule la périodicité est intégrée à la codification (voir chapitre 'codification'), l'intervalle doit donc être ajouté à l'indicateur.
+
+:::
 
 ```{admonition} Exemples
 - Evolution du nombre mensuel de points de recharge pour 2024 par département : (d2-m---4, entre 01/01/2023 et le 01/01/2024)
@@ -340,15 +343,56 @@ Nota : Seule la périodicité est intégrée à la codification (voir chapitre '
 
 Les indicateurs d'état identifiés sont les suivants :
 
-| id          | nom                                      | Pr  |
-| ----------- | ---------------------------------------- | --- |
-| e1-xx-yy-zz | Liste des stations du réseau autoroutier | 2   |
-| e2-xx-yy-zz | Liste des stations actives               | 2   |
+| id        | nom                                      | Pr  |
+| --------- | ---------------------------------------- | --- |
+| e1-x-yy-z | Liste des stations du réseau autoroutier | 2   |
+| e2-x-yy-z | Liste des stations actives               | 2   |
 
-Nota : La périodicité d'historisation n'est pas intégrée à la codification (voir chapitre 'codification'), la date doit donc être ajouté à l'indicateur.
+:::{note}
+
+- La périodicité d'historisation n'est pas intégrée à la codification (voir chapitre 'codification'), la date doit donc être ajouté à l'indicateur.
+
+:::
 
 ```{admonition} Exemples
-- Liste des stations du réseau autoroutier (d2) au 31/12/2024 
+- Liste des stations du réseau autoroutier (e1) au 31/12/2024 
+```
+
+## Indicateurs AFIR
+
+Les indicateurs AFIR identifiés sont les suivants :
+
+| id      | nom                                | Pr  |
+| ------- | ---------------------------------- | --- |
+| p0-x-yy | Liste des stations du réseau RTE-T | 2   |
+| p1-x-yy | Liste des stations des parcs p300  | 2   |
+| p2-x-yy | Liste des stations des parcs p400  | 2   |
+| p3-x-yy | Liste des stations des parcs p600  | 2   |
+| p4-x-yy | Liste des stations des parcs p1400 | 2   |
+| p5-x-yy | Liste des stations des parcs p1500 | 2   |
+| p6-x-yy | Liste des stations des parcs p1600 | 2   |
+
+| id  | nom                               | Pr  |
+| --- | --------------------------------- | --- |
+| r1  | Ratio AFIR d60 / p400 / central   | 2   |
+| r2  | Ratio AFIR d60 / p600 / central   | 2   |
+| r3  | Ratio AFIR d60 / p300 / central   | 2   |
+| r4  | Ratio AFIR d60 / p600 / central   | 2   |
+| r5  | Ratio AFIR d120 / p1400 / central | 2   |
+| r6  | Ratio AFIR d120 / p2800 / central | 2   |
+| r7  | Ratio AFIR d60 / p3600 / central  | 2   |
+| r8  | Ratio AFIR d100 / p1500 / central | 2   |
+
+:::{note}
+
+- La notion de `level` ne s'applique pas pour les indicateurs AFIR
+- Les indicateurs 'px' peuvent être regroupés par périmètre contrairement aux indicateurs 'rx'.
+
+:::
+
+```{admonition} Exemples
+- Liste des stations du réseau RTE-T associées à un parc de plus de 300 kW dont un pdc a plus de 150 kW (p1) au 31/12/2024
+- Ratio des tronçons du réseau RTE-T central associés à des parcs d'une puissance de 400 kW dont un des pdc a plus de 150 kW et distant de moins de 60 km (r1)
 ```
 
 ## Indicateurs étendus
