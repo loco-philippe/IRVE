@@ -433,7 +433,8 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-temporels">3.7. Indicateurs temporels</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-d-etat">3.8. Indicateurs d’état</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-etendus">3.9. Indicateurs étendus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-afir">3.9. Indicateurs AFIR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-etendus">3.10. Indicateurs étendus</a></li>
 </ul>
             </nav>
         </div>
@@ -528,6 +529,7 @@ document.write(`
 <li><p>indicateurs d’usage : Ils décrivent l’utilisation effective des infrastructures (qualité de service, volumétrie, répartition)</p></li>
 <li><p>indicateurs temporels : Ils analysent l’évolution des deux catégories d’indicateurs précédent sur une période temporelle</p></li>
 <li><p>indicateurs d’état : Ils représentent un état d’une partie des données (ex. liste des stations du réseau autoroutier)</p></li>
+<li><p>Indicateurs AFIR : Ce sont les indicateurs associés à la règlementation européenne AFIR</p></li>
 <li><p>indicateurs étendus : Ils concernent les indicateurs obtenus avec des jeux de données en lien (ex. relevés ENEDIS)</p></li>
 </ul>
 <div class="admonition note">
@@ -734,55 +736,55 @@ La ‘target’ est ici le département (représenté par son code) et la ‘cat
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>t1-xx-yy-zz</p></td>
+<tr class="row-even"><td><p>t1-x-yy-z</p></td>
 <td><p>Nombre de points de recharge par niveau de puissance</p></td>
 <td><p>1</p></td>
 <td><p>infra</p></td>
 <td><p>oui (national/région)</p></td>
 </tr>
-<tr class="row-odd"><td><p>t2-xx-yy-zz</p></td>
+<tr class="row-odd"><td><p>t2-x-yy-z</p></td>
 <td><p>Pourcentage de points de recharge par niveau de puissance</p></td>
 <td><p>2</p></td>
 <td><p>infra</p></td>
 <td><p>synthèse</p></td>
 </tr>
-<tr class="row-even"><td><p>t3-xx-yy-zz</p></td>
+<tr class="row-even"><td><p>t3-x-yy-z</p></td>
 <td><p>Nombre stations par nombre de points de recharge</p></td>
 <td><p>1</p></td>
 <td><p>infra</p></td>
 <td><p>non</p></td>
 </tr>
-<tr class="row-odd"><td><p>t4-xx-yy-zz</p></td>
+<tr class="row-odd"><td><p>t4-x-yy-z</p></td>
 <td><p>Pourcentage de stations par nombre de points de recharge</p></td>
 <td><p>2</p></td>
 <td><p>infra</p></td>
 <td><p>non</p></td>
 </tr>
-<tr class="row-even"><td><p>t5-xx-yy-zz</p></td>
+<tr class="row-even"><td><p>t5-x-yy-z</p></td>
 <td><p>Nombre de stations par type d’implantation</p></td>
 <td><p>1</p></td>
 <td><p>infra</p></td>
 <td><p>oui (national/région)</p></td>
 </tr>
-<tr class="row-odd"><td><p>t6-xx-yy-zz</p></td>
+<tr class="row-odd"><td><p>t6-x-yy-z</p></td>
 <td><p>Pourcentage de stations par type d’implantation</p></td>
 <td><p>2</p></td>
 <td><p>infra</p></td>
 <td><p>synthèse</p></td>
 </tr>
-<tr class="row-even"><td><p>t7-xx-yy-zz</p></td>
+<tr class="row-even"><td><p>t7-x-yy-z</p></td>
 <td><p>Densité EPCI (nb EPCI avec / nb EPCI total)</p></td>
 <td><p>3</p></td>
 <td><p>infra</p></td>
 <td><p>oui (national/région)</p></td>
 </tr>
-<tr class="row-odd"><td><p>t8-xx-yy-zz</p></td>
+<tr class="row-odd"><td><p>t8-x-yy-z</p></td>
 <td><p>Nombre stations par opérateur</p></td>
 <td><p>1</p></td>
 <td><p>infra</p></td>
 <td><p>oui (national/région)</p></td>
 </tr>
-<tr class="row-even"><td><p>t9-xx-yy-zz</p></td>
+<tr class="row-even"><td><p>t9-x-yy-z</p></td>
 <td><p>Pourcentage de stations par opérateur</p></td>
 <td><p>2</p></td>
 <td><p>infra</p></td>
@@ -813,55 +815,55 @@ La classification des niveaux de puissances nominale est à valider (en liaison 
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>i1-xx-yy-zz</p></td>
+<tr class="row-even"><td><p>i1-x-yy-z</p></td>
 <td><p>Nombre de points de recharge ouverts au public</p></td>
 <td><p>1</p></td>
 <td><p>infra</p></td>
 <td><p>oui (département/EPCI)</p></td>
 </tr>
-<tr class="row-odd"><td><p>i2-xx-yy-zz</p></td>
+<tr class="row-odd"><td><p>i2-x-yy-z</p></td>
 <td><p>Ratio pour 100 000 habitants</p></td>
 <td><p>1</p></td>
 <td><p>infra</p></td>
 <td><p>synthèse</p></td>
 </tr>
-<tr class="row-even"><td><p>i3-xx-yy-zz</p></td>
+<tr class="row-even"><td><p>i3-x-yy-z</p></td>
 <td><p>Ratio pour 100 km2</p></td>
 <td><p>2</p></td>
 <td><p>infra</p></td>
 <td><p>synthèse</p></td>
 </tr>
-<tr class="row-odd"><td><p>i4-xx-yy-zz</p></td>
+<tr class="row-odd"><td><p>i4-x-yy-z</p></td>
 <td><p>Nombre de stations de recharge ouverts au public</p></td>
 <td><p>1</p></td>
 <td><p>infra</p></td>
 <td><p>oui (département/EPCI)</p></td>
 </tr>
-<tr class="row-even"><td><p>i5-xx-yy-zz</p></td>
+<tr class="row-even"><td><p>i5-x-yy-z</p></td>
 <td><p>Ratio pour 100 000 habitants</p></td>
 <td><p>1</p></td>
 <td><p>infra</p></td>
 <td><p>synthèse</p></td>
 </tr>
-<tr class="row-odd"><td><p>i6-xx-yy-zz</p></td>
+<tr class="row-odd"><td><p>i6-x-yy-z</p></td>
 <td><p>Ratio pour 100 km2</p></td>
 <td><p>2</p></td>
 <td><p>infra</p></td>
 <td><p>synthèse</p></td>
 </tr>
-<tr class="row-even"><td><p>i7-xx-yy-zz</p></td>
+<tr class="row-even"><td><p>i7-x-yy-z</p></td>
 <td><p>Puissance installée</p></td>
 <td><p>1</p></td>
 <td><p>infra</p></td>
 <td><p>oui (département/EPCI)</p></td>
 </tr>
-<tr class="row-odd"><td><p>i8-xx-yy-zz</p></td>
+<tr class="row-odd"><td><p>i8-x-yy-z</p></td>
 <td><p>Ratio pour 100 000 habitants</p></td>
 <td><p>1</p></td>
 <td><p>infra</p></td>
 <td><p>synthèse</p></td>
 </tr>
-<tr class="row-even"><td><p>i9-xx-yy-zz</p></td>
+<tr class="row-even"><td><p>i9-x-yy-z</p></td>
 <td><p>Ratio pour 100 km2</p></td>
 <td><p>2</p></td>
 <td><p>infra</p></td>
@@ -870,7 +872,6 @@ La classification des niveaux de puissances nominale est à valider (en liaison 
 </tbody>
 </table>
 </div>
-<p>zz : critère de répartition par périmètre (ex. 02 : répartition par département)</p>
 </section>
 </section>
 <section id="indicateurs-d-infrastructure-du-reseau-autoroutes">
@@ -993,25 +994,25 @@ Le graphe autoroutier doit permettre d’associer plusieurs stations à un noeud
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>u1-xx-yy-zz</p></td>
+<tr class="row-even"><td><p>u1-x-yy-z</p></td>
 <td><p>Nombre de point de charge actif</p></td>
 <td><p>2</p></td>
 <td><p>usage</p></td>
 <td><p>oui (national/région)</p></td>
 </tr>
-<tr class="row-odd"><td><p>u2-xx-yy-zz</p></td>
+<tr class="row-odd"><td><p>u2-x-yy-z</p></td>
 <td><p>Pourcentage de point de charge actif</p></td>
 <td><p>2</p></td>
 <td><p>usage</p></td>
 <td><p>synthèse</p></td>
 </tr>
-<tr class="row-even"><td><p>u3-xx-yy-zz</p></td>
+<tr class="row-even"><td><p>u3-x-yy-z</p></td>
 <td><p>Nombre de sessions</p></td>
 <td><p>2</p></td>
 <td><p>usage</p></td>
 <td><p>oui (national/région)</p></td>
 </tr>
-<tr class="row-odd"><td><p>u4-xx-yy-zz</p></td>
+<tr class="row-odd"><td><p>u4-x-yy-z</p></td>
 <td><p>Energie distribuée</p></td>
 <td><p>2</p></td>
 <td><p>usage</p></td>
@@ -1040,61 +1041,61 @@ u3 et u4 sont calculés par heure</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>q1-xx-yy-zz</p></td>
+<tr class="row-even"><td><p>q1-x-yy-z</p></td>
 <td><p>Durée de bon fonctionnement</p></td>
 <td><p>2</p></td>
 <td><p>usage</p></td>
 <td><p>oui (national/région)</p></td>
 </tr>
-<tr class="row-odd"><td><p>q2-xx-yy-zz</p></td>
+<tr class="row-odd"><td><p>q2-x-yy-z</p></td>
 <td><p>Durée d’utilisation</p></td>
 <td><p>2</p></td>
 <td><p>usage</p></td>
 <td><p>oui (national/région)</p></td>
 </tr>
-<tr class="row-even"><td><p>q3-xx-yy-zz</p></td>
+<tr class="row-even"><td><p>q3-x-yy-z</p></td>
 <td><p>Durée d’ouverture</p></td>
 <td><p>2</p></td>
 <td><p>usage</p></td>
 <td><p>oui (national/région)</p></td>
 </tr>
-<tr class="row-odd"><td><p>q4-xx-yy-zz</p></td>
+<tr class="row-odd"><td><p>q4-x-yy-z</p></td>
 <td><p>Nombre de sessions réussies</p></td>
 <td><p>3</p></td>
 <td><p>usage</p></td>
 <td><p>oui (national/région)</p></td>
 </tr>
-<tr class="row-even"><td><p>q5-xx-yy-zz</p></td>
+<tr class="row-even"><td><p>q5-x-yy-z</p></td>
 <td><p>Saturation</p></td>
 <td><p>2</p></td>
 <td><p>usage</p></td>
 <td><p>non</p></td>
 </tr>
-<tr class="row-odd"><td><p>q6-xx-yy-zz</p></td>
+<tr class="row-odd"><td><p>q6-x-yy-z</p></td>
 <td><p>Taux de disponibilité d’un point de charge actif</p></td>
 <td><p>2</p></td>
 <td><p>usage</p></td>
 <td><p>synthèse</p></td>
 </tr>
-<tr class="row-even"><td><p>q7-xx-yy-zz</p></td>
+<tr class="row-even"><td><p>q7-x-yy-z</p></td>
 <td><p>Taux de disponibilité par catégorie de puissance</p></td>
 <td><p>3</p></td>
 <td><p>usage</p></td>
 <td><p>synthèse</p></td>
 </tr>
-<tr class="row-odd"><td><p>q8-xx-yy-zz</p></td>
+<tr class="row-odd"><td><p>q8-x-yy-z</p></td>
 <td><p>Taux d’utilisation d’un point de charge actif</p></td>
 <td><p>2</p></td>
 <td><p>usage</p></td>
 <td><p>synthèse</p></td>
 </tr>
-<tr class="row-even"><td><p>q9-xx-yy-zz</p></td>
+<tr class="row-even"><td><p>q9-x-yy-z</p></td>
 <td><p>Taux de sessions réussies d’un point de charge actif</p></td>
 <td><p>2</p></td>
 <td><p>usage</p></td>
 <td><p>synthèse</p></td>
 </tr>
-<tr class="row-odd"><td><p>q10-xx-yy-zz</p></td>
+<tr class="row-odd"><td><p>q10-x-yy-z</p></td>
 <td><p>Taux de saturation d’une station</p></td>
 <td><p>3</p></td>
 <td><p>usage</p></td>
@@ -1140,31 +1141,31 @@ q10 est calculé à partir de q5</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>d1-w-xx-yy-zz</p></td>
+<tr class="row-even"><td><p>d1-w-x-yy-z</p></td>
 <td><p>Taux d’évolution du nombre de stations</p></td>
 <td><p>1</p></td>
 <td><p>i4</p></td>
 <td><p>taux évolution</p></td>
 </tr>
-<tr class="row-odd"><td><p>d2-w-xx-yy-zz</p></td>
+<tr class="row-odd"><td><p>d2-w-x-yy-z</p></td>
 <td><p>Evolution du nombre de points de recharge</p></td>
 <td><p>1</p></td>
 <td><p>i1</p></td>
 <td><p>historique</p></td>
 </tr>
-<tr class="row-even"><td><p>d3-w-xx-yy-zz</p></td>
+<tr class="row-even"><td><p>d3-w-x-yy-z</p></td>
 <td><p>Nombre de sessions par point de recharge</p></td>
 <td><p>2</p></td>
 <td><p>u3</p></td>
 <td><p>historique</p></td>
 </tr>
-<tr class="row-odd"><td><p>d4-w-xx-yy-zz</p></td>
+<tr class="row-odd"><td><p>d4-w-x-yy-z</p></td>
 <td><p>Taux de disponibilité par catégorie de puissance</p></td>
 <td><p>2</p></td>
 <td><p>q1, q3</p></td>
 <td><p>historique</p></td>
 </tr>
-<tr class="row-even"><td><p>d5-w-xx-yy-zz</p></td>
+<tr class="row-even"><td><p>d5-w-x-yy-z</p></td>
 <td><p>Taux de points de recharge avec indispo &gt; 7 j</p></td>
 <td><p>3</p></td>
 <td><p>q1, q3</p></td>
@@ -1173,7 +1174,12 @@ q10 est calculé à partir de q5</p>
 </tbody>
 </table>
 </div>
-<p>Nota : Seule la périodicité est intégrée à la codification (voir chapitre ‘codification’), l’intervalle doit donc être ajouté à l’indicateur.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Seule la périodicité est intégrée à la codification (voir chapitre ‘codification’), l’intervalle doit donc être ajouté à l’indicateur.</p></li>
+</ul>
+</div>
 <div class="admonition-exemples admonition">
 <p class="admonition-title">Exemples</p>
 <ul class="simple">
@@ -1192,27 +1198,132 @@ q10 est calculé à partir de q5</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>e1-xx-yy-zz</p></td>
+<tr class="row-even"><td><p>e1-x-yy-z</p></td>
 <td><p>Liste des stations du réseau autoroutier</p></td>
 <td><p>2</p></td>
 </tr>
-<tr class="row-odd"><td><p>e2-xx-yy-zz</p></td>
+<tr class="row-odd"><td><p>e2-x-yy-z</p></td>
 <td><p>Liste des stations actives</p></td>
 <td><p>2</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>Nota : La périodicité d’historisation n’est pas intégrée à la codification (voir chapitre ‘codification’), la date doit donc être ajouté à l’indicateur.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>La périodicité d’historisation n’est pas intégrée à la codification (voir chapitre ‘codification’), la date doit donc être ajouté à l’indicateur.</p></li>
+</ul>
+</div>
 <div class="admonition-exemples admonition">
 <p class="admonition-title">Exemples</p>
 <ul class="simple">
-<li><p>Liste des stations du réseau autoroutier (d2) au 31/12/2024</p></li>
+<li><p>Liste des stations du réseau autoroutier (e1) au 31/12/2024</p></li>
+</ul>
+</div>
+</section>
+<section id="indicateurs-afir">
+<h2><span class="section-number">3.9. </span>Indicateurs AFIR<a class="headerlink" href="#indicateurs-afir" title="Link to this heading">#</a></h2>
+<p>Les indicateurs AFIR identifiés sont les suivants :</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>id</p></th>
+<th class="head"><p>nom</p></th>
+<th class="head"><p>Pr</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>p0-x-yy</p></td>
+<td><p>Liste des stations du réseau RTE-T</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>p1-x-yy</p></td>
+<td><p>Liste des stations des parcs p300</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>p2-x-yy</p></td>
+<td><p>Liste des stations des parcs p400</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>p3-x-yy</p></td>
+<td><p>Liste des stations des parcs p600</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>p4-x-yy</p></td>
+<td><p>Liste des stations des parcs p1400</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>p5-x-yy</p></td>
+<td><p>Liste des stations des parcs p1500</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>p6-x-yy</p></td>
+<td><p>Liste des stations des parcs p1600</p></td>
+<td><p>2</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>id</p></th>
+<th class="head"><p>nom</p></th>
+<th class="head"><p>Pr</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>r1</p></td>
+<td><p>Ratio AFIR d60 / p400 / central</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>r2</p></td>
+<td><p>Ratio AFIR d60 / p600 / central</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>r3</p></td>
+<td><p>Ratio AFIR d60 / p300 / central</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>r4</p></td>
+<td><p>Ratio AFIR d60 / p600 / central</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>r5</p></td>
+<td><p>Ratio AFIR d120 / p1400 / central</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>r6</p></td>
+<td><p>Ratio AFIR d120 / p2800 / central</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>r7</p></td>
+<td><p>Ratio AFIR d60 / p3600 / central</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>r8</p></td>
+<td><p>Ratio AFIR d100 / p1500 / central</p></td>
+<td><p>2</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>La notion de <code class="docutils literal notranslate"><span class="pre">level</span></code> ne s’applique pas pour les indicateurs AFIR</p></li>
+<li><p>Les indicateurs ‘px’ peuvent être regroupés par périmètre contrairement aux indicateurs ‘rx’.</p></li>
+</ul>
+</div>
+<div class="admonition-exemples admonition">
+<p class="admonition-title">Exemples</p>
+<ul class="simple">
+<li><p>Liste des stations du réseau RTE-T associées à un parc de plus de 300 kW dont un pdc a plus de 150 kW (p1) au 31/12/2024</p></li>
+<li><p>Ratio des tronçons du réseau RTE-T central associés à des parcs d’une puissance de 400 kW dont un des pdc a plus de 150 kW et distant de moins de 60 km (r1)</p></li>
 </ul>
 </div>
 </section>
 <section id="indicateurs-etendus">
-<h2><span class="section-number">3.9. </span>Indicateurs étendus<a class="headerlink" href="#indicateurs-etendus" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.10. </span>Indicateurs étendus<a class="headerlink" href="#indicateurs-etendus" title="Link to this heading">#</a></h2>
 <p>Ils concernent le couplage des données avec des jeux de données complémentaires (à définir dans un second temps):</p>
 <ul class="simple">
 <li><p>couplage consommation / trafic</p></li>
@@ -1311,7 +1422,8 @@ q10 est calculé à partir de q5</p>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-temporels">3.7. Indicateurs temporels</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-d-etat">3.8. Indicateurs d’état</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-etendus">3.9. Indicateurs étendus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-afir">3.9. Indicateurs AFIR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-etendus">3.10. Indicateurs étendus</a></li>
 </ul>
   </nav></div>
 

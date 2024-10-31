@@ -36,9 +36,9 @@ Le calcul des indicateurs temporels doit pouvoir être réalisé en optimisant l
 flowchart LR
     subgraph état courant
         direction RL
-        dyn[("`base 
+        dyn[("`base
         dynamique`")]
-        stat[("`base 
+        stat[("`base
         statique`")]
     end
 
@@ -74,8 +74,10 @@ Pour présenter l'évolution du nombre de points de recharge par mois sur deux a
 - historisation de données "scalables" (qu'on peut calculer pour une périodicité à partir de données existantes à une périodicité plus faible)
 
 :::{admonition} Exemples
+
 - calcul des valeurs annuelles à partir des valeurs mensuelles (et valeurs mensuelles à partir des valeurs quotidiennes).
 - le taux de disponibilité qui est le ratio du temps de bon fonctionnement sur le temps d'ouverture n'est pas scalable (le taux mensuel n'est pas égal à la moyenne des taux journaliers). Par contre, le temps de bon fonctionnement et le temps d'ouverture sont scalables et on peut donc calculer le taux de disponibilité sur une période à partir du temps de bon fonctionnement sur la période et du temps d'ouverture sur la période.
+
 :::
 
 - purge des données anciennes.
