@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -52,7 +52,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -462,38 +462,18 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>D:\philippe\python ESstandard\IRVE
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\phili\github\IRVE
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">File D:\philippe\python ESstandard\ntv-numpy\ntv_numpy\xconnector.py:37,</span> in <span class="ni">import_optional_dependency</span><span class="nt">(name)</span>
-<span class="g g-Whitespace">     </span><span class="mi">36</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">37</span>     <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-
-<span class="nn">File C:\Opensource\anaconda3\envs\afir\Lib\importlib\__init__.py:90,</span> in <span class="ni">import_module</span><span class="nt">(name, package)</span>
-<span class="g g-Whitespace">     </span><span class="mi">89</span>         <span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="ne">---&gt; </span><span class="mi">90</span> <span class="k">return</span> <span class="n">_bootstrap</span><span class="o">.</span><span class="n">_gcd_import</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="n">level</span><span class="p">:],</span> <span class="n">package</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1387,</span> in <span class="ni">_gcd_import</span><span class="nt">(name, package, level)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1360,</span> in <span class="ni">_find_and_load</span><span class="nt">(name, import_)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1324,</span> in <span class="ni">_find_and_load_unlocked</span><span class="nt">(name, import_)</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;astropy&#39;
-
-<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
-
-<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="k">except</span><span class="p">:</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">package</span><span class="p">))</span>
 <span class="ne">----&gt; </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">sources</span> <span class="kn">import</span> <span class="n">indic_integrite</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">data</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">package</span> <span class="o">/</span> <span class="s1">&#39;data&#39;</span><span class="p">)</span>
 
-<span class="n">File</span> <span class="n">D</span><span class="p">:</span>\<span class="n">philippe</span>\<span class="n">python</span> <span class="n">ESstandard</span>\<span class="n">IRVE</span>\<span class="n">sources</span>\<span class="n">indic_integrite</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">9</span>
+<span class="n">File</span> <span class="o">~</span>\<span class="n">github</span>\<span class="n">IRVE</span>\<span class="n">sources</span>\<span class="n">indic_integrite</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">9</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> Created on Mon Jun 24 15:06:09 2024</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span><span class="sd"> </span>
@@ -504,7 +484,7 @@ document.write(`
 <span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">import</span> <span class="nn">pathlib</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="n">File</span> <span class="n">D</span><span class="p">:</span>\<span class="n">philippe</span>\<span class="n">python</span> <span class="n">ESstandard</span>\<span class="n">ntv</span><span class="o">-</span><span class="n">pandas</span>\<span class="n">ntv_pandas</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">28</span>
+<span class="n">File</span> <span class="o">~</span>\<span class="n">github</span>\<span class="n">ntv</span><span class="o">-</span><span class="n">pandas</span>\<span class="n">ntv_pandas</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">28</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> ***NTV-pandas Package***</span>
@@ -516,59 +496,40 @@ document.write(`
 <span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="kn">from</span> <span class="nn">ntv_pandas.pandas_ntv_connector</span> <span class="kn">import</span> <span class="n">to_json</span><span class="p">,</span> <span class="n">as_def_type</span><span class="p">,</span> <span class="n">equals</span><span class="p">,</span> <span class="n">to_analysis</span>
 <span class="g g-Whitespace">     </span><span class="mi">30</span> <span class="kn">from</span> <span class="nn">ntv_pandas.pandas_ntv_connector</span> <span class="kn">import</span> <span class="n">from_xarray</span><span class="p">,</span> <span class="n">from_scipp</span>
 
-<span class="n">File</span> <span class="n">D</span><span class="p">:</span>\<span class="n">philippe</span>\<span class="n">python</span> <span class="n">ESstandard</span>\<span class="n">ntv</span><span class="o">-</span><span class="n">pandas</span>\<span class="n">ntv_pandas</span>\<span class="n">pandas_ntv_connector</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">50</span>
+<span class="n">File</span> <span class="o">~</span>\<span class="n">github</span>\<span class="n">ntv</span><span class="o">-</span><span class="n">pandas</span>\<span class="n">ntv_pandas</span>\<span class="n">pandas_ntv_connector</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">49</span>
+<span class="g g-Whitespace">     </span><span class="mi">47</span> <span class="kn">from</span> <span class="nn">json_ntv.ntv_util</span> <span class="kn">import</span> <span class="n">NtvUtil</span>
 <span class="g g-Whitespace">     </span><span class="mi">48</span> <span class="kn">from</span> <span class="nn">json_ntv.ntv_connector</span> <span class="kn">import</span> <span class="n">ShapelyConnec</span>
-<span class="g g-Whitespace">     </span><span class="mi">49</span> <span class="kn">from</span> <span class="nn">tab_dataset.cfield</span> <span class="kn">import</span> <span class="n">Cfield</span>
-<span class="ne">---&gt; </span><span class="mi">50</span> <span class="kn">from</span> <span class="nn">ntv_numpy</span> <span class="kn">import</span> <span class="n">Xdataset</span>
+<span class="ne">---&gt; </span><span class="mi">49</span> <span class="kn">from</span> <span class="nn">tab_dataset.cfield</span> <span class="kn">import</span> <span class="n">Cfield</span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span> <span class="kn">from</span> <span class="nn">ntv_numpy</span> <span class="kn">import</span> <span class="n">Xdataset</span>
 <span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="n">path_ntv_pandas</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span><span class="o">.</span><span class="n">parent</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span> <span class="k">def</span> <span class="nf">as_def_type</span><span class="p">(</span><span class="n">pd_array</span><span class="p">):</span>
 
-<span class="n">File</span> <span class="n">D</span><span class="p">:</span>\<span class="n">philippe</span>\<span class="n">python</span> <span class="n">ESstandard</span>\<span class="n">ntv</span><span class="o">-</span><span class="n">numpy</span>\<span class="n">ntv_numpy</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">58</span>
+<span class="n">File</span> <span class="o">~</span>\<span class="n">github</span>\<span class="n">tab</span><span class="o">-</span><span class="n">dataset</span>\<span class="n">tab_dataset</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">46</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> ***NTV-NumPy Package***</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> ***TAB-dataset Package***</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span><span class="sd"> </span>
 <span class="sd">   (...)</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span><span class="sd">     - `ntv-numpy.ntv_numpy.xarray_accessors.NxrDatasetAccessor`</span>
-<span class="g g-Whitespace">     </span><span class="mi">56</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="ne">---&gt; </span><span class="mi">58</span> <span class="kn">from</span> <span class="nn">ntv_numpy.numpy_ntv_connector</span> <span class="kn">import</span> <span class="n">XndarrayConnec</span><span class="p">,</span> <span class="n">NdarrayConnec</span>
-<span class="g g-Whitespace">     </span><span class="mi">59</span> <span class="kn">from</span> <span class="nn">ntv_numpy.data_array</span> <span class="kn">import</span> <span class="n">Dfull</span><span class="p">,</span> <span class="n">Dcomplete</span><span class="p">,</span> <span class="n">Dsparse</span><span class="p">,</span> <span class="n">Drelative</span><span class="p">,</span> <span class="n">Dimplicit</span><span class="p">,</span> <span class="n">Darray</span><span class="p">,</span> <span class="n">Dutil</span>
-<span class="g g-Whitespace">     </span><span class="mi">60</span> <span class="kn">from</span> <span class="nn">ntv_numpy.ndarray</span> <span class="kn">import</span> <span class="n">Ndarray</span><span class="p">,</span> <span class="n">Nutil</span>
+<span class="g g-Whitespace">     </span><span class="mi">44</span><span class="sd"> or the [github repository](https://github.com/loco-philippe/tab-dataset).</span>
+<span class="g g-Whitespace">     </span><span class="mi">45</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">46</span> <span class="kn">from</span> <span class="nn">tab_dataset.dataset</span> <span class="kn">import</span> <span class="n">Ndataset</span><span class="p">,</span> <span class="n">Sdataset</span>
+<span class="g g-Whitespace">     </span><span class="mi">47</span> <span class="kn">from</span> <span class="nn">tab_dataset.cdataset</span> <span class="kn">import</span> <span class="n">Cdataset</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span> <span class="kn">from</span> <span class="nn">tab_dataset.field</span> <span class="kn">import</span> <span class="n">Nfield</span><span class="p">,</span> <span class="n">Sfield</span>
 
-<span class="n">File</span> <span class="n">D</span><span class="p">:</span>\<span class="n">philippe</span>\<span class="n">python</span> <span class="n">ESstandard</span>\<span class="n">ntv</span><span class="o">-</span><span class="n">numpy</span>\<span class="n">ntv_numpy</span>\<span class="n">numpy_ntv_connector</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">26</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="kn">from</span> <span class="nn">ntv_numpy.ndarray</span> <span class="kn">import</span> <span class="n">Ndarray</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="kn">from</span> <span class="nn">ntv_numpy.xndarray</span> <span class="kn">import</span> <span class="n">Xndarray</span>
-<span class="ne">---&gt; </span><span class="mi">26</span> <span class="kn">from</span> <span class="nn">ntv_numpy.xdataset</span> <span class="kn">import</span> <span class="n">Xdataset</span>
-<span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="k">class</span> <span class="nc">NarrayConnec</span><span class="p">(</span><span class="n">NtvConnector</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">30</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;NTV connector for Numpy ndarray.&quot;&quot;&quot;</span>
+<span class="n">File</span> <span class="o">~</span>\<span class="n">github</span>\<span class="n">tab</span><span class="o">-</span><span class="n">dataset</span>\<span class="n">tab_dataset</span>\<span class="n">dataset</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">19</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="kn">import</span> <span class="nn">csv</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="kn">from</span> <span class="nn">tab_dataset.cfield</span> <span class="kn">import</span> <span class="n">Cutil</span>
+<span class="ne">---&gt; </span><span class="mi">19</span> <span class="kn">from</span> <span class="nn">tab_dataset.dataset_interface</span> <span class="kn">import</span> <span class="n">DatasetInterface</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="kn">from</span> <span class="nn">tab_dataset.field</span> <span class="kn">import</span> <span class="n">Nfield</span><span class="p">,</span> <span class="n">Sfield</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="kn">from</span> <span class="nn">tab_dataset.cdataset</span> <span class="kn">import</span> <span class="n">Cdataset</span><span class="p">,</span> <span class="n">DatasetError</span>
 
-<span class="n">File</span> <span class="n">D</span><span class="p">:</span>\<span class="n">philippe</span>\<span class="n">python</span> <span class="n">ESstandard</span>\<span class="n">ntv</span><span class="o">-</span><span class="n">numpy</span>\<span class="n">ntv_numpy</span>\<span class="n">xdataset</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">20</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="kn">from</span> <span class="nn">ntv_numpy.ndarray</span> <span class="kn">import</span> <span class="n">Nutil</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="kn">from</span> <span class="nn">ntv_numpy.xndarray</span> <span class="kn">import</span> <span class="n">Xndarray</span>
-<span class="ne">---&gt; </span><span class="mi">20</span> <span class="kn">from</span> <span class="nn">ntv_numpy.xconnector</span> <span class="kn">import</span> <span class="n">XarrayConnec</span><span class="p">,</span> <span class="n">ScippConnec</span><span class="p">,</span> <span class="n">AstropyNDDataConnec</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="kn">from</span> <span class="nn">ntv_numpy.xconnector</span> <span class="kn">import</span> <span class="n">PandasConnec</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="k">class</span> <span class="nc">XdatasetCategory</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="n">File</span> <span class="o">~</span>\<span class="n">github</span>\<span class="n">tab</span><span class="o">-</span><span class="n">dataset</span>\<span class="n">tab_dataset</span>\<span class="n">dataset_interface</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">15</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="kn">import</span> <span class="nn">math</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="kn">import</span> <span class="nn">json</span>
+<span class="ne">---&gt; </span><span class="mi">15</span> <span class="kn">import</span> <span class="nn">xarray</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="n">File</span> <span class="n">D</span><span class="p">:</span>\<span class="n">philippe</span>\<span class="n">python</span> <span class="n">ESstandard</span>\<span class="n">ntv</span><span class="o">-</span><span class="n">numpy</span>\<span class="n">ntv_numpy</span>\<span class="n">xconnector</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">42</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span>     <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">39</span>         <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
-<span class="ne">---&gt; </span><span class="mi">42</span> <span class="k">class</span> <span class="nc">AstropyNDDataConnec</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;NDData interface with two static methods ximport and xexport&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">45</span>     <span class="n">import_optional_dependency</span><span class="p">(</span><span class="s2">&quot;astropy&quot;</span><span class="p">)</span>
-
-<span class="nn">File D:\philippe\python ESstandard\ntv-numpy\ntv_numpy\xconnector.py:45,</span> in <span class="ni">AstropyNDDataConnec</span><span class="nt">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="k">class</span> <span class="nc">AstropyNDDataConnec</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;NDData interface with two static methods ximport and xexport&quot;&quot;&quot;</span>
-<span class="ne">---&gt; </span><span class="mi">45</span>     <span class="n">import_optional_dependency</span><span class="p">(</span><span class="s2">&quot;astropy&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">46</span>     <span class="kn">import</span> <span class="nn">astropy</span>
-<span class="g g-Whitespace">     </span><span class="mi">47</span>     <span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">wcs</span>
-
-<span class="nn">File D:\philippe\python ESstandard\ntv-numpy\ntv_numpy\xconnector.py:39,</span> in <span class="ni">import_optional_dependency</span><span class="nt">(name)</span>
-<span class="g g-Whitespace">     </span><span class="mi">37</span>     <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">39</span>     <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
-
-<span class="ne">ImportError</span>: Missing optional dependency &#39;astropy&#39; Use pip or conda to install astropy.
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;xarray&#39;
 </pre></div>
 </div>
 </div>
