@@ -11,6 +11,10 @@ Le traitement consiste à :
 
 L'application concerne principalement le réseau autoroutier en intégrant les stations de recharge situées sur les aires de l'autoroute ainsi que celles situées à moins de 3 km d'une sortie.
 
+```{eval-rst}
+    `Presentation as HTML <./troncons_afir.html>`_
+```
+
 La mise en oeuvre nécessite:
 
 - d'identifier les stations de recharge sur l'emprise de l'autoroute et celles incluses dans une bande de 3 km de part et d'autre,
