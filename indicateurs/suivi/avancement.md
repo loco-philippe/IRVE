@@ -2,20 +2,36 @@
 
 ## En cours
 
-- outil d'analyse réseau:
-  - fonction python pour le calcul des indicateurs AFIR (pour intégration dans Qualicharge)
-  - prise en compte du double sens pour les données (tronçons, noeuds, stations)
+- indicateurs
+  - intégration des indicateurs autoroute dans le dashboard open-data
+  - optimisation des requêtes liées aux status
+  - intégration facteur de charge dans le dashboard open-data
+  - création indicateurs d'état e1, temporels d1, d2 et d'autoroutes a1, a2, a3, a4
+  - historisation indicateurs t5, t7, t8, i4, i7, e1, p0-p6, r0-r8
+- analyse des données
+  - outil d'analyse de la cohérence des données status par rapport aux sessions
+  - bilan hebdomadaire des données erronées et de l'évolution des données statiques et dynamiques
+- outil d'analyse réseau
+  - prise en compte du double sens (tronçons, noeuds, stations)
   - adaptation de l'outil au double-sens
   - optimisation de la fonction de calcul de maillage par noeuds
   - étude basculement ROUTE500 vers BDCARTO
+
+## Activités Novembre
+
+- outil d'analyse réseau:
+  - étude de l'intégration de la règlementation AFIR
+  - fonctions de calcul et de restitution des indicateurs AFIR (pour intégration dans les indicateurs)
+  - étude de la prise en compte du double-sens dans la modèlisation du réseau
 - indicateurs
-  - historisation indicateurs t5, t7, t8, i4, i7, e1, p0-p6, r0-r8
-  - création indicateurs d'état e1, temporels d1, d2 et d'autoroutes a1, a2, a3, a4
+  - étude de l'intégration des status / sessions
+  - calcul des indicateurs de saturation des stations et de disponibilité des pdc
+  - mise en place d'un dashboard open-data (données statiques)
+  - mise en place du suivi des données erronées (dashboard error-data-tracking + tableau de suivi)
+  - mise en place d'un dashboard pour les données dynamiques (première version)
 - analyse des données status/session 2023
-  - jeu de données unique au format QualiCharge
-  - mapping des status documenté et modifiable
-  - calcul de disponibilité des points de recharge
-  - indicateur de type facteur de charge (energie consommée / energie maximale consommable)
+  - reprise des données 2023
+  - mise au format QualiCharge
 
 ## Activités Octobre
 
