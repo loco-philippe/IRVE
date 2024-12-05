@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -52,7 +52,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -409,10 +409,11 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#en-cours">2.1. En cours</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activites-octobre">2.2. Activités Octobre</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activites-septembre">2.3. Activités Septembre</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activite-aout">2.4. Activité Aout</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activite-juillet">2.5. Activité Juillet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activites-novembre">2.2. Activités Novembre</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activites-octobre">2.3. Activités Octobre</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activites-septembre">2.4. Activités Septembre</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activite-aout">2.5. Activité Aout</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activite-juillet">2.6. Activité Juillet</a></li>
 </ul>
             </nav>
         </div>
@@ -429,33 +430,60 @@ document.write(`
 <section id="en-cours">
 <h2><span class="section-number">2.1. </span>En cours<a class="headerlink" href="#en-cours" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>outil d’analyse réseau:</p>
+<li><p>indicateurs</p>
 <ul>
-<li><p>fonction python pour le calcul des indicateurs AFIR (pour intégration dans Qualicharge)</p></li>
-<li><p>prise en compte du double sens pour les données (tronçons, noeuds, stations)</p></li>
+<li><p>intégration des indicateurs autoroute dans le dashboard open-data</p></li>
+<li><p>optimisation des requêtes liées aux status</p></li>
+<li><p>intégration facteur de charge dans le dashboard open-data</p></li>
+<li><p>création indicateurs d’état e1, temporels d1, d2 et d’autoroutes a1, a2, a3, a4</p></li>
+<li><p>historisation indicateurs t5, t7, t8, i4, i7, e1, p0-p6, r0-r8</p></li>
+</ul>
+</li>
+<li><p>analyse des données</p>
+<ul>
+<li><p>outil d’analyse de la cohérence des données status par rapport aux sessions</p></li>
+<li><p>bilan hebdomadaire des données erronées et de l’évolution des données statiques et dynamiques</p></li>
+</ul>
+</li>
+<li><p>outil d’analyse réseau</p>
+<ul>
+<li><p>prise en compte du double sens (tronçons, noeuds, stations)</p></li>
 <li><p>adaptation de l’outil au double-sens</p></li>
 <li><p>optimisation de la fonction de calcul de maillage par noeuds</p></li>
 <li><p>étude basculement ROUTE500 vers BDCARTO</p></li>
 </ul>
 </li>
+</ul>
+</section>
+<section id="activites-novembre">
+<h2><span class="section-number">2.2. </span>Activités Novembre<a class="headerlink" href="#activites-novembre" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>outil d’analyse réseau:</p>
+<ul>
+<li><p>étude de l’intégration de la règlementation AFIR</p></li>
+<li><p>fonctions de calcul et de restitution des indicateurs AFIR (pour intégration dans les indicateurs)</p></li>
+<li><p>étude de la prise en compte du double-sens dans la modèlisation du réseau</p></li>
+</ul>
+</li>
 <li><p>indicateurs</p>
 <ul>
-<li><p>historisation indicateurs t5, t7, t8, i4, i7, e1, p0-p6, r0-r8</p></li>
-<li><p>création indicateurs d’état e1, temporels d1, d2 et d’autoroutes a1, a2, a3, a4</p></li>
+<li><p>étude de l’intégration des status / sessions</p></li>
+<li><p>calcul des indicateurs de saturation des stations et de disponibilité des pdc</p></li>
+<li><p>mise en place d’un dashboard open-data (données statiques)</p></li>
+<li><p>mise en place du suivi des données erronées (dashboard error-data-tracking + tableau de suivi)</p></li>
+<li><p>mise en place d’un dashboard pour les données dynamiques (première version)</p></li>
 </ul>
 </li>
 <li><p>analyse des données status/session 2023</p>
 <ul>
-<li><p>jeu de données unique au format QualiCharge</p></li>
-<li><p>mapping des status documenté et modifiable</p></li>
-<li><p>calcul de disponibilité des points de recharge</p></li>
-<li><p>indicateur de type facteur de charge (energie consommée / energie maximale consommable)</p></li>
+<li><p>reprise des données 2023</p></li>
+<li><p>mise au format QualiCharge</p></li>
 </ul>
 </li>
 </ul>
 </section>
 <section id="activites-octobre">
-<h2><span class="section-number">2.2. </span>Activités Octobre<a class="headerlink" href="#activites-octobre" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.3. </span>Activités Octobre<a class="headerlink" href="#activites-octobre" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>études des indicateurs AFIR</p></li>
 <li><p>outil d’analyse réseau:</p>
@@ -483,7 +511,7 @@ document.write(`
 </ul>
 </section>
 <section id="activites-septembre">
-<h2><span class="section-number">2.3. </span>Activités Septembre<a class="headerlink" href="#activites-septembre" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.4. </span>Activités Septembre<a class="headerlink" href="#activites-septembre" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>ajout des indicateurs t8, t9 (opérateurs), i2, i5, i8 (ratio 100 000 hab.), i3, i6, i9 (ratio 100 km2)</p></li>
 <li><p>principes d’historisation (définition et tests)</p></li>
@@ -493,7 +521,7 @@ document.write(`
 </ul>
 </section>
 <section id="activite-aout">
-<h2><span class="section-number">2.4. </span>Activité Aout<a class="headerlink" href="#activite-aout" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.5. </span>Activité Aout<a class="headerlink" href="#activite-aout" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>génération de l’ensemble des fonds de carte MetaBase</p></li>
 <li><p>definition du premier lot d’indicateur (CDC + priorités)</p></li>
@@ -504,7 +532,7 @@ document.write(`
 </ul>
 </section>
 <section id="activite-juillet">
-<h2><span class="section-number">2.5. </span>Activité Juillet<a class="headerlink" href="#activite-juillet" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.6. </span>Activité Juillet<a class="headerlink" href="#activite-juillet" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>outil d’import des données ‘transport’ (partiel - standby)</p></li>
 <li><p>génération de fonds de carte Metabase (partiel)</p></li>
@@ -581,10 +609,11 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#en-cours">2.1. En cours</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activites-octobre">2.2. Activités Octobre</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activites-septembre">2.3. Activités Septembre</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activite-aout">2.4. Activité Aout</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activite-juillet">2.5. Activité Juillet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activites-novembre">2.2. Activités Novembre</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activites-octobre">2.3. Activités Octobre</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activites-septembre">2.4. Activités Septembre</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activite-aout">2.5. Activité Aout</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activite-juillet">2.6. Activité Juillet</a></li>
 </ul>
   </nav></div>
 
