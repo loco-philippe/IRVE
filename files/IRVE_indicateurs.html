@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -52,7 +52,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -462,7 +462,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>D:\philippe\python ESstandard\IRVE
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>D:\philippe\IRVE
 </pre></div>
 </div>
 </div>
@@ -621,7 +621,7 @@ avec une même la valeur du champ “id_station_itinerance” mais plusieurs val
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">indic_integrite</span><span class="o">.</span><span class="n">defaut_carte</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s1">&#39;irve.html&#39;</span><span class="p">)</span>
 
-<span class="nn">File D:\philippe\python ESstandard\IRVE\sources\indic_integrite.py:123,</span> in <span class="ni">defaut_carte</span><span class="nt">(date, chemin)</span>
+<span class="nn">File D:\philippe\IRVE\sources\indic_integrite.py:123,</span> in <span class="ni">defaut_carte</span><span class="nt">(date, chemin)</span>
 <span class="g g-Whitespace">    </span><span class="mi">120</span><span class="w"> </span><span class="sd">&#39;&#39;&#39;génération d&#39;une carte folium des stations présentant des défauts d&#39;intégrité&#39;&#39;&#39;</span>
 <span class="g g-Whitespace">    </span><span class="mi">122</span> <span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;IRVE_itinerance_residuel&#39;</span><span class="o">+</span><span class="n">date</span><span class="o">+</span><span class="s1">&#39;.csv&#39;</span>
 <span class="ne">--&gt; </span><span class="mi">123</span> <span class="n">irve</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">chemin</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">file</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">low_memory</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -683,7 +683,7 @@ avec une même la valeur du champ “id_station_itinerance” mais plusieurs val
 <span class="g g-Whitespace">    </span><span class="mi">881</span>         <span class="c1"># Binary mode</span>
 <span class="g g-Whitespace">    </span><span class="mi">882</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
 
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;D:\\philippe\\python ESstandard\\IRVE\\data/IRVE_itinerance_residuel2024-06-05.csv&#39;
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;D:\\philippe\\IRVE\\data/IRVE_itinerance_residuel2024-06-05.csv&#39;
 </pre></div>
 </div>
 </div>
