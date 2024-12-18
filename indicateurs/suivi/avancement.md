@@ -2,20 +2,42 @@
 
 ## En cours
 
+- animation de la qualité des données
+  - activité récurrente de suivi des opérateurs
 - indicateurs
   - intégration des indicateurs autoroute dans le dashboard open-data
-  - optimisation des requêtes liées aux status
-  - intégration facteur de charge dans le dashboard open-data
-  - création indicateurs d'état e1, temporels d1, d2 et d'autoroutes a1, a2, a3, a4
-  - historisation indicateurs t5, t7, t8, i4, i7, e1, p0-p6, r0-r8
-- analyse des données
-  - outil d'analyse de la cohérence des données status par rapport aux sessions
-  - bilan hebdomadaire des données erronées et de l'évolution des données statiques et dynamiques
+  - intégration des indicateurs de qualité de service dans le dashboard open-data
+  - création des indicateurs liés à l'historisation 
+    - indicateur d'état e1,
+    - indicateurs temporels d1, d2
+    - indicateurs autoroutes a1, a2, a3, a4
+    - indicateurs AFIR p0-p6, r0-r8
+    - indicateurs d'usage q12-q15
+  - historisation des indicateurs statiques (t5, t7, t8, i4, i7)
+  - historisation des indicateurs dynamiques (q1-q11)
 - outil d'analyse réseau
-  - prise en compte du double sens (tronçons, noeuds, stations)
   - adaptation de l'outil au double-sens
+  - affectation du sens aux aires de service et échangeurs autoroutiers
   - optimisation de la fonction de calcul de maillage par noeuds
   - étude basculement ROUTE500 vers BDCARTO
+
+## Activités Décembre (11.5)
+
+- indicateurs
+  - identification des stations Qualicharge présente sur autoroute
+  - optimisation des performances des requêtes liées aux status
+  - analyse de la saturation des stations autoroute
+  - formalisation des indicateurs de qualité de service (définition, calcul, historisation)
+  - analyse de la correspondance entre les structures de données Qualicharge et OCPI
+- analyse des données
+  - outil d'analyse de la cohérence des données status par rapport aux sessions
+  - généralisation des outils de contrôle (28 types de contrôles paramétrés)
+- animation de la qualité des données
+  - bilan hebdomadaire de l'évolution des données
+  - animation avec chaque opérateur de la qualité des données mises à disposition
+  - intégration au dashboard "error-data-tracking" (et tableau de suivi) des nouveaux contrôles
+- outil d'analyse réseau
+  - tests de l'adaptation du modèle au double sens (tronçons, noeuds, stations)
 
 ## Activités Novembre
 
