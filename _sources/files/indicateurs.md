@@ -279,26 +279,48 @@ exemple d'utilisation : Analyse du profil horaire de l'énergie fournie en fonct
 
 ### Usage - qualité de service
 
-- analyse de la disponibilité et de l'utilisation des points de recharge
+- analyse de l'utilisation de la recharge (pour une période donnée et sur un périmètre géographique) :
 
-| id         | nom                                                  | Pr  | type  | historisé             |
-| ---------- | ---------------------------------------------------- | --- | ----- | --------------------- |
-| q1-x-yy-z  | Durée de bon fonctionnement                          | 2   | usage | oui (national/région) |
-| q2-x-yy-z  | Durée d'utilisation                                  | 2   | usage | oui (national/région) |
-| q3-x-yy-z  | Durée d'ouverture                                    | 2   | usage | oui (national/région) |
-| q4-x-yy-z  | Nombre de sessions réussies                          | 3   | usage | oui (national/région) |
-| q5-x-yy-z  | Saturation                                           | 2   | usage | non                   |
-| q6-x-yy-z  | Taux de disponibilité d'un point de charge actif     | 2   | usage | synthèse              |
-| q7-x-yy-z  | Taux de disponibilité par catégorie de puissance     | 3   | usage | synthèse              |
-| q8-x-yy-z  | Taux d'utilisation d'un point de charge actif        | 2   | usage | synthèse              |
-| q9-x-yy-z  | Taux de sessions réussies d'un point de charge actif | 2   | usage | synthèse              |
-| q10-x-yy-z | Taux de saturation d'une station                     | 3   | usage | non                   |
+| id          | nom                                                            | Pr  | type  | historisé             |
+| ----------- | -------------------------------------------------------------- | --- | ----- | --------------------- |
+| q1-x-yy-z   | Durée de dysfonctionnement des pdc (état hors-service)         | 2   | usage | oui (national/région) |
+| q2-x-yy-z   | Durée d'utilisation des pdc (état occupé)                      | 2   | usage | oui (national/région) |
+| q3-x-yy-z   | Durée de non utilisation des pdc (état libre)                  | 2   | usage | oui (national/région) |
+| q4-x-yy-z   | Durée d'ouverture                                              | 2   | usage | oui (national/région) |
+| q5-x-yy-z   | Nombre de sessions                                             | 3   | usage | oui (national/région) |
+| q6-x-yy-z   | Durée des sessions                                             | 3   | usage | oui (national/région) |
+| q7-x-yy-z   | Durée d'activité des stations (état saturé, active ou inactive)| 2   | usage | oui (national/région) |
+| q8-x-yy-z   | Durée de saturation des stations                               | 2   | usage | oui (national/région) |
+| q9-x-yy-z   | Energie consommée                                              | 2   | usage | oui (national/région) |
+| q10-x-yy-z  | Nombre de sessions réussies                                    | 2   | usage | oui (national/région) |
+| q11-x-yy-z  | Puissance des points de recharge activés                       | 2   | usage | oui (national/région) |
+| q12-x-yy-z  | Taux de disponibilité par catégorie de puissance               | 3   | usage | synthèse              |
+| q13-x-yy-z  | Taux d'utilisation                                             | 2   | usage | synthèse              |
+| q14-x-yy-z  | Taux de saturation des stations                                | 2   | usage | synthèse              |
+| q15-x-yy-z  | Facteur de charge                                              | 2   | usage | synthèse              |
+| q16-x-yy-z  | Taux de sessions réussies                                      | 2   | usage | synthèse              |
 
-q1, q2, q3, q4 et q5 sont les valeurs cumulées sur une journée
-q6, q7 sont calculé à partir de q1 et q3
-q8 est calculé à partir de q2 et q3
-q9 est calculé à partir de q4 et u3
-q10 est calculé à partir de q5
+q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11 sont les valeurs cumulées (ex. moyenne, somme)
+
+q1 et q4 sont calculés par catégorie de puissance
+
+q4 est la durée de 24h multipliée par le nombre de points de recharge dans l'état "en activité"
+
+q5 est le nombre de sessions démarrées dans la période concernée
+
+q6 est la part de la durée dans la période des sessions démarrées ou terminées dans la période 
+
+q9 est la part de l'énergie (au prorata de la durée passée) dans la période des sessions 
+
+q12 est calculé à partir de q1 et de q4
+
+q13 est calculé à partir de q2 et de q3 (ou de q1, q4 et q6)
+
+q14 est calculé à partir de q8 et de q7
+
+q15 est calculé à partir de q9 et de q11
+
+q16 est calculé à partir de q10 et de q5
 
 :::{note}
 

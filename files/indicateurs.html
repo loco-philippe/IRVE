@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -1029,7 +1029,7 @@ u3 et u4 sont calculés par heure</p>
 <section id="usage-qualite-de-service">
 <h3><span class="section-number">3.6.2. </span>Usage - qualité de service<a class="headerlink" href="#usage-qualite-de-service" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p>analyse de la disponibilité et de l’utilisation des points de recharge</p></li>
+<li><p>analyse de l’utilisation de la recharge (pour une période donnée et sur un périmètre géographique) :</p></li>
 </ul>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -1042,73 +1042,115 @@ u3 et u4 sont calculés par heure</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>q1-x-yy-z</p></td>
-<td><p>Durée de bon fonctionnement</p></td>
+<td><p>Durée de dysfonctionnement des pdc (état hors-service)</p></td>
 <td><p>2</p></td>
 <td><p>usage</p></td>
 <td><p>oui (national/région)</p></td>
 </tr>
 <tr class="row-odd"><td><p>q2-x-yy-z</p></td>
-<td><p>Durée d’utilisation</p></td>
+<td><p>Durée d’utilisation des pdc (état occupé)</p></td>
 <td><p>2</p></td>
 <td><p>usage</p></td>
 <td><p>oui (national/région)</p></td>
 </tr>
 <tr class="row-even"><td><p>q3-x-yy-z</p></td>
-<td><p>Durée d’ouverture</p></td>
+<td><p>Durée de non utilisation des pdc (état libre)</p></td>
 <td><p>2</p></td>
 <td><p>usage</p></td>
 <td><p>oui (national/région)</p></td>
 </tr>
 <tr class="row-odd"><td><p>q4-x-yy-z</p></td>
-<td><p>Nombre de sessions réussies</p></td>
-<td><p>3</p></td>
+<td><p>Durée d’ouverture</p></td>
+<td><p>2</p></td>
 <td><p>usage</p></td>
 <td><p>oui (national/région)</p></td>
 </tr>
 <tr class="row-even"><td><p>q5-x-yy-z</p></td>
-<td><p>Saturation</p></td>
-<td><p>2</p></td>
+<td><p>Nombre de sessions</p></td>
+<td><p>3</p></td>
 <td><p>usage</p></td>
-<td><p>non</p></td>
+<td><p>oui (national/région)</p></td>
 </tr>
 <tr class="row-odd"><td><p>q6-x-yy-z</p></td>
-<td><p>Taux de disponibilité d’un point de charge actif</p></td>
-<td><p>2</p></td>
+<td><p>Durée des sessions</p></td>
+<td><p>3</p></td>
 <td><p>usage</p></td>
-<td><p>synthèse</p></td>
+<td><p>oui (national/région)</p></td>
 </tr>
 <tr class="row-even"><td><p>q7-x-yy-z</p></td>
+<td><p>Durée d’activité des stations (état saturé, active ou inactive)</p></td>
+<td><p>2</p></td>
+<td><p>usage</p></td>
+<td><p>oui (national/région)</p></td>
+</tr>
+<tr class="row-odd"><td><p>q8-x-yy-z</p></td>
+<td><p>Durée de saturation des stations</p></td>
+<td><p>2</p></td>
+<td><p>usage</p></td>
+<td><p>oui (national/région)</p></td>
+</tr>
+<tr class="row-even"><td><p>q9-x-yy-z</p></td>
+<td><p>Energie consommée</p></td>
+<td><p>2</p></td>
+<td><p>usage</p></td>
+<td><p>oui (national/région)</p></td>
+</tr>
+<tr class="row-odd"><td><p>q10-x-yy-z</p></td>
+<td><p>Nombre de sessions réussies</p></td>
+<td><p>2</p></td>
+<td><p>usage</p></td>
+<td><p>oui (national/région)</p></td>
+</tr>
+<tr class="row-even"><td><p>q11-x-yy-z</p></td>
+<td><p>Puissance des points de recharge activés</p></td>
+<td><p>2</p></td>
+<td><p>usage</p></td>
+<td><p>oui (national/région)</p></td>
+</tr>
+<tr class="row-odd"><td><p>q12-x-yy-z</p></td>
 <td><p>Taux de disponibilité par catégorie de puissance</p></td>
 <td><p>3</p></td>
 <td><p>usage</p></td>
 <td><p>synthèse</p></td>
 </tr>
-<tr class="row-odd"><td><p>q8-x-yy-z</p></td>
-<td><p>Taux d’utilisation d’un point de charge actif</p></td>
+<tr class="row-even"><td><p>q13-x-yy-z</p></td>
+<td><p>Taux d’utilisation</p></td>
 <td><p>2</p></td>
 <td><p>usage</p></td>
 <td><p>synthèse</p></td>
 </tr>
-<tr class="row-even"><td><p>q9-x-yy-z</p></td>
-<td><p>Taux de sessions réussies d’un point de charge actif</p></td>
+<tr class="row-odd"><td><p>q14-x-yy-z</p></td>
+<td><p>Taux de saturation des stations</p></td>
 <td><p>2</p></td>
 <td><p>usage</p></td>
 <td><p>synthèse</p></td>
 </tr>
-<tr class="row-odd"><td><p>q10-x-yy-z</p></td>
-<td><p>Taux de saturation d’une station</p></td>
-<td><p>3</p></td>
+<tr class="row-even"><td><p>q15-x-yy-z</p></td>
+<td><p>Facteur de charge</p></td>
+<td><p>2</p></td>
 <td><p>usage</p></td>
-<td><p>non</p></td>
+<td><p>synthèse</p></td>
+</tr>
+<tr class="row-odd"><td><p>q16-x-yy-z</p></td>
+<td><p>Taux de sessions réussies</p></td>
+<td><p>2</p></td>
+<td><p>usage</p></td>
+<td><p>synthèse</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>q1, q2, q3, q4 et q5 sont les valeurs cumulées sur une journée
-q6, q7 sont calculé à partir de q1 et q3
-q8 est calculé à partir de q2 et q3
-q9 est calculé à partir de q4 et u3
-q10 est calculé à partir de q5</p>
+<p>q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11 sont les valeurs cumulées (ex. moyenne, somme)</p>
+<p>q1 et q4 sont calculés par catégorie de puissance</p>
+<p>q4 est la durée de 24h multipliée par le nombre de points de recharge dans l’état “en activité”</p>
+<p>q5 est le nombre de sessions démarrées dans la période concernée</p>
+<p>q6 est la part de la durée dans la période des sessions démarrées ou terminées dans la période</p>
+<p>q9 est la part de l’énergie (au prorata de la durée passée) dans la période des sessions</p>
+<p>q12 est calculé à partir de q1 et de q4</p>
+<p>q13 est calculé à partir de q2 et de q3 (ou de q1, q4 et q6)</p>
+<p>q14 est calculé à partir de q8 et de q7</p>
+<p>q15 est calculé à partir de q9 et de q11</p>
+<p>q16 est calculé à partir de q10 et de q5</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Les indicateurs suivants ont été formalisés par l’AFIREV:</p>
