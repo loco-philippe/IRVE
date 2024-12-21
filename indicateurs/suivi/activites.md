@@ -1,4 +1,10 @@
-# Activités à planifier
+# Roadmap et activités à planifier
+
+## Roadmap
+
+Proposition de sujets :
+
+- déploiement pour tous les opérateurs cibles 1 et 2 au T1 2025
 
 ## Indicateurs
 
