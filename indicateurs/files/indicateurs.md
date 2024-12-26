@@ -236,7 +236,7 @@ Objectif:
 | a2  | Nombre de stations de recharge (i4-xx)                             | 2   | infra | oui       |
 | a3  | Puissance installée (i7-xx)                                        | 2   | infra | oui       |
 | a4  | Nombre de points de recharge par niveau de puissance (t1-xx)       | 1   | infra | non       |
-| a5  | Densité des stations équipées (nb stations équipées / nb stations) | 3   | infra | oui       |
+| a5  | Densité des aires de service équipées                              | 3   | infra | oui       |
 | a6  | Distance moyenne inter-station de recharge                         | 3   | infra | oui       |
 
 ex. Suivi du déploiement des IRVE dans les stations (nécessite de disposer du nombre de stations).
@@ -248,13 +248,13 @@ L'appartenance d'une station au réseau autoroute est à définir (attribut spé
 Le graphe autoroutier doit permettre d'associer plusieurs stations à un noeud (ou à un tronçon).
 :::
 
-### Indicateurs par station
+### Indicateurs par aire
 
 | id  | nom                                    | Pr  | type  | historisé |
 | --- | -------------------------------------- | --- | ----- | --------- |
-| a7  | Puissance installée par station        | 2   | infra | non       |
-| a8  | Nombre de points de charge par station | 2   | infra | non       |
-| a9  | Distance de recharge par station       | 2   | infra | non       |
+| a7  | Puissance installée par aire           | 2   | infra | non       |
+| a8  | Nombre de points de charge par aire    | 2   | infra | non       |
+| a9  | Distance de recharge par aire          | 2   | infra | non       |
 
 ex. Analyse de la distance interstation (zones blanches).
 
@@ -264,16 +264,34 @@ ex. Analyse de la distance interstation (zones blanches).
 
 - analyse de l'évolution temporelle de l'utilisation
 
-| id        | nom                                  | Pr  | type  | historisé             |
-| --------- | ------------------------------------ | --- | ----- | --------------------- |
-| u1-x-yy-z | Nombre de point de charge actif      | 2   | usage | oui (national/région) |
-| u2-x-yy-z | Pourcentage de point de charge actif | 2   | usage | synthèse              |
-| u3-x-yy-z | Nombre de sessions                   | 2   | usage | oui (national/région) |
-| u4-x-yy-z | Energie distribuée                   | 2   | usage | oui (national/région) |
+| id          | nom                                                            | Pr  | type  | historisé             |
+| ----------- | -------------------------------------------------------------- | --- | ----- | --------------------- |
+| u1-x-yy-z   | Durée de dysfonctionnement des pdc (état hors-service)         | 2   | usage | oui (national/région) |
+| u2-x-yy-z   | Durée d'utilisation des pdc (état occupé)                      | 2   | usage | oui (national/région) |
+| u3-x-yy-z   | Durée de non utilisation des pdc (état libre)                  | 2   | usage | oui (national/région) |
+| u4-x-yy-z   | Durée d'ouverture des points de recharge en activité           | 2   | usage | oui (national/région) |
+| u5-x-yy-z   | Nombre de sessions par heure                                   | 3   | usage | oui (national/région) |
+| u6-x-yy-z   | Durée des sessions                                             | 3   | usage | oui (national/région) |
+| u7-x-yy-z   | Durée d'activité des stations (état saturé, active ou inactive)| 2   | usage | oui (national/région) |
+| u8-x-yy-z   | Durée de saturation des stations                               | 2   | usage | oui (national/région) |
+| u9-x-yy-z   | Energie distribuée par heure                                   | 2   | usage | oui (national/région) |
+| u10-x-yy-z  | Nombre de sessions réussies                                    | 2   | usage | oui (national/région) |
+| u11-x-yy-z  | Nombre de points de recharge en activité                       | 2   | usage | oui (national/région) |
+| u12-x-yy-z  | Puissance des points de recharge en activité                   | 2   | usage | oui (national/région) |
 
-u1 est calculé sur une journée
-u2 est calculé à partir de u1 et i1
-u3 et u4 sont calculés par heure
+u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, u11, u12 sont les valeurs cumulées (ex. moyenne, somme)
+
+u1 et u4 sont calculés par catégorie de puissance
+
+u4 est la durée de 24h multipliée par le nombre de points de recharge dans l'état "en activité"
+
+u5 est le nombre de sessions démarrées dans la période concernée
+
+u6 est la part de la durée dans la période des sessions démarrées ou terminées dans la période
+
+u9 est la part de l'énergie (au prorata de la durée passée dans la période) des sessions
+
+u11 et u12 sont calculés à partir de e2
 
 exemple d'utilisation : Analyse du profil horaire de l'énergie fournie en fonction des périodes et de la localisation.
 
@@ -281,46 +299,23 @@ exemple d'utilisation : Analyse du profil horaire de l'énergie fournie en fonct
 
 - analyse de l'utilisation de la recharge (pour une période donnée et sur un périmètre géographique) :
 
-| id          | nom                                                            | Pr  | type  | historisé             |
-| ----------- | -------------------------------------------------------------- | --- | ----- | --------------------- |
-| q1-x-yy-z   | Durée de dysfonctionnement des pdc (état hors-service)         | 2   | usage | oui (national/région) |
-| q2-x-yy-z   | Durée d'utilisation des pdc (état occupé)                      | 2   | usage | oui (national/région) |
-| q3-x-yy-z   | Durée de non utilisation des pdc (état libre)                  | 2   | usage | oui (national/région) |
-| q4-x-yy-z   | Durée d'ouverture                                              | 2   | usage | oui (national/région) |
-| q5-x-yy-z   | Nombre de sessions                                             | 3   | usage | oui (national/région) |
-| q6-x-yy-z   | Durée des sessions                                             | 3   | usage | oui (national/région) |
-| q7-x-yy-z   | Durée d'activité des stations (état saturé, active ou inactive)| 2   | usage | oui (national/région) |
-| q8-x-yy-z   | Durée de saturation des stations                               | 2   | usage | oui (national/région) |
-| q9-x-yy-z   | Energie consommée                                              | 2   | usage | oui (national/région) |
-| q10-x-yy-z  | Nombre de sessions réussies                                    | 2   | usage | oui (national/région) |
-| q11-x-yy-z  | Puissance des points de recharge activés                       | 2   | usage | oui (national/région) |
-| q12-x-yy-z  | Taux de disponibilité par catégorie de puissance               | 3   | usage | synthèse              |
-| q13-x-yy-z  | Taux d'utilisation                                             | 2   | usage | synthèse              |
-| q14-x-yy-z  | Taux de saturation des stations                                | 2   | usage | synthèse              |
-| q15-x-yy-z  | Facteur de charge                                              | 2   | usage | synthèse              |
-| q16-x-yy-z  | Taux de sessions réussies                                      | 2   | usage | synthèse              |
+| id         | nom                                                         | Pr  | type  | historisé             |
+| ---------- | ----------------------------------------------------------- | --- | ----- | --------------------- |
+| q1-x-yy-z  | Taux de disponibilité par catégorie de puissance            | 3   | usage | synthèse              |
+| q2-x-yy-z  | Taux d'utilisation                                          | 2   | usage | synthèse              |
+| q3-x-yy-z  | Taux de saturation des stations                             | 2   | usage | synthèse              |
+| q4-x-yy-z  | Facteur de charge                                           | 2   | usage | synthèse              |
+| q5-x-yy-z  | Taux de sessions réussies                                   | 2   | usage | synthèse              |
 
-q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11 sont les valeurs cumulées (ex. moyenne, somme)
+q1 est calculé à partir de u1 et de u4
 
-q1 et q4 sont calculés par catégorie de puissance
+q2 est calculé à partir de u1, u4 et u6 (ou de u2 et de u3)
 
-q4 est la durée de 24h multipliée par le nombre de points de recharge dans l'état "en activité"
+q3 est calculé à partir de u8 et de u7
 
-q5 est le nombre de sessions démarrées dans la période concernée
+q4 est calculé à partir de u9 et de u12
 
-q6 est la part de la durée dans la période des sessions démarrées ou terminées dans la période 
-
-q9 est la part de l'énergie (au prorata de la durée passée) dans la période des sessions 
-
-q12 est calculé à partir de q1 et de q4
-
-q13 est calculé à partir de q2 et de q3 (ou de q1, q4 et q6)
-
-q14 est calculé à partir de q8 et de q7
-
-q15 est calculé à partir de q9 et de q11
-
-q16 est calculé à partir de q10 et de q5
+q5 est calculé à partir de u10 et de u5
 
 :::{note}
 
@@ -347,9 +342,12 @@ Les indicateurs temporels identifiés sont les suivants :
 | ----------- | ------------------------------------------------ | --- | ------ | -------------- |
 | d1-w-x-yy-z | Taux d'évolution du nombre de stations           | 1   | i4     | taux évolution |
 | d2-w-x-yy-z | Evolution du nombre de points de recharge        | 1   | i1     | historique     |
-| d3-w-x-yy-z | Nombre de sessions par point de recharge         | 2   | u3     | historique     |
-| d4-w-x-yy-z | Taux de disponibilité par catégorie de puissance | 2   | q1, q3 | historique     |
-| d5-w-x-yy-z | Taux de points de recharge avec indispo > 7 j    | 3   | q1, q3 | historique     |
+| d3-w-x-yy-z | Nombre de sessions par point de recharge         | 2   | u5, u11| historique     |
+| d4-w-x-yy-z | Taux de disponibilité par catégorie de puissance | 2   | q1     | historique     |
+| d5-x-yy-z   | Taux d'utilisation                               | 2   | q2     | historique     |
+| d6-x-yy-z   | Taux de saturation des stations                  | 2   | q3     | historique     |
+| d7-x-yy-z   | Facteur de charge                                | 2   | q4     | historique     |
+| d8-w-x-yy-z | Taux de points de recharge avec indispo > 7 j    | 3   | q1, q3 | historique     |
 
 :::{note}
 
@@ -368,7 +366,7 @@ Les indicateurs d'état identifiés sont les suivants :
 | id        | nom                                      | Pr  |
 | --------- | ---------------------------------------- | --- |
 | e1-x-yy-z | Liste des stations du réseau autoroutier | 2   |
-| e2-x-yy-z | Liste des stations actives               | 2   |
+| e2-x-yy-z | Liste des stations en activité           | 2   |
 
 :::{note}
 
