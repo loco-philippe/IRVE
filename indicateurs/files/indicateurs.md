@@ -363,10 +363,12 @@ Les indicateurs temporels identifiés sont les suivants :
 
 Les indicateurs d'état identifiés sont les suivants :
 
-| id        | nom                                      | Pr  |
-| --------- | ---------------------------------------- | --- |
-| e1-x-yy-z | Liste des stations du réseau autoroutier | 2   |
-| e2-x-yy-z | Liste des stations en activité           | 2   |
+| id        | nom                                        | Pr  |
+| --------- | ------------------------------------------ | --- |
+| e1-x-yy-z | Liste des stations du réseau autoroutier   | 2   |
+| e2-x-yy-z | Liste des stations du réseau RTE-T central | 2   |
+| e3-x-yy-z | Liste des stations du réseau RTE-T global  | 2   |
+| e4-x-yy-z | Liste des stations en activité             | 2   |
 
 :::{note}
 

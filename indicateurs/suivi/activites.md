@@ -93,7 +93,7 @@ Les activités à mener sont :
 
 | activité | objet              | priorité | objectif |
 | -------- | ------------------ | -------- | -------- |
-| e1 - e2  | Listes de stations | 2        | V1       |
+| e1 - e4  | Listes de stations | 2        | V1       |
 
 ## Analyse réseau
 

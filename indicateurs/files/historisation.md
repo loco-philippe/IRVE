@@ -275,25 +275,41 @@ L'historisation s'effectue pour les indicateurs suivants (voir chapitre listant 
 - usage - quantitatif: u1, u4, u5, u6, u7, u8, u9, u10, u12
 - état : e1 (mensuel)
 
-Volumétrie :
+### Volumétrie
+
+hypothèses :
+
 - région : 20 (13 métropole + 5 ultramarins + 1 métropole + 1 national)
 - niveaux de puissance : 6
 - type d'implantation : 5
 - nombre d'EPCI : 1255
 - nombre de départements : 109
 - nombre d'heures : 24
+- nombre d'opérateurs : 40
 
-t1 : 20 x 6
-t5 : 20 x 5
-t7 : 1255
-i1 : 1255 + 109
-i4 : 1255 + 109
-i7 : 1255 + 109
-a1 - a2 - a3 : 1
-u5 - u9 : 24 x 20
-u1, u4, u6, u7, u8, u10, u12 : 20
-e1 : 1
+Nombres de lignes :
 
+- t1 : 120 = 20 x 6
+- t5 : 100 = 20 x 5
+- t7 : 1255
+- t8 : 40
+- i1 : 1364 = 1255 + 109
+- i4 : 1364 = 1255 + 109
+- i7 : 1364 = 1255 + 109
+- a1, a2, a3 : 1
+- u5, u9 : 480 = 24 x 20
+- u1, u4, u6, u7, u8, u10, u12 : 20
+- e1, e2, e3, e4 : 1
+
+Total : 6 714 lignes par historisation
+
+Nombre d'historisations :
+
+- Quotidienne : 62 (deux mois)
+- Mensuelle : 24 (deux ans)
+- Annuelle : 10 (10 ans)
+
+Total : 644 544 lignes (96 x 6 714)
 
 :::{note}
 
