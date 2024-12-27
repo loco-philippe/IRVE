@@ -174,16 +174,16 @@ Le résultat est obtenu en appliquant les traitements suivants:
 
 Les indicateurs temporels identifiés (voir présentation des indicateurs) sont les suivants :
 
-| id          | nom                                              | Pr  | base   | fonction       |
-| ----------- | ------------------------------------------------ | --- | ------ | -------------- |
-| d1-w-x-yy-z | Taux d'évolution du nombre de stations           | 1   | i4     | taux évolution |
-| d2-w-x-yy-z | Evolution du nombre de points de recharge        | 1   | i1     | historique     |
-| d3-w-x-yy-z | Nombre de sessions par point de recharge         | 2   | u5, u11| historique     |
-| d4-w-x-yy-z | Taux de disponibilité par catégorie de puissance | 2   | q1     | historique     |
-| d5-x-yy-z   | Taux d'utilisation                               | 2   | q2     | historique     |
-| d6-x-yy-z   | Taux de saturation des stations                  | 2   | q3     | historique     |
-| d7-x-yy-z   | Facteur de charge                                | 2   | q4     | historique     |
-| d8-w-x-yy-z | Taux de points de recharge avec indispo > 7 j    | 3   | q1, q3 | historique     |
+| id          | nom                                              | Pr  | base    | fonction       |
+| ----------- | ------------------------------------------------ | --- | ------- | -------------- |
+| d1-w-x-yy-z | Taux d'évolution du nombre de stations           | 1   | i4      | taux évolution |
+| d2-w-x-yy-z | Evolution du nombre de points de recharge        | 1   | i1      | historique     |
+| d3-w-x-yy-z | Nombre de sessions par point de recharge         | 2   | u5, u11 | historique     |
+| d4-w-x-yy-z | Taux de disponibilité par catégorie de puissance | 2   | q1      | historique     |
+| d5-x-yy-z   | Taux d'utilisation par catégorie de puissance    | 2   | q2      | historique     |
+| d6-x-yy-z   | Taux de saturation des stations                  | 2   | q3      | historique     |
+| d7-x-yy-z   | Facteur de charge par catégorie de puissance     | 2   | q4      | historique     |
+| d8-w-x-yy-z | Taux de points de recharge avec indispo > 7 j    | 3   | q1, q3  | historique     |
 
 Nota : Seule la périodicité est intégrée à la codification (voir chapitre '[codification](./indicateurs.md)'), l'intervalle doit donc être ajouté à l'indicateur pour fournir un résultat.
 
@@ -272,7 +272,7 @@ L'historisation s'effectue pour les indicateurs suivants (voir chapitre listant 
 - infrastructure - typologie : t1, t1- - -1, t5, t5- - -1, t7, t8, t8- - -1
 - infrastructure - quantitatif : i1- - -3, i1- - -4, i4- - -3, i4- - -4, i7- - -3, i7- - -4
 - infrastructure - autoroute : a1, a2, a3
-- usage - quantitatif: u1, u4, u5, u6, u7, u8, u9, u10, u12
+- usage - quantitatif: u1, u4, u5, u6, u7, u8, u9, u10, u11, u12, u13
 - état : e1 (mensuel)
 
 ### Volumétrie
@@ -297,11 +297,12 @@ Nombres de lignes :
 - i4 : 1364 = 1255 + 109
 - i7 : 1364 = 1255 + 109
 - a1, a2, a3 : 1
-- u5, u9 : 480 = 24 x 20
-- u1, u4, u6, u7, u8, u10, u12 : 20
+- u5 : 480 = 24 x 20
+- u1, u4, u6, u9, u12 : 120 = 6 x 20
+- u7, u8, u10, u11, u13 : 20
 - e1, e2, e3, e4 : 1
 
-Total : 6 714 lignes par historisation
+Total : 6 794 lignes par historisation
 
 Nombre d'historisations :
 
@@ -309,7 +310,7 @@ Nombre d'historisations :
 - Mensuelle : 24 (deux ans)
 - Annuelle : 10 (10 ans)
 
-Total : 644 544 lignes (96 x 6 714)
+Total : 652 224 lignes (96 x 6 794)
 
 :::{note}
 
@@ -351,11 +352,11 @@ Pour les indicateurs d'état, le champ EXTRAS est spécifique de chaque indicate
 
 exemple du nombre mensuel de stations par opérateur :
 
-| value | extras           | category | target | code  | level  | period | timestamp |
-| ----- | ---------------- | -------- | ------ | ----- | ------ | ------ | --------- |
-| 50    | {'quantity': 30} | 'oper1'  | ''     | 't8'  | ''     | month  | xxxxxxx   |
-| 80    | {'quantity': 30} | 'oper2'  | ''     | 't8'  | ''     | month  | xxxxxxx   |
-| 100   | {'quantity': 30} | 'oper3'  | ''     | 't8'  | ''     | month  | xxxxxxx   |
+| value | extras           | category | target | code | level | period | timestamp |
+| ----- | ---------------- | -------- | ------ | ---- | ----- | ------ | --------- |
+| 50    | {'quantity': 30} | 'oper1'  | ''     | 't8' | ''    | month  | xxxxxxx   |
+| 80    | {'quantity': 30} | 'oper2'  | ''     | 't8' | ''    | month  | xxxxxxx   |
+| 100   | {'quantity': 30} | 'oper3'  | ''     | 't8' | ''    | month  | xxxxxxx   |
 
 L'opérateur 'oper1' dispose pour le mois 'xxxxxxx' d'une moyenne de 50 stations.
 

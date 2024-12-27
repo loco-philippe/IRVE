@@ -134,12 +134,12 @@ Si uniquement une catégorisation est définie, le résultat est une liste de va
 
 | nb_pdc | p_range      |
 | ------ | ------------ |
-| 10892  | [15.0, 26.0) |
-| 4807   | [175, 360.0) |
-| 3282   | [65, 175.0)  |
-| 2359   | [26, 65.0)   |
-| 2157   | [0, 15.0)    |
-| 25     | [360, None)  |
+| 10892  | [7.4, 22.0) |
+| 4807   | [150, 350.0) |
+| 3282   | [50, 150.0)  |
+| 2359   | [22, 50.0)   |
+| 2157   | [0, 7.4)    |
+| 25     | [350, None)  |
 ```
 
 Si uniquement un level est défini, le résultat est une liste de valeurs associées à chaque target.
@@ -201,7 +201,7 @@ Objectif :
 :::{note}
 
 L'identification des opérateurs (nom) est actuellment facultative (à rendre obligatoire).
-La classification des niveaux de puissances nominale est à valider (en liaison avec le type d'alimentation AC/DC). La classification retenue actuellement est la suivante : 0-15 / 15-26 / 26-65 / 65-175 / 175-360 / > 360 (valeurs de seuil choisies à partir de l'existant Qualicharge).
+La classification des niveaux de puissances nominale est à valider (en liaison avec le type d'alimentation AC/DC). La classification retenue actuellement est la suivante : 0-7.4 / 7.4-22 / 22-50 / 50-150 / 150-350 / > 350 (valeurs de seuil choisies à partir du baromètre Avere).
 :::
 
 ### Infrastructure - quantitatif
@@ -268,20 +268,21 @@ ex. Analyse de la distance interstation (zones blanches).
 
 | id         | nom                                                                     | Pr  | type  | historisé             |
 | ---------- | ----------------------------------------------------------------------- | --- | ----- | --------------------- |
-| u1-x-yy-z  | Durée horaire de dysfonctionnement des pdc (état hors-service)          | 2   | usage | oui (national/région) |
-| u2-x-yy-z  | Durée horaire d'utilisation des pdc(état occupé)                        | 2   | usage | non                   |
-| u3-x-yy-z  | Durée horaire de non utilisation des pdc (état libre)                   | 2   | usage | non                   |
-| u4-x-yy-z  | Durée d'ouverture des points de recharge en activité                    | 2   | usage | oui (national/région) |
-| u5-x-yy-z  | Nombre horaire de sessions                                              | 3   | usage | oui (national/région) |
-| u6-x-yy-z  | Durée horaire des sessions                                              | 3   | usage | oui (national/région) |
-| u7-x-yy-z  | Durée horaire d'activité des stations (état saturé, active ou inactive) | 2   | usage | oui (national/région) |
-| u8-x-yy-z  | Durée horaire de saturation des stations                                | 2   | usage | oui (national/région) |
-| u9-x-yy-z  | Energie horaire distribuée                                              | 2   | usage | oui (national/région) |
-| u10-x-yy-z | Nombre horaire de sessions réussies                                     | 2   | usage | oui (national/région) |
-| u11-x-yy-z | Nombre de points de recharge en activité                                | 2   | usage | non                   |
-| u12-x-yy-z | Puissance des points de recharge en activité                            | 2   | usage | oui (national/région) |
+| u1-x-yy-z  | Durée de dysfonctionnement des pdc par catégorie de puissance (état HS) | 2   | usage | oui (national/région) |
+| u2-x-yy-z  | Durée d'utilisation des pdc(état occupé)                                | 2   | usage | non                   |
+| u3-x-yy-z  | Durée de non utilisation des pdc (état libre)                           | 2   | usage | non                   |
+| u4-x-yy-z  | Durée d'ouverture des pdc par catégorie de puissance                    | 2   | usage | oui (national/région) |
+| u5-x-yy-z  | Répartition horaire des sessions (nombre)                               | 3   | usage | oui (national/région) |
+| u6-x-yy-z  | Durée des sessions par catégorie de puissance                           | 2   | usage | oui (national/région) |
+| u7-x-yy-z  | Durée d'activité des stations (état saturé, active ou inactive)         | 2   | usage | oui (national/région) |
+| u8-x-yy-z  | Durée de saturation des stations                                        | 2   | usage | oui (national/région) |
+| u9-x-yy-z  | Energie distribuée par catégorie de puissance                           | 2   | usage | oui (national/région) |
+| u10-x-yy-z | Nombre de sessions                                                      | 2   | usage | oui (national/région) |
+| u11-x-yy-z | Nombre de sessions réussies                                             | 2   | usage | oui (national/région) |
+| u12-x-yy-z | Nombre de pdc en activité par catégorie de puissance                    | 2   | usage | oui (national/région) |
+| u13-x-yy-z | Puissance des points de recharge en activité                            | 2   | usage | oui (national/région) |
 
-u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, u11, u12 sont les valeurs cumulées (ex. moyenne, somme)
+u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, u11, u12, u13 sont les valeurs cumulées (ex. moyenne, somme)
 
 u1 et u4 sont calculés par catégorie de puissance
 
@@ -293,7 +294,7 @@ u6 est la part de la durée dans la période des sessions démarrées ou termin�
 
 u9 est la part de l'énergie (au prorata de la durée passée dans la période) des sessions
 
-u11 et u12 sont calculés à partir de e2
+u12 et u13 sont calculés à partir de e2
 
 exemple d'utilisation : Analyse du profil horaire de l'énergie fournie en fonction des périodes et de la localisation.
 
@@ -304,9 +305,9 @@ exemple d'utilisation : Analyse du profil horaire de l'énergie fournie en fonct
 | id        | nom                                              | Pr  | type  | historisé |
 | --------- | ------------------------------------------------ | --- | ----- | --------- |
 | q1-x-yy-z | Taux de disponibilité par catégorie de puissance | 3   | usage | synthèse  |
-| q2-x-yy-z | Taux d'utilisation                               | 2   | usage | synthèse  |
+| q2-x-yy-z | Taux d'utilisation par catégorie de puissance    | 2   | usage | synthèse  |
 | q3-x-yy-z | Taux de saturation des stations                  | 2   | usage | synthèse  |
-| q4-x-yy-z | Facteur de charge                                | 2   | usage | synthèse  |
+| q4-x-yy-z | Facteur de charge par catégorie de puissance     | 2   | usage | synthèse  |
 | q5-x-yy-z | Taux de sessions réussies                        | 2   | usage | synthèse  |
 
 q1 est calculé à partir de u1 et de u4
@@ -317,7 +318,7 @@ q3 est calculé à partir de u8 et de u7
 
 q4 est calculé à partir de u9 et de u12
 
-q5 est calculé à partir de u10 et de u5
+q5 est calculé à partir de u11 et de u10
 
 :::{note}
 
