@@ -79,15 +79,16 @@ Les indicateurs d'exploitation (liés aux aménageurs et enseignes) ainsi que le
 ### Codification des indicateurs
 
 Les indicateurs sont codifiés par une chaine de caractères : *[type]-[périmètre]-[valeur de périmètre]-[level]*
-ou bien pour les indicateurs temporels : *[type]-[périodicité]-[périmètre]-[valeur de périmètre]-[level]*
+ou bien pour les indicateurs temporels : *[type]-[période]-[périmètre]-[valeur de périmètre]-[level]*
 avec:
 
 - type : identifiant du type d'indicateur (ex. 'i1' : nombre de points de recharge)
-- période : périodicité des données utilisées
+- période : périodicité des données utilisées (agrégation : somme, moyenne, maximum, dernière)
   - y : données annuelles
   - m : données mensuelles
   - w : données hebdomadaires
   - d : données quotidiennes
+  - h : données horaires
 - périmètre et valeur de périmètre: sous ensemble des données sur lequel appliquer l'indicateur. Les périmètres actuellement définis sont les découpages administratifs :
   - 0: national (valeur : code 00 tout, 01 métropole, 02 DOM, 03 TOM, 04 métropole et DOM)
   - 1: région (valeur : code de la région)
@@ -102,6 +103,7 @@ Le périmètre par défaut est l'ensemble des données.
 - **t4-4-74012** : Pourcentage de stations par nombre de points de recharge (t4) pour la ville (4) d'Annemasse (74012)
 - **i1-1-93** : Nombre de points de recharge (i1) pour la région (1) PACA (93)
 - **i1-1-93-3** : Nombre de points de recharge (i1) pour la région (1) PACA (93) par EPCI (3)
+- **u5-h-1-93** : Nombre de sessions (u5) cumulées sur une heure (h) pour la région (1) PACA (93)
 - **i1-m-1-93-3** : Nombre de points de recharge (i1) mensuel (m) pour la région (1) PACA (93) par EPCI (3)
 - **t1** : Nombre de points de recharge par niveau de puissance (t1) pour l'ensemble des données (pas de périmètre choisi)
 - **e1** : liste des stations du réseau autoroutier (e1)
@@ -264,20 +266,20 @@ ex. Analyse de la distance interstation (zones blanches).
 
 - analyse de l'évolution temporelle de l'utilisation
 
-| id         | nom                                                             | Pr  | type  | historisé             |
-| ---------- | --------------------------------------------------------------- | --- | ----- | --------------------- |
-| u1-x-yy-z  | Durée de dysfonctionnement des pdc (état hors-service)          | 2   | usage | oui (national/région) |
-| u2-x-yy-z  | Durée d'utilisation des pdc (état occupé)                       | 2   | usage | non                   |
-| u3-x-yy-z  | Durée de non utilisation des pdc (état libre)                   | 2   | usage | non                   |
-| u4-x-yy-z  | Durée d'ouverture des points de recharge en activité            | 2   | usage | oui (national/région) |
-| u5-x-yy-z  | Nombre de sessions par heure                                    | 3   | usage | oui (national/région) |
-| u6-x-yy-z  | Durée des sessions                                              | 3   | usage | oui (national/région) |
-| u7-x-yy-z  | Durée d'activité des stations (état saturé, active ou inactive) | 2   | usage | oui (national/région) |
-| u8-x-yy-z  | Durée de saturation des stations                                | 2   | usage | oui (national/région) |
-| u9-x-yy-z  | Energie distribuée par heure                                    | 2   | usage | oui (national/région) |
-| u10-x-yy-z | Nombre de sessions réussies                                     | 2   | usage | oui (national/région) |
-| u11-x-yy-z | Nombre de points de recharge en activité                        | 2   | usage | non                   |
-| u12-x-yy-z | Puissance des points de recharge en activité                    | 2   | usage | oui (national/région) |
+| id         | nom                                                                     | Pr  | type  | historisé             |
+| ---------- | ----------------------------------------------------------------------- | --- | ----- | --------------------- |
+| u1-x-yy-z  | Durée horaire de dysfonctionnement des pdc (état hors-service)          | 2   | usage | oui (national/région) |
+| u2-x-yy-z  | Durée horaire d'utilisation des pdc(état occupé)                        | 2   | usage | non                   |
+| u3-x-yy-z  | Durée horaire de non utilisation des pdc (état libre)                   | 2   | usage | non                   |
+| u4-x-yy-z  | Durée d'ouverture des points de recharge en activité                    | 2   | usage | oui (national/région) |
+| u5-x-yy-z  | Nombre horaire de sessions                                              | 3   | usage | oui (national/région) |
+| u6-x-yy-z  | Durée horaire des sessions                                              | 3   | usage | oui (national/région) |
+| u7-x-yy-z  | Durée horaire d'activité des stations (état saturé, active ou inactive) | 2   | usage | oui (national/région) |
+| u8-x-yy-z  | Durée horaire de saturation des stations                                | 2   | usage | oui (national/région) |
+| u9-x-yy-z  | Energie horaire distribuée                                              | 2   | usage | oui (national/région) |
+| u10-x-yy-z | Nombre horaire de sessions réussies                                     | 2   | usage | oui (national/région) |
+| u11-x-yy-z | Nombre de points de recharge en activité                                | 2   | usage | non                   |
+| u12-x-yy-z | Puissance des points de recharge en activité                            | 2   | usage | oui (national/région) |
 
 u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, u11, u12 sont les valeurs cumulées (ex. moyenne, somme)
 
