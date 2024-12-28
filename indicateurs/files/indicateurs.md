@@ -310,15 +310,15 @@ exemple d'utilisation : Analyse du profil horaire de l'énergie fournie en fonct
 | q4-x-yy-z | Facteur de charge par catégorie de puissance     | 2   | usage | synthèse  |
 | q5-x-yy-z | Taux de sessions réussies                        | 2   | usage | synthèse  |
 
-q1 est calculé à partir de u1 et de u4
+q1 est calculé à partir de u1 et u4
 
-q2 est calculé à partir de u1, u4 et u6 (ou de u2 et de u3)
+q2 est calculé à partir de u6, u1 et u4 (ou de u2 et u3)
 
-q3 est calculé à partir de u8 et de u7
+q3 est calculé à partir de u8 et u7
 
-q4 est calculé à partir de u9 et de u12
+q4 est calculé à partir de u9 et u12
 
-q5 est calculé à partir de u11 et de u10
+q5 est calculé à partir de u11 et u10
 
 :::{note}
 
