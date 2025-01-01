@@ -20,6 +20,8 @@ Proposition :
   - entité pdl à créer ?
   - entité pool à créer ou "station de stations" ?
   - identification stations autoroute et stations RTE-T
+  - donées tarification ?
+  - clarification des identifiants des entités autres que pdc et stations
 
 - V2 : version fin T3 2025
   - intégration des indicateurs AFIR et autoroute
@@ -30,7 +32,7 @@ Proposition :
 - V3 : version fin 2025
   - à définir
 
-- intégration de fonctions spécifiques à chaque version en fonction de l'avancement
+- intégration des fonctions non liées à une version dans la première version disponible
 
 ## Indicateurs
 
