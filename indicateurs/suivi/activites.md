@@ -20,7 +20,7 @@ Proposition :
   - entité pdl à créer ?
   - entité pool à créer ou "station de stations" ?
   - identification stations autoroute et stations RTE-T
-  - donées tarification ?
+  - données tarification ?
   - clarification des identifiants des entités autres que pdc et stations
 
 - V2 : version fin T3 2025
@@ -32,7 +32,7 @@ Proposition :
 - V3 : version fin 2025
   - à définir
 
-- intégration des fonctions non liées à une version dans la première version disponible
+- intégration au fil de l'eau des fonctions non liées à une version dans la première version disponible
 
 ## Indicateurs
 
