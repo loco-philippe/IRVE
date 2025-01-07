@@ -389,7 +389,6 @@ Les indicateurs AFIR identifiés sont les suivants :
 
 | id      | nom                                | Pr  |
 | ------- | ---------------------------------- | --- |
-| p0-x-yy | Liste des stations du réseau RTE-T | 2   |
 | p1-x-yy | Liste des stations des parcs p300  | 2   |
 | p2-x-yy | Liste des stations des parcs p400  | 2   |
 | p3-x-yy | Liste des stations des parcs p600  | 2   |
@@ -401,12 +400,12 @@ Les indicateurs AFIR identifiés sont les suivants :
 | --- | --------------------------------- | --- |
 | r1  | Ratio AFIR d60 / p400 / central   | 2   |
 | r2  | Ratio AFIR d60 / p600 / central   | 2   |
-| r3  | Ratio AFIR d60 / p300 / central   | 2   |
-| r4  | Ratio AFIR d60 / p600 / central   | 2   |
-| r5  | Ratio AFIR d120 / p1400 / central | 2   |
+| r3  | Ratio AFIR d60 / p300 / global    | 2   |
+| r4  | Ratio AFIR d60 / p600 / global    | 2   |
+| r5  | Ratio AFIR d120 / p1400 / global  | 2   |
 | r6  | Ratio AFIR d120 / p2800 / central | 2   |
 | r7  | Ratio AFIR d60 / p3600 / central  | 2   |
-| r8  | Ratio AFIR d100 / p1500 / central | 2   |
+| r8  | Ratio AFIR d100 / p1500 / global  | 2   |
 
 :::{note}
 
