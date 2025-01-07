@@ -107,17 +107,18 @@ erDiagram
 
 ## Compatibilité indicateurs
 
-Le modèle contient l'ensemble des informations permettant de générer les indicateurs à l'exception de ceux traitant des informations suivantes :
+Le modèle contient l'ensemble des informations permettant de générer les indicateurs à l'exception des informations suivantes :
 
-- état activé ou désactivé d'un point de recharge (ou d'une station): Cette information est nécessaire pour ne pas fausser les indicateurs (ne pas tenir compte des points de recharge désactivés)
-- identification de l'opérateur: La seule information obligatoire concernant l'opérateur est une adresse email (le nom de l'opérateur est optionnel)
-- identification de l'aménageur: L'aménageur n'est pas identifié explicitement (toutes les informations liées à l'aménageur sont optionnelles)
+- état activé ou désactivé d'un point de recharge (ou d'une station): Cette information est nécessaire pour ne pas fausser les indicateurs (ne pas tenir compte des points de recharge désactivés). Des points restent à clarifier concernant la propagation de l'état (ex. est-ce que lorsque tous les pdc d'une station sont désactivés, la station l'est aussi  - idem pour les localisations associées) et la réactivation (est-ce autorisé ?).
+- identification de l'opérateur: La seule information obligatoire concernant l'opérateur est une adresse email (le nom de l'opérateur est optionnel). Ce point rejoint un point évoqué dans le chapitre suivant.
+- identification de l'aménageur: L'aménageur n'est pas identifié explicitement (toutes les informations liées à l'aménageur sont optionnelles)Ce point rejoint un point évoqué dans le chapitre suivant.
+- identification de la localisation: Aucun identifiant n'est défini pour la localisation. L'information principale qui pourrait faire office d'identifiant est la coordonnée géographique. 
 - site d'implantation: Les types d'implantation définis ne permettent pas de restituer la nature du site telle qu'elle est restituée par l'AVERE (ex. commerce, entreprise)
-- puissance: La puissance est actuellement identifiée par une valeur. Une classification par niveau de puissance permettrait des analyses par gamme de puissance
-- type d'alimentation AC/DC: Cette information est souhaitable
-- Type de session: Cette information permettrait d'identifier par exemple les charges partielles ou interrompues
+- puissance: La puissance est actuellement identifiée par une valeur. Une classification par niveau de puissance permettrait des analyses par gamme de puissance. Cette information est gérée actuellement de façon dynamique ce qui semble être suffisant.
+- type d'alimentation AC/DC: Cette information est souhaitable. Elle est gérée dynamiquement actuellement. Est-ce suffisant ?
+- Type de session: Cette information permettrait d'identifier par exemple les charges partielles ou interrompues. Les sessions non réussies sont calculées dynamiquement, ce serait peut-être intéressant en terme de performance d'avoir cette information de façon statique.
 - tarification: Cette information est souhaitable (présente dans les indicateurs AVERE)
-- qualité de service: le taux d'occupation ou la disponibilité d'un point de charge nécessite de disposer du temps passé dans chaque état (voir [état des points de recharge](./etats.md)). Cette information est présente pour les sessions (table 'session') mais pas pour les périodes d'indisponibilité (pannes ou arrêt). Les périoes d'indisponibilité doivent être explicites pour élaborer les indicateurs de qualité de service
+- qualité de service: le taux d'occupation ou la disponibilité d'un point de charge nécessite de disposer du temps passé dans chaque état (voir [état des points de recharge](./etats.md)). Cette information est présente pour les sessions (table 'session') mais pas pour les périodes d'indisponibilité (pannes ou arrêt). La aussi, pour des raisons de performance, il peut être utile de reconstruire et de stocker les différents états (dans ce cas ça peut être géré en dehors de la base de données actuelle)
 
 ## Autres besoins d'évolutions du modèle de données
 
