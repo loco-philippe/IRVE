@@ -181,7 +181,7 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Avancement</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../suivi/activites.html">1. Activités à planifier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../suivi/activites.html">1. Roadmap et activités à planifier</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../suivi/avancement.html">2. Avancement</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs de référence</span></p>
@@ -423,7 +423,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-d-infrastructure-du-reseau-autoroutes">3.5. Indicateurs d’infrastructure du réseau autoroutes</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-globaux">3.5.1. Indicateurs globaux</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-par-station">3.5.2. Indicateurs par station</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-par-aire">3.5.2. Indicateurs par aire</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-d-usage">3.6. Indicateurs d’usage</a><ul class="nav section-nav flex-column">
@@ -540,16 +540,17 @@ document.write(`
 <section id="codification-des-indicateurs">
 <h3><span class="section-number">3.3.2. </span>Codification des indicateurs<a class="headerlink" href="#codification-des-indicateurs" title="Link to this heading">#</a></h3>
 <p>Les indicateurs sont codifiés par une chaine de caractères : <em>[type]-[périmètre]-[valeur de périmètre]-[level]</em>
-ou bien pour les indicateurs temporels : <em>[type]-[périodicité]-[périmètre]-[valeur de périmètre]-[level]</em>
+ou bien pour les indicateurs temporels : <em>[type]-[période]-[périmètre]-[valeur de périmètre]-[level]</em>
 avec:</p>
 <ul class="simple">
 <li><p>type : identifiant du type d’indicateur (ex. ‘i1’ : nombre de points de recharge)</p></li>
-<li><p>période : périodicité des données utilisées</p>
+<li><p>période : périodicité des données utilisées (agrégation : somme, moyenne, maximum, dernière)</p>
 <ul>
 <li><p>y : données annuelles</p></li>
 <li><p>m : données mensuelles</p></li>
 <li><p>w : données hebdomadaires</p></li>
 <li><p>d : données quotidiennes</p></li>
+<li><p>h : données horaires</p></li>
 </ul>
 </li>
 <li><p>périmètre et valeur de périmètre: sous ensemble des données sur lequel appliquer l’indicateur. Les périmètres actuellement définis sont les découpages administratifs :</p>
@@ -570,6 +571,7 @@ avec:</p>
 <li><p><strong>t4-4-74012</strong> : Pourcentage de stations par nombre de points de recharge (t4) pour la ville (4) d’Annemasse (74012)</p></li>
 <li><p><strong>i1-1-93</strong> : Nombre de points de recharge (i1) pour la région (1) PACA (93)</p></li>
 <li><p><strong>i1-1-93-3</strong> : Nombre de points de recharge (i1) pour la région (1) PACA (93) par EPCI (3)</p></li>
+<li><p><strong>u5-h-1-93</strong> : Nombre de sessions (u5) cumulées sur une heure (h) pour la région (1) PACA (93)</p></li>
 <li><p><strong>i1-m-1-93-3</strong> : Nombre de points de recharge (i1) mensuel (m) pour la région (1) PACA (93) par EPCI (3)</p></li>
 <li><p><strong>t1</strong> : Nombre de points de recharge par niveau de puissance (t1) pour l’ensemble des données (pas de périmètre choisi)</p></li>
 <li><p><strong>e1</strong> : liste des stations du réseau autoroutier (e1)</p></li>
@@ -604,22 +606,22 @@ Ce champ est au format JSON et concerne les informations liées à l’historisa
 </thead>
 <tbody>
 <tr class="row-even"><td><p>10892</p></td>
-<td><p>[15.0, 26.0)</p></td>
+<td><p>[7.4, 22.0)</p></td>
 </tr>
 <tr class="row-odd"><td><p>4807</p></td>
-<td><p>[175, 360.0)</p></td>
+<td><p>[150, 350.0)</p></td>
 </tr>
 <tr class="row-even"><td><p>3282</p></td>
-<td><p>[65, 175.0)</p></td>
+<td><p>[50, 150.0)</p></td>
 </tr>
 <tr class="row-odd"><td><p>2359</p></td>
-<td><p>[26, 65.0)</p></td>
+<td><p>[22, 50.0)</p></td>
 </tr>
 <tr class="row-even"><td><p>2157</p></td>
-<td><p>[0, 15.0)</p></td>
+<td><p>[0, 7.4)</p></td>
 </tr>
 <tr class="row-odd"><td><p>25</p></td>
-<td><p>[360, None)</p></td>
+<td><p>[350, None)</p></td>
 </tr>
 </tbody>
 </table>
@@ -796,7 +798,7 @@ La ‘target’ est ici le département (représenté par son code) et la ‘cat
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>L’identification des opérateurs (nom) est actuellment facultative (à rendre obligatoire).
-La classification des niveaux de puissances nominale est à valider (en liaison avec le type d’alimentation AC/DC). La classification retenue actuellement est la suivante : 0-15 / 15-26 / 26-65 / 65-175 / 175-360 / &gt; 360 (valeurs de seuil choisies à partir de l’existant Qualicharge).</p>
+La classification des niveaux de puissances nominale est à valider (en liaison avec le type d’alimentation AC/DC). La classification retenue actuellement est la suivante : 0-7.4 / 7.4-22 / 22-50 / 50-150 / 150-350 / &gt; 350 (valeurs de seuil choisies à partir du baromètre Avere).</p>
 </div>
 </section>
 <section id="infrastructure-quantitatif">
@@ -919,7 +921,7 @@ La classification des niveaux de puissances nominale est à valider (en liaison 
 <td><p>non</p></td>
 </tr>
 <tr class="row-even"><td><p>a5</p></td>
-<td><p>Densité des stations équipées (nb stations équipées / nb stations)</p></td>
+<td><p>Densité des aires de service équipées</p></td>
 <td><p>3</p></td>
 <td><p>infra</p></td>
 <td><p>oui</p></td>
@@ -928,7 +930,7 @@ La classification des niveaux de puissances nominale est à valider (en liaison 
 <td><p>Distance moyenne inter-station de recharge</p></td>
 <td><p>3</p></td>
 <td><p>infra</p></td>
-<td><p>oui</p></td>
+<td><p>non</p></td>
 </tr>
 </tbody>
 </table>
@@ -941,8 +943,8 @@ ex. Suivi temporel de la distance interstation (utilisation du graphe pour calcu
 Le graphe autoroutier doit permettre d’associer plusieurs stations à un noeud (ou à un tronçon).</p>
 </div>
 </section>
-<section id="indicateurs-par-station">
-<h3><span class="section-number">3.5.2. </span>Indicateurs par station<a class="headerlink" href="#indicateurs-par-station" title="Link to this heading">#</a></h3>
+<section id="indicateurs-par-aire">
+<h3><span class="section-number">3.5.2. </span>Indicateurs par aire<a class="headerlink" href="#indicateurs-par-aire" title="Link to this heading">#</a></h3>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>id</p></th>
@@ -954,19 +956,19 @@ Le graphe autoroutier doit permettre d’associer plusieurs stations à un noeud
 </thead>
 <tbody>
 <tr class="row-even"><td><p>a7</p></td>
-<td><p>Puissance installée par station</p></td>
+<td><p>Puissance installée par aire</p></td>
 <td><p>2</p></td>
 <td><p>infra</p></td>
 <td><p>non</p></td>
 </tr>
 <tr class="row-odd"><td><p>a8</p></td>
-<td><p>Nombre de points de charge par station</p></td>
+<td><p>Nombre de points de charge par aire</p></td>
 <td><p>2</p></td>
 <td><p>infra</p></td>
 <td><p>non</p></td>
 </tr>
 <tr class="row-even"><td><p>a9</p></td>
-<td><p>Distance de recharge par station</p></td>
+<td><p>Distance de recharge par aire</p></td>
 <td><p>2</p></td>
 <td><p>infra</p></td>
 <td><p>non</p></td>
@@ -995,25 +997,79 @@ Le graphe autoroutier doit permettre d’associer plusieurs stations à un noeud
 </thead>
 <tbody>
 <tr class="row-even"><td><p>u1-x-yy-z</p></td>
-<td><p>Nombre de point de charge actif</p></td>
+<td><p>Durée de dysfonctionnement des pdc par catégorie de puissance (état HS)</p></td>
 <td><p>2</p></td>
 <td><p>usage</p></td>
 <td><p>oui (national/région)</p></td>
 </tr>
 <tr class="row-odd"><td><p>u2-x-yy-z</p></td>
-<td><p>Pourcentage de point de charge actif</p></td>
+<td><p>Durée d’utilisation des pdc(état occupé)</p></td>
 <td><p>2</p></td>
 <td><p>usage</p></td>
-<td><p>synthèse</p></td>
+<td><p>non</p></td>
 </tr>
 <tr class="row-even"><td><p>u3-x-yy-z</p></td>
+<td><p>Durée de non utilisation des pdc (état libre)</p></td>
+<td><p>2</p></td>
+<td><p>usage</p></td>
+<td><p>non</p></td>
+</tr>
+<tr class="row-odd"><td><p>u4-x-yy-z</p></td>
+<td><p>Durée d’ouverture des pdc par catégorie de puissance</p></td>
+<td><p>2</p></td>
+<td><p>usage</p></td>
+<td><p>oui (national/région)</p></td>
+</tr>
+<tr class="row-even"><td><p>u5-x-yy-z</p></td>
+<td><p>Répartition horaire des sessions (nombre)</p></td>
+<td><p>3</p></td>
+<td><p>usage</p></td>
+<td><p>oui (national/région)</p></td>
+</tr>
+<tr class="row-odd"><td><p>u6-x-yy-z</p></td>
+<td><p>Durée des sessions par catégorie de puissance</p></td>
+<td><p>2</p></td>
+<td><p>usage</p></td>
+<td><p>oui (national/région)</p></td>
+</tr>
+<tr class="row-even"><td><p>u7-x-yy-z</p></td>
+<td><p>Durée d’activité des stations (état saturé, active ou inactive)</p></td>
+<td><p>2</p></td>
+<td><p>usage</p></td>
+<td><p>oui (national/région)</p></td>
+</tr>
+<tr class="row-odd"><td><p>u8-x-yy-z</p></td>
+<td><p>Durée de saturation des stations</p></td>
+<td><p>2</p></td>
+<td><p>usage</p></td>
+<td><p>oui (national/région)</p></td>
+</tr>
+<tr class="row-even"><td><p>u9-x-yy-z</p></td>
+<td><p>Energie distribuée par catégorie de puissance</p></td>
+<td><p>2</p></td>
+<td><p>usage</p></td>
+<td><p>oui (national/région)</p></td>
+</tr>
+<tr class="row-odd"><td><p>u10-x-yy-z</p></td>
 <td><p>Nombre de sessions</p></td>
 <td><p>2</p></td>
 <td><p>usage</p></td>
 <td><p>oui (national/région)</p></td>
 </tr>
-<tr class="row-odd"><td><p>u4-x-yy-z</p></td>
-<td><p>Energie distribuée</p></td>
+<tr class="row-even"><td><p>u11-x-yy-z</p></td>
+<td><p>Nombre de sessions réussies</p></td>
+<td><p>2</p></td>
+<td><p>usage</p></td>
+<td><p>oui (national/région)</p></td>
+</tr>
+<tr class="row-odd"><td><p>u12-x-yy-z</p></td>
+<td><p>Nombre de pdc en activité par catégorie de puissance</p></td>
+<td><p>2</p></td>
+<td><p>usage</p></td>
+<td><p>oui (national/région)</p></td>
+</tr>
+<tr class="row-even"><td><p>u13-x-yy-z</p></td>
+<td><p>Puissance des points de recharge en activité</p></td>
 <td><p>2</p></td>
 <td><p>usage</p></td>
 <td><p>oui (national/région)</p></td>
@@ -1021,9 +1077,13 @@ Le graphe autoroutier doit permettre d’associer plusieurs stations à un noeud
 </tbody>
 </table>
 </div>
-<p>u1 est calculé sur une journée
-u2 est calculé à partir de u1 et i1
-u3 et u4 sont calculés par heure</p>
+<p>u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, u11, u12, u13 sont les valeurs cumulées (ex. moyenne, somme)</p>
+<p>u1 et u4 sont calculés par catégorie de puissance</p>
+<p>u4 est la durée de 24h multipliée par le nombre de points de recharge dans l’état “en activité”</p>
+<p>u5 est le nombre de sessions démarrées dans la période concernée</p>
+<p>u6 est la part de la durée dans la période des sessions démarrées ou terminées dans la période</p>
+<p>u9 est la part de l’énergie (au prorata de la durée passée dans la période) des sessions</p>
+<p>u12 et u13 sont calculés à partir de e2</p>
 <p>exemple d’utilisation : Analyse du profil horaire de l’énergie fournie en fonction des périodes et de la localisation.</p>
 </section>
 <section id="usage-qualite-de-service">
@@ -1042,96 +1102,30 @@ u3 et u4 sont calculés par heure</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>q1-x-yy-z</p></td>
-<td><p>Durée de dysfonctionnement des pdc (état hors-service)</p></td>
-<td><p>2</p></td>
-<td><p>usage</p></td>
-<td><p>oui (national/région)</p></td>
-</tr>
-<tr class="row-odd"><td><p>q2-x-yy-z</p></td>
-<td><p>Durée d’utilisation des pdc (état occupé)</p></td>
-<td><p>2</p></td>
-<td><p>usage</p></td>
-<td><p>oui (national/région)</p></td>
-</tr>
-<tr class="row-even"><td><p>q3-x-yy-z</p></td>
-<td><p>Durée de non utilisation des pdc (état libre)</p></td>
-<td><p>2</p></td>
-<td><p>usage</p></td>
-<td><p>oui (national/région)</p></td>
-</tr>
-<tr class="row-odd"><td><p>q4-x-yy-z</p></td>
-<td><p>Durée d’ouverture</p></td>
-<td><p>2</p></td>
-<td><p>usage</p></td>
-<td><p>oui (national/région)</p></td>
-</tr>
-<tr class="row-even"><td><p>q5-x-yy-z</p></td>
-<td><p>Nombre de sessions</p></td>
-<td><p>3</p></td>
-<td><p>usage</p></td>
-<td><p>oui (national/région)</p></td>
-</tr>
-<tr class="row-odd"><td><p>q6-x-yy-z</p></td>
-<td><p>Durée des sessions</p></td>
-<td><p>3</p></td>
-<td><p>usage</p></td>
-<td><p>oui (national/région)</p></td>
-</tr>
-<tr class="row-even"><td><p>q7-x-yy-z</p></td>
-<td><p>Durée d’activité des stations (état saturé, active ou inactive)</p></td>
-<td><p>2</p></td>
-<td><p>usage</p></td>
-<td><p>oui (national/région)</p></td>
-</tr>
-<tr class="row-odd"><td><p>q8-x-yy-z</p></td>
-<td><p>Durée de saturation des stations</p></td>
-<td><p>2</p></td>
-<td><p>usage</p></td>
-<td><p>oui (national/région)</p></td>
-</tr>
-<tr class="row-even"><td><p>q9-x-yy-z</p></td>
-<td><p>Energie consommée</p></td>
-<td><p>2</p></td>
-<td><p>usage</p></td>
-<td><p>oui (national/région)</p></td>
-</tr>
-<tr class="row-odd"><td><p>q10-x-yy-z</p></td>
-<td><p>Nombre de sessions réussies</p></td>
-<td><p>2</p></td>
-<td><p>usage</p></td>
-<td><p>oui (national/région)</p></td>
-</tr>
-<tr class="row-even"><td><p>q11-x-yy-z</p></td>
-<td><p>Puissance des points de recharge activés</p></td>
-<td><p>2</p></td>
-<td><p>usage</p></td>
-<td><p>oui (national/région)</p></td>
-</tr>
-<tr class="row-odd"><td><p>q12-x-yy-z</p></td>
 <td><p>Taux de disponibilité par catégorie de puissance</p></td>
 <td><p>3</p></td>
 <td><p>usage</p></td>
 <td><p>synthèse</p></td>
 </tr>
-<tr class="row-even"><td><p>q13-x-yy-z</p></td>
-<td><p>Taux d’utilisation</p></td>
+<tr class="row-odd"><td><p>q2-x-yy-z</p></td>
+<td><p>Taux d’utilisation par catégorie de puissance</p></td>
 <td><p>2</p></td>
 <td><p>usage</p></td>
 <td><p>synthèse</p></td>
 </tr>
-<tr class="row-odd"><td><p>q14-x-yy-z</p></td>
+<tr class="row-even"><td><p>q3-x-yy-z</p></td>
 <td><p>Taux de saturation des stations</p></td>
 <td><p>2</p></td>
 <td><p>usage</p></td>
 <td><p>synthèse</p></td>
 </tr>
-<tr class="row-even"><td><p>q15-x-yy-z</p></td>
-<td><p>Facteur de charge</p></td>
+<tr class="row-odd"><td><p>q4-x-yy-z</p></td>
+<td><p>Facteur de charge par catégorie de puissance</p></td>
 <td><p>2</p></td>
 <td><p>usage</p></td>
 <td><p>synthèse</p></td>
 </tr>
-<tr class="row-odd"><td><p>q16-x-yy-z</p></td>
+<tr class="row-even"><td><p>q5-x-yy-z</p></td>
 <td><p>Taux de sessions réussies</p></td>
 <td><p>2</p></td>
 <td><p>usage</p></td>
@@ -1140,17 +1134,11 @@ u3 et u4 sont calculés par heure</p>
 </tbody>
 </table>
 </div>
-<p>q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11 sont les valeurs cumulées (ex. moyenne, somme)</p>
-<p>q1 et q4 sont calculés par catégorie de puissance</p>
-<p>q4 est la durée de 24h multipliée par le nombre de points de recharge dans l’état “en activité”</p>
-<p>q5 est le nombre de sessions démarrées dans la période concernée</p>
-<p>q6 est la part de la durée dans la période des sessions démarrées ou terminées dans la période</p>
-<p>q9 est la part de l’énergie (au prorata de la durée passée) dans la période des sessions</p>
-<p>q12 est calculé à partir de q1 et de q4</p>
-<p>q13 est calculé à partir de q2 et de q3 (ou de q1, q4 et q6)</p>
-<p>q14 est calculé à partir de q8 et de q7</p>
-<p>q15 est calculé à partir de q9 et de q11</p>
-<p>q16 est calculé à partir de q10 et de q5</p>
+<p>q1 est calculé à partir de u1 et u4</p>
+<p>q2 est calculé à partir de u6, u1 et u4 (ou de u2 et u3)</p>
+<p>q3 est calculé à partir de u8 et u7</p>
+<p>q4 est calculé à partir de u9 et u12</p>
+<p>q5 est calculé à partir de u11 et u10</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Les indicateurs suivants ont été formalisés par l’AFIREV:</p>
@@ -1198,16 +1186,34 @@ u3 et u4 sont calculés par heure</p>
 <tr class="row-even"><td><p>d3-w-x-yy-z</p></td>
 <td><p>Nombre de sessions par point de recharge</p></td>
 <td><p>2</p></td>
-<td><p>u3</p></td>
+<td><p>u5, u11</p></td>
 <td><p>historique</p></td>
 </tr>
 <tr class="row-odd"><td><p>d4-w-x-yy-z</p></td>
 <td><p>Taux de disponibilité par catégorie de puissance</p></td>
 <td><p>2</p></td>
-<td><p>q1, q3</p></td>
+<td><p>q1</p></td>
 <td><p>historique</p></td>
 </tr>
-<tr class="row-even"><td><p>d5-w-x-yy-z</p></td>
+<tr class="row-even"><td><p>d5-x-yy-z</p></td>
+<td><p>Taux d’utilisation</p></td>
+<td><p>2</p></td>
+<td><p>q2</p></td>
+<td><p>historique</p></td>
+</tr>
+<tr class="row-odd"><td><p>d6-x-yy-z</p></td>
+<td><p>Taux de saturation des stations</p></td>
+<td><p>2</p></td>
+<td><p>q3</p></td>
+<td><p>historique</p></td>
+</tr>
+<tr class="row-even"><td><p>d7-x-yy-z</p></td>
+<td><p>Facteur de charge</p></td>
+<td><p>2</p></td>
+<td><p>q4</p></td>
+<td><p>historique</p></td>
+</tr>
+<tr class="row-odd"><td><p>d8-w-x-yy-z</p></td>
 <td><p>Taux de points de recharge avec indispo &gt; 7 j</p></td>
 <td><p>3</p></td>
 <td><p>q1, q3</p></td>
@@ -1245,7 +1251,15 @@ u3 et u4 sont calculés par heure</p>
 <td><p>2</p></td>
 </tr>
 <tr class="row-odd"><td><p>e2-x-yy-z</p></td>
-<td><p>Liste des stations actives</p></td>
+<td><p>Liste des stations du réseau RTE-T central</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>e3-x-yy-z</p></td>
+<td><p>Liste des stations du réseau RTE-T global</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>e4-x-yy-z</p></td>
+<td><p>Liste des stations en activité</p></td>
 <td><p>2</p></td>
 </tr>
 </tbody>
@@ -1275,31 +1289,27 @@ u3 et u4 sont calculés par heure</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>p0-x-yy</p></td>
-<td><p>Liste des stations du réseau RTE-T</p></td>
-<td><p>2</p></td>
-</tr>
-<tr class="row-odd"><td><p>p1-x-yy</p></td>
+<tr class="row-even"><td><p>p1-x-yy</p></td>
 <td><p>Liste des stations des parcs p300</p></td>
 <td><p>2</p></td>
 </tr>
-<tr class="row-even"><td><p>p2-x-yy</p></td>
+<tr class="row-odd"><td><p>p2-x-yy</p></td>
 <td><p>Liste des stations des parcs p400</p></td>
 <td><p>2</p></td>
 </tr>
-<tr class="row-odd"><td><p>p3-x-yy</p></td>
+<tr class="row-even"><td><p>p3-x-yy</p></td>
 <td><p>Liste des stations des parcs p600</p></td>
 <td><p>2</p></td>
 </tr>
-<tr class="row-even"><td><p>p4-x-yy</p></td>
+<tr class="row-odd"><td><p>p4-x-yy</p></td>
 <td><p>Liste des stations des parcs p1400</p></td>
 <td><p>2</p></td>
 </tr>
-<tr class="row-odd"><td><p>p5-x-yy</p></td>
+<tr class="row-even"><td><p>p5-x-yy</p></td>
 <td><p>Liste des stations des parcs p1500</p></td>
 <td><p>2</p></td>
 </tr>
-<tr class="row-even"><td><p>p6-x-yy</p></td>
+<tr class="row-odd"><td><p>p6-x-yy</p></td>
 <td><p>Liste des stations des parcs p1600</p></td>
 <td><p>2</p></td>
 </tr>
@@ -1323,15 +1333,15 @@ u3 et u4 sont calculés par heure</p>
 <td><p>2</p></td>
 </tr>
 <tr class="row-even"><td><p>r3</p></td>
-<td><p>Ratio AFIR d60 / p300 / central</p></td>
+<td><p>Ratio AFIR d60 / p300 / global</p></td>
 <td><p>2</p></td>
 </tr>
 <tr class="row-odd"><td><p>r4</p></td>
-<td><p>Ratio AFIR d60 / p600 / central</p></td>
+<td><p>Ratio AFIR d60 / p600 / global</p></td>
 <td><p>2</p></td>
 </tr>
 <tr class="row-even"><td><p>r5</p></td>
-<td><p>Ratio AFIR d120 / p1400 / central</p></td>
+<td><p>Ratio AFIR d120 / p1400 / global</p></td>
 <td><p>2</p></td>
 </tr>
 <tr class="row-odd"><td><p>r6</p></td>
@@ -1343,7 +1353,7 @@ u3 et u4 sont calculés par heure</p>
 <td><p>2</p></td>
 </tr>
 <tr class="row-odd"><td><p>r8</p></td>
-<td><p>Ratio AFIR d100 / p1500 / central</p></td>
+<td><p>Ratio AFIR d100 / p1500 / global</p></td>
 <td><p>2</p></td>
 </tr>
 </tbody>
@@ -1454,7 +1464,7 @@ u3 et u4 sont calculés par heure</p>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-d-infrastructure-du-reseau-autoroutes">3.5. Indicateurs d’infrastructure du réseau autoroutes</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-globaux">3.5.1. Indicateurs globaux</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-par-station">3.5.2. Indicateurs par station</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-par-aire">3.5.2. Indicateurs par aire</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indicateurs-d-usage">3.6. Indicateurs d’usage</a><ul class="nav section-nav flex-column">

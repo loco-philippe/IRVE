@@ -183,7 +183,7 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Avancement</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../suivi/activites.html">1. Activités à planifier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../suivi/activites.html">1. Roadmap et activités à planifier</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../suivi/avancement.html">2. Avancement</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs de référence</span></p>
@@ -413,6 +413,12 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modele-qualicharge">Modèle Qualicharge</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compatibilite-indicateurs">Compatibilité indicateurs</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autres-besoins-d-evolutions-du-modele-de-donnees">Autres besoins d’évolutions du modèle de données</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reglementation-afir">Règlementation AFIR</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reglement-ue-2023-1804">Règlement UE 2023/1804</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#projet-de-modification-de-fin-2024">projet de modification de fin 2024</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#impacts-sur-le-modele-de-donnees-qualicharge">Impacts sur le modèle de données Qualicharge</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compatibilite-avec-les-donnees-transport-gouv">Compatibilité avec les données <code class="docutils literal notranslate"><span class="pre">transport.gouv</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition-de-conversion-du-format-csv-transport-gouv-au-format-csv-qualicharge">Proposition de conversion du format CSV <code class="docutils literal notranslate"><span class="pre">transport.gouv</span></code> au format CSV Qualicharge</a></li>
 </ul>
@@ -527,17 +533,18 @@ document.write(`
 </section>
 <section id="compatibilite-indicateurs">
 <h2>Compatibilité indicateurs<a class="headerlink" href="#compatibilite-indicateurs" title="Link to this heading">#</a></h2>
-<p>Le modèle contient l’ensemble des informations permettant de générer les indicateurs à l’exception de ceux traitant des informations suivantes :</p>
+<p>Le modèle contient l’ensemble des informations permettant de générer les indicateurs à l’exception des informations suivantes :</p>
 <ul class="simple">
-<li><p>état activé ou désactivé d’un point de recharge (ou d’une station): Cette information est nécessaire pour ne pas fausser les indicateurs (ne pas tenir compte des points de recharge désactivés)</p></li>
-<li><p>identification de l’opérateur: La seule information obligatoire concernant l’opérateur est une adresse email (le nom de l’opérateur est optionnel)</p></li>
-<li><p>identification de l’aménageur: L’aménageur n’est pas identifié explicitement (toutes les informations liées à l’aménageur sont optionnelles)</p></li>
+<li><p>état activé ou désactivé d’un point de recharge (ou d’une station): Cette information est nécessaire pour ne pas fausser les indicateurs (ne pas tenir compte des points de recharge désactivés). Des points restent à clarifier concernant la propagation de l’état (ex. est-ce que lorsque tous les pdc d’une station sont désactivés, la station l’est aussi  - idem pour les localisations associées) et la réactivation (est-ce autorisé ?).</p></li>
+<li><p>identification de l’opérateur: La seule information obligatoire concernant l’opérateur est une adresse email (le nom de l’opérateur est optionnel). Ce point rejoint un point évoqué dans le chapitre suivant.</p></li>
+<li><p>identification de l’aménageur: L’aménageur n’est pas identifié explicitement (toutes les informations liées à l’aménageur sont optionnelles)Ce point rejoint un point évoqué dans le chapitre suivant.</p></li>
+<li><p>identification de la localisation: Aucun identifiant n’est défini pour la localisation. L’information principale qui pourrait faire office d’identifiant est la coordonnée géographique.</p></li>
 <li><p>site d’implantation: Les types d’implantation définis ne permettent pas de restituer la nature du site telle qu’elle est restituée par l’AVERE (ex. commerce, entreprise)</p></li>
-<li><p>puissance: La puissance est actuellement identifiée par une valeur. Une classification par niveau de puissance permettrait des analyses par gamme de puissance</p></li>
-<li><p>type d’alimentation AC/DC: Cette information est souhaitable</p></li>
-<li><p>Type de session: Cette information permettrait d’identifier par exemple les charges partielles ou interrompues</p></li>
+<li><p>puissance: La puissance est actuellement identifiée par une valeur. Une classification par niveau de puissance permettrait des analyses par gamme de puissance. Cette information est gérée actuellement de façon dynamique ce qui semble être suffisant.</p></li>
+<li><p>type d’alimentation AC/DC: Cette information est souhaitable. Elle est gérée dynamiquement actuellement. Est-ce suffisant ?</p></li>
+<li><p>Type de session: Cette information permettrait d’identifier par exemple les charges partielles ou interrompues. Les sessions non réussies sont calculées dynamiquement, ce serait peut-être intéressant en terme de performance d’avoir cette information de façon statique.</p></li>
 <li><p>tarification: Cette information est souhaitable (présente dans les indicateurs AVERE)</p></li>
-<li><p>qualité de service: le taux d’occupation ou la disponibilité d’un point de charge nécessite de disposer du temps passé dans chaque état (voir <a class="reference internal" href="etats.html"><span class="std std-doc">état des points de recharge</span></a>). Cette information est présente pour les sessions (table ‘session’) mais pas pour les périodes d’indisponibilité (pannes ou arrêt). Les périoes d’indisponibilité doivent être explicites pour élaborer les indicateurs de qualité de service</p></li>
+<li><p>qualité de service: le taux d’occupation ou la disponibilité d’un point de charge nécessite de disposer du temps passé dans chaque état (voir <a class="reference internal" href="etats.html"><span class="std std-doc">état des points de recharge</span></a>). Cette information est présente pour les sessions (table ‘session’) mais pas pour les périodes d’indisponibilité (pannes ou arrêt). La aussi, pour des raisons de performance, il peut être utile de reconstruire et de stocker les différents états (dans ce cas ça peut être géré en dehors de la base de données actuelle)</p></li>
 </ul>
 </section>
 <section id="autres-besoins-d-evolutions-du-modele-de-donnees">
@@ -547,7 +554,152 @@ document.write(`
 <li><p>énorme point d’attention concernant la “productibilité” (fait d’être produit plus ou moins facilement) des champs. En effet vu la variété des acteurs, et l’historique, on va fragmenter la qualité de la base consolidée si on ne prête pas attention suffisante à ça (certains pourront produire, d’autres pas si facilement), voire, perdre des PDC (situation qui se produisait en v2 initialement, qui nous a amené à rendre optionnels certains champs)</p></li>
 <li><p>sur les formats des attributs, on gagnera à homogénéiser (ou à transformer à la volée quand on consolide si ça peut se faire simplement) et resserrer la vis</p></li>
 <li><p>Une autre option pour simplifier pourrait être de sortir les attributs liés aux opérateurs et aux aménageurs (données quasi-fixes qui sont plus associées à un profil admin et qui pourraient être gérées séparément). Il n’y aurait dans ce cas qu’un seul attribut <code class="docutils literal notranslate"><span class="pre">id_operateur</span></code> et <code class="docutils literal notranslate"><span class="pre">id_amenageur</span></code> à associer aux stations. Ca permettrait également de faciliter les transferts de responsabilité de stations d’un opérateur à l’autre (sinon, c’est plus compliqué à gérér).</p></li>
+<li><p>le point de livraison nécessitera peut-être des informations complémentaires, une entité dédiée serait alors à envisager ?</p></li>
 </ul>
+</section>
+<section id="reglementation-afir">
+<h2>Règlementation AFIR<a class="headerlink" href="#reglementation-afir" title="Link to this heading">#</a></h2>
+<p>Premier décodage de la règlementation (AFIR) des données statiques et dynamiques</p>
+<section id="reglement-ue-2023-1804">
+<h3>Règlement UE 2023/1804<a class="headerlink" href="#reglement-ue-2023-1804" title="Link to this heading">#</a></h3>
+<p>La règlementation en vigueur (UE 2023/1804) précise (en complément des articles liés 3 et 4 liés aux objectifs d’aménagement et abordés fin 2024) à l’article 20 les points liés aux données :</p>
+<ul class="simple">
+<li><p>identifiants unique délivré par l’IDRO pour les exploitants des points de recharge et les prestataires de service le 14 avril 2025,</p></li>
+<li><p>disponibilité sans frais des données statiques et dynamiques au 14 avril 2025,</p></li>
+<li><p>Au plus tard le 31 décembre 2024, accessibilité sur une base ouverte et non discriminatoire à tous les utilisateurs des données statiques et dynamiques par l’intermédiaire de leur point d’accès national,</p></li>
+<li><p>données statiques :</p>
+<ul>
+<li><p>localisation géographique des points de recharge,</p></li>
+<li><p>nombre de connecteurs,</p></li>
+<li><p>nombre de places réservées aux personnes handicapées,</p></li>
+<li><p>les coordonnées du propriétaire et de l’exploitant de la station de recharge,</p></li>
+<li><p>les horaires d’ouverture,</p></li>
+<li><p>les codes ID, au moins de l’exploitant du point de recharge,</p></li>
+<li><p>le type de connecteur,</p></li>
+<li><p>le type de courant (AC/DC),</p></li>
+<li><p>la puissance de sortie maximale (kW) de la station de recharge,</p></li>
+<li><p>la puissance de sortie maximale (kW) du point de recharge,</p></li>
+<li><p>la compatibilité avec les types de véhicules,</p></li>
+</ul>
+</li>
+<li><p>données dynamiques :</p>
+<ul>
+<li><p>le statut opérationnel (opérationnel/hors service),</p></li>
+<li><p>la disponibilité (en cours d’utilisation/libre),</p></li>
+<li><p>le prix ad hoc,</p></li>
+<li><p>le caractère 100 % renouvelable de l’électricité fournie (oui/non),</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="projet-de-modification-de-fin-2024">
+<h3>projet de modification de fin 2024<a class="headerlink" href="#projet-de-modification-de-fin-2024" title="Link to this heading">#</a></h3>
+<p>Le projet mis en relecture fin 2024 propose les modifications suivantes :</p>
+<ul class="simple">
+<li><p>remplacement de la “localisation géographique des points de recharge” par les attributs suivants :</p>
+<ul>
+<li><p>global navigation satellite system (GNSS) geographic location information,</p></li>
+<li><p>additional geographic location information,</p></li>
+<li><p>country,</p></li>
+<li><p>region,</p></li>
+<li><p>city or town,</p></li>
+<li><p>postal code,</p></li>
+<li><p>address name,</p></li>
+</ul>
+</li>
+<li><p>remplacement des “coordonnées du propriétaire et de l’exploitant de la station de recharge” par :</p>
+<ul>
+<li><p>Legal name of the recharging point operator or owner,</p></li>
+<li><p>Commercial name of the recharging point operator or owner,</p></li>
+<li><p>Service support,</p></li>
+<li><p>Helpdesk telephone,</p></li>
+</ul>
+</li>
+<li><p>abandon du code ID de l’exploitant du point de recharge,</p></li>
+<li><p>remplacement de “horaires d’ouverture” par :</p>
+<ul>
+<li><p>Opening time,</p></li>
+<li><p>Time zone,</p></li>
+</ul>
+</li>
+<li><p>le caractère renouvelable de l’énergie est déplacé de données dynamiques à données statiques,</p></li>
+<li><p>ajout des données statiques suivantes :</p>
+<ul>
+<li><p>Number of recharging points,</p></li>
+<li><p>Facilities offering associated services to the user,</p></li>
+<li><p>Vehicle specifications permitted,</p></li>
+<li><p>Number of parking spaces,</p></li>
+<li><p>Payment device with bank card reader,</p></li>
+<li><p>Payment device with a contactless functionality that is at least able to read payment cards,</p></li>
+<li><p>Other ad hoc payment option,</p></li>
+<li><p>Additional information about payment providers accepted,</p></li>
+<li><p>Contract-based (subscription) payment option,</p></li>
+<li><p>Recharging point ID code (connector),</p></li>
+<li><p>Mobility service providers offering contract-based recharging,</p></li>
+<li><p>Plug-and-charge,</p></li>
+<li><p>Smart recharging services,</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="impacts-sur-le-modele-de-donnees-qualicharge">
+<h3>Impacts sur le modèle de données Qualicharge<a class="headerlink" href="#impacts-sur-le-modele-de-donnees-qualicharge" title="Link to this heading">#</a></h3>
+<p>Une prise en compte des données AFIR, sans analyse détaillée des attributs, aurait les impacts suivants dans le modèle des données Qualicharge :</p>
+<ul class="simple">
+<li><p>modèle de données :</p>
+<ul>
+<li><p>pas de remise en cause des entités actuelle (la notion de connecteur n’est pas nécessaire, la notion de propriétaire est peut-être à revoir en fonction des entités aménageur/enseigne),</p></li>
+<li><p>ajout éventuel de la notion de pool (ou de station de station) pour gérer les données liées aux articles 3 et 4,</p></li>
+</ul>
+</li>
+<li><p>entité localisation :</p>
+<ul>
+<li><p>les attributs définis sont déjà présents via les tables liées,</p></li>
+<li><p>ajout éventuel de “additional geographic location information”</p></li>
+</ul>
+</li>
+<li><p>entité point de recharge</p>
+<ul>
+<li><p>ajout du nombre de connecteurs</p></li>
+<li><p>ajout du type de courant (AC/DC)</p></li>
+<li><p>refonte des types de connecteurs à voir</p></li>
+<li><p>ajout de la compatibilité avec les types de véhicules</p></li>
+<li><p>ajout de Vehicle specifications permitted,</p></li>
+<li><p>ajout du paiement sans contact,</p></li>
+<li><p>ajout de Contract-based (subscription) payment option,</p></li>
+</ul>
+</li>
+<li><p>entité station</p>
+<ul>
+<li><p>ajout du nombre de places</p></li>
+<li><p>ajout du nombre de places handicapées</p></li>
+<li><p>horaires à remplacer par un format plus structuré (Opening time + Time zone ?)</p></li>
+<li><p>ajout de la puissance maxi</p></li>
+<li><p>ajout de Facilities offering associated services to the user</p></li>
+<li><p>ajout de Mobility service providers offering contract-based recharging,</p></li>
+<li><p>ajout de Plug-and-charge,</p></li>
+<li><p>ajout de Smart recharging services</p></li>
+<li><p>ajout du caractère 100 % renouvelable de l’électricité fournie (oui/non) (est-ce que c’est lié au pdl ?)</p></li>
+</ul>
+</li>
+<li><p>entités aménageur / enseigne (propriétaire) ?</p>
+<ul>
+<li><p>distinction legal name / commercial name</p></li>
+</ul>
+</li>
+<li><p>entités opérateur</p>
+<ul>
+<li><p>la distinction legal name / commercial name concerne-t-elle les opérateurs ?</p></li>
+<li><p>ajout du service support</p></li>
+</ul>
+</li>
+<li><p>entité session</p>
+<ul>
+<li><p>ajout du prix ad-hoc</p></li>
+</ul>
+</li>
+</ul>
+</section>
 </section>
 <section id="compatibilite-avec-les-donnees-transport-gouv">
 <h2>Compatibilité avec les données <code class="docutils literal notranslate"><span class="pre">transport.gouv</span></code><a class="headerlink" href="#compatibilite-avec-les-donnees-transport-gouv" title="Link to this heading">#</a></h2>
@@ -697,6 +849,12 @@ De façon générale, la niveau de qualité attendue des valeurs des attributs p
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modele-qualicharge">Modèle Qualicharge</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compatibilite-indicateurs">Compatibilité indicateurs</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autres-besoins-d-evolutions-du-modele-de-donnees">Autres besoins d’évolutions du modèle de données</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reglementation-afir">Règlementation AFIR</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reglement-ue-2023-1804">Règlement UE 2023/1804</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#projet-de-modification-de-fin-2024">projet de modification de fin 2024</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#impacts-sur-le-modele-de-donnees-qualicharge">Impacts sur le modèle de données Qualicharge</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compatibilite-avec-les-donnees-transport-gouv">Compatibilité avec les données <code class="docutils literal notranslate"><span class="pre">transport.gouv</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition-de-conversion-du-format-csv-transport-gouv-au-format-csv-qualicharge">Proposition de conversion du format CSV <code class="docutils literal notranslate"><span class="pre">transport.gouv</span></code> au format CSV Qualicharge</a></li>
 </ul>

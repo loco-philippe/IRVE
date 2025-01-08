@@ -185,7 +185,7 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Avancement</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../suivi/activites.html">1. Activités à planifier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../suivi/activites.html">1. Roadmap et activités à planifier</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../suivi/avancement.html">2. Avancement</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicateurs de référence</span></p>
@@ -432,14 +432,15 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-d-historisation">4.2. Solution d’historisation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#besoin">4.2.1. Besoin</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#structure">4.2.2. Structure</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prise-en-compte-des-donnees-temporelles">4.2.3. Prise en compte des données temporelles</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prise-en-compte-des-donnees-d-etat">4.2.4. Prise en compte des données d’état</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#construction-des-indicateurs-temporels">4.2.5. Construction des indicateurs temporels</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#construction-des-indicateurs-a-date">4.2.6. Construction des indicateurs à date</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#purge-des-donnees">4.2.7. Purge des données</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modification-de-la-liste-des-indicateurs">4.2.8. Modification de la liste des indicateurs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interruption-de-flux">4.2.9. Interruption de flux</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#volumetrie">4.2.2. Volumétrie</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#structure">4.2.3. Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prise-en-compte-des-donnees-temporelles">4.2.4. Prise en compte des données temporelles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prise-en-compte-des-donnees-d-etat">4.2.5. Prise en compte des données d’état</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#construction-des-indicateurs-temporels">4.2.6. Construction des indicateurs temporels</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#construction-des-indicateurs-a-date">4.2.7. Construction des indicateurs à date</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#purge-des-donnees">4.2.8. Purge des données</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modification-de-la-liste-des-indicateurs">4.2.9. Modification de la liste des indicateurs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interruption-de-flux">4.2.10. Interruption de flux</a></li>
 </ul>
 </li>
 </ul>
@@ -658,31 +659,49 @@ La moyenne annuelle du nombre quotidien de session peut être calculé à partir
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>d1</p></td>
+<tr class="row-even"><td><p>d1-w-x-yy-z</p></td>
 <td><p>Taux d’évolution du nombre de stations</p></td>
 <td><p>1</p></td>
 <td><p>i4</p></td>
 <td><p>taux évolution</p></td>
 </tr>
-<tr class="row-odd"><td><p>d2</p></td>
+<tr class="row-odd"><td><p>d2-w-x-yy-z</p></td>
 <td><p>Evolution du nombre de points de recharge</p></td>
 <td><p>1</p></td>
 <td><p>i1</p></td>
 <td><p>historique</p></td>
 </tr>
-<tr class="row-even"><td><p>d3</p></td>
+<tr class="row-even"><td><p>d3-w-x-yy-z</p></td>
 <td><p>Nombre de sessions par point de recharge</p></td>
 <td><p>2</p></td>
-<td><p>u3</p></td>
+<td><p>u5, u11</p></td>
 <td><p>historique</p></td>
 </tr>
-<tr class="row-odd"><td><p>d4</p></td>
+<tr class="row-odd"><td><p>d4-w-x-yy-z</p></td>
 <td><p>Taux de disponibilité par catégorie de puissance</p></td>
 <td><p>2</p></td>
-<td><p>q1, q3</p></td>
+<td><p>q1</p></td>
 <td><p>historique</p></td>
 </tr>
-<tr class="row-even"><td><p>d5</p></td>
+<tr class="row-even"><td><p>d5-x-yy-z</p></td>
+<td><p>Taux d’utilisation par catégorie de puissance</p></td>
+<td><p>2</p></td>
+<td><p>q2</p></td>
+<td><p>historique</p></td>
+</tr>
+<tr class="row-odd"><td><p>d6-x-yy-z</p></td>
+<td><p>Taux de saturation des stations</p></td>
+<td><p>2</p></td>
+<td><p>q3</p></td>
+<td><p>historique</p></td>
+</tr>
+<tr class="row-even"><td><p>d7-x-yy-z</p></td>
+<td><p>Facteur de charge par catégorie de puissance</p></td>
+<td><p>2</p></td>
+<td><p>q4</p></td>
+<td><p>historique</p></td>
+</tr>
+<tr class="row-odd"><td><p>d8-w-x-yy-z</p></td>
 <td><p>Taux de points de recharge avec indispo &gt; 7 j</p></td>
 <td><p>3</p></td>
 <td><p>q1, q3</p></td>
@@ -772,7 +791,7 @@ La moyenne annuelle du nombre quotidien de session peut être calculé à partir
 <td><p>2</p></td>
 </tr>
 <tr class="row-odd"><td><p>e2-xx-yy-zz</p></td>
-<td><p>Liste des stations actives</p></td>
+<td><p>Liste des stations en activité</p></td>
 <td><p>2</p></td>
 </tr>
 </tbody>
@@ -798,11 +817,46 @@ La moyenne annuelle du nombre quotidien de session peut être calculé à partir
 <ul class="simple">
 <li><p>infrastructure - typologie : t1, t1- - -1, t5, t5- - -1, t7, t8, t8- - -1</p></li>
 <li><p>infrastructure - quantitatif : i1- - -3, i1- - -4, i4- - -3, i4- - -4, i7- - -3, i7- - -4</p></li>
-<li><p>infrastructure - autoroute : a1, a2, a3, a5, a6</p></li>
-<li><p>usage - quantitatif: u1, u3, u4</p></li>
-<li><p>usage - qualité de service : q1, q1- - -1, q2, q2- - -1, q3, q3- - -1, q4, q4- - -1</p></li>
+<li><p>infrastructure - autoroute : a1, a2, a3</p></li>
+<li><p>usage - quantitatif: u1, u4, u5, u6, u7, u8, u9, u10, u11, u12, u13</p></li>
 <li><p>état : e1 (mensuel)</p></li>
 </ul>
+</section>
+<section id="volumetrie">
+<h3><span class="section-number">4.2.2. </span>Volumétrie<a class="headerlink" href="#volumetrie" title="Link to this heading">#</a></h3>
+<p>hypothèses :</p>
+<ul class="simple">
+<li><p>région : 20 (13 métropole + 5 ultramarins + 1 métropole + 1 national)</p></li>
+<li><p>niveaux de puissance : 6</p></li>
+<li><p>type d’implantation : 5</p></li>
+<li><p>nombre d’EPCI : 1255</p></li>
+<li><p>nombre de départements : 109</p></li>
+<li><p>nombre d’heures : 24</p></li>
+<li><p>nombre d’opérateurs : 40</p></li>
+</ul>
+<p>Nombres de lignes :</p>
+<ul class="simple">
+<li><p>t1 : 120 = 20 x 6</p></li>
+<li><p>t5 : 100 = 20 x 5</p></li>
+<li><p>t7 : 1255</p></li>
+<li><p>t8 : 40</p></li>
+<li><p>i1 : 1364 = 1255 + 109</p></li>
+<li><p>i4 : 1364 = 1255 + 109</p></li>
+<li><p>i7 : 1364 = 1255 + 109</p></li>
+<li><p>a1, a2, a3 : 1</p></li>
+<li><p>u5 : 480 = 24 x 20</p></li>
+<li><p>u1, u4, u6, u9, u12 : 120 = 6 x 20</p></li>
+<li><p>u7, u8, u10, u11, u13 : 20</p></li>
+<li><p>e1, e2, e3, e4 : 1</p></li>
+</ul>
+<p>Total : 6 794 lignes par historisation</p>
+<p>Nombre d’historisations :</p>
+<ul class="simple">
+<li><p>Quotidienne : 62 (deux mois)</p></li>
+<li><p>Mensuelle : 24 (deux ans)</p></li>
+<li><p>Annuelle : 10 (10 ans)</p></li>
+</ul>
+<p>Total : 652 224 lignes (96 x 6 794)</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul class="simple">
@@ -812,7 +866,7 @@ La moyenne annuelle du nombre quotidien de session peut être calculé à partir
 </div>
 </section>
 <section id="structure">
-<h3><span class="section-number">4.2.2. </span>Structure<a class="headerlink" href="#structure" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.2.3. </span>Structure<a class="headerlink" href="#structure" title="Link to this heading">#</a></h3>
 <p>Les données historisées sont regroupées sur une seule table:</p>
 <p>Si besoin, une historisation hebdomadaire ou trimestrielle pourra être ajoutée.</p>
 <p>La structure des historisations est identique pour toutes les périodicités :</p>
@@ -898,7 +952,7 @@ La moyenne annuelle du nombre quotidien de session peut être calculé à partir
 <p>L’opérateur ‘oper1’ dispose pour le mois ‘xxxxxxx’ d’une moyenne de 50 stations.</p>
 </section>
 <section id="prise-en-compte-des-donnees-temporelles">
-<h3><span class="section-number">4.2.3. </span>Prise en compte des données temporelles<a class="headerlink" href="#prise-en-compte-des-donnees-temporelles" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.2.4. </span>Prise en compte des données temporelles<a class="headerlink" href="#prise-en-compte-des-donnees-temporelles" title="Link to this heading">#</a></h3>
 <p>Au premier niveau de périodicité on dispose pour chaque décomposition et chaque indicateur d’une valeur. On a alors :</p>
 <ul class="simple">
 <li><p>QUANTITY = 1</p></li>
@@ -924,11 +978,11 @@ La moyenne annuelle du nombre quotidien de session peut être calculé à partir
 <p>Une valeur facultative à un niveau ‘n+1’ n’est pas présente si elle n’est pas présente au niveau ‘n’</p>
 </section>
 <section id="prise-en-compte-des-donnees-d-etat">
-<h3><span class="section-number">4.2.4. </span>Prise en compte des données d’état<a class="headerlink" href="#prise-en-compte-des-donnees-d-etat" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.2.5. </span>Prise en compte des données d’état<a class="headerlink" href="#prise-en-compte-des-donnees-d-etat" title="Link to this heading">#</a></h3>
 <p>Pour les données d’état, le champ ‘valeur’ est une donnée spécifique de l’indicateur (ex. pour une liste ce pourrait être le nombre de lignes) et le champ ‘valeur additionnelle’ également.</p>
 </section>
 <section id="construction-des-indicateurs-temporels">
-<h3><span class="section-number">4.2.5. </span>Construction des indicateurs temporels<a class="headerlink" href="#construction-des-indicateurs-temporels" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.2.6. </span>Construction des indicateurs temporels<a class="headerlink" href="#construction-des-indicateurs-temporels" title="Link to this heading">#</a></h3>
 <p>Les indicateurs temporels sont construits à partir des données historisées exclusivement suivant les règles propres à chaque indicateur.</p>
 <div class="admonition-exemple admonition">
 <p class="admonition-title">Exemple</p>
@@ -940,22 +994,22 @@ La moyenne annuelle du nombre quotidien de session peut être calculé à partir
 </div>
 </section>
 <section id="construction-des-indicateurs-a-date">
-<h3><span class="section-number">4.2.6. </span>Construction des indicateurs à date<a class="headerlink" href="#construction-des-indicateurs-a-date" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.2.7. </span>Construction des indicateurs à date<a class="headerlink" href="#construction-des-indicateurs-a-date" title="Link to this heading">#</a></h3>
 <p>Les requètes utilisées pour le calcul des indicateurs à date consistent à agréger les données VALUE pour une valeur donnée de LEVEL / TARGET tout en conservant les données CATEGORY, CODE, TIMESTAMP et PERIOD.</p>
 </section>
 <section id="purge-des-donnees">
-<h3><span class="section-number">4.2.7. </span>Purge des données<a class="headerlink" href="#purge-des-donnees" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.2.8. </span>Purge des données<a class="headerlink" href="#purge-des-donnees" title="Link to this heading">#</a></h3>
 <p>Les données d’un niveau ‘n’ déjà utilisées pour calculer les données d’un niveau ‘n+1’ peuvent être supprimées (suppression de lignes).</p>
 <p>Par exemple, on peut purger les données quotidiennes après deux mois, les données quotidienne constituent alors un “stock glissant” de deux mois.</p>
 <p>Pour les données d’état, les règles de purge sont spécifiques.</p>
 </section>
 <section id="modification-de-la-liste-des-indicateurs">
-<h3><span class="section-number">4.2.8. </span>Modification de la liste des indicateurs<a class="headerlink" href="#modification-de-la-liste-des-indicateurs" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.2.9. </span>Modification de la liste des indicateurs<a class="headerlink" href="#modification-de-la-liste-des-indicateurs" title="Link to this heading">#</a></h3>
 <p>L’ajout d’un indicateur à historiser (ou sa suppression) est sans impact pour les données temporelles (la propagation se fait automatiquement d’un niveau d’historisation à un autre).</p>
 <p>Pour les indicateurs d’état la situation est similaire (la suppression d’un indicateur se fera en suivant les règles de purge choisies).</p>
 </section>
 <section id="interruption-de-flux">
-<h3><span class="section-number">4.2.9. </span>Interruption de flux<a class="headerlink" href="#interruption-de-flux" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.2.10. </span>Interruption de flux<a class="headerlink" href="#interruption-de-flux" title="Link to this heading">#</a></h3>
 <p>L’historisation s’applique sur la base d’un flux continu. En cas de discontinuité (ex si des données arrivent après la première historisation), il est nécessaire de modifier les données préalablement historisées.</p>
 <p>Les règles associées restent à définir.</p>
 </section>
@@ -1046,14 +1100,15 @@ La moyenne annuelle du nombre quotidien de session peut être calculé à partir
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-d-historisation">4.2. Solution d’historisation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#besoin">4.2.1. Besoin</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#structure">4.2.2. Structure</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prise-en-compte-des-donnees-temporelles">4.2.3. Prise en compte des données temporelles</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prise-en-compte-des-donnees-d-etat">4.2.4. Prise en compte des données d’état</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#construction-des-indicateurs-temporels">4.2.5. Construction des indicateurs temporels</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#construction-des-indicateurs-a-date">4.2.6. Construction des indicateurs à date</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#purge-des-donnees">4.2.7. Purge des données</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modification-de-la-liste-des-indicateurs">4.2.8. Modification de la liste des indicateurs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interruption-de-flux">4.2.9. Interruption de flux</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#volumetrie">4.2.2. Volumétrie</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#structure">4.2.3. Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prise-en-compte-des-donnees-temporelles">4.2.4. Prise en compte des données temporelles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prise-en-compte-des-donnees-d-etat">4.2.5. Prise en compte des données d’état</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#construction-des-indicateurs-temporels">4.2.6. Construction des indicateurs temporels</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#construction-des-indicateurs-a-date">4.2.7. Construction des indicateurs à date</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#purge-des-donnees">4.2.8. Purge des données</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modification-de-la-liste-des-indicateurs">4.2.9. Modification de la liste des indicateurs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interruption-de-flux">4.2.10. Interruption de flux</a></li>
 </ul>
 </li>
 </ul>

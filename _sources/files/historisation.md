@@ -174,13 +174,16 @@ Le résultat est obtenu en appliquant les traitements suivants:
 
 Les indicateurs temporels identifiés (voir présentation des indicateurs) sont les suivants :
 
-| id  | nom                                              | Pr  | base   | fonction       |
-| --- | ------------------------------------------------ | --- | ------ | -------------- |
-| d1  | Taux d'évolution du nombre de stations           | 1   | i4     | taux évolution |
-| d2  | Evolution du nombre de points de recharge        | 1   | i1     | historique     |
-| d3  | Nombre de sessions par point de recharge         | 2   | u3     | historique     |
-| d4  | Taux de disponibilité par catégorie de puissance | 2   | q1, q3 | historique     |
-| d5  | Taux de points de recharge avec indispo > 7 j    | 3   | q1, q3 | historique     |
+| id          | nom                                              | Pr  | base    | fonction       |
+| ----------- | ------------------------------------------------ | --- | ------- | -------------- |
+| d1-w-x-yy-z | Taux d'évolution du nombre de stations           | 1   | i4      | taux évolution |
+| d2-w-x-yy-z | Evolution du nombre de points de recharge        | 1   | i1      | historique     |
+| d3-w-x-yy-z | Nombre de sessions par point de recharge         | 2   | u5, u11 | historique     |
+| d4-w-x-yy-z | Taux de disponibilité par catégorie de puissance | 2   | q1      | historique     |
+| d5-x-yy-z   | Taux d'utilisation par catégorie de puissance    | 2   | q2      | historique     |
+| d6-x-yy-z   | Taux de saturation des stations                  | 2   | q3      | historique     |
+| d7-x-yy-z   | Facteur de charge par catégorie de puissance     | 2   | q4      | historique     |
+| d8-w-x-yy-z | Taux de points de recharge avec indispo > 7 j    | 3   | q1, q3  | historique     |
 
 Nota : Seule la périodicité est intégrée à la codification (voir chapitre '[codification](./indicateurs.md)'), l'intervalle doit donc être ajouté à l'indicateur pour fournir un résultat.
 
@@ -248,7 +251,7 @@ Les indicateurs d'état identifiés (voir [présentation des indicateurs](./indi
 | id          | nom                                      | Pr  |
 | ----------- | ---------------------------------------- | --- |
 | e1-xx-yy-zz | Liste des stations du réseau autoroutier | 2   |
-| e2-xx-yy-zz | Liste des stations actives               | 2   |
+| e2-xx-yy-zz | Liste des stations en activité           | 2   |
 
 ### Indicateurs à date
 
@@ -268,10 +271,46 @@ L'historisation s'effectue pour les indicateurs suivants (voir chapitre listant 
 
 - infrastructure - typologie : t1, t1- - -1, t5, t5- - -1, t7, t8, t8- - -1
 - infrastructure - quantitatif : i1- - -3, i1- - -4, i4- - -3, i4- - -4, i7- - -3, i7- - -4
-- infrastructure - autoroute : a1, a2, a3, a5, a6
-- usage - quantitatif: u1, u3, u4
-- usage - qualité de service : q1, q1- - -1, q2, q2- - -1, q3, q3- - -1, q4, q4- - -1
+- infrastructure - autoroute : a1, a2, a3
+- usage - quantitatif: u1, u4, u5, u6, u7, u8, u9, u10, u11, u12, u13
 - état : e1 (mensuel)
+
+### Volumétrie
+
+hypothèses :
+
+- région : 20 (13 métropole + 5 ultramarins + 1 métropole + 1 national)
+- niveaux de puissance : 6
+- type d'implantation : 5
+- nombre d'EPCI : 1255
+- nombre de départements : 109
+- nombre d'heures : 24
+- nombre d'opérateurs : 40
+
+Nombres de lignes :
+
+- t1 : 120 = 20 x 6
+- t5 : 100 = 20 x 5
+- t7 : 1255
+- t8 : 40
+- i1 : 1364 = 1255 + 109
+- i4 : 1364 = 1255 + 109
+- i7 : 1364 = 1255 + 109
+- a1, a2, a3 : 1
+- u5 : 480 = 24 x 20
+- u1, u4, u6, u9, u12 : 120 = 6 x 20
+- u7, u8, u10, u11, u13 : 20
+- e1, e2, e3, e4 : 1
+
+Total : 6 794 lignes par historisation
+
+Nombre d'historisations :
+
+- Quotidienne : 62 (deux mois)
+- Mensuelle : 24 (deux ans)
+- Annuelle : 10 (10 ans)
+
+Total : 652 224 lignes (96 x 6 794)
 
 :::{note}
 
@@ -313,11 +352,11 @@ Pour les indicateurs d'état, le champ EXTRAS est spécifique de chaque indicate
 
 exemple du nombre mensuel de stations par opérateur :
 
-| value | extras           | category | target | code  | level  | period | timestamp |
-| ----- | ---------------- | -------- | ------ | ----- | ------ | ------ | --------- |
-| 50    | {'quantity': 30} | 'oper1'  | ''     | 't8'  | ''     | month  | xxxxxxx   |
-| 80    | {'quantity': 30} | 'oper2'  | ''     | 't8'  | ''     | month  | xxxxxxx   |
-| 100   | {'quantity': 30} | 'oper3'  | ''     | 't8'  | ''     | month  | xxxxxxx   |
+| value | extras           | category | target | code | level | period | timestamp |
+| ----- | ---------------- | -------- | ------ | ---- | ----- | ------ | --------- |
+| 50    | {'quantity': 30} | 'oper1'  | ''     | 't8' | ''    | month  | xxxxxxx   |
+| 80    | {'quantity': 30} | 'oper2'  | ''     | 't8' | ''    | month  | xxxxxxx   |
+| 100   | {'quantity': 30} | 'oper3'  | ''     | 't8' | ''    | month  | xxxxxxx   |
 
 L'opérateur 'oper1' dispose pour le mois 'xxxxxxx' d'une moyenne de 50 stations.
 

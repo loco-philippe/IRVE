@@ -21,7 +21,7 @@
   - optimisation de la fonction de calcul de maillage par noeuds
   - étude basculement ROUTE500 vers BDCARTO
 
-## Activités Décembre (11.5)
+## Activités Décembre (11)
 
 - indicateurs
   - identification des stations Qualicharge présente sur autoroute
