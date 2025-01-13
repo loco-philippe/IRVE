@@ -130,7 +130,13 @@ Le modèle contient l'ensemble des informations permettant de générer les indi
 
 ## Règlementation AFIR
 
-Premier décodage de la règlementation (AFIR) des données statiques et dynamiques 
+Premier décodage de la règlementation (AFIR) des données statiques et dynamiques :
+
+- [règlement UE 2023/1804 du 13/09/2023](https://eur-lex.europa.eu/eli/reg/2023/1804/oj)
+- [règlement délégué](https://ec.europa.eu/info/law/better-regulation/have-your-say/initiatives/14347-Donnees-sur-linfrastructure-pour-carburants-alternatifs-types-de-donnees-supplementaires_fr) modifiant l’article 20, paragraphe 2 (fin décembre)
+- annexe de spécification (version Nicolas du 13/01/25) :
+  - Tables A et B : données statiques
+  - Table F : données dynamiques
 
 ### Règlement UE 2023/1804
 
@@ -151,10 +157,10 @@ La règlementation en vigueur (UE 2023/1804) précise (en complément des articl
   - la puissance de sortie maximale (kW) de la station de recharge,
   - la puissance de sortie maximale (kW) du point de recharge,
   - la compatibilité avec les types de véhicules,
-- données dynamiques :
+- données dynamiques (données variables non nécessairement liées aux session/status ex. prix ad-hoc):
   - le statut opérationnel (opérationnel/hors service),
   - la disponibilité (en cours d’utilisation/libre),
-  - le prix ad hoc,
+  - le prix ad-hoc (tarification applicable pour une charge unique),
   - le caractère 100 % renouvelable de l’électricité fournie (oui/non),
 
 ### projet de modification de fin 2024
@@ -162,8 +168,8 @@ La règlementation en vigueur (UE 2023/1804) précise (en complément des articl
 Le projet mis en relecture fin 2024 propose les modifications suivantes :
 
 - remplacement de la "localisation géographique des points de recharge" par les attributs suivants :
-  - global navigation satellite system (GNSS) geographic location information,
-  - additional geographic location information,
+  - global navigation satellite system (GNSS) geographic location information (latitude/ longitude WGS84),
+  - additional geographic location information (ex. niveau d'un parking),
   - country,
   - region,
   - city or town,
@@ -172,8 +178,8 @@ Le projet mis en relecture fin 2024 propose les modifications suivantes :
 - remplacement des "coordonnées du propriétaire et de l’exploitant de la station de recharge" par :
   - Legal name of the recharging point operator or owner,
   - Commercial name of the recharging point operator or owner,
-  - Service support,
-  - Helpdesk telephone,
+  - Service support (A4). Présence personne à la station,
+  - Helpdesk telephone (A5). Voir format défini dans la spécification,
 - abandon du code ID de l'exploitant du point de recharge,
 - remplacement de "horaires d’ouverture" par :
   - Opening time,
@@ -181,7 +187,7 @@ Le projet mis en relecture fin 2024 propose les modifications suivantes :
 - le caractère renouvelable de l'énergie est déplacé de données dynamiques à données statiques,
 - ajout des données statiques suivantes :
   - Number of recharging points,
-  - Facilities offering associated services to the user,
+  - Facilities offering associated services to the user (services proches de la station),
   - Vehicle specifications permitted,
   - Number of parking spaces,
   - Payment device with bank card reader,
@@ -201,40 +207,44 @@ Une prise en compte des données AFIR, sans analyse détaillée des attributs, a
 - modèle de données :
   - pas de remise en cause des entités actuelle (la notion de connecteur n'est pas nécessaire, la notion de propriétaire est peut-être à revoir en fonction des entités aménageur/enseigne),
   - ajout éventuel de la notion de pool (ou de station de station) pour gérer les données liées aux articles 3 et 4,
+  - formats à revoir en fonction de la spécification,
+  - déplacement de certains attributs entre station et point de recharge (la station devient l'entité de gestion et le point de recharge l'entité technique)
 
 - entité localisation :
-  - les attributs définis sont déjà présents via les tables liées,
-  - ajout éventuel de "additional geographic location information"
+  - les attributs définis (A9, A10, A11) sont déjà présents via les tables liées,
+  - le code postal (A12) peut se déduire du code INSEE,
+  - ajout éventuel de "additional geographic location information" (A8)
 
 - entité point de recharge
-  - ajout du nombre de connecteurs
-  - ajout du type de courant (AC/DC)
-  - refonte des types de connecteurs à voir
-  - ajout de la compatibilité avec les types de véhicules
-  - ajout de Vehicle specifications permitted,
-  - ajout du paiement sans contact,
-  - ajout de Contract-based (subscription) payment option,
+  - ajout du nombre de connecteurs (B2)
+  - ajout du type de courant (AC/DC) (B4)
+  - ajustement de restriction_gabarit par Vehicle_specifications_permitted (A17). A remonter au niveau de la station ?
+  - ajout du type de connecteurs MCS (B3)
+  - tarification à remonter au niveau de la station ?
+  - ajout de Plug-and-charge (B8),
+  - ajout de Smart recharging services (B9)
 
 - entité station
-  - ajout du nombre de places
-  - ajout du nombre de places handicapées
-  - horaires à remplacer par un format plus structuré (Opening time + Time zone ?)
-  - ajout de la puissance maxi
-  - ajout de Facilities offering associated services to the user
-  - ajout de Mobility service providers offering contract-based recharging,
-  - ajout de Plug-and-charge,
-  - ajout de Smart recharging services
-  - ajout du caractère 100 % renouvelable de l’électricité fournie (oui/non) (est-ce que c'est lié au pdl ?)
+  - ajout du service support (A4). Ou bien attribut mis en commun au niveau de l'entité opérateur.
+  - ajout du nombre de places (A18)
+  - ajout du nombre de places handicapées (A19)
+  - horaires à remplacer par un format plus structuré (Opening time (A14) + Time zone (A15) ?)
+  - remplacement de station_deux_roues par vehicle_type_compatibility (A16) plus générale (codification UNECE qui inclut les PL)
+  - refonte de la tarification (ajout de la tarification ad-hoc (F3, A23), par contrat (A24) et du paiement sans contact (A21)),
+  - ajout de la puissance maxi (B5)
+  - ajout de Facilities offering associated services to the user (A6)
+  - ajout de Mobility service providers offering contract-based recharging (B7),
+  - ajout du caractère 100 % renouvelable de l’électricité fournie (B10) (est-ce que c'est lié au pdl ?)
 
 - entités aménageur / enseigne (propriétaire) ?
-  - distinction legal name / commercial name
+  - distinction legal name (A1) / commercial name (A2). Mais attributs commun avec l'opérateur ?
 
 - entités opérateur
-  - la distinction legal name / commercial name concerne-t-elle les opérateurs ?
-  - ajout du service support
+  - distinction legal name (A1) / commercial name (A2). Mais attributs commun avec l'opérateur ?
+  - ajout du service support (A4) ou bien au niveau de la station
 
-- entité session
-  - ajout du prix ad-hoc
+- entité status/session
+  - notion de réservation à clarifier (F2)
 
 ## Compatibilité avec les données `transport.gouv`
 

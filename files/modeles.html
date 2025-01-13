@@ -559,7 +559,17 @@ document.write(`
 </section>
 <section id="reglementation-afir">
 <h2>Règlementation AFIR<a class="headerlink" href="#reglementation-afir" title="Link to this heading">#</a></h2>
-<p>Premier décodage de la règlementation (AFIR) des données statiques et dynamiques</p>
+<p>Premier décodage de la règlementation (AFIR) des données statiques et dynamiques :</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://eur-lex.europa.eu/eli/reg/2023/1804/oj">règlement UE 2023/1804 du 13/09/2023</a></p></li>
+<li><p><a class="reference external" href="https://ec.europa.eu/info/law/better-regulation/have-your-say/initiatives/14347-Donnees-sur-linfrastructure-pour-carburants-alternatifs-types-de-donnees-supplementaires_fr">règlement délégué</a> modifiant l’article 20, paragraphe 2 (fin décembre)</p></li>
+<li><p>annexe de spécification (version Nicolas du 13/01/25) :</p>
+<ul>
+<li><p>Tables A et B : données statiques</p></li>
+<li><p>Table F : données dynamiques</p></li>
+</ul>
+</li>
+</ul>
 <section id="reglement-ue-2023-1804">
 <h3>Règlement UE 2023/1804<a class="headerlink" href="#reglement-ue-2023-1804" title="Link to this heading">#</a></h3>
 <p>La règlementation en vigueur (UE 2023/1804) précise (en complément des articles liés 3 et 4 liés aux objectifs d’aménagement et abordés fin 2024) à l’article 20 les points liés aux données :</p>
@@ -582,11 +592,11 @@ document.write(`
 <li><p>la compatibilité avec les types de véhicules,</p></li>
 </ul>
 </li>
-<li><p>données dynamiques :</p>
+<li><p>données dynamiques (données variables non nécessairement liées aux session/status ex. prix ad-hoc):</p>
 <ul>
 <li><p>le statut opérationnel (opérationnel/hors service),</p></li>
 <li><p>la disponibilité (en cours d’utilisation/libre),</p></li>
-<li><p>le prix ad hoc,</p></li>
+<li><p>le prix ad-hoc (tarification applicable pour une charge unique),</p></li>
 <li><p>le caractère 100 % renouvelable de l’électricité fournie (oui/non),</p></li>
 </ul>
 </li>
@@ -598,8 +608,8 @@ document.write(`
 <ul class="simple">
 <li><p>remplacement de la “localisation géographique des points de recharge” par les attributs suivants :</p>
 <ul>
-<li><p>global navigation satellite system (GNSS) geographic location information,</p></li>
-<li><p>additional geographic location information,</p></li>
+<li><p>global navigation satellite system (GNSS) geographic location information (latitude/ longitude WGS84),</p></li>
+<li><p>additional geographic location information (ex. niveau d’un parking),</p></li>
 <li><p>country,</p></li>
 <li><p>region,</p></li>
 <li><p>city or town,</p></li>
@@ -611,8 +621,8 @@ document.write(`
 <ul>
 <li><p>Legal name of the recharging point operator or owner,</p></li>
 <li><p>Commercial name of the recharging point operator or owner,</p></li>
-<li><p>Service support,</p></li>
-<li><p>Helpdesk telephone,</p></li>
+<li><p>Service support (A4). Présence personne à la station,</p></li>
+<li><p>Helpdesk telephone (A5). Voir format défini dans la spécification,</p></li>
 </ul>
 </li>
 <li><p>abandon du code ID de l’exploitant du point de recharge,</p></li>
@@ -626,7 +636,7 @@ document.write(`
 <li><p>ajout des données statiques suivantes :</p>
 <ul>
 <li><p>Number of recharging points,</p></li>
-<li><p>Facilities offering associated services to the user,</p></li>
+<li><p>Facilities offering associated services to the user (services proches de la station),</p></li>
 <li><p>Vehicle specifications permitted,</p></li>
 <li><p>Number of parking spaces,</p></li>
 <li><p>Payment device with bank card reader,</p></li>
@@ -650,52 +660,56 @@ document.write(`
 <ul>
 <li><p>pas de remise en cause des entités actuelle (la notion de connecteur n’est pas nécessaire, la notion de propriétaire est peut-être à revoir en fonction des entités aménageur/enseigne),</p></li>
 <li><p>ajout éventuel de la notion de pool (ou de station de station) pour gérer les données liées aux articles 3 et 4,</p></li>
+<li><p>formats à revoir en fonction de la spécification,</p></li>
+<li><p>déplacement de certains attributs entre station et point de recharge (la station devient l’entité de gestion et le point de recharge l’entité technique)</p></li>
 </ul>
 </li>
 <li><p>entité localisation :</p>
 <ul>
-<li><p>les attributs définis sont déjà présents via les tables liées,</p></li>
-<li><p>ajout éventuel de “additional geographic location information”</p></li>
+<li><p>les attributs définis (A9, A10, A11) sont déjà présents via les tables liées,</p></li>
+<li><p>le code postal (A12) peut se déduire du code INSEE,</p></li>
+<li><p>ajout éventuel de “additional geographic location information” (A8)</p></li>
 </ul>
 </li>
 <li><p>entité point de recharge</p>
 <ul>
-<li><p>ajout du nombre de connecteurs</p></li>
-<li><p>ajout du type de courant (AC/DC)</p></li>
-<li><p>refonte des types de connecteurs à voir</p></li>
-<li><p>ajout de la compatibilité avec les types de véhicules</p></li>
-<li><p>ajout de Vehicle specifications permitted,</p></li>
-<li><p>ajout du paiement sans contact,</p></li>
-<li><p>ajout de Contract-based (subscription) payment option,</p></li>
+<li><p>ajout du nombre de connecteurs (B2)</p></li>
+<li><p>ajout du type de courant (AC/DC) (B4)</p></li>
+<li><p>ajustement de restriction_gabarit par Vehicle_specifications_permitted (A17). A remonter au niveau de la station ?</p></li>
+<li><p>ajout du type de connecteurs MCS (B3)</p></li>
+<li><p>tarification à remonter au niveau de la station ?</p></li>
+<li><p>ajout de Plug-and-charge (B8),</p></li>
+<li><p>ajout de Smart recharging services (B9)</p></li>
 </ul>
 </li>
 <li><p>entité station</p>
 <ul>
-<li><p>ajout du nombre de places</p></li>
-<li><p>ajout du nombre de places handicapées</p></li>
-<li><p>horaires à remplacer par un format plus structuré (Opening time + Time zone ?)</p></li>
-<li><p>ajout de la puissance maxi</p></li>
-<li><p>ajout de Facilities offering associated services to the user</p></li>
-<li><p>ajout de Mobility service providers offering contract-based recharging,</p></li>
-<li><p>ajout de Plug-and-charge,</p></li>
-<li><p>ajout de Smart recharging services</p></li>
-<li><p>ajout du caractère 100 % renouvelable de l’électricité fournie (oui/non) (est-ce que c’est lié au pdl ?)</p></li>
+<li><p>ajout du service support (A4). Ou bien attribut mis en commun au niveau de l’entité opérateur.</p></li>
+<li><p>ajout du nombre de places (A18)</p></li>
+<li><p>ajout du nombre de places handicapées (A19)</p></li>
+<li><p>horaires à remplacer par un format plus structuré (Opening time (A14) + Time zone (A15) ?)</p></li>
+<li><p>remplacement de station_deux_roues par vehicle_type_compatibility (A16) plus générale (codification UNECE qui inclut les PL)</p></li>
+<li><p>refonte de la tarification (ajout de la tarification ad-hoc (F3, A23), par contrat (A24) et du paiement sans contact (A21)),</p></li>
+<li><p>ajout de la puissance maxi (B5)</p></li>
+<li><p>ajout de Facilities offering associated services to the user (A6)</p></li>
+<li><p>ajout de Mobility service providers offering contract-based recharging (B7),</p></li>
+<li><p>ajout du caractère 100 % renouvelable de l’électricité fournie (B10) (est-ce que c’est lié au pdl ?)</p></li>
 </ul>
 </li>
 <li><p>entités aménageur / enseigne (propriétaire) ?</p>
 <ul>
-<li><p>distinction legal name / commercial name</p></li>
+<li><p>distinction legal name (A1) / commercial name (A2). Mais attributs commun avec l’opérateur ?</p></li>
 </ul>
 </li>
 <li><p>entités opérateur</p>
 <ul>
-<li><p>la distinction legal name / commercial name concerne-t-elle les opérateurs ?</p></li>
-<li><p>ajout du service support</p></li>
+<li><p>distinction legal name (A1) / commercial name (A2). Mais attributs commun avec l’opérateur ?</p></li>
+<li><p>ajout du service support (A4) ou bien au niveau de la station</p></li>
 </ul>
 </li>
-<li><p>entité session</p>
+<li><p>entité status/session</p>
 <ul>
-<li><p>ajout du prix ad-hoc</p></li>
+<li><p>notion de réservation à clarifier (F2)</p></li>
 </ul>
 </li>
 </ul>
