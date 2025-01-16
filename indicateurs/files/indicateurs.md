@@ -337,6 +337,15 @@ Les indicateurs suivants ont été formalisés par l'AFIREV:
 - le mode de calcul du taux de disponibilité et du taux d'utilisation est précisé dans le chapitre lié aux [états des points de recharge](./etats.md).
 :::
 
+### Usage - calcul TIRUERT
+
+- énergie distribuée (pour une période donnée et sur un périmètre géographique) :
+
+| id        | nom                              | Pr  | type  | historisé             |
+| --------- | -------------------------------- | --- | ----- | --------------------- |
+| c1-x-yy-z | Nombre de sessions par opérateur | 2   | usage | oui (national/région) |
+| c2-x-yy-z | Energie distribuée par opérateur | 2   | usage | oui (national/région) |
+
 ## Indicateurs temporels
 
 Les indicateurs temporels identifiés sont les suivants :
