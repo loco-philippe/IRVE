@@ -1,0 +1,334 @@
+{
+    "cache_invalidated_at": null,
+    "description": "indicateur t1, t2",
+    "archived": false,
+    "view_count": 158,
+    "collection_position": null,
+    "source_card_id": null,
+    "table_id": null,
+    "result_metadata": [
+        {
+            "display_name": "nb_pdc",
+            "field_ref": [
+                "field",
+                "nb_pdc",
+                {
+                    "base-type": "type/BigInteger"
+                }
+            ],
+            "base_type": "type/BigInteger",
+            "effective_type": "type/BigInteger",
+            "name": "nb_pdc",
+            "semantic_type": null,
+            "fingerprint": {
+                "global": {
+                    "distinct-count": 6,
+                    "nil%": 0.0
+                },
+                "type": {
+                    "type/Number": {
+                        "min": 86.0,
+                        "q1": 1098.0,
+                        "q3": 4479.0,
+                        "max": 9615.0,
+                        "sd": 3482.958321121094,
+                        "avg": 3517.6666666666665
+                    }
+                }
+            }
+        },
+        {
+            "display_name": "p_range",
+            "field_ref": [
+                "field",
+                "p_range",
+                {
+                    "base-type": "type/Text"
+                }
+            ],
+            "base_type": "type/Text",
+            "effective_type": "type/Text",
+            "name": "p_range",
+            "semantic_type": null,
+            "fingerprint": {
+                "global": {
+                    "distinct-count": 6,
+                    "nil%": 0.0
+                }
+            }
+        }
+    ],
+    "creator": {
+        "email": "philippe.thomy@beta.gouv.fr",
+        "first_name": "Philippe",
+        "last_login": "2025-02-01T02:51:48.374297Z",
+        "is_qbnewb": false,
+        "is_superuser": true,
+        "id": 4,
+        "last_name": "Thomy",
+        "date_joined": "2024-07-22T08:15:56.69358Z",
+        "common_name": "Philippe Thomy"
+    },
+    "initially_published_at": null,
+    "database_id": 2,
+    "enable_embedding": false,
+    "collection_id": 12,
+    "query_type": "native",
+    "name": "Nombre de points de recharge selon la cat\u00e9gorie de puissance",
+    "last_used_at": "2025-02-05T10:39:48.144704Z",
+    "type": "question",
+    "creator_id": 4,
+    "updated_at": "2025-02-04T13:28:38.219603Z",
+    "made_public_by_id": null,
+    "embedding_params": null,
+    "cache_ttl": null,
+    "dataset_query": {
+        "database": 2,
+        "type": "native",
+        "native": {
+            "template-tags": {
+                "region": {
+                    "type": "dimension",
+                    "name": "region",
+                    "id": "1ab1589b-b728-49ce-8631-cba14d1e5d22",
+                    "display-name": "Region",
+                    "default": null,
+                    "dimension": [
+                        "field",
+                        530,
+                        null
+                    ],
+                    "widget-type": "string/contains",
+                    "options": {
+                        "case-sensitive": false
+                    }
+                },
+                "departement": {
+                    "type": "dimension",
+                    "name": "departement",
+                    "id": "3d20d22b-bad4-4b87-9077-03388b1eeed1",
+                    "display-name": "Departement",
+                    "default": null,
+                    "dimension": [
+                        "field",
+                        515,
+                        null
+                    ],
+                    "widget-type": "string/contains",
+                    "options": {
+                        "case-sensitive": false
+                    }
+                },
+                "snippet: join stat-loc-city-dep-reg": {
+                    "type": "snippet",
+                    "name": "snippet: join stat-loc-city-dep-reg",
+                    "id": "596446a3-0f23-4b23-bfbd-39212d08b01c",
+                    "snippet-name": "join stat-loc-city-dep-reg",
+                    "display-name": "Snippet: Join Stat Loc City Dep Reg",
+                    "snippet-id": 2
+                },
+                "operateur": {
+                    "type": "dimension",
+                    "name": "operateur",
+                    "id": "cfede063-6446-4b73-b831-157647fe051c",
+                    "display-name": "Operateur",
+                    "default": null,
+                    "dimension": [
+                        "field",
+                        111,
+                        null
+                    ],
+                    "widget-type": "string/=",
+                    "options": null
+                },
+                "#238-valeurs-des-tranches-de-puissance": {
+                    "type": "card",
+                    "name": "#238-valeurs-des-tranches-de-puissance",
+                    "id": "26263bfa-5b67-4b52-8ab7-a00b6218920e",
+                    "display-name": "#238 Valeurs Des Tranches De Puissance",
+                    "card-id": 238
+                }
+            },
+            "query": "WITH\n  puissance (p_range, p_cat) AS ({{#238-valeurs-des-tranches-de-puissance}})\nSELECT\n  count(id_pdc_itinerance) AS nb_pdc,\n  p_range\nFROM\n  pointdecharge\n  LEFT JOIN puissance ON puissance_nominale::numeric <@ p_range \n  {{snippet: join stat-loc-city-dep-reg}}\n  LEFT JOIN operateur on operateur.id = operateur_id\nWHERE\n  {{operateur}}\n  AND {{region}} [[AND {{departement}}]]\nGROUP BY\n  p_range"
+        }
+    },
+    "id": 46,
+    "parameter_mappings": [],
+    "display": "pie",
+    "archived_directly": false,
+    "entity_id": "AwIAzzN8KpfXamPyCoGSa",
+    "collection_preview": true,
+    "last-edit-info": {
+        "id": 4,
+        "email": "philippe.thomy@beta.gouv.fr",
+        "first_name": "Philippe",
+        "last_name": "Thomy",
+        "timestamp": "2025-02-04T13:28:38.265127Z"
+    },
+    "visualization_settings": {
+        "map.region": "f515acfe-fdf4-654f-815d-59cd48a80654",
+        "map.colors": [
+            "rgb(235, 245, 224)",
+            "rgb(197, 215, 178)",
+            "rgb(159, 185, 132)",
+            "rgb(121, 154, 86)",
+            "hsl(88.80000000000001, 51.8%, 28%)"
+        ],
+        "pie.sort_rows": false,
+        "pie.rows": [
+            {
+                "key": "[0.0,7.4)",
+                "name": "[0.0,7.4)",
+                "originalName": "[0.0,7.4)",
+                "color": "#88BF4D",
+                "defaultColor": true,
+                "enabled": true,
+                "hidden": false,
+                "isOther": false
+            },
+            {
+                "key": "[7.4,22.0)",
+                "name": "[7.4,22.0)",
+                "originalName": "[7.4,22.0)",
+                "color": "#7172AD",
+                "defaultColor": true,
+                "enabled": true,
+                "hidden": false,
+                "isOther": false
+            },
+            {
+                "key": "[22.0,50.0)",
+                "name": "[22.0,50.0)",
+                "originalName": "[22.0,50.0)",
+                "color": "#F2A86F",
+                "defaultColor": true,
+                "enabled": true,
+                "hidden": false,
+                "isOther": false
+            },
+            {
+                "key": "[50.0,150.0)",
+                "name": "[50.0,150.0)",
+                "originalName": "[50.0,150.0)",
+                "color": "#EF8C8C",
+                "defaultColor": true,
+                "enabled": true,
+                "hidden": false,
+                "isOther": false
+            },
+            {
+                "key": "[150.0,350.0)",
+                "name": "[150.0,350.0)",
+                "originalName": "[150.0,350.0)",
+                "color": "#A989C5",
+                "defaultColor": true,
+                "enabled": true,
+                "hidden": false,
+                "isOther": false
+            },
+            {
+                "key": "[350.0,)",
+                "name": "[350.0,)",
+                "originalName": "[350.0,)",
+                "color": "#98D9D9",
+                "defaultColor": true,
+                "enabled": true,
+                "hidden": false,
+                "isOther": false
+            },
+            {
+                "key": "[15.0,26.0)",
+                "name": "15 - 26 kW",
+                "originalName": "[15.0,26.0)",
+                "color": "#509EE3",
+                "defaultColor": true,
+                "enabled": true,
+                "hidden": true,
+                "isOther": false
+            },
+            {
+                "key": "[360,)",
+                "name": "> 360 kW",
+                "originalName": "[360,)",
+                "color": "#88BF4D",
+                "defaultColor": true,
+                "enabled": true,
+                "hidden": true,
+                "isOther": false
+            }
+        ],
+        "pie.decimal_places": 1,
+        "pie.show_labels": true,
+        "pie.slice_threshold": 2.4,
+        "column_settings": {}
+    },
+    "collection": {
+        "authority_level": null,
+        "description": null,
+        "archived": false,
+        "slug": "questions_open_data_qualicharge",
+        "archive_operation_id": null,
+        "name": "Questions Open-data Qualicharge",
+        "personal_owner_id": null,
+        "type": null,
+        "is_sample": false,
+        "id": 12,
+        "archived_directly": null,
+        "entity_id": "phmX9z5orJDYnwSG1ewvW",
+        "location": "/11/",
+        "namespace": null,
+        "created_at": "2024-11-07T20:35:18.243134Z"
+    },
+    "metabase_version": "v0.51.2 (8bdb22c)",
+    "parameters": [
+        {
+            "id": "1ab1589b-b728-49ce-8631-cba14d1e5d22",
+            "type": "string/contains",
+            "target": [
+                "dimension",
+                [
+                    "template-tag",
+                    "region"
+                ]
+            ],
+            "name": "Region",
+            "slug": "region",
+            "options": {
+                "case-sensitive": false
+            },
+            "values_query_type": "list"
+        },
+        {
+            "id": "3d20d22b-bad4-4b87-9077-03388b1eeed1",
+            "type": "string/contains",
+            "target": [
+                "dimension",
+                [
+                    "template-tag",
+                    "departement"
+                ]
+            ],
+            "name": "Departement",
+            "slug": "departement",
+            "options": {
+                "case-sensitive": false
+            },
+            "values_query_type": "list"
+        },
+        {
+            "id": "cfede063-6446-4b73-b831-157647fe051c",
+            "type": "string/=",
+            "target": [
+                "dimension",
+                [
+                    "template-tag",
+                    "operateur"
+                ]
+            ],
+            "name": "Operateur",
+            "slug": "operateur"
+        }
+    ],
+    "created_at": "2024-11-07T20:49:17.938182Z",
+    "public_uuid": null
+}

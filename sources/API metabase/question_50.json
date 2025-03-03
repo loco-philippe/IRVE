@@ -1,0 +1,235 @@
+{
+    "cache_invalidated_at": null,
+    "description": null,
+    "archived": false,
+    "view_count": 1,
+    "collection_position": null,
+    "source_card_id": null,
+    "table_id": null,
+    "result_metadata": [
+        {
+            "display_name": "created_at",
+            "field_ref": [
+                "field",
+                "created_at",
+                {
+                    "base-type": "type/DateTimeWithLocalTZ"
+                }
+            ],
+            "base_type": "type/DateTimeWithLocalTZ",
+            "effective_type": "type/DateTimeWithLocalTZ",
+            "name": "created_at",
+            "semantic_type": "type/CreationTimestamp",
+            "fingerprint": {
+                "global": {
+                    "distinct-count": 16,
+                    "nil%": 0.0
+                },
+                "type": {
+                    "type/DateTime": {
+                        "earliest": "2024-06-13T12:46:06.733559Z",
+                        "latest": "2025-01-30T12:45:41.793409Z"
+                    }
+                }
+            }
+        },
+        {
+            "display_name": "updated_at",
+            "field_ref": [
+                "field",
+                "updated_at",
+                {
+                    "base-type": "type/DateTimeWithLocalTZ"
+                }
+            ],
+            "base_type": "type/DateTimeWithLocalTZ",
+            "effective_type": "type/DateTimeWithLocalTZ",
+            "name": "updated_at",
+            "semantic_type": "type/UpdatedTimestamp",
+            "fingerprint": {
+                "global": {
+                    "distinct-count": 16,
+                    "nil%": 0.0
+                },
+                "type": {
+                    "type/DateTime": {
+                        "earliest": "2024-11-23T00:53:52.579291Z",
+                        "latest": "2025-02-03T11:35:19.841652Z"
+                    }
+                }
+            }
+        },
+        {
+            "display_name": "id",
+            "field_ref": [
+                "field",
+                "id",
+                {
+                    "base-type": "type/UUID"
+                }
+            ],
+            "base_type": "type/UUID",
+            "effective_type": "type/UUID",
+            "name": "id",
+            "semantic_type": "type/PK",
+            "fingerprint": null
+        },
+        {
+            "display_name": "nom_operateur",
+            "field_ref": [
+                "field",
+                "nom_operateur",
+                {
+                    "base-type": "type/Text"
+                }
+            ],
+            "base_type": "type/Text",
+            "effective_type": "type/Text",
+            "name": "nom_operateur",
+            "semantic_type": null,
+            "fingerprint": {
+                "global": {
+                    "distinct-count": 14,
+                    "nil%": 0.0
+                },
+                "type": {
+                    "type/Text": {
+                        "percent-json": 0.0,
+                        "percent-url": 0.0,
+                        "percent-email": 0.0,
+                        "percent-state": 0.0,
+                        "average-length": 9.0625
+                    }
+                }
+            }
+        },
+        {
+            "display_name": "contact_operateur",
+            "field_ref": [
+                "field",
+                "contact_operateur",
+                {
+                    "base-type": "type/Text"
+                }
+            ],
+            "base_type": "type/Text",
+            "effective_type": "type/Text",
+            "name": "contact_operateur",
+            "semantic_type": null,
+            "fingerprint": {
+                "global": {
+                    "distinct-count": 14,
+                    "nil%": 0.0
+                },
+                "type": {
+                    "type/Text": {
+                        "percent-json": 0.0,
+                        "percent-url": 0.0,
+                        "percent-email": 1.0,
+                        "percent-state": 0.0,
+                        "average-length": 21.5625
+                    }
+                }
+            }
+        },
+        {
+            "display_name": "telephone_operateur",
+            "field_ref": [
+                "field",
+                "telephone_operateur",
+                {
+                    "base-type": "type/Text"
+                }
+            ],
+            "base_type": "type/Text",
+            "effective_type": "type/Text",
+            "name": "telephone_operateur",
+            "semantic_type": null,
+            "fingerprint": {
+                "global": {
+                    "distinct-count": 15,
+                    "nil%": 0.125
+                },
+                "type": {
+                    "type/Text": {
+                        "percent-json": 0.0,
+                        "percent-url": 0.0,
+                        "percent-email": 0.0,
+                        "percent-state": 0.0,
+                        "average-length": 18.25
+                    }
+                }
+            }
+        }
+    ],
+    "creator": {
+        "email": "philippe.thomy@beta.gouv.fr",
+        "first_name": "Philippe",
+        "last_login": "2025-02-01T02:51:48.374297Z",
+        "is_qbnewb": false,
+        "is_superuser": true,
+        "id": 4,
+        "last_name": "Thomy",
+        "date_joined": "2024-07-22T08:15:56.69358Z",
+        "common_name": "Philippe Thomy"
+    },
+    "initially_published_at": null,
+    "database_id": 2,
+    "enable_embedding": false,
+    "collection_id": 18,
+    "query_type": "native",
+    "name": "APItest",
+    "last_used_at": "2025-02-03T22:55:58.077729Z",
+    "type": "question",
+    "creator_id": 4,
+    "updated_at": "2025-02-03T22:55:25.765038Z",
+    "made_public_by_id": null,
+    "embedding_params": null,
+    "cache_ttl": null,
+    "dataset_query": {
+        "database": 2,
+        "type": "native",
+        "native": {
+            "template-tags": {},
+            "query": "select * from operateur"
+        }
+    },
+    "id": 301,
+    "parameter_mappings": [],
+    "display": "table",
+    "archived_directly": false,
+    "entity_id": "W7UaC9KlZlRGnE6CJUqa1",
+    "collection_preview": true,
+    "last-edit-info": {
+        "id": 4,
+        "email": "philippe.thomy@beta.gouv.fr",
+        "first_name": "Philippe",
+        "last_name": "Thomy",
+        "timestamp": "2025-02-03T22:55:25.788015Z"
+    },
+    "visualization_settings": {
+        "table.pivot_column": "telephone_operateur",
+        "table.cell_column": "contact_operateur"
+    },
+    "collection": {
+        "authority_level": null,
+        "description": null,
+        "archived": false,
+        "slug": "questions_error_tracking",
+        "archive_operation_id": null,
+        "name": "Questions error tracking",
+        "personal_owner_id": null,
+        "type": null,
+        "is_sample": false,
+        "id": 18,
+        "archived_directly": null,
+        "entity_id": "lyaHZuuAaGTgOFHT-MuFR",
+        "location": "/11/",
+        "namespace": null,
+        "created_at": "2024-11-20T06:28:34.422399Z"
+    },
+    "metabase_version": "v0.52.8 (3cbfc1e)",
+    "parameters": [],
+    "created_at": "2025-02-03T22:55:25.765038Z",
+    "public_uuid": null
+}

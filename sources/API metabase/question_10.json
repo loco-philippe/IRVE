@@ -1,0 +1,392 @@
+{
+    "cache_invalidated_at": null,
+    "description": null,
+    "archived": false,
+    "view_count": 332,
+    "collection_position": null,
+    "source_card_id": null,
+    "table_id": null,
+    "result_metadata": [
+        {
+            "display_name": "nb_id",
+            "field_ref": [
+                "field",
+                "nb_id",
+                {
+                    "base-type": "type/BigInteger"
+                }
+            ],
+            "base_type": "type/BigInteger",
+            "effective_type": "type/BigInteger",
+            "name": "nb_id",
+            "semantic_type": null,
+            "fingerprint": {
+                "global": {
+                    "distinct-count": 1,
+                    "nil%": 0.0
+                },
+                "type": {
+                    "type/Number": {
+                        "min": 2.0,
+                        "q1": 2.0,
+                        "q3": 2.0,
+                        "max": 2.0,
+                        "sd": 0.0,
+                        "avg": 2.0
+                    }
+                }
+            }
+        },
+        {
+            "display_name": "energy",
+            "field_ref": [
+                "field",
+                "energy",
+                {
+                    "base-type": "type/Float"
+                }
+            ],
+            "base_type": "type/Float",
+            "effective_type": "type/Float",
+            "name": "energy",
+            "semantic_type": null,
+            "fingerprint": {
+                "global": {
+                    "distinct-count": 2,
+                    "nil%": 0.0
+                },
+                "type": {
+                    "type/Number": {
+                        "min": 16.794,
+                        "q1": 16.794,
+                        "q3": 35.675,
+                        "max": 35.675,
+                        "sd": 13.350883135583201,
+                        "avg": 26.234499999999997
+                    }
+                }
+            }
+        },
+        {
+            "display_name": "start_bin",
+            "field_ref": [
+                "field",
+                "start_bin",
+                {
+                    "base-type": "type/DateTimeWithLocalTZ"
+                }
+            ],
+            "base_type": "type/DateTimeWithLocalTZ",
+            "effective_type": "type/DateTimeWithLocalTZ",
+            "name": "start_bin",
+            "semantic_type": "type/CreationTimestamp",
+            "fingerprint": {
+                "global": {
+                    "distinct-count": 2,
+                    "nil%": 0.0
+                },
+                "type": {
+                    "type/DateTime": {
+                        "earliest": "2025-01-31T14:40:00Z",
+                        "latest": "2025-01-31T15:30:00Z"
+                    }
+                }
+            }
+        },
+        {
+            "display_name": "end_bin",
+            "field_ref": [
+                "field",
+                "end_bin",
+                {
+                    "base-type": "type/DateTimeWithLocalTZ"
+                }
+            ],
+            "base_type": "type/DateTimeWithLocalTZ",
+            "effective_type": "type/DateTimeWithLocalTZ",
+            "name": "end_bin",
+            "semantic_type": null,
+            "fingerprint": {
+                "global": {
+                    "distinct-count": 2,
+                    "nil%": 0.0
+                },
+                "type": {
+                    "type/DateTime": {
+                        "earliest": "2025-01-31T15:00:00Z",
+                        "latest": "2025-01-31T16:10:00Z"
+                    }
+                }
+            }
+        },
+        {
+            "display_name": "id_pdc_itinerance",
+            "field_ref": [
+                "field",
+                "id_pdc_itinerance",
+                {
+                    "base-type": "type/Text"
+                }
+            ],
+            "base_type": "type/Text",
+            "effective_type": "type/Text",
+            "name": "id_pdc_itinerance",
+            "semantic_type": null,
+            "fingerprint": {
+                "global": {
+                    "distinct-count": 2,
+                    "nil%": 0.0
+                },
+                "type": {
+                    "type/Text": {
+                        "percent-json": 0.0,
+                        "percent-url": 0.0,
+                        "percent-email": 0.0,
+                        "percent-state": 0.0,
+                        "average-length": 17.0
+                    }
+                }
+            }
+        },
+        {
+            "display_name": "nom_amenageur",
+            "field_ref": [
+                "field",
+                "nom_amenageur",
+                {
+                    "base-type": "type/Text"
+                }
+            ],
+            "base_type": "type/Text",
+            "effective_type": "type/Text",
+            "name": "nom_amenageur",
+            "semantic_type": null,
+            "fingerprint": {
+                "global": {
+                    "distinct-count": 1,
+                    "nil%": 0.0
+                },
+                "type": {
+                    "type/Text": {
+                        "percent-json": 0.0,
+                        "percent-url": 0.0,
+                        "percent-email": 0.0,
+                        "percent-state": 0.0,
+                        "average-length": 12.0
+                    }
+                }
+            }
+        },
+        {
+            "display_name": "nom_operateur",
+            "field_ref": [
+                "field",
+                "nom_operateur",
+                {
+                    "base-type": "type/Text"
+                }
+            ],
+            "base_type": "type/Text",
+            "effective_type": "type/Text",
+            "name": "nom_operateur",
+            "semantic_type": null,
+            "fingerprint": {
+                "global": {
+                    "distinct-count": 1,
+                    "nil%": 0.0
+                },
+                "type": {
+                    "type/Text": {
+                        "percent-json": 0.0,
+                        "percent-url": 0.0,
+                        "percent-email": 0.0,
+                        "percent-state": 0.0,
+                        "average-length": 12.0
+                    }
+                }
+            }
+        }
+    ],
+    "creator": {
+        "email": "philippe.thomy@beta.gouv.fr",
+        "first_name": "Philippe",
+        "last_login": "2025-02-01T02:51:48.374297Z",
+        "is_qbnewb": false,
+        "is_superuser": true,
+        "id": 4,
+        "last_name": "Thomy",
+        "date_joined": "2024-07-22T08:15:56.69358Z",
+        "common_name": "Philippe Thomy"
+    },
+    "initially_published_at": null,
+    "database_id": 2,
+    "enable_embedding": false,
+    "collection_id": 18,
+    "query_type": "native",
+    "name": "10-sessions dupliquées (avec dates arrondies à un créneau de 10 minutes)",
+    "last_used_at": "2025-02-03T13:40:16.074926Z",
+    "type": "question",
+    "creator_id": 4,
+    "updated_at": "2024-12-07T17:41:57.693241Z",
+    "made_public_by_id": null,
+    "embedding_params": null,
+    "cache_ttl": null,
+    "dataset_query": {
+        "database": 2,
+        "type": "native",
+        "native": {
+            "template-tags": {
+                "operateur": {
+                    "type": "dimension",
+                    "name": "operateur",
+                    "id": "635319a0-e626-45c9-8b19-58cbeeae1d49",
+                    "display-name": "Operateur",
+                    "default": null,
+                    "dimension": [
+                        "field",
+                        111,
+                        null
+                    ],
+                    "widget-type": "string/=",
+                    "options": null
+                },
+                "start_min": {
+                    "type": "date",
+                    "name": "start_min",
+                    "id": "1121bb0c-65a2-46ec-bf73-f18d295c05df",
+                    "display-name": "Start Min",
+                    "default": "2024-12-01"
+                },
+                "start_max": {
+                    "type": "date",
+                    "name": "start_max",
+                    "id": "653ddbbb-66c0-4705-af19-ccd2a5f5b493",
+                    "display-name": "Start Max",
+                    "default": "2024-12-31",
+                    "widget-type": null
+                }
+            },
+            "query": "SELECT\n  nb_id,\n  energy,\n  start_bin,\n  end_bin,\n  id_pdc_itinerance,\n  nom_amenageur,\n  nom_operateur\nFROM\n  (\n    SELECT\n      count(id) AS nb_id,\n      energy,\n      date_bin("10 minute", start, "2024-01-01"::timestamp) AS start_bin,\n      date_bin("10 minute", session.end, "2024-01-01"::timestamp) AS end_bin,\n      point_de_charge_id\n    FROM\n      session\n    where start >= {{start_min}} and start < {{start_max}}\n    GROUP BY\n      energy, date_bin("10 minute", start, "2024-01-01"::timestamp), date_bin("10 minute", session.end, "2024-01-01"::timestamp), point_de_charge_id\n  ) AS list_sessions\n  INNER JOIN PointDeCharge ON list_sessions.point_de_charge_id = PointDeCharge.id\n  INNER JOIN Station ON PointDeCharge.station_id = Station.id\n  INNER JOIN amenageur ON Station.amenageur_id = Amenageur.id\n  INNER JOIN operateur ON Station.operateur_id = operateur.id\nWHERE\n  nb_id > 1 and {{operateur}} and start_bin <> end_bin\norder BY\n    start_bin desc"
+        }
+    },
+    "id": 92,
+    "parameter_mappings": [],
+    "display": "table",
+    "archived_directly": false,
+    "entity_id": "6KTO-NPye4JU-2iiY3CA9",
+    "collection_preview": true,
+    "last-edit-info": {
+        "id": 4,
+        "email": "philippe.thomy@beta.gouv.fr",
+        "first_name": "Philippe",
+        "last_name": "Thomy",
+        "timestamp": "2024-12-07T17:41:57.735433Z"
+    },
+    "visualization_settings": {
+        "table.pivot_column": "nb_operateur",
+        "table.cell_column": "contact_operateur",
+        "table.columns": [
+            {
+                "name": "nb_id",
+                "enabled": true
+            },
+            {
+                "name": "energy",
+                "enabled": true
+            },
+            {
+                "name": "start_bin",
+                "enabled": true
+            },
+            {
+                "name": "end_bin",
+                "enabled": true
+            },
+            {
+                "name": "id_pdc_itinerance",
+                "enabled": true
+            },
+            {
+                "name": "nom_amenageur",
+                "enabled": true
+            },
+            {
+                "name": "nom_operateur",
+                "enabled": true
+            }
+        ],
+        "column_settings": {
+            "["name","start_bin"]": {
+                "time_enabled": "minutes",
+                "date_style": "D/M/YYYY"
+            },
+            "["name","end_bin"]": {
+                "time_enabled": "minutes",
+                "date_style": "D/M/YYYY"
+            }
+        }
+    },
+    "collection": {
+        "authority_level": null,
+        "description": null,
+        "archived": false,
+        "slug": "questions_error_tracking",
+        "archive_operation_id": null,
+        "name": "Questions error tracking",
+        "personal_owner_id": null,
+        "type": null,
+        "is_sample": false,
+        "id": 18,
+        "archived_directly": null,
+        "entity_id": "lyaHZuuAaGTgOFHT-MuFR",
+        "location": "/11/",
+        "namespace": null,
+        "created_at": "2024-11-20T06:28:34.422399Z"
+    },
+    "metabase_version": "v0.51.3 (d757d0b)",
+    "parameters": [
+        {
+            "id": "635319a0-e626-45c9-8b19-58cbeeae1d49",
+            "type": "string/=",
+            "target": [
+                "dimension",
+                [
+                    "template-tag",
+                    "operateur"
+                ]
+            ],
+            "name": "Operateur",
+            "slug": "operateur"
+        },
+        {
+            "id": "1121bb0c-65a2-46ec-bf73-f18d295c05df",
+            "type": "date/single",
+            "target": [
+                "variable",
+                [
+                    "template-tag",
+                    "start_min"
+                ]
+            ],
+            "name": "Start Min",
+            "slug": "start_min",
+            "default": "2024-12-01"
+        },
+        {
+            "id": "653ddbbb-66c0-4705-af19-ccd2a5f5b493",
+            "type": "date/single",
+            "target": [
+                "variable",
+                [
+                    "template-tag",
+                    "start_max"
+                ]
+            ],
+            "name": "Start Max",
+            "slug": "start_max",
+            "default": "2024-12-31"
+        }
+    ],
+    "created_at": "2024-11-20T22:42:14.602507Z",
+    "public_uuid": null
+}

@@ -312,7 +312,7 @@ exemple d'utilisation : Analyse du profil horaire de l'énergie fournie en fonct
 
 q1 est calculé à partir de u1 et u4
 
-q2 est calculé à partir de u6, u1 et u4 (ou de u2 et u3)
+q2 est calculé à partir de u6, u1 et u4
 
 q3 est calculé à partir de u8 et u7
 
@@ -380,7 +380,7 @@ Les indicateurs d'état identifiés sont les suivants :
 | e1-x-yy-z | Liste des stations du réseau autoroutier   | 2   |
 | e2-x-yy-z | Liste des stations du réseau RTE-T central | 2   |
 | e3-x-yy-z | Liste des stations du réseau RTE-T global  | 2   |
-| e4-x-yy-z | Liste des stations en activité             | 2   |
+| e4-x-yy-z | Liste des points de recharge en activité   | 2   |
 
 :::{note}
 

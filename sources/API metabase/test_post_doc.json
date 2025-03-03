@@ -1,0 +1,20 @@
+{
+
+  "collection_position": null,
+  "result_metadata": null,
+  "collection_id": null,
+  "name": "test API-generated question",
+  "dataset_query": {
+    "database": 2,
+    "type": "native",
+    "native": {
+        "template-tags": {},
+        "query": "select * from operateur"
+    }
+  },
+  "display": "table",
+  "parameters": [],
+  "description": null,
+  "type": "question",
+  "visualization_settings": {}
+}

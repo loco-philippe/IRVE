@@ -4,6 +4,7 @@
 
 - animation de la qualité des données
   - activité récurrente de suivi des opérateurs
+  - formalisation de l'accord pour mise en production des données opérateurs
 - indicateurs
   - intégration des indicateurs autoroute dans le dashboard open-data
   - intégration des indicateurs de qualité de service dans le dashboard open-data
@@ -20,6 +21,51 @@
   - affectation du sens aux aires de service et échangeurs autoroutiers
   - optimisation de la fonction de calcul de maillage par noeuds
   - étude basculement ROUTE500 vers BDCARTO
+
+## Orientations mars (12)
+
+- animation de la qualité des données
+  - activité récurrente de suivi des opérateurs
+  - accord de mise en production pour les opérateurs validés (prévu: Atlante, Engie, Powerdot, EVzen)
+- outil d'analyse réseau
+  - affectation du sens aux échangeurs autoroutiers
+  - outil de paramétrage des jonctions et échangeurs
+- indicateurs
+  - activation des fonctions d'historisation
+  - intégration des indicateurs dépendants de l'historisation (autoroute, état, temporel)
+  - indicateurs qualité de service
+
+## Activités Février (12,5)
+
+- animation de la qualité des données
+  - activité récurrente de suivi des opérateurs
+  - formalisation de l'accord de mise en production des données opérateurs
+  - accord de mise en production pour Tesla
+  - étude avec le PAN de l'impact du futur modèle de données européen
+- outil d'analyse réseau
+  - adaptation de l'outil au double-sens
+  - intégration des aires de services BD CARTO
+  - affectation du sens aux aires de service
+- indicateurs
+  - utilisation de la vue statique
+  - utilitaire de transfert des indicateurs de staging vers production
+  - activation des indicateurs de production
+
+## Activités Janvier (12,5)
+
+- animation de la qualité des données
+  - activité récurrente de suivi des opérateurs
+  - proposition d'un accord de mise en production pour les opérateurs
+- analyse
+  - partage d'un support d'analyse du modèle de données proposée par l'AFIR
+  - réflexion/lecture sur les RLD (gestionnaires de réseaux locaux de distribution)
+- indicateurs
+  - tableau de suivi partagé sur Resana
+  - intégration des indicateurs dynamiques dans le dashboard open-data
+  - création de l'historisation Prefect (voir PR) des :
+    - indicateurs statiques i4, i7
+    - indicateurs d'usage u5, u6, u9, u10, u11, u12, u13
+    - indicateurs Tiruert c1, c2
 
 ## Activités Décembre (11)
 
