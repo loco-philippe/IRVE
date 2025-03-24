@@ -1,4 +1,3 @@
-suivi de la consommation de chaque opérateur
 
 # Processus d'intégration d'un flux de données
 
@@ -35,6 +34,8 @@ La notion de point de recharge est explicite dans sa formulation. Les notions de
   - des propriétés (accessibilité, horaires)
 
   Ainsi, par exemple, deux points de recharge ne partageant pas la même localisation ne pourront être associés à la même station.
+  
+  Le périmètre d'une station reste a l'appréciation des opérateurs et aménageurs (il peut être restreint à quelques points de recharge ou au contraire regrouper plusieurs dizaine de points de recharge).
 
 - le parc de recharge ne fait référence à aucune activité de gestion mais est associé exclusivement aux exigences règlementaire portant sur un lieu. Ainsi un parc regroupe par exemple toutes les stations d'une aire de service autoroutière ou bien d'une gare ou d'un aéroport. Il reflète en ce sens le besoin usager de recharge en un lieu donné.
 
@@ -163,14 +164,14 @@ La présence d'un modèle de données et d'un schéma de données induit plusieu
   - deux points de recharge d'une même station ne peuvent avoir des "coordonneesXY" différentes (relation entre station et location)
   - deux points de recharge d'une même station ne peuvent avoir des "nom_operateur" différents (relation entre station et operateur)
 
-Si les relations liées à une station sont trop contraignantes, il est possible de décomposer une station en deux stations. Par exemple, pour les stations multi-PDL, on peut séparer la station en deux stations associées chacune à un PDL unique.
+Si les relations liées à une station sont trop contraignantes, il est possible de décomposer une station en plusieurs stations. Par exemple, pour les stations avec deux PDL, on peut séparer la station en deux stations associées chacune à un PDL.
 
-### Contraintes sur les données dynamiques
+### Contraintes dynamiques
 
 Les données dynamiques doivent respecter les exigences suivantes :
 
 - fraicheur : Le temps réel pour les status implique un délai maximal de 5 mn entre l'émission d'un status et son enregitrement dans Qualicharge. Pour les sessions, la contrainte est moins forte, un délai d'une journée est demandé,
-- duplication : Les sessions et les status qui respecte le format défini sont enregistrés sans contrôle supplémentaire, il est donc demandé de ne pas dupliquer leur envoi dans Qualicharge.
+- unicité : Les sessions et les status qui respecte le format défini sont enregistrés sans contrôle supplémentaire, il est donc demandé de ne pas effectuer d'envois multiples dans Qualicharge.
 - cohérence : les status et les sessions ne sont pas indépendants. En particulier, une session démarre lorsqu'un status est émis avec un état d'occupation "occupe" et se termine lorsqu'un status est émis avec un état d'occupation "libre".
 
 ### Contraintes spécifiques
@@ -183,12 +184,25 @@ Certaines contraintes qui ne s'expriment pas au travers d'un modèle ou d'un sch
 
 ## Flux de données
 
-La connexion d'un flux de données dans Qualicharge implique :
+### Contrôle des données
 
-- la prise en compte du schéma de données,
-- le respect du modèle de données,
-- la cohétrence des données dynamiques.
+La connexion d'un flux de données dans Qualicharge implique de respecter les contraintes exposées au chapitre précédent.
 
- soit
-est mis en 
-Le processus de mise en place d'un flux de données dans Qualicharge intègre plusieurs étapes 
+Pour cela deux types de traitements sont en place dans Qualicharge :
+
+- un contrôle a priori au niveau de l'API : Le chargement des données est conditionné par le respect des contraintes liées principalement au schéma et au modèle de données
+- un contrôle a posteriori sur un historique de données : Celui-ci concerne principalement les contraintes dynamiques et spécifiques.
+
+NOTA : Le non respect du modèle ou du schéma se traduit soit par un rejet de la demande de chargement des données, soit par des corrections à la volée dans certains cas (ex. lorsque des attributs attachés à la station sont différents au chargement de points de recharge de cette station).
+
+### Processus
+
+La mise en production d'un flux de données s'effectue suivant trois étapes :
+
+- étape de test : des accès sont ouverts sur un environnement de "staging" identique à l'environnement de production. La plateforme est utilisée pour tester les API avec des jeux de données représentatifs de la production.
+- étape de mise au point : Les données de production sont utilisées et des boucles courtes de validation / corrections sont mises en place.
+- étape de validation : Elle consiste à vérifier que sur une période de deux semaines, le flux de données est continu et représentatif des données de production et les contrôles a posteriori sont positifs
+
+A l'issue de cette période de deux semaines, un PV de recette est établi et le flux est basculé sur la plateforme de production.
+
+La liste des contrôles et les critères d'acceptation associés sont joints au PV de recette (cf lien xxxx)
