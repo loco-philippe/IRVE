@@ -150,7 +150,7 @@ Notation :
 
 - PK: Indique un attribut identifiant de façon unique une entité (ex. "coordonneesXY" identifie de façon unique une localisation)
 - M : Indique un attribut devant être renseigné obligatoirement
-- relation entre entités : Les relations indiquées sont des relations 1-n exprimant le fait que dans un sens, une entité A peut être associée à plusieurs entités B mais que dans l'autre sens une entité B peut etre associée à une seule entité A (ex. une station est associée à une seule location mais une location peut être associée à plusieurs stations).
+- relation entre entités : Les relations indiquées sont des relations 1-n exprimant le fait que dans un sens, une entité A peut être associée à plusieurs entités B mais que dans l'autre sens une entité B peut etre associée à une seule entité A (ex. une station est associée à une seule localisation mais une localisation peut être associée à plusieurs stations).
 
 ### Contraintes sur les données
 
@@ -161,7 +161,7 @@ La présence d'un modèle de données et d'un schéma de données induit plusieu
   - une même "coordonneesXY" ne peut être associée à deux "adresse_station" différentes,
   - on ne peut avoir deux "num_pdl" différents pour un même "id_station_itinerance"
 - relations entre entités : les relations 1-n entre entités induisent également des règles similaires aux attributs. Par exemple :
-  - deux points de recharge d'une même station ne peuvent avoir des "coordonneesXY" différentes (relation entre station et location)
+  - deux points de recharge d'une même station ne peuvent avoir des "coordonneesXY" différentes (relation entre station et localisation)
   - deux points de recharge d'une même station ne peuvent avoir des "nom_operateur" différents (relation entre station et operateur)
 
 Si les relations liées à une station sont trop contraignantes, il est possible de décomposer une station en plusieurs stations. Par exemple, pour les stations avec deux PDL, on peut séparer la station en deux stations associées chacune à un PDL.
