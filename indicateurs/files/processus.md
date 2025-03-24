@@ -190,10 +190,10 @@ La connexion d'un flux de données dans Qualicharge implique de respecter les co
 
 Pour cela deux types de traitements sont en place dans Qualicharge :
 
-- un contrôle a priori au niveau de l'API : Le chargement des données est conditionné par le respect des contraintes liées principalement au schéma et au modèle de données
+- un contrôle a priori au niveau des API : Le chargement des données est conditionné par le respect des contraintes liées principalement au schéma et au modèle de données
 - un contrôle a posteriori sur un historique de données : Celui-ci concerne principalement les contraintes dynamiques et spécifiques.
 
-NOTA : Le non respect du modèle ou du schéma se traduit soit par un rejet de la demande de chargement des données, soit par des corrections à la volée dans certains cas (ex. lorsque des attributs attachés à la station sont différents au chargement de points de recharge de cette station).
+NOTA : Au niveau des API, le non respect du modèle ou du schéma se traduit soit par un rejet de la demande de chargement des données, soit par des corrections à la volée dans certains cas (ex. lorsque plusieurs points de recharge liés à une même station sont chargés avec des valeurs différentes pour des attributs attachés à la station).
 
 ### Processus
 
@@ -201,7 +201,7 @@ La mise en production d'un flux de données s'effectue suivant trois étapes :
 
 - étape de test : des accès sont ouverts sur un environnement de "staging" identique à l'environnement de production. La plateforme est utilisée pour tester les API avec des jeux de données représentatifs de la production.
 - étape de mise au point : Les données de production sont utilisées et des boucles courtes de validation / corrections sont mises en place.
-- étape de validation : Elle consiste à vérifier que sur une période de deux semaines, le flux de données est continu et représentatif des données de production et les contrôles a posteriori sont positifs
+- étape de validation : Elle consiste à vérifier que sur une période de deux semaines, le flux de données est continu et représentatif des données de production et que les contrôles a posteriori sont positifs
 
 A l'issue de cette période de deux semaines, un PV de recette est établi et le flux est basculé sur la plateforme de production.
 
