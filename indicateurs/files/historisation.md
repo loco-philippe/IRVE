@@ -384,6 +384,15 @@ Les formules de calcul sont les suivantes:
 - $mini_{n+1} = MIN(mini_n)$
 - $last_{n+1} = LAST(last_n)$
 
+Formules corrigées :
+
+- $size_{n+1} = \sum size_n$
+- $mean_{n+1} = \frac {\sum size_n . mean_n} {size_{n+1}}$
+- $var_{n+1} = \frac {1} {size_{n+1}} \sum size_n . (var_n + (mean_{n+1} - mean_n)^2)$
+- $var_{n+1} = \frac {1} {size_{n+1}} \sum size_n . var_n$ +
+               $mean_{n+1}^2$ +
+               $\frac {1} {size_{n+1}} \sum size_n . mean_n^2$
+
 Une valeur facultative à un niveau 'n+1' n'est pas présente si elle n'est pas présente au niveau 'n'
 
 ### Prise en compte des données d'état
