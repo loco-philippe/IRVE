@@ -29,7 +29,7 @@ flowchart LR
 
 ### étape de test
 
-Des accès sont ouverts sur un environnement de "staging" identique à l'environnement de production. 
+Des accès sont ouverts sur un environnement de "staging" identique à l'environnement de production.
 
 La plateforme est utilisée pour tester les API avec des jeux de données statiques ou dynamiques.
 

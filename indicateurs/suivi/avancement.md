@@ -1,3 +1,6 @@
+16.5
+
+
 # Avancement
 
 ## En cours
@@ -22,17 +25,31 @@
   - optimisation de la fonction de calcul de maillage par noeuds
   - étude basculement ROUTE500 vers BDCARTO
 
-## Orientations mars (12)
+## Orientations avril (14)
 
 - animation de la qualité des données
   - activité récurrente de suivi des opérateurs
-  - accord de mise en production pour les opérateurs validés (prévu: Atlante, Engie, Powerdot, EVzen)
+  - accord de mise en production pour les opérateurs validés (prévu: Atlante, Engie, station-E, ionity, Electra, Bump, Bouygues)
+  - extension FAQ
+  - calcul des critères sur Prefect
 - outil d'analyse réseau
   - affectation du sens aux échangeurs autoroutiers
   - outil de paramétrage des jonctions et échangeurs
 - indicateurs
   - activation des fonctions d'historisation
   - intégration des indicateurs dépendants de l'historisation (autoroute, état, temporel)
+
+## Activités mars (14)
+
+- animation de la qualité des données
+  - activité récurrente de suivi des opérateurs
+  - accord de mise en production pour les opérateurs validés (Powerdot, EVzen)
+  - intégration de la fraicheur des données dans les critères de validation
+  - initialisation de la documentation d'une FAQ
+- indicateurs
+  - activation des fonctions d'historisation sur Prefect
+  - premier indicateur historisé sur la base de production
+  - fonction de changement d'échelle de temps pour l'historisation (up)
   - indicateurs qualité de service
 
 ## Activités Février (12,5)
