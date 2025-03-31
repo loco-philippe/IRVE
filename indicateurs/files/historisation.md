@@ -390,7 +390,8 @@ Formules corrigées :
 - $mean_{n+1} = \frac {\sum size_n . mean_n} {size_{n+1}}$
 - $var_{n+1} = \frac {1} {size_{n+1}} \sum size_n . (var_n + (mean_{n+1} - mean_n)^2)$
 - $var_{n+1} = \frac {1} {size_{n+1}} \sum size_n . var_n$ +
-               $mean_{n+1}^2$ +
+               $mean_{n+1}^2$ -
+               $\frac {2 . mean_{n+1}} {size_{n+1}} \sum mean_n$ +
                $\frac {1} {size_{n+1}} \sum size_n . mean_n^2$
 
 Une valeur facultative à un niveau 'n+1' n'est pas présente si elle n'est pas présente au niveau 'n'
