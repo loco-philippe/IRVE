@@ -8,7 +8,7 @@ Proposition :
   - plateforme de production à créer (+ outils d'exploitation)
   - fonctions d'historisation à compléter
   - indicateurs à compléter
-  - interface RTE et aide au contrôle de la TIRUERT
+  - interface ENEDIS et aide au contrôle de la TIRUERT
   - processus de validation des opérateurs pour mise en production (utilisation API, cohérence des données, administratif)
   - documentation à construire
 
