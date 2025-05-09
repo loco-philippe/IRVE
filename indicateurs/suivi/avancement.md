@@ -1,43 +1,67 @@
-16.5
-
-
 # Avancement
 
 ## En cours
 
 - animation de la qualité des données
   - activité récurrente de suivi des opérateurs
-  - formalisation de l'accord pour mise en production des données opérateurs
+  - validation des flux opérateurs
+  - extension FAQ
+  - calcul des critères sur Prefect (automatisation des tests MetaBase)
 - indicateurs
   - intégration des indicateurs autoroute dans le dashboard open-data
   - intégration des indicateurs de qualité de service dans le dashboard open-data
   - création des indicateurs liés à l'historisation 
-    - indicateur d'état e1,
-    - indicateurs temporels d1, d2
-    - indicateurs autoroutes a1, a2, a3, a4
+    - indicateurs de densité i2, i3, i5, i6, i8, i9
+    - indicateurs de typologie t6, t7
+    - indicateurs d'état e1 - e4, p1 - p6
+    - indicateurs TIRUERT c1, c2, c3
+    - indicateurs autoroutes a1, a2, a3, a5
     - indicateurs AFIR p0-p6, r0-r8
-    - indicateurs d'usage q12-q15
-  - historisation des indicateurs statiques (t5, t7, t8, i4, i7)
-  - historisation des indicateurs dynamiques (q1-q11)
+    - indicateurs d'usage u4, u7, u8, u13
+    - indicateurs de qualité de service q1, q2, q3, q4, q5
+- analyse de la qualité de service (saturation, disponibilité, occupation)
+  - méthodologie
+  - définition des indicateurs
+  - analyse de périodes à forte charge (ex. ponts de mai)
 - outil d'analyse réseau
   - adaptation de l'outil au double-sens
   - affectation du sens aux aires de service et échangeurs autoroutiers
   - optimisation de la fonction de calcul de maillage par noeuds
   - étude basculement ROUTE500 vers BDCARTO
 
-## Orientations avril (14)
+## Orientations mai (14)
 
 - animation de la qualité des données
   - activité récurrente de suivi des opérateurs
-  - accord de mise en production pour les opérateurs validés (prévu: Atlante, Engie, station-E, ionity, Electra, Bump, Bouygues)
+  - validation de flux d'opérateurs (prévu: station-E, ionity, Electra, Bump, E-Totem)
   - extension FAQ
-  - calcul des critères sur Prefect
+  - calcul des critères sur Prefect (automatisation des tests MetaBase)
 - outil d'analyse réseau
   - affectation du sens aux échangeurs autoroutiers
   - outil de paramétrage des jonctions et échangeurs
+- analyse de la qualité de service (saturation, disponibilité, occupation)
+  - méthodologie
+  - définition des indicateurs
+  - analyse de périodes à forte charge (ex. ponts de mai)
 - indicateurs
-  - activation des fonctions d'historisation
-  - intégration des indicateurs dépendants de l'historisation (autoroute, état, temporel)
+  - intégration des indicateurs de qualité de service
+  - intégration des indicateurs TIRUERT
+
+## Activités avril (14)
+
+- animation de la qualité des données
+  - activité récurrente de suivi des opérateurs
+  - accord de mise en production pour les opérateurs validés (Atlante, Engie)
+  - extension des critères de validation (pdc par station, station par localisation, aménageur par unité d'exploitation)
+  - outil de suivi du processus d'intégration des opérateurs
+- documentation
+  - extension FAQ
+  - modèle de données
+- calcul des certificats TIRUERT
+  - analyse des données à extraire
+- indicateurs
+  - activation des fonctions d'historisation sur Prefect (indicateurs e4, i1, i4, i7, t1, u5, u6, u9, u10, u11, u12, up)
+  - indicateurs historisés sur MetaBase
 
 ## Activités mars (14)
 
