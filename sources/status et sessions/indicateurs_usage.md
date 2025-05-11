@@ -2,17 +2,32 @@
 
 ## Besoin
 
-Les principaux indicateurs demandés concernent :
+Les principales attentes concernent :
 
-- la disponibilité de la recharge (ratio de la durée en service sur le temps d'ouverture),
+- la disponibilité : temps pendant lequel une installation est en fonctionnement
+- l'utilisation (ou occupation) : temps de recharge effective
+- la saturation : temps pendant lequel aucun point de recharge d'un groupe de points de recharge n'est libre
+- le facteur de charge : énergie utilisée ramenée à l'énergie utilisable
+- les sessions réussies : comparaison entre sessions réussies et non réussies
+
+Les principaux indicateurs sont :
+
+- le taux de disponibilité de la recharge (ratio de la durée en service sur le temps d'ouverture),
 - le taux d'utilisation des installations (ratio de la durée de recharge sur la durée en service),
-- les saturations lors de périodes spécifiques (aucun point de recharge disponible)
+- le taux de saturation (ratio de la durée de saturation sur le temps d'ouverture )
 - le facteur de charge (ratio du consommé sur le maximum consommable)
 - le taux de sessions réussies (durée et charge supérieures à des seuils)
 
-Les indicateurs associés aux sessions (charge partielle/complète, session réussie) ne sont pas abordés.
+Les indicateurs associés aux charge partielle/complète ne sont pas abordés.
 
 Pour caractériser ces indicateurs, plusieurs définitions ont été établies notamment par l'AFIREV (voir en Annexe)
+
+*Nota :*
+
+- la notion de groupe fait référence à une station ou à un "parc de recharge (pool)" (regroupement de stations en un même lieu suivant la définition AFIR),
+- les indicateurs ci-dessus sont "scalables" (aggrégation possible sur différentes échelles de temps et d'espace),
+- les indicateurs sur les stations se déduisent des indicateurs sur les points de recharge par aggrégation également à l'exception de l'indicateur de saturation qui ne peut être calculé que pour un ensemble de points de recharge considéré,
+- l'aggrégation nécessite de définir un périmètre cohérent avec le changement d'échelle défini. Par exemple, si le périmètre est l'ensemble des points de recharge déclarés (qui augmente avec le temps si aucune suppression n'est effectuée), les indicateurs calculés ne seront pas comparables. Le périmètre doit donc tenir compte des points de recharge en activité à un instant donné,
 
 ## Principes généraux
 
@@ -38,11 +53,12 @@ flowchart TB
 *Nota :*
 
 - En l'absence de transition explicite d'activation et de réactivation, on considère que l'activation et la réactivation s'effectuent par le démarrage d'une recharge
-- En l'absence de transition explicite de désactivation, on considère que la désactivation a lieu après une période longue sans "session" ni "status" (ex. 1 mois)
+- En l'absence de transition explicite de désactivation, on considère que la désactivation a lieu après une période longue sans session (ex. 1 mois)
+- Les points de recharge pris en compte dans les aggrégations sont ceux qui sont "activé" à un instant donné
 
 ### Etats d'utilisation des points de recharge
 
-Le calcul des indicateurs repose sur l'enregistrement du temps passé dans chacun des trois états principaux d'un point de recharge "en activité" :
+Le calcul des indicateurs repose sur l'enregistrement du temps passé dans chacun des trois états principaux d'un point de recharge "activé" :
 
 - "libre" : En fonctionnement, non occupé et pendant la période d'ouverture
 - "occupe" : En charge
@@ -76,9 +92,9 @@ flowchart TB
 
 **Dans un premier temps, on se limite au suivi du temps passé dans les trois états principaux "libre", "occupe", "hors_service" et avec un temps d'ouverture de 100 %.**
 
-### Suivi des états des stations
+### Etats d'un groupe de points de recharge
 
-L'état des stations est à considérer pour prendre en compte la notion de saturation.
+L'état d'un groupe de points de recharge est à considérer pour prendre en compte la notion de saturation.
 
 On peut alors distinguer les états suivants calculés à partir des états des points de recharge associés :
 
@@ -86,69 +102,61 @@ On peut alors distinguer les états suivants calculés à partir des états des 
 - "désactivé" : tous les pdc sont dans l'état "desactive",
 - "hors_service" : aucun pdc n'est dans l'état "libre" ou "occupe" et au moins un pdc est dans l'état "hors_service",
 - "saturé" : aucun pdc n'est dans l'état "libre" et au moins un pdc est dans l'état "occupe",
-- "active" : au moins un pdc est dans l'état "libre" et au moins un pdc est dans l'état "occupe"
-- "inactive" : au moins un pdc est dans l'état "libre" et aucun pdc n'est dans l'état "occupe"
+- "surchargé" : un seul pdc est dans l'état "libre",
+- "actif" : plusieurs pdc sont dans l'état "libre" et au moins un pdc est dans l'état "occupe"
+- "inactif" : plusieurs pdc sont dans l'état "libre" et aucun pdc n'est dans l'état "occupe"
 
 L'application de ces états conduit à interdire un état dans lequel une partie des pdc est dans l'état "declare" et l'autre dans l'état "desactive".
 
-L'application de ces règles pour une station composée d'un seul point de recharge est la suivante :
+L'application de ces règles pour un groupe composé d'un seul point de recharge est la suivante :
 
 - "déclaré" : le pdc est dans l'état "declare",
 - "désactivé" : le pdc est dans l'état "desactive",
 - "hors_service" : le pdc est dans l'état "hors_service",
 - "saturé" : le pdc est dans l'état "occupe",
-- "active" : jamais
-- "inactive" : le pdc est dans l'état "libre"
+- "surchargé" : le pdc est dans l'état "libre"
+- "actif" : jamais
+- "inactif" : jamais
 
-On a donc une correspondance entre l'état "occupe" du point de recharge et l'état "saturé" de la station ainsi qu'entre l'état "libre" du point de recharge et l'état "inactive" de la station.
+On a donc une correspondance entre l'état "occupe" du point de recharge et l'état "saturé" de la station ainsi qu'entre l'état "libre" du point de recharge et l'état "surchargé" de la station.
 
-Le calcul du temps passé dans chaque état peut être complexe et long. Un travail complémentaire est donc à mener pour aboutir sur une solution simple.
+*NOTA :*
 
-### Structure de données Qualicharge
-
-La table `session` enregistre les périodes de charge effective (plus de 2 minutes ET avec une énergie supérieure à 0,5 kWh) :
-
-- id (UUID),
-- start (datetime),
-- end (datetime),
-- energy (number),
-
-La table `status` enregistre les transitions entre deux modes de fonctionnement d'un point de recharge (ou bien un instantané d'un état du point de recharge). Les champs obligatoires sont :
-
-- id (UUID),
-- horodatage (datetime),
-- etat_pdc (enum :"en_service", "hors_service", "inconnu"),
-- etat_prise_xxx (enum : ""fonctionnel", "hors_service", "inconnu")
-- occupation_pdc (enum : "libre", "occupe", "reserve", "inconnu")
-
-Pour gérer implicitement (en l'absence de transition explicite) les états "declare" et "desactive", on peut utiliser les règles suivantes :
-
-- un point de recharge est dans l'état "déclaré" s'il n'y a eu aucune donnée dynamique
-- une occupation_pdc "occupe" ou un début de session provoque l'activation et la réactivation
-- une absence de status/session pendant une période longue (ex. 1 mois) provoque le passage dans l'état "désactivé"
-
-Si la période de rétention des status et session est représentative d'une période longue, on peut alors considérer qu'un pdc sans status ni session est dans l'état "déclaré" ou "désactivé".
-Dans le cas contraire, il est nécessaire de conserver la date du dernier état. Sans cette date, il sera impossible de distinguer un état "desactive" d'un état "libre", ce qui rendra le calcul des taux de disponibilité et d'utilisation sur un périètre donné impossible.
-
-Les trois états définis pour les point de recharge peuvent donc être suivi sur la base des transitions correspondants aux `status`:
-
-- "libre" (après une transition déclenchée par les `status`: `etat_pdc` égal à "en_service" et `occupation_pdc` égal à "libre")
-- "occupe" (après une transition déclenchée par les `status`: `etat_pdc` égal à "en_service" et `occupation_pdc` égal à "occupe")
-- "hors_service" (après une transition liée à tous les autres `status`)
-
-NOTA : Pour des raisons de simplicité, on autorise toutes les transitions (par exemple on n'impose pas pour passer de "hors_service" à "occupe" de passer d'abord de "hors-service" à "libre" puis de "libre" à "occupe"). Le `status` porte alors directement l'état d'arrivée de la transition.
+- le temps passé dans chaque état pour un point de charge ne suffit pas à en déduire un niveau de stauration. Par exemple, pour une station composée de deux points de recharge et pour une heure donnée, si chaque point de charge est "libre" une demi-heure et "occupe" une demi-heure, on peut avoir les deux situations suivantes :
+  - la station est "saturé" une demi-heure et "inactif" une demi-heure (si les deux pdc sont en charge en même temps),
+  - la station est "surchargé" sur toute la durée (si les deux pdc sont en charge successivement),
 
 ## Indicateurs retenus pour Qualicharge
 
 Les propositions ci-dessous s'appuient sur les définitions AFIREV, le retour d'expérience 2023 et la structure Qualicharge.
 
+### Indicateurs de Temps
+
+Le temps passé dans chaque état peut être aggrégé à différents niveaux temporels ou spaciaux.
+Il peut être exprimé en valeur cumulée ou bien en pourcentage du temps d'ouverture.
+
+Pour un point de recharge :
+
+- temps de disponibilité (TD) : temps passé dans les états "libre" et "occupe"
+- temps d'indisponibilité (TI) : temps passé dans l'état "hors service", "déclaré ou "désactivé"
+- temps d'utilisation (TU) : temps passé dans l'état "occupe"
+
+Pour un groupe de points de recharge :
+
+- temps de disponibilité (TD) : temps passé dans les états "saturé", "actif" et "inactif"
+- temps de saturation (TS) : temps passé dans l'état "saturé"
+- temps de surcharge (TP) : temps passé dans l'état "surchargé"
+
+*NOTA :*
+
+- temps d'ouverture (TO) : considéré comme la durée de la période (taux d'ouverture à 100%)
+- Le temps de disponibilité peut également être calculé comme la différence du temps d'ouverture et du temps d'indisponibilité.
+
 ### Taux de disponibilité d'un point de recharge
 
 Définition pour un point de recharge "en activité" :
 
-- Temps de disponibilité (TD: temps passé dans les états "libre" et "occupe") divisé par le temps d'ouverture (TO) d'un point de recharge sur la période.
-  
-  Le temps de disponibilité TD peut également être calculé comme la différence du temps d'ouverture TO et du temps d'indisponibilité TI (TI: temps passé dans l'état "hors service")
+- Temps de disponibilité (TD) divisé par le temps d'ouverture (TO) d'un point de recharge sur la période.
   
   L'agrégation de plusieurs disponibilités est le rapport de la somme des TD sur la somme des TO. Ceci permet de traiter l'agrégation sur plusieurs échelles de temps ou sur un périmètre donné (uniquement les points de recharge dans l'état "en activité").
 
@@ -159,28 +167,28 @@ Exemples:
 
 ### Taux d'utilisation d'un point de recharge
 
-Définition pour un point de recharge "en activité" :
+Définition pour un point de recharge "activé" :
 
-- Temps d'utilisation (TU : temps passé dans l'état "occupe") divisé par le temps de disponibilité (TD).
-
-  Le temps d'utilisation TU peut également être calculé à partir des sessions (temps cumulé des sessions)
+- Temps d'utilisation (TU) divisé par le temps de disponibilité (TD).
   
-  L'agrégation s'effectue également en divisant la somme des numérateurs par la somme des dénominateurs (pour les points de recharge "en activité").
+  L'agrégation s'effectue également en divisant la somme des numérateurs par la somme des dénominateurs (pour les points de recharge "activé").
 
-### Saturation
+### Saturation et surcharge
 
 Définition :
 
 - On peut considérer qu'une station a été saturée sur une période si elle a été saturée avec un temps supérieur à un seuil (à définir) sur cette période.
-- On peut également calculer un taux de saturation comme étant le temps passé dans l'état "saturé" divisé par le temps passé dans les états "saturé", "active" et "inactive".
+- On peut également calculer un taux de saturation comme étant le temps de saturation (TS) divisé par le temps de disponibilité (TD).
+
+Ces définitions sont valables également pour l'état de surcharge.
 
 ### Facteur de charge
 
-Définition pour un point de recharge "en activité" :
+Définition pour un point de recharge "activé" :
 
-- Cumul de `energy` divisé par l'énergie maximale (puissance multipliée par le temps d'ouverture) sur la période
+- Cumul de `energy` divisé par l'énergie maximale (puissance nominale multipliée par le temps d'ouverture) sur la période
 
-L'agrégation s'effectue également en divisant la somme des numérateurs par la somme des dénominateurs (pour les points de recharge "en activité").
+L'agrégation s'effectue également en divisant la somme des numérateurs par la somme des dénominateurs (pour les points de recharge "activé").
 
 ### Taux de sessions réussies
 
@@ -190,102 +198,110 @@ Définition pour un point de recharge "activé"  :
 
 - Nombre de `session` réussies divisé par le nombre total de `session` sur la période
 
-L'agrégation s'effectue également en divisant la somme des numérateurs par la somme des dénominateurs (pour les points de recharge "en activité").
+L'agrégation s'effectue également en divisant la somme des numérateurs par la somme des dénominateurs (pour les points de recharge "activé").
 
-## Production des indicateurs
+## Structuration Qualicharge
 
-### Principes
+### Indicateurs globaux
 
-Deux étapes sont à considérer :
+Les indicateurs d'usage historisés sont les suivants (pour une période donnée et sur un périmètre géographique) :
 
-- calcul du temps passé dans chaque état,
-- calcul des indicateurs
-  
-Le calcul du temps passé dans chaque état nécessite d'avoir une vue séquentielle des `status` associés à un pdc. Ceci ne peut se faire au fil de l'eau que si la remontée des évènements dans Qualicharge est elle-même séquentielle.
-Cette contrainte ne peut actuellement être assurée, le calcul doit donc s'effectuer de façon asynchrone.  
+| id        | nom                                                        | Pr  | type  | historisé             |
+| --------- | ---------------------------------------------------------- | --- | ----- | --------------------- |
+| u1-x-yy-z | Durée d'usage par tranche horaire et par état des pdc      | 2   | usage | oui (national/région) |
+| u2-x-yy-z | Durée d'usage par tranche horaire et par état des stations | 2   | usage | oui (national/région) |
 
-Par ailleurs, le temps passé dans chaque état pour un point de recharge ou pour une station est une information nécessaire pour les indicateurs mais qui peut être intéressante à suivre explicitement (notamment via les buckets de TimeScaleDB).
+Les durées calculées sont les durées quotidiennes. Le total des états est donc de 24 h multiplié par le nombre de points de recharge et par le nombre de jours.
 
-### Indicateurs
+Les valeurs sont stockées dans les champs suivants :
 
-Les indicateurs d'usage proposés sont les suivants (pour une période donnée et sur un périmètre géographique) :
+Pour les points de recharge :
 
-| id          | nom                                                            | Pr  | type  | historisé             |
-| ----------- | -------------------------------------------------------------- | --- | ----- | --------------------- |
-| q1-x-yy-z   | Durée de dysfonctionnement des pdc (état hors-service)         | 2   | usage | oui (national/région) |
-| q2-x-yy-z   | Durée d'utilisation des pdc (état occupé)                      | 2   | usage | oui (national/région) |
-| q3-x-yy-z   | Durée de non utilisation des pdc (état libre)                  | 2   | usage | oui (national/région) |
-| q4-x-yy-z   | Durée d'ouverture                                              | 2   | usage | oui (national/région) |
-| q5-x-yy-z   | Nombre de sessions                                             | 3   | usage | oui (national/région) |
-| q6-x-yy-z   | Durée des sessions                                             | 3   | usage | oui (national/région) |
-| q7-x-yy-z   | Durée d'activité des stations (état saturé, active ou inactive)| 2   | usage | oui (national/région) |
-| q8-x-yy-z   | Durée de saturation des stations                               | 2   | usage | oui (national/région) |
-| q9-x-yy-z   | Energie consommée                                              | 2   | usage | oui (national/région) |
-| q10-x-yy-z  | Nombre de sessions réussies                                    | 2   | usage | oui (national/région) |
-| q11-x-yy-z  | Puissance des points de recharge activés                       | 2   | usage | oui (national/région) |
-| q12-x-yy-z  | Taux de disponibilité par catégorie de puissance               | 3   | usage | synthèse              |
-| q13-x-yy-z  | Taux d'utilisation                                             | 2   | usage | synthèse              |
-| q14-x-yy-z  | Taux de saturation des stations                                | 2   | usage | synthèse              |
-| q15-x-yy-z  | Facteur de charge                                              | 2   | usage | synthèse              |
-| q16-x-yy-z  | Taux de sessions réussies                                      | 2   | usage | synthèse              |
+- value : durée totale cumulée (24h x nombre de jours)
+- category : tranche horaire (ex. 0 pour la tranche de 0h00 à 0h59)
+- extras :
+  - occupe : durée d'occupation
+  - libre : durée dans l'état libre
+  - hors-service : durée dans l'état hors-service
 
-q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11 sont les valeurs cumulées (ex. moyenne, somme)
+Pour les stations ou les pools :
 
-q1 et q4 sont calculés par catégorie de puissance
+- value : durée totale cumulée (24h x nombre de jours)
+- category : tranche horaire
+- extras :
+  - saturé : durée de saturation
+  - surchargé : durée de surcharge
+  - actif : durée dans l'état actif
+  - inactif : durée dans l'état inactif
+  - hors-service : durée dans l'état hors-service
 
-q4 est la durée de 24h multipliée par le nombre de points de recharge dans l'état "en activité"
+Ces indicateurs (ainsi que l'indicateur d'activité) permettent de calculer les indicateurs non historisés suivants :
 
-q5 est le nombre de sessions démarrées dans la période concernée
+| id        | nom                                              | Pr  | type  | historisé |
+| --------- | ------------------------------------------------ | --- | ----- | --------- |
+| q1-x-yy-z | Taux de disponibilité par catégorie de puissance | 3   | usage | synthèse  |
+| q2-x-yy-z | Taux d'utilisation                               | 2   | usage | synthèse  |
+| q3-x-yy-z | Taux de saturation des stations                  | 2   | usage | synthèse  |
 
-q6 est la part de la durée dans la période des sessions démarrées ou terminées dans la période
+### Indicateurs unitaires
 
-q9 est la part de l'énergie (au prorata de la durée passée) dans la période des sessions
+Les indicateurs sont calculés également avec un découpage par point de recharge et par station.
 
-q12 est calculé à partir de q1 et de q4
+Les valeurs sont stockées dans les champs suivants :
 
-q13 est calculé à partir de q2 et de q3 (ou de q1, q4 et q6)
+Pour les points de recharge :
 
-q14 est calculé à partir de q8 et de q7
+- value : durée totale cumulée (24h x nombre de jours)
+- category : id_pdc_itinerance
+- extras : cf chapitre précédent
 
-q15 est calculé à partir de q9 et de q11
+Pour les stations ou les pools :
 
-q16 est calculé à partir de q10 et de q5
+- value : durée totale cumulée (24h x nombre de jours)
+- category : id_station_itinerance (ou id du pool)
+- extras : cf chapitre précédent
 
-### Calcul des informations d'état
+Chaque champ `extras` contient une liste de 24 valeurs correspondant aux tranches horaires.
 
-Pour les points de recharge, chaque `status` est considéré comme une transition qui indique le nouvel état.
+## Mise en oeuvre
 
-Le temps passé entre deux `status` successifs correspond donc à une durée dans l'état défini par le premier `status` (l'état initial d'une période est l'état final de la période précédente).
-Les durées sont alors cumulées pour tous les `status` d'une période.
+### Détermination des états des points de recharge
 
-Pour permettre d'aggréger les durées, il est nécessaire d'avoir des durées discrétisées (sur des intervalles de temps à dates fixes). Ceci permet notamment l'aggrégation au niveau des stations (pour le calcul de saturation).
+Les sessions (plus fiables) sont utilisées en priorité par rapport aux statuts pour déterminer les états "activé", "désactivé" et "occupe".
 
-L'énergie consommée sur une période se déduit des `session`. Lorsqu'une session est à cheval sur plusieurs périodes, on peut répartir l'énergie à chaque période au prorata de la durée de la session dans chaque période. L'autre option est d'associer l'ensemble de l'énergie à la date de début de session (méthode plus simple retenue dans un premier temps).
+Pour gérer implicitement (en l'absence de transition explicite) les états "déclaré" et "désactivé", on peut utiliser les règles suivantes :
 
-Pour identifier les points de recharge "en activité", deux options sont possibles :
+- un point de recharge est dans l'état "déclaré" s'il n'y a eu aucune session
+- un début de session provoque le passage dans l'état "activé"
+- une absence de session pendant une période longue (ex. 1 mois) provoque le passage de l'état "activé" à "désactivé"
 
-- calcul dynamique : dans ce cas, un point de recharge est en activité s'il y a au moins un status ou une session dans la période retenue (ex. 1 mois)
-- calcul statique : pour cette option, on stocke l'information "last_activity" sur la table des points de recharge (calculée à chaque historisation)
+Les trois états des points de recharge sont définis :
 
-### Historisation
+- à partir des sessions pour l'état "occupe" (l'état est "occupe" pendant la durée d'une session)
+- à partir des statuts pour l'état "hors_service" (l'état est "hors_service" entre un statut "hors_service" et un statut "en service")
+- en complément des deux autres états pour l'état "libre"
 
-L'historisation initiale intègre le calcul des durées (via une discrétisation pour la saturation) et le découpage en périodes horaires.
+*NOTA :*
 
-Trois attributs sont associés à l'historisation :
+- le statut "inconnu" n'est pas pris en compte,
+- en cas de chevauchement entre une période "occupe" et "hors_service", la période "occupe" est prioritaire.
 
-- VALUE(float) : valeur principale (instantanée ou moyenne)
-- EXTRAS(json) - optionnel : valeur additionnelle
-- CATEGORY(string ou enum) - optionnel : décomposition associée à l’indicateur
+### Détermination des états des stations et pool
 
-Proposition :
+L'état des stations est calculé à partir de l'état des points de recharge.
 
-- VALUE : valeur de l'indicateur (durée, nombre, énergie ou puissance),
-- EXTRAS : non utilisé pour l'historisation initiale
-- CATEGORY : niveau de puissance (pour les indicateurs ventilés par niveau de puissance)
+La méthode consiste à échantilloner la succession d'état des points de recharge sur un intervalle (ex. 1 mn ou 5 mn) puis à cumuler pour chaque pas de temps l'état des points de recharge suivant la règle définie au chapitre précédent.
 
-### Calcul des indicateurs
+### Calcul des indicateurs historisés
 
-Le calcul des indicateurs ne présente pas de spécificités (idem autre indicateurs).
+Les indicateurs historisés sont calculés quotidiennement dans une même fonction qui réalise les opérations suivantes :
+
+- calcul des états des points de recharge à partir d'une extraction des sessions et des statuts
+- suppression des états d'une durée inférieure à la durée d'échantillonage
+- échantillonnage des états
+- calcul des états échantillonés des stations
+- calcul des temps cumulés pour chaque état et chaque tranche horaire pour les points de recharge et les stations
+- génération des indicateurs à partir de ces temps cumulés
 
 ## Annexe : Définitions
 
