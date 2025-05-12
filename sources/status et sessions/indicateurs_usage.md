@@ -290,18 +290,23 @@ Les trois états des points de recharge sont définis :
 
 L'état des stations est calculé à partir de l'état des points de recharge.
 
-La méthode consiste à échantilloner la succession d'état des points de recharge sur un intervalle (ex. 1 mn ou 5 mn) puis à cumuler pour chaque pas de temps l'état des points de recharge suivant la règle définie au chapitre précédent.
+La méthode consiste à échantilloner la succession d'état des points de recharge sur un intervalle puis à aggréger pour chaque pas de temps l'état des points de recharge suivant la règle définie au chapitre précédent.
+
+La durée d'échantillonage doit être inféreiure à la durée de cumul retenue pour les indicateurs (ex. 1 mn ou 5 mn) 
 
 ### Calcul des indicateurs historisés
 
 Les indicateurs historisés sont calculés quotidiennement dans une même fonction qui réalise les opérations suivantes :
 
-- calcul des états des points de recharge à partir d'une extraction des sessions et des statuts
+- extraction des sessions et statuts à traiter pour un périmètre physique (liste de points de recharge) et un périmètre temporel (journée)
+- calcul des états des points de recharge
 - suppression des états d'une durée inférieure à la durée d'échantillonage
-- échantillonnage des états
+- échantillonnage des états des points de recharge
 - calcul des états échantillonés des stations
-- calcul des temps cumulés pour chaque état et chaque tranche horaire pour les points de recharge et les stations
+- calcul des temps cumulés pour chaque état pour les points de recharge et les stations
 - génération des indicateurs à partir de ces temps cumulés
+
+Le temps de cumul retenu est d'une heure (découpage d'une journée en 24 tranches horaires).
 
 ## Annexe : Définitions
 
