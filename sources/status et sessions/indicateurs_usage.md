@@ -98,33 +98,32 @@ L'état d'un groupe de points de recharge est à considérer pour prendre en com
 
 On peut alors distinguer les états suivants calculés à partir des états des points de recharge associés :
 
-- "déclaré" : tous les pdc sont dans l'état "declare",
-- "désactivé" : tous les pdc sont dans l'état "desactive",
+- "désactivé" : tous les pdc sont dans l'état "desactive" ou "declare",
 - "hors_service" : aucun pdc n'est dans l'état "libre" ou "occupe" et au moins un pdc est dans l'état "hors_service",
-- "saturé" : aucun pdc n'est dans l'état "libre" et au moins un pdc est dans l'état "occupe",
-- "surchargé" : un seul pdc est dans l'état "libre",
-- "actif" : plusieurs pdc sont dans l'état "libre" et au moins un pdc est dans l'état "occupe"
-- "inactif" : plusieurs pdc sont dans l'état "libre" et aucun pdc n'est dans l'état "occupe"
-
-L'application de ces états conduit à interdire un état dans lequel une partie des pdc est dans l'état "declare" et l'autre dans l'état "desactive".
+- "saturé" : très peu de pdc (ex. moins de 10 %) est dans l'état "libre" et au moins un pdc est dans l'état "occupe",
+- "surchargé" : peu de pdc (ex. moins de 20 %) est dans l'état "libre" et le groupe n'est pas "saturé",
+- "actif" : au moins un pdc est dans l'état "occupe" et le groupe n'est pas "surchargé"
+- "inactif" : aucun pdc n'est dans l'état "occupe"
 
 L'application de ces règles pour un groupe composé d'un seul point de recharge est la suivante :
 
-- "déclaré" : le pdc est dans l'état "declare",
-- "désactivé" : le pdc est dans l'état "desactive",
+- "désactivé" : le pdc est dans l'état "declare" ou "desactive",
 - "hors_service" : le pdc est dans l'état "hors_service",
 - "saturé" : le pdc est dans l'état "occupe",
-- "surchargé" : le pdc est dans l'état "libre"
+- "surchargé" : jamais
 - "actif" : jamais
-- "inactif" : jamais
+- "inactif" : le pdc est dans l'état "libre"
 
-On a donc une correspondance entre l'état "occupe" du point de recharge et l'état "saturé" de la station ainsi qu'entre l'état "libre" du point de recharge et l'état "surchargé" de la station.
+On a donc une correspondance entre l'état "occupe" du point de recharge et l'état "saturé" de la station ainsi qu'entre l'état "libre" du point de recharge et l'état "inactif" de la station.
+
+Un seuil à 10% pour la saturation se traduit une absence de point de recharge libre pour les stations de moins de 10 pdc.
+Un seuil à 20% pour la surcharge se traduit une absence de surcharge pour les stations de moins de 5 pdc.
 
 *NOTA :*
 
-- le temps passé dans chaque état pour un point de charge ne suffit pas à en déduire un niveau de stauration. Par exemple, pour une station composée de deux points de recharge et pour une heure donnée, si chaque point de charge est "libre" une demi-heure et "occupe" une demi-heure, on peut avoir les deux situations suivantes :
+- le temps passé dans chaque état pour un point de charge ne suffit pas à en déduire un niveau de saturation. Par exemple, pour une station composée de deux points de recharge et pour une heure donnée, si chaque point de charge est "libre" une demi-heure et "occupe" une demi-heure, on peut avoir les deux situations suivantes :
   - la station est "saturé" une demi-heure et "inactif" une demi-heure (si les deux pdc sont en charge en même temps),
-  - la station est "surchargé" sur toute la durée (si les deux pdc sont en charge successivement),
+  - la station est "actif" sur toute la durée (si les deux pdc sont en charge successivement),
 
 ## Indicateurs retenus pour Qualicharge
 
@@ -143,7 +142,8 @@ Pour un point de recharge :
 
 Pour un groupe de points de recharge :
 
-- temps de disponibilité (TD) : temps passé dans les états "saturé", "actif" et "inactif"
+- temps de disponibilité (TD) : temps passé dans les états "saturé", "surchargé", "actif" et "inactif"
+- temps d'indisponibilité (TI) : temps passé dans les états "hors service" ou "désactivé"
 - temps de saturation (TS) : temps passé dans l'état "saturé"
 - temps de surcharge (TP) : temps passé dans l'état "surchargé"
 
@@ -173,14 +173,17 @@ Définition pour un point de recharge "activé" :
   
   L'agrégation s'effectue également en divisant la somme des numérateurs par la somme des dénominateurs (pour les points de recharge "activé").
 
-### Saturation et surcharge
+### Taux des stations et parcs
 
-Définition :
+Pour les stations et les parcs, on peut calculer de la même manière les taux en fonction du temps passés dans les états définis :
 
-- On peut considérer qu'une station a été saturée sur une période si elle a été saturée avec un temps supérieur à un seuil (à définir) sur cette période.
-- On peut également calculer un taux de saturation comme étant le temps de saturation (TS) divisé par le temps de disponibilité (TD).
+- Taux de saturation : temps de saturation (TS) divisé par le temps de disponibilité (TD)
+- Taux de surcharge : temps de surcharge (TP) divisé par le temps de disponibilité (TD)
+- Taux de disponibilité : temps de disponibilité (TD) divisé par le temps d'ouverture (TO) 
 
-Ces définitions sont valables également pour l'état de surcharge.
+### Ratio de saturation ou de surcharge horaire
+
+La saturation (ou surcharge) peut faire l'objet d'un indicateur par tranche horaire en considérant un état booléen de saturation (ou surcharge) horaire défini par un temps de saturation (ou surcharge) supérieur à un seuil (ex. 15 mn) par tranche horaire.
 
 ### Facteur de charge
 
