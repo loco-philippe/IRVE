@@ -270,32 +270,32 @@ Chaque champ `extras` contient une liste de 24 valeurs correspondant aux tranche
 
 ### Détermination des états des points de recharge
 
-Les sessions (plus fiables) sont utilisées en priorité par rapport aux statuts pour déterminer les états "activé", "désactivé" et "occupe".
+Les sessions (plus fiables) sont utilisées en priorité par rapport aux statuts pour déterminer les états "désactivé" et "occupe".
 
-Pour gérer implicitement (en l'absence de transition explicite) les états "déclaré" et "désactivé", on peut utiliser les règles suivantes :
-
-- un point de recharge est dans l'état "déclaré" s'il n'y a eu aucune session
-- un début de session provoque le passage dans l'état "activé"
-- une absence de session pendant une période longue (ex. 1 mois) provoque le passage de l'état "activé" à "désactivé"
-
-Les trois états des points de recharge sont définis :
-
-- à partir des sessions pour l'état "occupe" (l'état est "occupe" pendant la durée d'une session)
-- à partir des statuts pour l'état "hors_service" (l'état est "hors_service" entre un statut "hors_service" et un statut "en service")
-- en complément des deux autres états pour l'état "libre"
+- "désactivé" : s'il n'y a eu aucune session pendant une période longue (ex. 1 mois)
+- sinon "occupé" : si l'état est "occupe" pendant la durée d'une session
+- sinon "hors_service" : si l'état est "hors_service" entre un `etat_pdc` "hors_service" et un `etat_pdc` "en service"
+- sinon "libre" : complément des autres états
 
 *NOTA :*
 
-- le statut "inconnu" n'est pas pris en compte,
+- le statut "inconnu" n'est pas pris en compte (on attend un changement d'état explicite),
 - en cas de chevauchement entre une période "occupe" et "hors_service", la période "occupe" est prioritaire.
 
 ### Détermination des états des stations et pool
 
 L'état des stations est calculé à partir de l'état des points de recharge.
 
-La méthode consiste à échantilloner la succession d'état des points de recharge sur un intervalle puis à aggréger pour chaque pas de temps l'état des points de recharge suivant la règle définie au chapitre précédent.
+La méthode consiste à échantilloner la succession d'état des points de recharge sur un intervalle puis à aggréger pour chaque pas de temps l'état des points de recharge suivant les règles définies au chapitre précédent :
 
-La durée d'échantillonage doit être inféreiure à la durée de cumul retenue pour les indicateurs (ex. 1 mn ou 5 mn) 
+- "désactivé" : si tous les pdc sont dans l'état "desactive",
+- sinon "hors_service" : si aucun pdc n'est dans l'état "libre" ou "occupe" et si au moins un pdc est dans l'état "hors_service",
+- sinon "inactif" : si aucun pdc n'est dans l'état "occupe",
+- sinon "saturé" : si très peu de pdc (ex. moins de 10 %) est dans l'état "libre",
+- sinon "surchargé" : si peu de pdc (ex. moins de 20 %) est dans l'état "libre",
+- sinon "actif" : complément des autres états 
+
+La durée d'échantillonage doit être inférieure à la durée de cumul retenue pour les indicateurs (ex. 1 mn ou 5 mn) 
 
 ### Calcul des indicateurs historisés
 
