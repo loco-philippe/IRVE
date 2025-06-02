@@ -29,11 +29,11 @@
   - optimisation de la fonction de calcul de maillage par noeuds
   - étude basculement ROUTE500 vers BDCARTO
 
-## Orientations mai (14)
+## Orientations juin (14)
 
 - animation de la qualité des données
   - activité récurrente de suivi des opérateurs
-  - validation de flux d'opérateurs (prévu: station-E, ionity, Electra, Bump, E-Totem)
+  - validation de flux d'opérateurs (prévu: Bouygues, Electra, Izivia, Allego, TotalEnergies)
   - extension FAQ
   - calcul des critères sur Prefect (automatisation des tests MetaBase)
 - outil d'analyse réseau
@@ -41,8 +41,25 @@
   - outil de paramétrage des jonctions et échangeurs
 - analyse de la qualité de service (saturation, disponibilité, occupation)
   - méthodologie
-  - définition des indicateurs
   - analyse de périodes à forte charge (ex. ponts de mai)
+- indicateurs
+  - intégration des indicateurs de qualité de service
+  - intégration des indicateurs TIRUERT
+
+## Activités mai (14)
+
+- animation de la qualité des données
+  - activité récurrente de suivi des opérateurs
+  - validation de flux d'opérateurs (station-E, ionity, Bump, E-Totem)
+  - mise à niveau des requètes de validation (préparation au basculement sur Prefect)
+- outil d'analyse réseau
+  - fonction de filtrage des stations et parcs RTE-T (préparation de l'indicateur - liste des stations et parcs RTE-T)
+- analyse de la qualité de service (saturation, disponibilité, occupation)
+  - évolution de la définition de l'indicateur de saturation
+  - fonction de calcul des indicateurs de saturation (à partir des sessions et statuts)
+  - restitution cartographique de l'évolution temporelle de la saturation 
+  - définition de l'indicateur e3 - liste des stations et parcs RTE-T
+  - test de l'analyse sur un périmètre restreint (un département / un jour)
 - indicateurs
   - intégration des indicateurs de qualité de service
   - intégration des indicateurs TIRUERT
