@@ -179,11 +179,16 @@ Pour les stations et les parcs, on peut calculer de la même manière les taux e
 
 - Taux de saturation : temps de saturation (TS) divisé par le temps de disponibilité (TD)
 - Taux de surcharge : temps de surcharge (TP) divisé par le temps de disponibilité (TD)
-- Taux de disponibilité : temps de disponibilité (TD) divisé par le temps d'ouverture (TO) 
+- Taux de disponibilité : temps de disponibilité (TD) divisé par le temps d'ouverture (TO)
 
 ### Ratio de saturation ou de surcharge horaire
 
 La saturation (ou surcharge) peut faire l'objet d'un indicateur par tranche horaire en considérant un état booléen de saturation (ou surcharge) horaire défini par un temps de saturation (ou surcharge) supérieur à un seuil (ex. 15 mn) par tranche horaire.
+
+Dans ce cas, une tranche horaire est :
+
+- saturée si la somme des temps d'indisponibilité et de saturation est supérieure au seuil défini,
+- surchargée si la tranche horaire n'est pas saturée et si la somme des temps d'indisponibilité, de saturation et de surcharge est supérieure au seuil défini
 
 ### Facteur de charge
 
@@ -289,13 +294,13 @@ L'état des stations est calculé à partir de l'état des points de recharge.
 La méthode consiste à échantilloner la succession d'état des points de recharge sur un intervalle puis à aggréger pour chaque pas de temps l'état des points de recharge suivant les règles définies au chapitre précédent :
 
 - "désactivé" : si tous les pdc sont dans l'état "desactive",
-- sinon "hors_service" : si aucun pdc n'est dans l'état "libre" ou "occupe" et si au moins un pdc est dans l'état "hors_service",
+- sinon "hs" : si aucun pdc n'est dans l'état "libre" ou "occupe" et si au moins un pdc est dans l'état "hors_service",
 - sinon "inactif" : si aucun pdc n'est dans l'état "occupe",
 - sinon "saturé" : si très peu de pdc (ex. moins de 10 %) est dans l'état "libre",
 - sinon "surchargé" : si peu de pdc (ex. moins de 20 %) est dans l'état "libre",
-- sinon "actif" : complément des autres états 
+- sinon "actif" : complément des autres états
 
-La durée d'échantillonage doit être inférieure à la durée de cumul retenue pour les indicateurs (ex. 1 mn ou 5 mn) 
+La durée d'échantillonage doit être inférieure à la durée de cumul retenue pour les indicateurs (ex. 1 mn ou 5 mn)
 
 ### Calcul des indicateurs historisés
 
@@ -310,6 +315,49 @@ Les indicateurs historisés sont calculés quotidiennement dans une même foncti
 - génération des indicateurs à partir de ces temps cumulés
 
 Le temps de cumul retenu est d'une heure (découpage d'une journée en 24 tranches horaires).
+
+### Mode de calcul
+
+```mermaid
+flowchart TB
+    phys["`périmètre physique: 
+    *ex. RTE_T*`"]:::entree
+    quali["`périmètre Qualicharge:
+    ID stations + ID pdc
+    *ex. pdc actif depuis 1 m*`"]:::entree
+    statuts[statuts du jour]:::entree
+    sessions[sessions du jour]:::entree
+    
+    perim("`périmètre
+    parc-station-pdc + infos`")
+    stat_f(statuts filtrés)
+    sess_f(sessions filtrées)
+    pdc_e(pdc échantillonnés)
+    station_e(stations/parcs échantillonnés)
+    station_h(stations/parcs horaire)
+
+    phys --> perim
+    quali --> perim
+    sessions --> sess_f
+    perim --> sess_f
+    statuts --> stat_f
+    perim --> stat_f
+    sess_f --> sess_e[sessions échantillonnées]
+    stat_f --> stat_e[statuts échantillonnés]
+    stat_e --> pdc_e
+    sess_e --> pdc_e
+    perim --> station_e
+    pdc_e --> station_e
+    station_e --> station_h
+    
+    station_h --> carte:::sortie
+    station_h --> indicateurs:::sortie
+    station_h --> stockage:::sortie
+
+    classDef entree stroke:#f00
+    classDef sortie stroke:#0f0
+    
+```
 
 ## Annexe : Définitions
 
