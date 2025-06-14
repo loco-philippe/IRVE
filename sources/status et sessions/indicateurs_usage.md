@@ -321,15 +321,15 @@ Le temps de cumul retenu est d'une heure (découpage d'une journée en 24 tranch
 ```mermaid
 flowchart TB
     phys["`périmètre physique: 
-    *ex. RTE_T*`"]:::entree
+    *ex. RTE_T global*`"]:::entree
     quali["`périmètre Qualicharge:
-    ID stations + ID pdc
+    stations + lien station/pdc
     *ex. pdc actif depuis 1 m*`"]:::entree
     statuts[statuts du jour]:::entree
     sessions[sessions du jour]:::entree
     
     perim("`périmètre
-    parc-station-pdc + infos`")
+    parc/station +pdc`")
     stat_f(statuts filtrés)
     sess_f(sessions filtrées)
     pdc_e(pdc échantillonnés)
@@ -339,14 +339,14 @@ flowchart TB
     phys --> perim
     quali --> perim
     sessions --> sess_f
-    perim --> sess_f
+    perim -->|pdc| sess_f
     statuts --> stat_f
-    perim --> stat_f
+    perim -->|pdc| stat_f
     sess_f --> sess_e[sessions échantillonnées]
     stat_f --> stat_e[statuts échantillonnés]
     stat_e --> pdc_e
     sess_e --> pdc_e
-    perim --> station_e
+    perim -->|stat/parc| station_e
     pdc_e --> station_e
     station_e --> station_h
     
@@ -358,6 +358,26 @@ flowchart TB
     classDef sortie stroke:#0f0
     
 ```
+### Données d'entrée
+
+Périmètre physique : RTET-T
+- 2 DataFrame contenant les noeuds et les tronçons du réseau RTET
+
+Périmètre Qualicharge :
+- DataFrame stations : id_station_itinerance, pcum, p_max, nb_pdc, geometry
+- DataFrame pdc : id_station_itinerance, id_pdc_itinerance
+
+### Données de sortie
+
+Données horaires :
+- Dataframe contenant les champs : 
+  - temporel : periode(date), periode_h(heure), 
+  - puissance : p_cum, p_max,
+  - caractéristiques : id, nb_pdc,
+  - cumul temporel par état : hs, actif, inactif, sature, surcharge
+  - etat booléen : surcharge_h, sature_h
+
+[Disponibilité (NF EN 13306)](http://maint.t.i.b.free.fr/Files/Other/NF%20EN%2013306.pdf)
 
 ## Annexe : Définitions
 
