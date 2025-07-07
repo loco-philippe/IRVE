@@ -68,22 +68,24 @@ La notion de parc de recharge est utilisée dans Qualicharge pour l'évaluation 
 L'intégration d'une station de recharge dans son environnement est représentée par deux notions complémentaires :
 
 - **localisation** : localisation géographique et administative d'une station
-- **point de livraison** : référence géographique ou se situe le point de connexion (organe de coupure avec les ouvrages électriques du réseau public)
+- **point de raccordement** : référence géographique ou se situe le point de connexion (organe de coupure avec les ouvrages électriques du réseau)
 
 Ces deux notions sont associées à la station :
 
-- une station est associée à une seule localisation physique et à un seul raccordement au réseau électrique public.
+- une station est associée à une seule localisation physique et à un seul raccordement au réseau électrique.
 
 Le modèle associé est le suivant :
 
 ```mermaid
 erDiagram
-    "POINT DE LIVRAISON" ||..|{ "STATION DE RECHARGE" : "raccorde électriquement"
+    "RACCORDEMENT ELECTRIQUE" ||..|{ "STATION DE RECHARGE" : "raccorde électriquement"
     LOCALISATION ||--|{ "STATION DE RECHARGE": "localise"
 ```
 
 Il est à noter que ces deux notions sont associées à la station de recharge et non au point de recharge.
-Ceci implique que deux points de recharge d'une même station ne peuvent avoir des localisations différentes ni être raccordés à des points de livraison différents.
+Ceci implique que deux points de recharge d'une même station ne peuvent avoir des localisations différentes ni être raccordés à des organes électriques différents.
+
+> :bulb: Deux mode de raccordement électrique sont possibles : un raccordement direct à un point de livraison du réseau électrique public ou bien un raccordement indirect dans le cas d'une intégration à un sous-réseau privé.
 
 ### Structure de gestion
 
@@ -142,7 +144,7 @@ erDiagram
     ENSEIGNE ||--|{ "STATION DE RECHARGE": "héberge"
     OPERATEUR ||--|{ "UNITE D'EXPLOITATION": "exploite"
     "UNITE D'EXPLOITATION" ||--|{ "STATION DE RECHARGE": "contient"    
-    "POINT DE LIVRAISON" ||--|{ "STATION DE RECHARGE" : "raccorde électriquement"
+    "RACCORDEMENT ELECTRIQUE" ||--|{ "STATION DE RECHARGE" : "raccorde électriquement"
     LOCALISATION ||--|{ "STATION DE RECHARGE": "localise"
     "STATION DE RECHARGE" ||--|{ "POINT DE RECHARGE" : regroupe
     "POINT DE RECHARGE" ||--|{ "STATUS" : "est suivi par"
@@ -228,19 +230,17 @@ Ces attributs ne sont pas définis dans le [Schéma de données IRVE](https://sc
 
 > :bulb: Le code de l'`unité d'exploitation` est indiqué explicitement dans les identifiants des `stations de recharge` et des `points de recharge` après les deux premiers caractères "FR" (codification AFIREV).
 
-### Point de livraison
+### Raccordement électrique
 
 ```mermaid
 erDiagram
-"POINT DE LIVRAISON" {
-  string **num_pdl** "I"
-  enum    raccordement
+"RACCORDEMENT ELECTRIQUE" {
+  enum    raccordement "M"
+  string  num_pdl
   }
 ```
 
-L'entité `point de livraison` est identifié par un code (attribut num_pdl).
-
-> :bulb: L'attribut `num_pdl` est obligatoire pour Qualicharge contrairement au schéma de données IRVE
+L'entité `raccordement électrique` est identifiée par un code unique (attribut num_pdl) lorsque l'attribut `raccordement` a la valeur `Direct`.
 
 ### Localisation
 
@@ -274,6 +274,12 @@ erDiagram
 ```
 
 L'identifiant d'une `station de recharge` suit une codification spécifique ([code AFIREV](https://afirev.fr/fr/informations-generales/)).
+
+> :bulb: L'attribut `nbre_pdc` représente le nombre de points de recharge de la station. Il ne peut être supérieur :
+>
+>- au nombre d'entités `point de recharge` associées à l'entité `station`,
+>- au nombre maximum de sessions simultanées sur les points de recharge de la station,
+>- au nombre de places physiques de véhicules définies pour la station
 
 ### Point de recharge
 
@@ -367,7 +373,7 @@ erDiagram
   string **code** "I"
   string name "M"
   }
-  "POINT DE LIVRAISON" {
+  "RACCORDEMENT ELECTRIQUE" {
   string **num_pdl** "I"
   enum    raccordement
   }
@@ -426,7 +432,7 @@ erDiagram
   ENSEIGNE ||--|{ "STATION DE RECHARGE": "héberge"
   OPERATEUR ||--|{ "UNITE D'EXPLOITATION": "exploite"
   "UNITE D'EXPLOITATION" ||--|{ "STATION DE RECHARGE": "contient"    
-  "POINT DE LIVRAISON" ||--|{ "STATION DE RECHARGE" : "raccorde électriquement"
+  "RACCORDEMENT ELECTRIQUE" ||--|{ "STATION DE RECHARGE" : "raccorde électriquement"
   LOCALISATION ||--|{ "STATION DE RECHARGE": "localise"
   "STATION DE RECHARGE" ||--|{ "POINT DE RECHARGE" : regroupe
   "POINT DE RECHARGE" ||--|{ "STATUS" : "est suivi par"
