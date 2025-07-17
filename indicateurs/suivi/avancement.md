@@ -29,22 +29,36 @@
   - optimisation de la fonction de calcul de maillage par noeuds
   - étude basculement ROUTE500 vers BDCARTO
 
-## Orientations juin (14)
+## Orientations juillet (15)
 
 - animation de la qualité des données
   - activité récurrente de suivi des opérateurs
-  - validation de flux d'opérateurs (prévu: Bouygues, Electra, Izivia, Allego, TotalEnergies)
+  - validation de flux d'opérateurs (prévu: QoWatt, Eoliberty, NW IEcharge, Izivia, FastNed, Driveco)
   - extension FAQ
+- suivi de la production
   - calcul des critères sur Prefect (automatisation des tests MetaBase)
+  - mise en place d'un reporting
 - outil d'analyse réseau
   - affectation du sens aux échangeurs autoroutiers
   - outil de paramétrage des jonctions et échangeurs
 - analyse de la qualité de service (saturation, disponibilité, occupation)
-  - méthodologie
-  - analyse de périodes à forte charge (ex. ponts de mai)
+  - intégration dans Qualicharge
+  - extension de l'analyse au mois de juillet
 - indicateurs
   - intégration des indicateurs de qualité de service
-  - intégration des indicateurs TIRUERT
+
+## Activités juin (15)
+
+- animation de la qualité des données
+  - activité récurrente de suivi des opérateurs
+  - reporting
+  - validation de flux d'opérateurs (Mobilize, Electra, Allego)
+- analyse de la qualité de service (saturation, disponibilité, occupation)
+  - méthodologie pour la saturation
+  - report de l'analyse de l'occupation des statuts sur les sessions
+  - analyse de périodes à forte charge (ponts de mai)
+  - restitution des données (cartes folium, Metabase)
+
 
 ## Activités mai (14)
 

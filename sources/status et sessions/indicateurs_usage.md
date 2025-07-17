@@ -9,6 +9,7 @@ Les principales attentes concernent :
 - la saturation : temps pendant lequel aucun point de recharge d'un groupe de points de recharge n'est libre
 - le facteur de charge : énergie utilisée ramenée à l'énergie utilisable
 - les sessions réussies : comparaison entre sessions réussies et non réussies
+- la fiabilité de l'information : validité de l'état temps réel de disponibilité
 
 Les principaux indicateurs sont :
 
@@ -17,6 +18,7 @@ Les principaux indicateurs sont :
 - le taux de saturation (ratio de la durée de saturation sur le temps d'ouverture )
 - le facteur de charge (ratio du consommé sur le maximum consommable)
 - le taux de sessions réussies (durée et charge supérieures à des seuils)
+- le taux d'erreur de disponibilité (ratio du temps d'occupation annoncé libre sur le temps annncé libre)
 
 Les indicateurs associés aux charge partielle/complète ne sont pas abordés.
 
