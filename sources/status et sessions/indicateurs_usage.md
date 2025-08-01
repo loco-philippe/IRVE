@@ -9,7 +9,7 @@ Les principales attentes concernent :
 - la saturation : temps pendant lequel aucun point de recharge d'un groupe de points de recharge n'est libre
 - le facteur de charge : énergie utilisée ramenée à l'énergie utilisable
 - les sessions réussies : comparaison entre sessions réussies et non réussies
-- la fiabilité de l'information : validité de l'état temps réel de disponibilité
+- la fiabilité de l'information d'état : validité de l'état temps réel de disponibilité
 
 Les principaux indicateurs sont :
 
@@ -172,7 +172,7 @@ Exemples:
 Définition pour un point de recharge "activé" :
 
 - Temps d'utilisation (TU) divisé par le temps de disponibilité (TD).
-  
+
   L'agrégation s'effectue également en divisant la somme des numérateurs par la somme des dénominateurs (pour les points de recharge "activé").
 
 ### Taux des stations et parcs
@@ -198,7 +198,7 @@ Définition pour un point de recharge "activé" :
 
 - Cumul de `energy` divisé par l'énergie maximale (puissance nominale multipliée par le temps d'ouverture) sur la période
 
-L'agrégation s'effectue également en divisant la somme des numérateurs par la somme des dénominateurs (pour les points de recharge "activé").
+  L'agrégation s'effectue également en divisant la somme des numérateurs par la somme des dénominateurs (pour les points de recharge "activé").
 
 ### Taux de sessions réussies
 
@@ -208,7 +208,14 @@ Définition pour un point de recharge "activé"  :
 
 - Nombre de `session` réussies divisé par le nombre total de `session` sur la période
 
-L'agrégation s'effectue également en divisant la somme des numérateurs par la somme des dénominateurs (pour les points de recharge "activé").
+  L'agrégation s'effectue également en divisant la somme des numérateurs par la somme des dénominateurs (pour les points de recharge "activé").
+
+### Taux de fiabilité de l'information d'état
+
+L'information d'état est portée par les statuts qui indiquent en temps réel les changements d'état d'un point de recharge. La fiabilité de cette information peut être obtenue en comparant les états issus des statuts et issus des sessions. On distingue alors deux taux de fiabilité :
+
+- Pour l'occupation (périodes de charge) : durée indiquée 'occupe' par les statuts divisée par la durée des sessions
+- Pour la non occupation (périodes hors charge) : durée indiquée non 'occupe' par les statuts divisée par la durée hors sessions
 
 ## Structuration Qualicharge
 
@@ -360,18 +367,22 @@ flowchart TB
     classDef sortie stroke:#0f0
     
 ```
+
 ### Données d'entrée
 
 Périmètre physique : RTET-T
+
 - 2 DataFrame contenant les noeuds et les tronçons du réseau RTET
 
 Périmètre Qualicharge :
+
 - DataFrame stations : id_station_itinerance, pcum, p_max, nb_pdc, geometry
 - DataFrame pdc : id_station_itinerance, id_pdc_itinerance
 
 ### Données de sortie
 
 Données horaires :
+
 - Dataframe contenant les champs : 
   - temporel : periode(date), periode_h(heure), 
   - puissance : p_cum, p_max,

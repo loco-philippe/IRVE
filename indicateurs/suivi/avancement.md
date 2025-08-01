@@ -25,27 +25,41 @@
   - analyse de périodes à forte charge (ex. ponts de mai)
 - outil d'analyse réseau
   - adaptation de l'outil au double-sens
-  - affectation du sens aux aires de service et échangeurs autoroutiers
+  - affectation du sens aux échangeurs autoroutiers
+  - outil de paramétrage des jonctions et échangeurs
+  - affectation du sens aux aires de service
   - optimisation de la fonction de calcul de maillage par noeuds
   - étude basculement ROUTE500 vers BDCARTO
 
-## Orientations juillet (15)
+## Orientations août (12)
 
 - animation de la qualité des données
+  - validation de flux d'opérateurs (prévu: Bouygues, Modulo, Chargekeeper, Zunder, R3, Ozecar)
   - activité récurrente de suivi des opérateurs
-  - validation de flux d'opérateurs (prévu: QoWatt, Eoliberty, NW IEcharge, Izivia, FastNed, Driveco)
   - extension FAQ
 - suivi de la production
   - calcul des critères sur Prefect (automatisation des tests MetaBase)
   - mise en place d'un reporting
-- outil d'analyse réseau
-  - affectation du sens aux échangeurs autoroutiers
-  - outil de paramétrage des jonctions et échangeurs
 - analyse de la qualité de service (saturation, disponibilité, occupation)
-  - intégration dans Qualicharge
-  - extension de l'analyse au mois de juillet
+  - étude comparative du suivi Vinci de la saturation
+  - restitution de l'étude globale saturation
+  - calcul de l'indicateur de fiabilité des statuts
 - indicateurs
   - intégration des indicateurs de qualité de service
+
+## Activité juillet (13)
+
+- animation de la qualité des données
+  - validation de flux d'opérateurs (Waat, QoWatt, Eoliberty, NW IEcharge, Izivia, FastNed, Driveco, TotalEnergies, SPIE City, Izivia, GEEVE)
+  - activité récurrente de suivi des opérateurs
+- documentation
+  - Mise à jour du document de présentation du modèle de données Qualicharge
+  - Mise à jour du document de présentation des indicateurs d'usage Qualicharge
+- suivi de la production
+  - outil de suivi des mises en production
+- analyse de la qualité de service (saturation, disponibilité, occupation)
+  - nouvelle version (V2) de l'outil d'analyse des saturations
+  - extension au mois de juillet de l'analyse de saturation des ponts de mai
 
 ## Activités juin (15)
 
@@ -58,7 +72,6 @@
   - report de l'analyse de l'occupation des statuts sur les sessions
   - analyse de périodes à forte charge (ponts de mai)
   - restitution des données (cartes folium, Metabase)
-
 
 ## Activités mai (14)
 
