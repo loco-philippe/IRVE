@@ -10,7 +10,7 @@
 - indicateurs
   - intégration des indicateurs autoroute dans le dashboard open-data
   - intégration des indicateurs de qualité de service dans le dashboard open-data
-  - création des indicateurs liés à l'historisation 
+  - création des indicateurs liés à l'historisation
     - indicateurs de densité i2, i3, i5, i6, i8, i9
     - indicateurs de typologie t6, t7
     - indicateurs d'état e1 - e4, p1 - p6
@@ -84,7 +84,7 @@
 - analyse de la qualité de service (saturation, disponibilité, occupation)
   - évolution de la définition de l'indicateur de saturation
   - fonction de calcul des indicateurs de saturation (à partir des sessions et statuts)
-  - restitution cartographique de l'évolution temporelle de la saturation 
+  - restitution cartographique de l'évolution temporelle de la saturation
   - définition de l'indicateur e3 - liste des stations et parcs RTE-T
   - test de l'analyse sur un périmètre restreint (un département / un jour)
 - indicateurs
