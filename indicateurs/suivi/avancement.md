@@ -31,21 +31,33 @@
   - optimisation de la fonction de calcul de maillage par noeuds
   - étude basculement ROUTE500 vers BDCARTO
 
-## Orientations août (12)
+## Orientations septembre (14)
 
 - animation de la qualité des données
-  - validation de flux d'opérateurs (prévu: Bouygues, Modulo, Chargekeeper, Zunder, R3, Ozecar)
+  - validation de flux d'opérateurs (prévu: Modulo, Chargekeeper, Zunder, R3, Ozecar, BP, Shell)
   - activité récurrente de suivi des opérateurs
   - extension FAQ
 - suivi de la production
-  - calcul des critères sur Prefect (automatisation des tests MetaBase)
+  - critères qualités des données dynamiques sur Prefect (automatisation des tests MetaBase)
   - mise en place d'un reporting
 - analyse de la qualité de service (saturation, disponibilité, occupation)
-  - étude comparative du suivi Vinci de la saturation
-  - restitution de l'étude globale saturation
+  - fin d'étude comparative du suivi Vinci de la saturation (restitution)
   - calcul de l'indicateur de fiabilité des statuts
 - indicateurs
   - intégration des indicateurs de qualité de service
+  - préparation calcul TIRUERT
+
+## Activités août (11)
+
+- animation de la qualité des données
+  - validation de flux d'opérateurs (Bouygues)
+  - activité récurrente de suivi des opérateurs
+- suivi de la production
+  - critères qualité des données statiques sur Prefect (automatisation des tests MetaBase)
+- analyse de la qualité de service (saturation, disponibilité, occupation)
+  - nouvelle version de l'outil d'analyse des saturations (+ intégration Métabase)
+  - étude comparative du suivi Vinci de la saturation (données de juillet à mi-aout)
+  - restitution de l'étude globale saturation (première version)
 
 ## Activité juillet (13)
 
