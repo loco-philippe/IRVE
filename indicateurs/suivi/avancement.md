@@ -1,51 +1,111 @@
 # Avancement
 
-## En cours
+## Reste à faire
 
-- animation de la qualité des données
-  - activité récurrente de suivi des opérateurs
-  - validation des flux opérateurs
+- animation
+
+  - animation staging
+    - validation des flux opérateurs (17 en cours)
+  - animation production
+    - mise en place d'un reporting interne / opérateurs
+    - suivi des hebdomadaire des données
+
+- exploitation / maintenance
+
+  - gestion des utilisateurs
+  - gestion des données (opérateurs, aménageurs, unités d'exploitation)
+  - traitement des incidents
+  - reprises de données
+  - traitement des bugs
+
+- documentation
+
   - extension FAQ
-  - calcul des critères sur Prefect (automatisation des tests MetaBase)
-- indicateurs
-  - intégration des indicateurs autoroute dans le dashboard open-data
-  - intégration des indicateurs de qualité de service dans le dashboard open-data
-  - création des indicateurs liés à l'historisation
-    - indicateurs de densité i2, i3, i5, i6, i8, i9
-    - indicateurs de typologie t6, t7
-    - indicateurs d'état e1 - e4, p1 - p6
-    - indicateurs TIRUERT c1, c2, c3
-    - indicateurs autoroutes a1, a2, a3, a5
-    - indicateurs AFIR p0-p6, r0-r8
-    - indicateurs d'usage u4, u7, u8, u13
-    - indicateurs de qualité de service q1, q2, q3, q4, q5
-- analyse de la qualité de service (saturation, disponibilité, occupation)
-  - méthodologie
-  - définition des indicateurs
-  - analyse de périodes à forte charge (ex. ponts de mai)
-- outil d'analyse réseau
-  - adaptation de l'outil au double-sens
-  - affectation du sens aux échangeurs autoroutiers
-  - outil de paramétrage des jonctions et échangeurs
-  - affectation du sens aux aires de service
-  - optimisation de la fonction de calcul de maillage par noeuds
-  - étude basculement ROUTE500 vers BDCARTO
+  - mise à jour de la documentation de présentation (pages)
+  - procédures (onboarding, exploitation applications/données/utilisateurs, maintenance, Tiruert)
 
-## Orientations septembre (14)
+- Prefect
 
-- animation de la qualité des données
-  - validation de flux d'opérateurs (prévu: Modulo, Chargekeeper, Zunder, R3, Ozecar, BP, Shell)
+  - suivi qualité sur Prefect
+    - critères pour les données dynamiques à ajouter (16)
+  - indicateurs sur Prefect
+    - intégration des indicateurs autoroute et AFIR (liste des stations)
+    - intégration des indicateurs d'usage et de qualité de service
+
+- Tiruert
+
+  - extraction des volumes d'énergie
+  - interface Enedis
+  - déploiement du consentement
+
+- API
+  
+  - blocage des modifications après 15 j
+  - évolution de la règle des 15j pour les sessions (passage à du temps réel avec possibilité de mettre à jour pendant 15 jours) ??
+
+- Modèle européen
+
+  - évolution modèle de données
+  - évolution des API
+  - évolution des indicateurs
+  - migration/compatibilité des données (base de données + historisation + S3)
+  - évolution des analyses
+  - évolution interface PAN
+  - gestion des tarifs (structure + dynamique-lent)
+
+- Outils d'analyse de données
+
+  - outil d'analyse de la qualité de service (saturation, disponibilité, occupation, qualité)
+    - ajout des données VINCI (aires)
+    - ajout des aires de repos
+    - intégration théorème de shannon
+    - mesure de qualité des statuts
+    - intégration dans Qualicharge
+  - outil de prédiction
+  - outil d'analyse réseau
+    - adaptation de l'outil au double-sens
+    - affectation du sens aux échangeurs autoroutiers
+    - outil de paramétrage des jonctions et échangeurs
+    - affectation du sens aux aires de service
+    - optimisation de la fonction de calcul de maillage par noeuds
+    - étude basculement ROUTE500 vers BDCARTO
+    - intégration dans Qualicharge
+
+- Analyse de données
+
+  - extension de l'analyse de saturation Vinci ?
+  - autres ?
+
+## Orientations octobre (14)
+
+- onboarding des opérateurs
+  - validation de flux d'opérateurs (prévu: Modulo, Chargekeeper, Ozecar, BP, Shell, Sowatt, Z-E-N, R3-charge, Freshmile, Soregies, Greenspot)
   - activité récurrente de suivi des opérateurs
   - extension FAQ
 - suivi de la production
-  - critères qualités des données dynamiques sur Prefect (automatisation des tests MetaBase)
+  - critères qualités des données dynamiques sur Prefect (consistence statuts-sessions)
   - mise en place d'un reporting
 - analyse de la qualité de service (saturation, disponibilité, occupation)
-  - fin d'étude comparative du suivi Vinci de la saturation (restitution)
+  - intégration des indicateurs de saturation DGITM (si retenu)
   - calcul de l'indicateur de fiabilité des statuts
+  - ajout des aires de repos
+  - filtrage des statuts et sessions (shannon)
 - indicateurs
-  - intégration des indicateurs de qualité de service
-  - préparation calcul TIRUERT
+  - amélioration des perfs sur les requêtes liées aux données dynamiques
+  - tableau de bord sur l'évolution des données (exploitation des indicateurs)
+
+## Activités septembre (14)
+
+- onboarding des opérateurs
+  - validation de flux d'opérateurs (Zunder, R3, Yaway)
+  - activité récurrente de suivi des opérateurs
+- suivi de la production
+  - critères qualités des données dynamiques sur Prefect (sauf consistence statuts-sessions)
+  - démarrage d'un reporting
+- analyse de la qualité de service (saturation, disponibilité, occupation)
+  - fin d'étude comparative du suivi Vinci de la saturation (restitution)
+  - analyse des indicateurs DGITM
+  - simulateur/comparateur des indicateurs de saturation
 
 ## Activités août (11)
 
