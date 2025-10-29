@@ -64,7 +64,7 @@ Les indicateurs présentés dans le {term}`Baromètre AVERE` sont les suivants :
 Cinq types d'indicateurs sont définis:
 
 - indicateurs d'infrastructure : Ils décrivent le parc installé (évolution temporelle, répartition géographiques, caratéristiques, dimensionnement)
-- indicateurs d'usage : Ils décrivent l'utilisation effective des infrastructures (qualité de service, volumétrie, répartition)
+- indicateurs d'usage : Ils décrivent l'utilisation effective des infrastructures (qualité de service, extraction TIRUERT, volumétrie, répartition)
 - indicateurs temporels : Ils analysent l'évolution des deux catégories d'indicateurs précédent sur une période temporelle
 - indicateurs d'état : Ils représentent un état d'une partie des données (ex. liste des stations du réseau autoroutier)
 - Indicateurs AFIR : Ce sont les indicateurs associés à la règlementation européenne AFIR
@@ -89,12 +89,15 @@ avec:
   - w : données hebdomadaires
   - d : données quotidiennes
   - h : données horaires
-- périmètre et valeur de périmètre: sous ensemble des données sur lequel appliquer l'indicateur. Les périmètres actuellement définis sont les découpages administratifs :
+- périmètre et valeur de périmètre: sous ensemble des données sur lequel appliquer l'indicateur. Les périmètres actuellement définis sont les découpages administratifs et les découpages organisationnels :
   - 0: national (valeur : code 00 tout, 01 métropole, 02 DOM, 03 TOM, 04 métropole et DOM)
   - 1: région (valeur : code de la région)
   - 2: département (valeur : code du département)
   - 3: EPCI (valeur : code de l'EPCI)
   - 4: commune (valeur : code de la commune)
+  - 5: unité d'exploitation (valeur : code de l'unité 'FRxxx')
+  - 6: opérateur (valeur : nom de l'opérateur)
+  - 7: aménageur (valeur : nom de l'aménageur)
 - level : niveau de découpage du résultat (découpage administratif - voir périmètre). Les valeurs associées à un 'level' sont dénommées 'target'.
 
 Le périmètre par défaut est l'ensemble des données.
