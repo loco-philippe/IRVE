@@ -8,7 +8,7 @@
     - validation des flux opérateurs (17 en cours)
   - animation production
     - mise en place d'un reporting interne / opérateurs
-    - suivi des hebdomadaire des données
+    - suivi des bilans hebdomadaire des données
 
 - exploitation / maintenance
 
@@ -26,21 +26,20 @@
 
 - Prefect
 
-  - suivi qualité sur Prefect
-    - critères pour les données dynamiques à ajouter (16)
-  - indicateurs sur Prefect
+  - indicateurs à ajouter
     - intégration des indicateurs autoroute et AFIR (liste des stations)
     - intégration des indicateurs d'usage et de qualité de service
 
 - Tiruert
 
-  - extraction des volumes d'énergie
+  - extraction des volumes d'énergie par catégorie
   - interface Enedis
   - déploiement du consentement
 
 - API
   
   - blocage des modifications après 15 j
+  - reprise des indicateurs et des données S3 depuis début Avril
   - évolution de la règle des 15j pour les sessions (passage à du temps réel avec possibilité de mettre à jour pendant 15 jours) ??
 
 - Modèle européen
@@ -55,12 +54,14 @@
 
 - Outils d'analyse de données
 
-  - outil d'analyse de la qualité de service (saturation, disponibilité, occupation, qualité)
+  - outil d'analyse de la qualité de service (disponibilité, occupation, qualité)
+    - mesure de qualité des statuts
+  - outil d'analyse de saturation
     - ajout des données VINCI (aires)
     - ajout des aires de repos
     - intégration théorème de shannon
-    - mesure de qualité des statuts
     - intégration dans Qualicharge
+    - intégration de la pleine utilisation
   - outil de prédiction
   - outil d'analyse réseau
     - adaptation de l'outil au double-sens
@@ -76,20 +77,47 @@
   - extension de l'analyse de saturation Vinci ?
   - autres ?
 
-## Orientations octobre (14)
+## Orientations décembre (6)
 
 - onboarding des opérateurs
-  - validation de flux d'opérateurs (prévu: Modulo, Chargekeeper, Ozecar, BP, Shell, Sowatt, Z-E-N, R3-charge, Freshmile, Soregies, Greenspot)
+  - validation de flux d'opérateurs (prévu: Z-E-N, Wewise, Zetra, Partage ma borne, Idex, Greenspot, OZECAR, Monta, Obornes, e-charge50, We-go, Indelec, Bouygues v2)
+  - activité récurrente de suivi des opérateurs
+  - prise en compte de la signature de l'arrêté (préparation du recalcul des indicateurs et des purges de données anciennes)
+- suivi de la production
+  - ajout d'un indicateur d'unicité des SIREN
+- indicateurs
+  - tableau de bord sur la qualité des données
+  - calcul de l'indicateur de fiabilité des statuts
+  - stockage des données pour les indicateurs saturation, disponibilité, occupation
+- modèle de données européen
+  - proposition d'évolution du modèle de données Qualicharge
+- saturation
+  - calcul sur les ponts de novembre (si pertinent)
+
+## Activités novembre (10)
+
+- onboarding des opérateurs
+  - validation de flux d'opérateurs (R3-charge, Dream, Ubitricity)
+  - activité récurrente de suivi des opérateurs
+  - extension aux pdc sans session (AC)
+- suivi de la production
+  - adaptation des critères qualité aux pdc sans sessions
+  - ajout d'un indicateur qualité (pdc inactifs)
+  - procédure de migration d'un opérateur à un autre (cas R3 de LMS vers MONTA)
+- indicateurs
+  - ajout des indicateurs qualité des données
+- analyse de la qualité de service (si prioritaire)
+  - définition du mode de calcul des indicateurs saturation, disponibilité, occupation
+
+## Activités octobre (14)
+
+- onboarding des opérateurs
+  - validation de flux d'opérateurs (Shell, Sowatt, Freshmile, Soregies)
   - activité récurrente de suivi des opérateurs
   - extension FAQ
 - suivi de la production
-  - critères qualités des données dynamiques sur Prefect (consistence statuts-sessions)
-  - mise en place d'un reporting
-- analyse de la qualité de service (saturation, disponibilité, occupation)
-  - intégration des indicateurs de saturation DGITM (si retenu)
-  - calcul de l'indicateur de fiabilité des statuts
-  - ajout des aires de repos
-  - filtrage des statuts et sessions (shannon)
+  - critères qualités des données dynamiques sur Prefect (100 %)
+  - reporting effectué pour tous les opérateurs en production avant le 1/9
 - indicateurs
   - amélioration des perfs sur les requêtes liées aux données dynamiques
   - tableau de bord sur l'évolution des données (exploitation des indicateurs)

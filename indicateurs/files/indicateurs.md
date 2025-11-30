@@ -68,6 +68,7 @@ Cinq types d'indicateurs sont définis:
 - indicateurs temporels : Ils analysent l'évolution des deux catégories d'indicateurs précédent sur une période temporelle
 - indicateurs d'état : Ils représentent un état d'une partie des données (ex. liste des stations du réseau autoroutier)
 - Indicateurs AFIR : Ce sont les indicateurs associés à la règlementation européenne AFIR
+- indicateurs qualité : Ils caractérisent le suivi qualité des données opérateurs (indicateurs internes)
 - indicateurs étendus : Ils concernent les indicateurs obtenus avec des jeux de données en lien (ex. relevés ENEDIS)
 
 :::{note}
@@ -430,6 +431,30 @@ Les indicateurs AFIR identifiés sont les suivants :
 - Liste des stations du réseau RTE-T associées à un parc de plus de 300 kW dont un pdc a plus de 150 kW (p1) au 31/12/2024
 - Ratio des tronçons du réseau RTE-T central associés à des parcs d'une puissance de 400 kW dont un des pdc a plus de 150 kW et distant de moins de 60 km (r1)
 ```
+
+## Indicateurs qualité
+
+Les indicateurs qualité des données correspondent au résultat des contrôles qualité effectués (voir tableau Resana) et déjà restitués dans Prefect :
+
+| id         | nom                              | Pr  | type    | historisé |
+| ---------- | -------------------------------- | --- | ------- | --------- |
+| qua-x-yy-z | Niveau d'erreur par test qualité | 2   | qualité | oui       |
+
+Codification :
+
+- value : Nombre d'erreurs (ou valeur d'un ratio)
+- level : 5 (unité d'exploitation, target : FRxxx)
+- category : type de contrôle
+
+Exemple :
+
+- value : 0.2 %
+- level : 5
+- target: FRTSL
+- category : DUPS (duplicate sessions)
+- code : qua
+- period : w
+- timestamp : 28/10/2025
 
 ## Indicateurs étendus
 
