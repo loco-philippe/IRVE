@@ -77,22 +77,31 @@
   - extension de l'analyse de saturation Vinci ?
   - autres ?
 
-## Orientations décembre (6)
+## Orientations janvier (8)
 
 - onboarding des opérateurs
-  - validation de flux d'opérateurs (prévu: Z-E-N, Wewise, Zetra, Partage ma borne, Idex, Greenspot, OZECAR, Monta, Obornes, e-charge50, We-go, Indelec, Bouygues v2)
+  - validation de flux d'opérateurs (prévu: Wewise, Zetra, Partage ma borne, OZECAR, Monta, Obornes, Indelec, Bouygues extension, Plenitude, sorel, CSD (citeos), Watt Up)
   - activité récurrente de suivi des opérateurs
   - prise en compte de la signature de l'arrêté (préparation du recalcul des indicateurs et des purges de données anciennes)
-- suivi de la production
-  - ajout d'un indicateur d'unicité des SIREN
 - indicateurs
-  - tableau de bord sur la qualité des données
+  - ajout de l'indicateur d'unicité et de validité des SIREN
+  - prise en compte des sessions longues dans l'indicateur qualité
   - calcul de l'indicateur de fiabilité des statuts
   - stockage des données pour les indicateurs saturation, disponibilité, occupation
 - modèle de données européen
   - proposition d'évolution du modèle de données Qualicharge
 - saturation
-  - calcul sur les ponts de novembre (si pertinent)
+  - calcul sur les congés de décembre
+
+## Activités décembre (7)
+
+- onboarding des opérateurs
+  - validation de flux d'opérateurs : Autorecharge (ocean), WeGo (Eiffage), Idex (LMS), Greenspot (LMS), Bouygues (FRTLS, FRS30), Z-E-N (chargekeeper), Milence, Spie (FRBEZ : R-mob), Total (FRHDT, FRMEL), E-charge50 (zunder)
+  - activité récurrente de suivi des opérateurs
+- suivi de la production
+  - ajout du calcul d'unicité et de validité des SIREN
+- indicateurs
+  - tableau de bord sur la qualité des données
 
 ## Activités novembre (10)
 
