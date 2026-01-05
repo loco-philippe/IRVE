@@ -91,7 +91,7 @@
 - modèle de données européen
   - proposition d'évolution du modèle de données Qualicharge
 - saturation
-  - calcul sur les congés de décembre
+  - calcul sur les journées de forte charge de décembre (26, 27)
 
 ## Activités décembre (7)
 
