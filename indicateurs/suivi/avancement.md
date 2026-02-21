@@ -77,21 +77,32 @@
   - extension de l'analyse de saturation Vinci ?
   - autres ?
 
-## Orientations janvier (8)
+## Orientations février (8)
 
-- onboarding des opérateurs
-  - validation de flux d'opérateurs (prévu: Wewise, Zetra, Partage ma borne, OZECAR, Monta, Obornes, Indelec, Bouygues extension, Plenitude, sorel, CSD (citeos), Watt Up)
+- opérateurs
+  - validation de flux d'opérateurs (17 en cours: Wewise, Partage ma borne, OZECAR, Monta, Indelec, Bouygues extension, Citeos, Watt Up, Easycharge, Paragon, Lidl, BP, DCplus, electric 55, LoadStations, FRC2A, Car2plug)
   - activité récurrente de suivi des opérateurs
-  - prise en compte de la signature de l'arrêté (préparation du recalcul des indicateurs et des purges de données anciennes)
+  - partage du dashboard opérateur de suivi qualité des données
 - indicateurs
   - ajout de l'indicateur d'unicité et de validité des SIREN
   - prise en compte des sessions longues dans l'indicateur qualité
   - calcul de l'indicateur de fiabilité des statuts
   - stockage des données pour les indicateurs saturation, disponibilité, occupation
 - modèle de données européen
-  - proposition d'évolution du modèle de données Qualicharge
+  - proposition d'une stratégie de prise en compte
 - saturation
   - calcul sur les congés de décembre
+
+## Activités janvier (8)
+
+- onboarding des opérateurs
+  - validation de flux d'opérateurs (Seolis, Zeenco, Obornes, Electro Mobility, Bouygues ES (FRBE3, FRY03), Plenitude, Zetra, Sorel)
+  - activité récurrente de suivi des opérateurs
+  - prise en compte de la signature de l'arrêté (prise en compte de l'historique avant mise en place du verrou à 15 j)
+- indicateurs
+  - proposition d'un dashboard qualité pour les opérateurs
+- modèle de données européen
+  - proposition d'évolution du modèle de données Qualicharge
 
 ## Activités décembre (7)
 
