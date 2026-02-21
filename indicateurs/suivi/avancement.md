@@ -91,7 +91,7 @@
 - modèle de données européen
   - proposition d'une stratégie de prise en compte
 - saturation
-  - calcul sur les congés de décembre
+  - calcul sur les journées de forte charge de décembre (26, 27)
 
 ## Activités janvier (8)
 
