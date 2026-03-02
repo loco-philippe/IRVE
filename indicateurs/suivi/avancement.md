@@ -77,21 +77,40 @@
   - extension de l'analyse de saturation Vinci ?
   - autres ?
 
-## Orientations février (8)
+## Orientations mars (10 jours ?)
 
-- opérateurs
-  - validation de flux d'opérateurs (17 en cours: Wewise, Partage ma borne, OZECAR, Monta, Indelec, Bouygues extension, Citeos, Watt Up, Easycharge, Paragon, Lidl, BP, DCplus, electric 55, LoadStations, FRC2A, Car2plug)
+- onboarding des opérateurs
+  - validation de flux d'opérateurs (14 en cours: Wewise, Partage ma borne, OZECAR, Monta, Indelec, Bouygues extension, Citeos, Watt Up, electric 55, LoadStations, FRC2A, Car2plug, Fastned CHA, Faroad)
   - activité récurrente de suivi des opérateurs
   - partage du dashboard opérateur de suivi qualité des données
 - indicateurs
-  - ajout de l'indicateur d'unicité et de validité des SIREN
-  - prise en compte des sessions longues dans l'indicateur qualité
   - calcul de l'indicateur de fiabilité des statuts
   - stockage des données pour les indicateurs saturation, disponibilité, occupation
+  - mise à niveau des indicateurs dynamiques (decommission, doublons de sessions)
+- CarbuRe
+  - préparation à la mise en production
 - modèle de données européen
-  - proposition d'une stratégie de prise en compte
+  - extension de la proposition de stratégie de prise en compte aux tarifs
 - saturation
   - calcul sur les journées de forte charge de décembre (26, 27)
+  - démarrage des travaux sur la pleine utilisation
+
+## Activités février (8, facturé 3)
+
+- onboarding des opérateurs
+  - validation de flux d'opérateurs (Paragon Mobility, BP pulse, Lidl, EasyCharge)
+  - activité récurrente de suivi des opérateurs
+  - partage du dashboard opérateur de suivi qualité des données (partiel)
+  - préparation à la version API V0.33
+- indicateurs
+  - ajout de l'indicateur d'unicité et de validité des SIREN
+  - prise en compte des sessions longues dans l'indicateur qualité
+- modèle de données européen
+  - proposition d'une stratégie de prise en compte (données statiques)
+- PAN
+  - proposition d'une stratégie de dédoublonnage
+- saturation
+  - proposition de mise en oeuvre de l'indicateur DMR de niveau de service
 
 ## Activités janvier (8)
 
