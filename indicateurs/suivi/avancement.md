@@ -77,10 +77,10 @@
   - extension de l'analyse de saturation Vinci ?
   - autres ?
 
-## Orientations mars (10 jours ?)
+## Orientations avril (15 jours)
 
 - onboarding des opérateurs
-  - validation de flux d'opérateurs (14 en cours: Wewise, Partage ma borne, OZECAR, Monta, Indelec, Bouygues extension, Citeos, Watt Up, electric 55, LoadStations, FRC2A, Car2plug, Fastned CHA, Faroad)
+  - validation de flux d'opérateurs (14 en cours: Wewise, Partage ma borne, OZECAR, Monta, Indelec, Bouygues extension, Watt Up, electric 55, LoadStations, FRC2A, Car2plug, Fastned CHA, Faroad, Modulo)
   - activité récurrente de suivi des opérateurs
   - partage du dashboard opérateur de suivi qualité des données
 - indicateurs
@@ -89,13 +89,29 @@
   - mise à niveau des indicateurs dynamiques (decommission, doublons de sessions)
 - CarbuRe
   - préparation à la mise en production
+  - validation des volumes aménageurs
 - modèle de données européen
-  - extension de la proposition de stratégie de prise en compte aux tarifs
+  - Formalisation pour Qualicharge de la V3.1 et V3.2
 - saturation
   - calcul sur les journées de forte charge de décembre (26, 27)
   - démarrage des travaux sur la pleine utilisation
 
-## Activités février (8, facturé 3)
+## Activité mars (15 jours)
+
+- onboarding des opérateurs
+  - validation de flux d'opérateurs (Citeos)
+  - activité récurrente de suivi des opérateurs
+  - partage du dashboard opérateur de suivi qualité des données
+- CarbuRe
+  - préparation à la mise en production
+  - validation des volumes aménageurs
+- PAN
+  - extension aux tarifs de la proposition de prise en compte du modèle AFIR
+  - accompagnement dédoublonnage
+- saturation
+  - accompagnement de la proposition de mise en oeuvre de l'indicateur DMR
+
+## Activités février (8, facturé 3 + 5)
 
 - onboarding des opérateurs
   - validation de flux d'opérateurs (Paragon Mobility, BP pulse, Lidl, EasyCharge)

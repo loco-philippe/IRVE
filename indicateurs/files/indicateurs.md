@@ -199,8 +199,8 @@ Objectif :
 | t5-x-yy-z | Nombre de stations par type d'implantation                | 1   | infra | oui (national/région) |
 | t6-x-yy-z | Pourcentage de stations par type d'implantation           | 2   | infra | synthèse              |
 | t7-x-yy-z | Densité EPCI (nb EPCI avec / nb EPCI total)               | 3   | infra | oui (national/région) |
-| t8-x-yy-z | Nombre stations par opérateur                             | 1   | infra | oui (national/région) |
-| t9-x-yy-z | Pourcentage de stations par opérateur                     | 2   | infra | synthèse              |
+| t8-x-yy-z | Nombre de points de recharge par opérateur                | 1   | infra | oui (national/région) |
+| t9-x-yy-z | Pourcentage de points de recharge par opérateur           | 2   | infra | synthèse              |
 
 :::{note}
 

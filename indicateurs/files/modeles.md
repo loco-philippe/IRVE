@@ -293,3 +293,60 @@ Les principes retenus pour traiter les données ne respectant pas le format Qual
 - les autres données obligatoires dont les formats sont identiques sont traitées comme une erreur portant sur la station (la station n'est pas prise en compte).
 
 Le principe d'implémentation est de tester la création d'une instance de la classe `Statique` pour chaque ligne, et en cas d'erreur d'appliquer les principes ci-dessus (remplacement des données avec des formats différents et suppression des stations erronées).
+
+## Modèle AFIR
+
+```mermaid
+erDiagram
+    AMENAGEUR ||--|{ STATION : amenage
+    AMENAGEUR {
+        string raison_sociale_amenageur
+        string nom_enseigne 
+        string contact_assistance 
+    }
+    STATION {
+        string  id_station_itinerance
+        integer nb_pdc
+        string  borniste
+        array   equipement
+        float   puissance_maximale_station
+        array   emap
+        boolean enr 
+    }
+    LOCALISATION ||--|{ STATION : "localise"
+    LOCALISATION {
+       array   coordonneesXY
+       string  pays
+       string  region
+       string  commune
+       string  code_commune
+       string  adresse_station
+       string  complemant_adresse 
+    }
+    STATION ||--|{ POINT_DE_CHARGE : regroupe
+    POINT_DE_CHARGE {
+        string  id_pdc_itinerance
+        float   puissance_nominale
+        integer nb_connecteurs
+        array   connecteurs 
+        enum    type_current
+        boolean plug_and_charge
+        array   recharge_intelligente
+    }
+    ACCESSIBILITE {
+        string  horaires
+        string  fuseau_horaire
+        array   type_vehicule 
+        array   specifications_vehicule
+        integer nb_places
+        integer nb_places_pmr
+    }
+    PAIEMENT {
+        boolean terminal_cb
+        boolean cb_sans_contact
+        array   paiement_autre 
+        array   specifications_vehicule
+        string  complement_paiement
+        boolean abonnement
+    }
+```
