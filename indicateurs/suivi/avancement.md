@@ -84,11 +84,11 @@
   - activité récurrente de suivi des opérateurs
   - partage du dashboard opérateur de suivi qualité des données
 - indicateurs
+  - ajout de l'indicateurs de volume pour le dashboard opérateur
   - calcul de l'indicateur de fiabilité des statuts
   - stockage des données pour les indicateurs saturation, disponibilité, occupation
   - mise à niveau des indicateurs dynamiques (decommission, doublons de sessions)
 - CarbuRe
-  - préparation à la mise en production
   - validation des volumes aménageurs
 - modèle de données européen
   - Formalisation pour Qualicharge de la V3.1 et V3.2
