@@ -3,22 +3,27 @@
 # from pydantic import BaseModel
 from enum import Enum
 
+
 class DayOfWeek(Enum):
     """Enumeration for days of the week."""
-    MONDAY = 0
-    TUESDAY = 1
-    WEDNESDAY = 2
-    THURSDAY = 3
-    FRIDAY = 4
-    SATURDAY = 5
-    SUNDAY = 6
+
+    MONDAY = "MONDAY"
+    TUESDAY = "TUESDAY"
+    WEDNESDAY = "WEDNESDAY"
+    THURSDAY = "THURSDAY"
+    FRIDAY = "FRIDAY"
+    SATURDAY = "SATURDAY"
+    SUNDAY = "SUNDAY"
+
 
 class TariffDimensionType(Enum):
     """Enumeration for tariff dimension types."""
+
     ENERGY = "ENERGY"
     TIME = "TIME"
     FLAT = "FLAT"
     PARKING_TIME = "PARKING_TIME"
+
 
 class OCPIBaseModel:
     """Base model for OCPI data structures."""
@@ -26,14 +31,20 @@ class OCPIBaseModel:
     def __str__(self):
         return f"{self.__class__.__name__}({self.__dict__})"
 
+
 class Price(OCPIBaseModel):
     """Represents a price in the OCPI protocol."""
 
-    def __init__(self, amount: float):
-        self.amount = round(amount, 2)
+    def __init__(self, amount: float, tax_included: bool = True):
+        self.amount = round(amount, 2) if tax_included else round(amount * 1.20, 2)
 
     def __str__(self):
         return f"Price(amount={self.amount})"
+
+    def __eq__(self, other):
+        if not isinstance(other, Price):
+            return NotImplemented
+        return self.amount == other.amount
 
     @property
     def excl_vat(self):
