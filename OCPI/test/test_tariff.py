@@ -191,6 +191,7 @@ def test_tariff_from_json():
     """Test the Tariff class from JSON."""
     json_data = {
         "id": "tariff1",
+        "type": "AD_HOC_PAYMENT",
         "elements": [
             {
                 "price_components": [
@@ -202,15 +203,55 @@ def test_tariff_from_json():
             }
         ],
         "last_updated": "2024-06-01T12:00:00+00:00",
+        "tax_included": "YES",
     }
     tariff = Tariff.from_json(json_data)
-
     assert tariff.id == "tariff1"
     assert len(tariff.elements) == 1
     assert len(tariff.elements[0].price_components) == 1
     assert tariff.elements[0].price_components[0].type.value == "ENERGY"
     assert tariff.elements[0].price_components[0].price.amount == 0.30
     assert tariff.last_updated.isoformat() == "2024-06-01T12:00:00+00:00"
+    assert tariff.to_json() == json_data
+    assert tariff.to_json(simple=True) == {
+        "id": "tariff1",
+        "elements": [{"price_components": {"ENERGY": 0.3}}],
+    }
+    assert (
+        Tariff.from_json(tariff.to_json(simple=True)).to_json()["elements"]
+        == json_data["elements"]
+    )
+
+
+def test_tariff_to_string():
+    price_component1 = PriceComponent(
+        type=TariffDimensionType.ENERGY, price=Price(amount=0.30)
+    )
+    price_component2 = PriceComponent(
+        type=TariffDimensionType.FLAT, price=Price(amount=1.20)
+    )
+    price_component3 = PriceComponent(
+        type=TariffDimensionType.ENERGY, price=Price(amount=0.10)
+    )
+    price_component4 = PriceComponent(
+        type=TariffDimensionType.FLAT, price=Price(amount=1.50)
+    )
+    tariff_element1 = TariffElement(
+        price_components=[price_component1, price_component2],
+        restrictions=TariffRestrictions.from_json(
+            {
+                "days_of_week": ["MONDAY", "TUESDAY"],
+                "start_date_time": "2024-01-01T00:00:00+00:00",
+            }
+        ),
+    )
+    tariff_element2 = TariffElement(
+        price_components=[price_component3, price_component4]
+    )
+    tariff = Tariff(id="tariff1", elements=[tariff_element1, tariff_element2])
+
+    # assert tariff.to_string() == [tariff_element.to_string()]
+    print(tariff.to_string())
 
 
 test_price()
@@ -223,5 +264,6 @@ test_tariffelement()
 test_tariffelement_from_json()
 test_tariff()
 test_tariff_from_json()
+test_tariff_to_string()
 
-# ajout TariffType, option complete pour json
+# option complete pour json

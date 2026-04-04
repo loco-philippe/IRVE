@@ -4,6 +4,14 @@
 from enum import Enum
 
 
+class TaxIncluded(Enum):
+    """Enumeration for tax inclusion."""
+
+    YES = "YES"
+    NO = "NO"
+    NA = "N/A"
+
+
 class DayOfWeek(Enum):
     """Enumeration for days of the week."""
 
@@ -15,6 +23,33 @@ class DayOfWeek(Enum):
     SATURDAY = "SATURDAY"
     SUNDAY = "SUNDAY"
 
+    @property
+    def code(self):
+        """text code of the day."""
+        return DayOfWeekCode[self.name].value
+
+
+class DayOfWeekCode(Enum):
+    """Enumeration for days of the week."""
+
+    MONDAY = "Lu"
+    TUESDAY = "Ma"
+    WEDNESDAY = "Me"
+    THURSDAY = "Je"
+    FRIDAY = "Ve"
+    SATURDAY = "Sa"
+    SUNDAY = "Di"
+
+
+class TariffType(Enum):
+    """Enumeration for tariff types."""
+
+    AD_HOC_PAYMENT = "AD_HOC_PAYMENT"
+    PROFILE_CHEAP = "PROFILE_CHEAP"
+    PROFILE_FAST = "PROFILE_FAST"
+    PROFILE_GREEN = "PROFILE_GREEN"
+    REGULAR = "REGULAR"
+
 
 class TariffDimensionType(Enum):
     """Enumeration for tariff dimension types."""
@@ -23,6 +58,20 @@ class TariffDimensionType(Enum):
     TIME = "TIME"
     FLAT = "FLAT"
     PARKING_TIME = "PARKING_TIME"
+
+    @property
+    def code(self):
+        """text code of the dimension."""
+        return TariffDimensionCode[self.name].value
+
+
+class TariffDimensionCode(Enum):
+    """Enumeration for tariff dimension types."""
+
+    ENERGY = "EN"
+    TIME = "TI"
+    FLAT = "FL"
+    PARKING_TIME = "PT"
 
 
 class OCPIBaseModel:
