@@ -4,8 +4,11 @@ from datetime import datetime, date, time
 
 from .utils import (
     DayOfWeek,
+    DayOfWeekCode,
     OCPIBaseModel,
     Price,
+    TariffDimensionCode,
+    TariffRestrictionsCode,
     TariffDimensionType,
     TariffType,
     TaxIncluded,
@@ -122,6 +125,23 @@ class PriceComponent(OCPIBaseModel):
             "price": self.price.incl_vat if tax_included else self.price.excl_vat,
         }
 
+    @staticmethod
+    def from_string(data: str):
+        """Create a PriceComponent from a string representation."""
+        parts = data.split("+")
+        price_components = []
+        for part in parts:
+            code = part[:2]
+            if code in [cod.value for cod in TariffDimensionCode]:
+                type = TariffDimensionType[TariffDimensionCode(code).name]
+                price = Price(amount=float(part[2:]) / 100)
+                price_components.append(PriceComponent(type=type, price=price))
+        return price_components
+
+    def to_string(self):
+        """Convert the PriceComponent to a string representation."""
+        return f"{self.type.code}{int(self.price.incl_vat * 100)}"
+
 
 class TariffRestrictions(OCPIBaseModel):
     """Represents restrictions that may apply to a tariff."""
@@ -144,10 +164,13 @@ class TariffRestrictions(OCPIBaseModel):
     def __str__(self):
         return "TariffRestrictions(truc)"
 
+    def __len__(self):
+        return len(self.to_json())
+
     @staticmethod
     def from_json(data: dict):
         """Create a TariffRestrictions object from a JSON dictionary."""
-        print(data)
+        # print(data)
         restrictions = TariffRestrictions()
         if "days_of_week" in data:
             restrictions.days_of_week = [DayOfWeek(day) for day in data["days_of_week"]]
@@ -213,23 +236,70 @@ class TariffRestrictions(OCPIBaseModel):
         parts = []
         if self.days_of_week is not None:
             parts.append("J=" + "".join(day.code for day in self.days_of_week))
-        if self.start_date is not None and self.end_date is not None:
-            parts.append(
-                f"T{self.start_date.strftime('%H%M')}-{self.end_date.strftime('%H%M')}"
-            )
-        if self.start_time is not None and self.end_time is not None:
-            parts.append(
-                f"T{self.start_time.strftime('%H%M')}-{self.end_time.strftime('%H%M')}"
-            )
-        if self.min_current is not None and self.max_current is not None:
-            parts.append(f"C{int(self.min_current)}-{int(self.max_current)}")
-        if self.min_duration is not None and self.max_duration is not None:
-            parts.append(f"DU{int(self.min_duration)}-{int(self.max_duration)}")
-        if self.min_kwh is not None and self.max_kwh is not None:
-            parts.append(f"K{int(self.min_kwh)}-{int(self.max_kwh)}")
-        if self.min_power is not None and self.max_power is not None:
-            parts.append(f"P{int(self.min_power)}-{int(self.max_power)}")
+        if self.start_date is not None:
+            parts.append(f"D>{self.start_date.isoformat()}")
+        if self.end_date is not None:
+            parts.append(f"D<{self.end_date.isoformat()}")
+        if self.start_time is not None:
+            parts.append(f"T>{self.start_time.isoformat(timespec='minutes')}")
+        if self.end_time is not None:
+            parts.append(f"T<{self.end_time.isoformat(timespec='minutes')}")
+        if self.min_current is not None:
+            parts.append(f"A>{int(self.min_current)}")
+        if self.max_current is not None:
+            parts.append(f"A<{int(self.max_current)}")
+        if self.min_duration is not None:
+            parts.append(f"I<{int(self.min_duration)}")
+        if self.max_duration is not None:
+            parts.append(f"I>{int(self.max_duration)}")
+        if self.min_kwh is not None:
+            parts.append(f"K>{int(self.min_kwh)}")
+        if self.max_kwh is not None:
+            parts.append(f"K<{int(self.max_kwh)}")
+        if self.min_power is not None:
+            parts.append(f"P>{int(self.min_power)}")
+        if self.max_power is not None:
+            parts.append(f"P<{int(self.max_power)}")
         return "+".join(parts)
+
+    @staticmethod
+    def from_string(data: str):
+        """Create a TariffRestrictions from a string representation."""
+        parts = data.split("+")
+        restrictions = TariffRestrictions()
+        for part in parts:
+            code = part[:2]
+            value = part[2:]
+            if code == "J=":
+                day_codes = [value[i : i + 2] for i in range(0, len(value), 2)]
+                restrictions.days_of_week = [
+                    DayOfWeek[DayOfWeekCode(day).name] for day in day_codes
+                ]
+            elif code == "D>":
+                restrictions.start_date = date.fromisoformat(value)
+            elif code == "D<":
+                restrictions.end_date = date.fromisoformat(value)
+            elif code == "T>":
+                restrictions.start_time = time.fromisoformat(value + ":00")
+            elif code == "T<":
+                restrictions.end_time = time.fromisoformat(value + ":00")
+            elif code == "A>":
+                restrictions.min_current = float(value)
+            elif code == "A<":
+                restrictions.max_current = float(value)
+            elif code == "I>":
+                restrictions.min_duration = int(value)
+            elif code == "I<":
+                restrictions.max_duration = int(value)
+            elif code == "K>":
+                restrictions.min_kwh = float(value)
+            elif code == "K<":
+                restrictions.max_kwh = float(value)
+            elif code == "P>":
+                restrictions.min_power = float(value)
+            elif code == "P<":
+                restrictions.max_power = float(value)
+        return restrictions
 
 
 class TariffElement(OCPIBaseModel):
@@ -296,13 +366,20 @@ class TariffElement(OCPIBaseModel):
 
     def to_string(self):
         """Convert the TariffElement to a string representation."""
-        text = "+".join(
-            f"{pc.type.code}{int(pc.price.incl_vat * 100)}"
-            for pc in self.price_components
-        )
-        if self.restrictions is not None:
+        text = "+".join(pc.to_string() for pc in self.price_components)
+        if self.restrictions is not None and len(self.restrictions) > 0:
             text += "+" + self.restrictions.to_string()
         return text
+
+    @staticmethod
+    def from_string(data: str):
+        """Create a TariffElement from a string representation."""
+        price_components = PriceComponent.from_string(data)
+        restrictions = TariffRestrictions.from_string(data)
+        restrictions = None if len(restrictions) == 0 else restrictions
+        return TariffElement(
+            price_components=price_components, restrictions=restrictions
+        )
 
 
 class TariffElements(OCPIBaseModel):
@@ -337,6 +414,13 @@ class TariffElements(OCPIBaseModel):
     def to_string(self):
         """Convert the TariffElements to a string representation."""
         return "|".join(elt.to_string() for elt in self.elements)
+
+    @staticmethod
+    def from_string(data: str):
+        """Create TariffElements from a string representation."""
+        return TariffElements(
+            elements=[TariffElement.from_string(element) for element in data.split("|")]
+        )
 
 
 class Tariff(OCPIBaseModel):
@@ -441,8 +525,6 @@ class Tariff(OCPIBaseModel):
             data["start_date_time"] = self.start_date_time.isoformat()
         if self.end_date_time is not None:
             data["end_date_time"] = self.end_date_time.isoformat()
-        if self.end_time is not None:
-            data["end_time"] = self.end_time.isoformat()
         if self.last_updated is not None and not simple:
             data["last_updated"] = self.last_updated.isoformat()
         if self.tax_included is not None and not simple:
@@ -452,3 +534,8 @@ class Tariff(OCPIBaseModel):
     def to_string(self):
         """Convert the Tariff to a string representation."""
         return self.elements.to_string()
+
+    @staticmethod
+    def from_string(data: str):
+        """Create a Tariff from a string representation."""
+        return TariffElements.from_string(data)

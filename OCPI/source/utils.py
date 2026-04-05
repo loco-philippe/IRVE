@@ -40,6 +40,22 @@ class DayOfWeekCode(Enum):
     SATURDAY = "Sa"
     SUNDAY = "Di"
 
+class TariffRestrictionsCode(Enum):
+    """Enumeration for tariff restrictions codes."""
+
+    DAYS_OF_WEEK = "J="
+    START_DATE = "D>"
+    END_DATE = "D<"
+    START_TIME = "T>"
+    END_TIME = "T<"
+    MAX_POWER = "P<"
+    MIN_POWER = "P>"
+    MAX_KWH = "K<"
+    MIN_KWH = "K>"
+    MAX_DURATION = "I<"
+    MIN_DURATION = "I>"
+    MAX_CURRENT = "A<"
+    MIN_CURRENT = "A>"
 
 class TariffType(Enum):
     """Enumeration for tariff types."""
