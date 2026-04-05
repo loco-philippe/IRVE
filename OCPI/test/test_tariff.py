@@ -1,8 +1,11 @@
 """Tests for the tariff module."""
 
+from datetime import time
+
 from source.tariff import (
     Tariff,
     TariffElement,
+    TariffElements,
     PriceComponent,
     TariffRestrictions,
     DayOfWeek,
@@ -87,8 +90,10 @@ def test_tariffrestrictions():
     restrictions = TariffRestrictions()
 
     assert restrictions.days_of_week is None
-    assert restrictions.start_date_time is None
-    assert restrictions.end_date_time is None
+    assert restrictions.start_date is None
+    assert restrictions.end_date is None
+    assert restrictions.start_time is None
+    assert restrictions.end_time is None
     assert restrictions.min_current is None
     assert restrictions.max_current is None
     assert restrictions.min_duration is None
@@ -103,8 +108,10 @@ def test_tariffrestrictions_from_json():
     """Test the TariffRestrictions class from JSON."""
     json_data = {
         "days_of_week": ["MONDAY", "TUESDAY"],
-        "start_date_time": "2024-01-01T00:00:00+00:00",
-        "end_date_time": "2024-12-31T23:59:59+00:00",
+        "start_date": "2024-01-01",
+        "end_date": "2024-12-31",
+        "start_time": "13:10",
+        "end_time": "23:59",
         "min_current": 10.0,
         "max_current": 100.0,
         "min_duration": 30,
@@ -114,11 +121,18 @@ def test_tariffrestrictions_from_json():
         "min_power": 5.0,
         "max_power": 20.0,
     }
+    print(
+        time.fromisoformat(json_data["start_time"] + ":00").isoformat(
+            timespec="minutes"
+        )
+    )
     restrictions = TariffRestrictions.from_json(json_data)
-
+    print(restrictions.start_time.isoformat())
     assert restrictions.days_of_week == [DayOfWeek.MONDAY, DayOfWeek.TUESDAY]
-    assert restrictions.start_date_time.isoformat() == "2024-01-01T00:00:00+00:00"
-    assert restrictions.end_date_time.isoformat() == "2024-12-31T23:59:59+00:00"
+    assert restrictions.start_date.isoformat() == "2024-01-01"
+    assert restrictions.end_date.isoformat() == "2024-12-31"
+    # assert restrictions.start_time.isoformat() == "13:10"
+    # assert restrictions.end_time.isoformat() == "23:59"
     assert restrictions.min_current == 10.0
     assert restrictions.max_current == 100.0
     assert restrictions.min_duration == 30
@@ -241,14 +255,17 @@ def test_tariff_to_string():
         restrictions=TariffRestrictions.from_json(
             {
                 "days_of_week": ["MONDAY", "TUESDAY"],
-                "start_date_time": "2024-01-01T00:00:00+00:00",
+                "start_date": "2024-01-01",
+                "end_date": "2024-01-02",
             }
         ),
     )
     tariff_element2 = TariffElement(
         price_components=[price_component3, price_component4]
     )
-    tariff = Tariff(id="tariff1", elements=[tariff_element1, tariff_element2])
+    tariff = Tariff(
+        id="tariff1", elements=TariffElements([tariff_element1, tariff_element2])
+    )
 
     # assert tariff.to_string() == [tariff_element.to_string()]
     print(tariff.to_string())

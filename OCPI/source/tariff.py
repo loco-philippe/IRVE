@@ -1,6 +1,6 @@
 """Tariff module for handling tariff-related operations."""
 
-from datetime import datetime
+from datetime import datetime, date, time
 
 from .utils import (
     DayOfWeek,
@@ -128,8 +128,10 @@ class TariffRestrictions(OCPIBaseModel):
 
     def __init__(self):
         self.days_of_week: list[DayOfWeek] = None
-        self.start_date_time: datetime = None
-        self.end_date_time: datetime = None
+        self.start_date: date = None
+        self.end_date: date = None
+        self.start_time: time = None
+        self.end_time: time = None
         self.min_current: float = None
         self.max_current: float = None
         self.min_duration: int = None
@@ -140,20 +142,23 @@ class TariffRestrictions(OCPIBaseModel):
         self.max_power: float = None
 
     def __str__(self):
-        return "TariffRestrictions()"
+        return "TariffRestrictions(truc)"
 
     @staticmethod
     def from_json(data: dict):
         """Create a TariffRestrictions object from a JSON dictionary."""
+        print(data)
         restrictions = TariffRestrictions()
         if "days_of_week" in data:
             restrictions.days_of_week = [DayOfWeek(day) for day in data["days_of_week"]]
-        if "start_date_time" in data:
-            restrictions.start_date_time = datetime.fromisoformat(
-                data["start_date_time"]
-            )
-        if "end_date_time" in data:
-            restrictions.end_date_time = datetime.fromisoformat(data["end_date_time"])
+        if "start_date" in data:
+            restrictions.start_date = date.fromisoformat(data["start_date"])
+        if "end_date" in data:
+            restrictions.end_date = date.fromisoformat(data["end_date"])
+        if "start_time" in data:
+            restrictions.start_time = time.fromisoformat(data["start_time"] + ":00")
+        if "end_time" in data:
+            restrictions.end_time = time.fromisoformat(data["end_time"] + ":00")
         if "min_current" in data:
             restrictions.min_current = data["min_current"]
         if "max_current" in data:
@@ -177,10 +182,14 @@ class TariffRestrictions(OCPIBaseModel):
         data = {}
         if self.days_of_week is not None:
             data["days_of_week"] = [day.value for day in self.days_of_week]
-        if self.start_date_time is not None:
-            data["start_date_time"] = self.start_date_time.isoformat()
-        if self.end_date_time is not None:
-            data["end_date_time"] = self.end_date_time.isoformat()
+        if self.start_date is not None:
+            data["start_date"] = self.start_date.isoformat()
+        if self.end_date is not None:
+            data["end_date"] = self.end_date.isoformat()
+        if self.start_time is not None:
+            data["start_time"] = self.start_time.isoformat(timespec="minutes")
+        if self.end_time is not None:
+            data["end_time"] = self.end_time.isoformat(timespec="minutes")
         if self.min_current is not None:
             data["min_current"] = self.min_current
         if self.max_current is not None:
@@ -204,9 +213,13 @@ class TariffRestrictions(OCPIBaseModel):
         parts = []
         if self.days_of_week is not None:
             parts.append("J=" + "".join(day.code for day in self.days_of_week))
-        if self.start_date_time is not None and self.end_date_time is not None:
+        if self.start_date is not None and self.end_date is not None:
             parts.append(
-                f"T{self.start_date_time.strftime('%H%M')}-{self.end_date_time.strftime('%H%M')}"
+                f"T{self.start_date.strftime('%H%M')}-{self.end_date.strftime('%H%M')}"
+            )
+        if self.start_time is not None and self.end_time is not None:
+            parts.append(
+                f"T{self.start_time.strftime('%H%M')}-{self.end_time.strftime('%H%M')}"
             )
         if self.min_current is not None and self.max_current is not None:
             parts.append(f"C{int(self.min_current)}-{int(self.max_current)}")
@@ -292,13 +305,47 @@ class TariffElement(OCPIBaseModel):
         return text
 
 
+class TariffElements(OCPIBaseModel):
+    """Represents a list of tariff elements."""
+
+    def __init__(self, elements: list[TariffElement]):
+        self.elements = elements
+
+    def __str__(self):
+        return f"TariffElements(elements={self.elements})"
+
+    def __len__(self):
+        return len(self.elements)
+
+    def __getitem__(self, index):
+        return self.elements[index]
+
+    def to_json(self, simple=False, tax=True) -> list[dict]:
+        """Convert the TariffElements to a JSON list."""
+        return [element.to_json(simple, tax) for element in self.elements]
+
+    @staticmethod
+    def from_json(data: list[dict], tax_included: bool = True):
+        """Create TariffElements from a JSON list."""
+        return TariffElements(
+            elements=[
+                TariffElement.from_json(element, tax_included=tax_included)
+                for element in data
+            ]
+        )
+
+    def to_string(self):
+        """Convert the TariffElements to a string representation."""
+        return "|".join(elt.to_string() for elt in self.elements)
+
+
 class Tariff(OCPIBaseModel):
     """Represents a tariff in the OCPI protocol."""
 
     def __init__(
         self,
         id: str,
-        elements: list[TariffElement],
+        elements: TariffElements,
         type: TariffType = TariffType.AD_HOC_PAYMENT,
         tariff_alt_text: str = None,
         min_price: Price = None,
@@ -320,7 +367,7 @@ class Tariff(OCPIBaseModel):
         self.tax_included = tax_included
 
     def __str__(self):
-        return f"Tariff(id={self.id}, type={self.type}, elements={self.elements}, tariff_alt_text={self.tariff_alt_text}, start_date_time={self.start_date_time})"
+        return f"Tariff(id={self.id}, type={self.type}, elements={self.elements}, tariff_alt_text={self.tariff_alt_text}, start_date_time={self.start_date_time}, end_date_time={self.end_date_time})"
 
     @staticmethod
     def from_json(data: dict):
@@ -332,9 +379,7 @@ class Tariff(OCPIBaseModel):
             else TaxIncluded.YES
         )
         tax = True if tax_included != TaxIncluded.NO else False
-        elements = [
-            TariffElement.from_json(e, tax_included=tax) for e in data["elements"]
-        ]
+        elements = TariffElements.from_json(data["elements"], tax_included=tax)
         type = TariffType(data["type"]) if "type" in data else TariffType.AD_HOC_PAYMENT
         tariff_alt_text = data.get("tariff_alt_text")
         min_price = (
@@ -382,7 +427,7 @@ class Tariff(OCPIBaseModel):
         tax = True if simple else self.tax_included != TaxIncluded.NO
         data = {
             "id": self.id,
-            "elements": [e.to_json(simple, tax) for e in self.elements],
+            "elements": self.elements.to_json(simple, tax),
         }
         if self.type is not None and not simple:
             data["type"] = self.type.value
@@ -396,6 +441,8 @@ class Tariff(OCPIBaseModel):
             data["start_date_time"] = self.start_date_time.isoformat()
         if self.end_date_time is not None:
             data["end_date_time"] = self.end_date_time.isoformat()
+        if self.end_time is not None:
+            data["end_time"] = self.end_time.isoformat()
         if self.last_updated is not None and not simple:
             data["last_updated"] = self.last_updated.isoformat()
         if self.tax_included is not None and not simple:
@@ -404,4 +451,4 @@ class Tariff(OCPIBaseModel):
 
     def to_string(self):
         """Convert the Tariff to a string representation."""
-        return "|".join(elt.to_string() for elt in self.elements)
+        return self.elements.to_string()
