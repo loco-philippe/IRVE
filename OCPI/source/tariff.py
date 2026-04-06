@@ -411,15 +411,23 @@ class TariffElements(OCPIBaseModel):
             ]
         )
 
-    def to_string(self):
+    def to_string(self, mono_line: bool = True):
         """Convert the TariffElements to a string representation."""
-        return "|".join(elt.to_string() for elt in self.elements)
+        if mono_line:
+            return "|".join(elt.to_string() for elt in self.elements)
+        else:
+            return "\n".join(elt.to_string() for elt in self.elements)
 
     @staticmethod
     def from_string(data: str):
         """Create TariffElements from a string representation."""
+        data_line = data.replace("\n", "|").replace(" ", "")
         return TariffElements(
-            elements=[TariffElement.from_string(element) for element in data.split("|")]
+            [
+                TariffElement.from_string(elt)
+                for elt in data_line.split("|")
+                if elt != ""
+            ]
         )
 
 
@@ -536,6 +544,25 @@ class Tariff(OCPIBaseModel):
         return self.elements.to_string()
 
     @staticmethod
-    def from_string(data: str):
+    def from_string(
+        data: str,
+        id: str,
+        tariff_alt_text: str = None,
+        min_price: Price = None,
+        max_price: Price = None,
+        start_date_time: datetime = None,
+        end_date_time: datetime = None,
+        last_updated: datetime = None,
+    ):
         """Create a Tariff from a string representation."""
-        return TariffElements.from_string(data)
+        elements = TariffElements.from_string(data)
+        return Tariff(
+            id=id,
+            elements=elements,
+            tariff_alt_text=tariff_alt_text,
+            min_price=min_price,
+            max_price=max_price,
+            start_date_time=start_date_time,
+            end_date_time=end_date_time,
+            last_updated=last_updated,
+        )
