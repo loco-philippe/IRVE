@@ -204,7 +204,7 @@ def test_tariff():
     assert tariff.elements[0].price_components[0].price.amount == 0.30
 
 
-def test_tariff_from_json():
+def test_tariff_json():
     """Test the Tariff class from JSON."""
     json_data = {
         "id": "tariff1",
@@ -247,7 +247,7 @@ def test_tariff_from_json():
     ) == json.dumps(tariff.to_json(simple=True))
 
 
-def test_tariff_to_string():
+def test_tariff_string():
     price_component1 = PriceComponent(
         type=TariffDimensionType.ENERGY, price=Price(amount=0.30)
     )
@@ -269,6 +269,7 @@ def test_tariff_to_string():
                 "end_date": "2024-01-02",
                 "start_time": "13:10",
                 "end_time": "23:59",
+                "min_power": 20,
             }
         ),
     )
@@ -281,12 +282,30 @@ def test_tariff_to_string():
     assert tariff.to_string() == tariff_elements.to_string()
     assert (
         tariff.to_string()
-        == "EN30+FL120+J=LuMa+D>2024-01-01+D<2024-01-02+T>13:10+T<23:59|EN10+FL150"
+        == "EN30+FL120+J=LuMa+D>2024-01-01+D<2024-01-02+T>13:10+T<23:59+P>20|EN10+FL150"
     )
     assert (
         TariffElements.from_string(tariff.to_string()).to_string() == tariff.to_string()
     )
     assert Tariff.convert(tariff.to_string(), Format.TEXT_LIGHT) == tariff.to_string()
+
+
+def test_regex():
+    test_ok = [
+        "0.25",
+        "EN30+FL120",
+        "EN30+FL120+D>2024-01-01",
+        "EN30+FL120+D>2024-01-01+T<10:45",
+        "A<248",
+        "J=SaDi",
+        "EN30+FL120|EN15+J=LuMe",
+    ]
+    test_ko = ["EN30++FL120", "J=DiSa", "J=", "EN30+xx120", "EN30+D>2024", "|", "|EN40"]
+
+    for tst in test_ok:
+        assert Tariff.is_valid_string(tst)
+    for tst in test_ko:
+        assert not Tariff.is_valid_string(tst)
 
 
 test_price()
@@ -298,7 +317,7 @@ test_tariffrestrictions_from_json()
 test_tariffelement()
 test_tariffelement_from_json()
 test_tariff()
-test_tariff_from_json()
-test_tariff_to_string()
+test_tariff_json()
+test_tariff_string()
 
 # option complete pour json

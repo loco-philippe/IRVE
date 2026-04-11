@@ -2,6 +2,24 @@
 
 # from pydantic import BaseModel
 from enum import Enum
+import re
+
+TARIFF_REGEX = re.compile(
+    r"""
+  ^(\d+\.?\d*)$  # float
+  |
+  ^(
+      (
+        ( ((EN|FL|PT|TI|A<|A>|P<|P>|I<|I>)\d+) # energy, flat, time, parking_time, min/max_current/kwh/power/duration, 
+          |((D>|D<)\d{4}-\d{2}-\d{2}) # start_date, end_date
+          |((T>|T<)\d{2}:\d{2}) # start_time, end_time
+          |(J=(?!$)(Lu)?(Ma)?(Me)?(Je)?(Ve)?(Sa)?(Di)?) #day_of_week
+        )
+      \+?)+  
+    \|?)+
+  $""",
+    re.VERBOSE,
+)
 
 
 class Format(Enum):

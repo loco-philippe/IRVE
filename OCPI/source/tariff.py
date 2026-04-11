@@ -14,6 +14,7 @@ from .utils import (
     TariffDimensionType,
     TariffType,
     TaxIncluded,
+    TARIFF_REGEX,
 )
 
 
@@ -237,31 +238,56 @@ class TariffRestrictions(OCPIBaseModel):
         """Convert the TariffRestrictions object to a string representation."""
         parts = []
         if self.days_of_week is not None:
-            parts.append("J=" + "".join(day.code for day in self.days_of_week))
+            parts.append(
+                TariffRestrictionsCode.DAYS_OF_WEEK.value
+                + "".join(day.code for day in self.days_of_week)
+            )
         if self.start_date is not None:
-            parts.append(f"D>{self.start_date.isoformat()}")
+            parts.append(
+                TariffRestrictionsCode.START_DATE.value + self.start_date.isoformat()
+            )
         if self.end_date is not None:
-            parts.append(f"D<{self.end_date.isoformat()}")
+            parts.append(
+                TariffRestrictionsCode.END_DATE.value + self.end_date.isoformat()
+            )
         if self.start_time is not None:
-            parts.append(f"T>{self.start_time.isoformat(timespec='minutes')}")
+            parts.append(
+                TariffRestrictionsCode.START_TIME.value
+                + self.start_time.isoformat(timespec="minutes")
+            )
         if self.end_time is not None:
-            parts.append(f"T<{self.end_time.isoformat(timespec='minutes')}")
+            parts.append(
+                TariffRestrictionsCode.END_TIME.value
+                + self.end_time.isoformat(timespec="minutes")
+            )
         if self.min_current is not None:
-            parts.append(f"A>{int(self.min_current)}")
+            parts.append(
+                TariffRestrictionsCode.MIN_CURRENT.value + str(int(self.min_current))
+            )
         if self.max_current is not None:
-            parts.append(f"A<{int(self.max_current)}")
+            parts.append(
+                TariffRestrictionsCode.MAX_CURRENT.value + str(int(self.max_current))
+            )
         if self.min_duration is not None:
-            parts.append(f"I<{int(self.min_duration)}")
+            parts.append(
+                TariffRestrictionsCode.MIN_DURATION.value + str(int(self.min_duration))
+            )
         if self.max_duration is not None:
-            parts.append(f"I>{int(self.max_duration)}")
+            parts.append(
+                TariffRestrictionsCode.MAX_DURATION.value + str(int(self.max_duration))
+            )
         if self.min_kwh is not None:
-            parts.append(f"K>{int(self.min_kwh)}")
+            parts.append(TariffRestrictionsCode.MIN_KWH.value + str(int(self.min_kwh)))
         if self.max_kwh is not None:
-            parts.append(f"K<{int(self.max_kwh)}")
+            parts.append(TariffRestrictionsCode.MAX_KWH.value + str(int(self.max_kwh)))
         if self.min_power is not None:
-            parts.append(f"P>{int(self.min_power)}")
+            parts.append(
+                TariffRestrictionsCode.MIN_POWER.value + str(int(self.min_power))
+            )
         if self.max_power is not None:
-            parts.append(f"P<{int(self.max_power)}")
+            parts.append(
+                TariffRestrictionsCode.MAX_POWER.value + str(int(self.max_power))
+            )
         return "+".join(parts)
 
     @staticmethod
@@ -272,34 +298,34 @@ class TariffRestrictions(OCPIBaseModel):
         for part in parts:
             code = part[:2]
             value = part[2:]
-            if code == "J=":
+            if code == TariffRestrictionsCode.DAYS_OF_WEEK.value:
                 day_codes = [value[i : i + 2] for i in range(0, len(value), 2)]
                 restrictions.days_of_week = [
                     DayOfWeek[DayOfWeekCode(day).name] for day in day_codes
                 ]
-            elif code == "D>":
+            elif code == TariffRestrictionsCode.START_DATE.value:
                 restrictions.start_date = date.fromisoformat(value)
-            elif code == "D<":
+            elif code == TariffRestrictionsCode.END_DATE.value:
                 restrictions.end_date = date.fromisoformat(value)
-            elif code == "T>":
+            elif code == TariffRestrictionsCode.START_TIME.value:
                 restrictions.start_time = time.fromisoformat(value + ":00")
-            elif code == "T<":
+            elif code == TariffRestrictionsCode.END_TIME.value:
                 restrictions.end_time = time.fromisoformat(value + ":00")
-            elif code == "A>":
+            elif code == TariffRestrictionsCode.MIN_CURRENT.value:
                 restrictions.min_current = float(value)
-            elif code == "A<":
+            elif code == TariffRestrictionsCode.MAX_CURRENT.value:
                 restrictions.max_current = float(value)
-            elif code == "I>":
+            elif code == TariffRestrictionsCode.MIN_DURATION.value:
                 restrictions.min_duration = int(value)
-            elif code == "I<":
+            elif code == TariffRestrictionsCode.MAX_DURATION.value:
                 restrictions.max_duration = int(value)
-            elif code == "K>":
+            elif code == TariffRestrictionsCode.MIN_KWH.value:
                 restrictions.min_kwh = float(value)
-            elif code == "K<":
+            elif code == TariffRestrictionsCode.MAX_KWH.value:
                 restrictions.max_kwh = float(value)
-            elif code == "P>":
+            elif code == TariffRestrictionsCode.MIN_POWER.value:
                 restrictions.min_power = float(value)
-            elif code == "P<":
+            elif code == TariffRestrictionsCode.MAX_POWER.value:
                 restrictions.max_power = float(value)
         return restrictions
 
@@ -596,3 +622,7 @@ class Tariff(OCPIBaseModel):
             return tarif.to_json(simple=True)
         else:
             return tarif.to_json(simple=False)
+
+    @staticmethod
+    def is_valid_string(data: str) -> bool:
+        return TARIFF_REGEX.match(data) is not None
