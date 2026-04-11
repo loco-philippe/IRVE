@@ -4,6 +4,14 @@
 from enum import Enum
 
 
+class Format(Enum):
+    """Enumeration for format string."""
+
+    TEXT_LIGHT = "text_light"
+    JSON_LIGHT = "json_light"
+    JSON_OCPI = "json_ocpi"
+
+
 class TaxIncluded(Enum):
     """Enumeration for tax inclusion."""
 
@@ -40,6 +48,7 @@ class DayOfWeekCode(Enum):
     SATURDAY = "Sa"
     SUNDAY = "Di"
 
+
 class TariffRestrictionsCode(Enum):
     """Enumeration for tariff restrictions codes."""
 
@@ -56,6 +65,7 @@ class TariffRestrictionsCode(Enum):
     MIN_DURATION = "I>"
     MAX_CURRENT = "A<"
     MIN_CURRENT = "A>"
+
 
 class TariffType(Enum):
     """Enumeration for tariff types."""

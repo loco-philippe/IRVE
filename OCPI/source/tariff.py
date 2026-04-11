@@ -1,10 +1,12 @@
 """Tariff module for handling tariff-related operations."""
 
 from datetime import datetime, date, time
+import json
 
 from .utils import (
     DayOfWeek,
     DayOfWeekCode,
+    Format,
     OCPIBaseModel,
     Price,
     TariffDimensionCode,
@@ -546,7 +548,7 @@ class Tariff(OCPIBaseModel):
     @staticmethod
     def from_string(
         data: str,
-        id: str,
+        id: str = "undefined",
         tariff_alt_text: str = None,
         min_price: Price = None,
         max_price: Price = None,
@@ -566,3 +568,31 @@ class Tariff(OCPIBaseModel):
             end_date_time=end_date_time,
             last_updated=last_updated,
         )
+
+    @staticmethod
+    def convert(data: str, format: Format) -> str:
+        """Convert a Tariff from a format to another"""
+        if not isinstance(data, str):
+            return
+        if data[0].isdigit():
+            tarif = Tariff.from_json(
+                {
+                    "elements": [
+                        {
+                            "price_components": [
+                                {"type": "ENERGY", "price": float(data)}
+                            ],
+                        }
+                    ],
+                }
+            )
+        elif data[0] == "{":
+            tarif = Tariff.from_json(json.loads(data))
+        else:
+            tarif = Tariff.from_string(data)
+        if format == Format.TEXT_LIGHT:
+            return tarif.to_string()
+        elif format == Format.JSON_LIGHT:
+            return tarif.to_json(simple=True)
+        else:
+            return tarif.to_json(simple=False)

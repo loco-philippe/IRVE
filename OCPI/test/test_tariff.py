@@ -1,5 +1,7 @@
 """Tests for the tariff module."""
 
+import json
+
 from datetime import time
 
 from source.tariff import (
@@ -10,7 +12,7 @@ from source.tariff import (
     TariffRestrictions,
     DayOfWeek,
 )
-from source.utils import Price, TariffDimensionType
+from source.utils import Format, Price, TariffDimensionType
 
 '''def test_tariff():
     """Test the Tariff class."""
@@ -237,6 +239,12 @@ def test_tariff_from_json():
         Tariff.from_json(tariff.to_json(simple=True)).to_json()["elements"]
         == json_data["elements"]
     )
+    assert json.dumps(
+        Tariff.convert(json.dumps(tariff.to_json()), Format.JSON_OCPI)
+    ) == json.dumps(tariff.to_json())
+    assert json.dumps(
+        Tariff.convert(json.dumps(tariff.to_json(simple=True)), Format.JSON_LIGHT)
+    ) == json.dumps(tariff.to_json(simple=True))
 
 
 def test_tariff_to_string():
@@ -278,7 +286,7 @@ def test_tariff_to_string():
     assert (
         TariffElements.from_string(tariff.to_string()).to_string() == tariff.to_string()
     )
-    # print(TariffElements.from_string(tariff.to_string()).to_json(simple=True))
+    assert Tariff.convert(tariff.to_string(), Format.TEXT_LIGHT) == tariff.to_string()
 
 
 test_price()
