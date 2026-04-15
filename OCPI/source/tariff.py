@@ -540,30 +540,30 @@ class Tariff(OCPIBaseModel):
             last_updated=last_updated,
         )
 
-    def to_json(self, simple=False) -> dict:
+    def to_json(self, ocpi=True, simple=False) -> dict:
         """Convert the Tariff to a JSON dictionary."""
-        if simple and self.type != TariffType.AD_HOC_PAYMENT:
+        if not ocpi and self.type != TariffType.AD_HOC_PAYMENT:
             return NotImplemented
-        tax = True if simple else self.tax_included != TaxIncluded.NO
+        tax = True if not ocpi else self.tax_included != TaxIncluded.NO
         data = {
             "id": self.id,
             "elements": self.elements.to_json(simple, tax),
         }
-        if self.type is not None and not simple:
+        if self.type is not None and ocpi:
             data["type"] = self.type.value
         if self.tariff_alt_text is not None:
             data["tariff_alt_text"] = self.tariff_alt_text
-        if self.min_price is not None and not simple:
+        if self.min_price is not None and ocpi:
             data["min_price"] = self.min_price.amount
-        if self.max_price is not None and not simple:
+        if self.max_price is not None and ocpi:
             data["max_price"] = self.max_price.amount
         if self.start_date_time is not None:
             data["start_date_time"] = self.start_date_time.isoformat()
         if self.end_date_time is not None:
             data["end_date_time"] = self.end_date_time.isoformat()
-        if self.last_updated is not None and not simple:
+        if self.last_updated is not None and ocpi:
             data["last_updated"] = self.last_updated.isoformat()
-        if self.tax_included is not None and not simple:
+        if self.tax_included is not None and ocpi:
             data["tax_included"] = self.tax_included.value
         return data
 
@@ -619,7 +619,9 @@ class Tariff(OCPIBaseModel):
         if format == Format.TEXT_LIGHT:
             return tarif.to_string()
         elif format == Format.JSON_LIGHT:
-            return tarif.to_json(simple=True)
+            return tarif.to_json(simple=False, ocpi=False)
+        elif format == Format.JSON_LIGHT_PLUS:
+            return tarif.to_json(simple=True, ocpi=False)
         else:
             return tarif.to_json(simple=False)
 

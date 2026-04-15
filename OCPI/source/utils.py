@@ -27,6 +27,7 @@ class Format(Enum):
 
     TEXT_LIGHT = "text_light"
     JSON_LIGHT = "json_light"
+    JSON_LIGHT_PLUS = "json_light+"
     JSON_OCPI = "json_ocpi"
 
 
