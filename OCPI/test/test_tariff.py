@@ -2,8 +2,6 @@
 
 import json
 
-from datetime import time
-
 from source.tariff import (
     Tariff,
     TariffElement,
@@ -13,23 +11,6 @@ from source.tariff import (
     DayOfWeek,
 )
 from source.utils import Format, Price, TariffDimensionType
-
-'''def test_tariff():
-    """Test the Tariff class."""
-    price_component = PriceComponent(type="ENERGY", price=0.30)
-    tariff_element = TariffElement(type="FLAT", price_components=[price_component])
-    tariff_restrictions = TariffRestrictions(start_date_time="2024-01-01T00:00:00Z", end_date_time="2024-12-31T23:59:59Z")
-    tariff = Tariff(id="tariff1", currency="EUR", elements=[tariff_element], last_updated="2024-06-01T12:00:00Z")
-    
-    assert tariff.id == "tariff1"
-    assert tariff.currency == "EUR"
-    assert len(tariff.elements) == 1
-    assert tariff.elements[0].type == "FLAT"
-    assert len(tariff.elements[0].price_components) == 1
-    assert tariff.elements[0].price_components[0].type == "ENERGY"
-    assert tariff.elements[0].price_components[0].price == 0.30
-    assert tariff.last_updated == "2024-06-01T12:00:00Z"
-'''
 
 
 def test_price():
@@ -123,13 +104,7 @@ def test_tariffrestrictions_from_json():
         "min_power": 5.0,
         "max_power": 20.0,
     }
-    # print(
-    #    time.fromisoformat(json_data["start_time"] + ":00").isoformat(
-    #        timespec="minutes"
-    #    )
-    # )
     restrictions = TariffRestrictions.from_json(json_data)
-    # print(restrictions.start_time.isoformat())
     assert restrictions.days_of_week == [DayOfWeek.MONDAY, DayOfWeek.TUESDAY]
     assert restrictions.start_date.isoformat() == "2024-01-01"
     assert restrictions.end_date.isoformat() == "2024-12-31"
@@ -195,13 +170,16 @@ def test_tariff():
         type=TariffDimensionType.ENERGY, price=Price(amount=0.30)
     )
     tariff_element = TariffElement(price_components=[price_component])
-    tariff = Tariff(id="tariff1", elements=[tariff_element])
+    tariff = Tariff(
+        id="tariff1", elements=[tariff_element], last_updated="2024-06-01T12:00:00Z"
+    )
 
     assert tariff.id == "tariff1"
     assert len(tariff.elements) == 1
     assert len(tariff.elements[0].price_components) == 1
     assert tariff.elements[0].price_components[0].type == TariffDimensionType.ENERGY
     assert tariff.elements[0].price_components[0].price.amount == 0.30
+    assert tariff.last_updated == "2024-06-01T12:00:00Z"
 
 
 def test_tariff_json():
@@ -231,9 +209,10 @@ def test_tariff_json():
     assert tariff.elements[0].price_components[0].price.amount == 0.30
     assert tariff.last_updated.isoformat() == "2024-06-01T12:00:00+00:00"
     assert tariff.to_json() == json_data
-    assert tariff.to_json(simple=True) == {
+    assert tariff.to_json(ocpi=False, simple=True) == {
         "id": "tariff1",
         "elements": [{"price_components": {"ENERGY": 0.3}}],
+        "last_updated": "2024-06-01T12:00:00+00:00",
     }
     assert (
         Tariff.from_json(tariff.to_json(simple=True)).to_json()["elements"]
@@ -244,10 +223,11 @@ def test_tariff_json():
     ) == json.dumps(tariff.to_json())
     assert json.dumps(
         Tariff.convert(json.dumps(tariff.to_json(simple=True)), Format.JSON_LIGHT)
-    ) == json.dumps(tariff.to_json(simple=True))
+    ) == json.dumps(tariff.to_json(ocpi=False, simple=False))
 
 
 def test_tariff_string():
+    """Test the Tariff class from string and to string."""
     price_component1 = PriceComponent(
         type=TariffDimensionType.ENERGY, price=Price(amount=0.30)
     )
@@ -290,7 +270,8 @@ def test_tariff_string():
     assert Tariff.convert(tariff.to_string(), Format.TEXT_LIGHT) == tariff.to_string()
 
 
-def test_regex():
+def test_string_validation():
+    """Test the regular expression for tariff strings."""
     test_ok = [
         "0.25",
         "EN30+FL120",
@@ -308,6 +289,32 @@ def test_regex():
         assert not Tariff.is_valid_string(tst)
 
 
+def test_json_validation():
+    """Test the JSON schema for the Tariff class."""
+    json_data = {
+        "id": "tariff1",
+        "type": "AD_HOC_PAYMENT",
+        "elements": [
+            {
+                "price_components": [
+                    {
+                        "type": "ENERGY",
+                        "price": 0.30,
+                    }
+                ],
+            }
+        ],
+        "last_updated": "2024-06-01T12:00:00+00:00",
+        "tax_included": "YES",
+    }
+    assert Tariff.is_valid_json(json_data)
+
+    with open("examples/examples.json") as f:
+        examples_data = json.load(f)
+    for example in examples_data:
+        assert Tariff.is_valid_json(example)
+
+
 test_price()
 test_pricecomponent()
 test_pricecomponent_tax_included()
@@ -319,5 +326,5 @@ test_tariffelement_from_json()
 test_tariff()
 test_tariff_json()
 test_tariff_string()
-
-# option complete pour json
+test_string_validation()
+test_json_validation()

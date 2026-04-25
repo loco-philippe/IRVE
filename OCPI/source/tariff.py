@@ -2,7 +2,8 @@
 
 from datetime import datetime, date, time
 import json
-
+from jsonschema import validate
+from jsonschema.exceptions import ValidationError
 from .utils import (
     DayOfWeek,
     DayOfWeekCode,
@@ -483,7 +484,7 @@ class Tariff(OCPIBaseModel):
         self.max_price = max_price
         self.start_date_time = start_date_time
         self.end_date_time = end_date_time
-        self.last_updated = last_updated
+        self.last_updated = datetime.now() if last_updated is None else last_updated
         self.tax_included = tax_included
 
     def __str__(self):
@@ -561,7 +562,7 @@ class Tariff(OCPIBaseModel):
             data["start_date_time"] = self.start_date_time.isoformat()
         if self.end_date_time is not None:
             data["end_date_time"] = self.end_date_time.isoformat()
-        if self.last_updated is not None and ocpi:
+        if self.last_updated is not None:
             data["last_updated"] = self.last_updated.isoformat()
         if self.tax_included is not None and ocpi:
             data["tax_included"] = self.tax_included.value
@@ -628,3 +629,19 @@ class Tariff(OCPIBaseModel):
     @staticmethod
     def is_valid_string(data: str) -> bool:
         return TARIFF_REGEX.match(data) is not None
+
+    @staticmethod
+    def is_valid_json(data: dict, verbose=False) -> bool:
+        with open("source/schema.json") as f:
+            schema = json.load(f)
+        try:
+            validate(instance=data, schema=schema)
+            if verbose:
+                print(f"Validation réussie pour : {data['id']}")
+        except ValidationError as e:
+            if verbose:
+                print(f"Erreur de validation sur {data.get('id', 'Inconnu')} :")
+                print(f"Message : {e.message}")
+                print(f"Emplacement : {list(e.path)}")
+            return False
+        return True

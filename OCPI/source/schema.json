@@ -1,7 +1,8 @@
 {
     "$id": "https://www.jsonschemavalidator.net/s/9jXn0qs6",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "OCPI_Tariff",
+    "title": "Qualicharge_OCPI_Tariff",
+    "description": "This schema defines the structure and validation rules for OCPI Tariff objects used in the Qualicharge platform. It includes properties of OCPI 2.2 and OCPI 2.3 and requires only the properties that are applicable to the Qualicharge platform. The schema ensures that OCPI Tariff data adheres to the required format and constraints.",
     "type": "object",
     "required": [
         "id",
@@ -58,6 +59,70 @@
             "type": "string",
             "format": "date-time"
         },
+        "tax_included": {
+            "enum": [
+                "YES",
+                "NO",
+                "N/A"
+            ]
+        },
+        "min_price": {
+            "anyOf": [
+                {
+                    "description": "OCPI 2.2 format",
+                    "type": "number"
+                },
+                {
+                    "description": "OCPI 2.3 format",
+                    "type": "object",
+                    "required": [
+                        "before_taxes"
+                    ],
+                    "properties": {
+                        "before_taxes": {
+                            "type": "number"
+                        },
+                        "after_taxes": {
+                            "type": "number"
+                        }
+                    }
+                }
+            ]
+        },
+        "max_price": {
+            "anyOf": [
+                {
+                    "description": "OCPI 2.2 format",
+                    "type": "object",
+                    "required": [
+                        "excl_vat"
+                    ],
+                    "properties": {
+                        "excl_vat": {
+                            "type": "number"
+                        },
+                        "incl_vat": {
+                            "type": "number"
+                        }
+                    }
+                },
+                {
+                    "description": "OCPI 2.3 format",
+                    "type": "object",
+                    "required": [
+                        "before_taxes"
+                    ],
+                    "properties": {
+                        "before_taxes": {
+                            "type": "number"
+                        },
+                        "after_taxes": {
+                            "type": "number"
+                        }
+                    }
+                }
+            ]
+        },
         "elements": {
             "type": "array",
             "minItems": 1,
@@ -77,6 +142,7 @@
                             ],
                             "properties": {
                                 "type": {
+                                    "description": "additional type for congestion pricing",
                                     "enum": [
                                         "ENERGY",
                                         "FLAT",
@@ -162,9 +228,11 @@
                                 ]
                             },
                             "min_vehicle_soc": {
+                                "description": "additional type for congestion pricing",
                                 "type": "integer"
                             },
                             "min_congestion_threshold": {
+                                "description": "additional type for congestion pricing",
                                 "type": "integer"
                             }
                         }
