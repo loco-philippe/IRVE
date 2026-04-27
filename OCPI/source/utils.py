@@ -86,6 +86,42 @@ class TariffRestrictionsCode(Enum):
     MIN_CURRENT = "A>"
 
 
+class TariffRestrictionsText(Enum):
+    """Enumeration for tariff restrictions texts."""
+
+    DAYS_OF_WEEK = "les"
+    START_DATE = "si après le"
+    END_DATE = "si avant le"
+    START_TIME = "si après"
+    END_TIME = "si avant"
+    MAX_POWER = "si puissance inférieure à"
+    MIN_POWER = "si puissance supérieure à"
+    MAX_KWH = "si énergie inférieure à"
+    MIN_KWH = "si énergie supérieure à"
+    MAX_DURATION = "si durée inférieure à"
+    MIN_DURATION = "si durée supérieure à"
+    MAX_CURRENT = "si courant inférieur à"
+    MIN_CURRENT = "si courant supérieur à"
+
+
+class TariffRestrictionsUnite(Enum):
+    """Enumeration for tariff restrictions units."""
+
+    DAYS_OF_WEEK = ""
+    START_DATE = ""
+    END_DATE = ""
+    START_TIME = ""
+    END_TIME = ""
+    MAX_POWER = " kW"
+    MIN_POWER = " kW"
+    MAX_KWH = " kWh"
+    MIN_KWH = " kWh"
+    MAX_DURATION = " s"
+    MIN_DURATION = " s"
+    MAX_CURRENT = " A"
+    MIN_CURRENT = " A"
+
+
 class TariffType(Enum):
     """Enumeration for tariff types."""
 
@@ -103,6 +139,7 @@ class TariffDimensionType(Enum):
     TIME = "TIME"
     FLAT = "FLAT"
     PARKING_TIME = "PARKING_TIME"
+    CONGESTION_TIME = "CONGESTION_TIME"
 
     @property
     def code(self):
@@ -117,6 +154,17 @@ class TariffDimensionCode(Enum):
     TIME = "TI"
     FLAT = "FL"
     PARKING_TIME = "PT"
+    CONGESTION_TIME = "CT"
+
+
+class TariffDimensionUnit(Enum):
+    """Enumeration for tariff dimension units."""
+
+    ENERGY = "€/kWh"
+    TIME = "€/h"
+    FLAT = "€"
+    PARKING_TIME = "€/h"
+    CONGESTION_TIME = "€/h"
 
 
 class OCPIBaseModel:

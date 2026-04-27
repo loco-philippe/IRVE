@@ -11,8 +11,11 @@ from .utils import (
     OCPIBaseModel,
     Price,
     TariffDimensionCode,
+    TariffDimensionUnit,
     TariffRestrictionsCode,
     TariffDimensionType,
+    TariffRestrictionsText,
+    TariffRestrictionsUnite,
     TariffType,
     TaxIncluded,
     TARIFF_REGEX,
@@ -235,6 +238,101 @@ class TariffRestrictions(OCPIBaseModel):
             data["max_power"] = self.max_power
         return data
 
+    def to_text(self) -> str:
+        """Convert the TariffRestrictions object to a text representation."""
+        parts = []
+        if self.days_of_week is not None:
+            parts.append(
+                TariffRestrictionsText.DAYS_OF_WEEK.value
+                + " ".join(day.code for day in self.days_of_week)
+                + TariffRestrictionsUnite.DAYS_OF_WEEK.value
+            )
+        if self.start_date is not None:
+            parts.append(
+                TariffRestrictionsText.START_DATE.value
+                + " "
+                + self.start_date.isoformat()
+                + TariffRestrictionsUnite.START_DATE.value
+            )
+        if self.end_date is not None:
+            parts.append(
+                TariffRestrictionsText.END_DATE.value
+                + " "
+                + self.end_date.isoformat()
+                + TariffRestrictionsUnite.END_DATE.value
+            )
+        if self.start_time is not None:
+            parts.append(
+                TariffRestrictionsText.START_TIME.value
+                + " "
+                + self.start_time.isoformat(timespec="minutes")
+                + TariffRestrictionsUnite.START_TIME.value
+            )
+        if self.end_time is not None:
+            parts.append(
+                TariffRestrictionsText.END_TIME.value
+                + " "
+                + self.end_time.isoformat(timespec="minutes")
+                + TariffRestrictionsUnite.END_TIME.value
+            )
+        if self.min_current is not None:
+            parts.append(
+                TariffRestrictionsText.MIN_CURRENT.value
+                + " "
+                + str(int(self.min_current))
+                + TariffRestrictionsUnite.MIN_CURRENT.value
+            )
+        if self.max_current is not None:
+            parts.append(
+                TariffRestrictionsText.MAX_CURRENT.value
+                + " "
+                + str(int(self.max_current))
+                + TariffRestrictionsUnite.MAX_CURRENT.value
+            )
+        if self.min_duration is not None:
+            parts.append(
+                TariffRestrictionsText.MIN_DURATION.value
+                + " "
+                + str(int(self.min_duration))
+                + TariffRestrictionsUnite.MIN_DURATION.value
+            )
+        if self.max_duration is not None:
+            parts.append(
+                TariffRestrictionsText.MAX_DURATION.value
+                + " "
+                + str(int(self.max_duration))
+                + TariffRestrictionsUnite.MAX_DURATION.value
+            )
+        if self.min_kwh is not None:
+            parts.append(
+                TariffRestrictionsText.MIN_KWH.value
+                + " "
+                + str(int(self.min_kwh))
+                + TariffRestrictionsUnite.MIN_KWH.value
+            )
+        if self.max_kwh is not None:
+            parts.append(
+                TariffRestrictionsText.MAX_KWH.value
+                + " "
+                + str(int(self.max_kwh))
+                + TariffRestrictionsUnite.MAX_KWH.value
+            )
+        if self.min_power is not None:
+            parts.append(
+                TariffRestrictionsText.MIN_POWER.value
+                + " "
+                + str(int(self.min_power))
+                + TariffRestrictionsUnite.MIN_POWER.value
+            )
+        if self.max_power is not None:
+            parts.append(
+                TariffRestrictionsText.MAX_POWER.value
+                + " "
+                + str(int(self.max_power))
+                + TariffRestrictionsUnite.MAX_POWER.value
+            )
+        return "" if not parts else " et ".join(parts)
+
     def to_string(self) -> str:
         """Convert the TariffRestrictions object to a string representation."""
         parts = []
@@ -447,6 +545,37 @@ class TariffElements(OCPIBaseModel):
         else:
             return "\n".join(elt.to_string() for elt in self.elements)
 
+    def to_text(self):
+        """Convert the TariffElements to a text representation."""
+        text = ""
+        for dimension in TariffDimensionType:
+            text_elements = []
+            for element in self.elements:
+                for pc in element.price_components:
+                    if pc.type == dimension:
+                        text_elements.append(
+                            [
+                                pc.price.incl_vat,
+                                TariffDimensionUnit[dimension.name].value,
+                                element.restrictions,
+                            ]
+                        )
+            if len(text_elements) == 0:
+                continue
+            if [te[0] for te in text_elements] == [
+                text_elements[0][0] for _ in text_elements
+            ]:
+                text += f"- {dimension.value} :\n"
+                text += f"  - {text_elements[0][0]} {text_elements[0][1]}\n"
+            else:
+                text += f"- {dimension.value} :\n"
+                for te in text_elements:
+                    if te == text_elements[-1]:
+                        text += f"  - {te[0]} {te[1]} {te[2].to_text() if te[2] is not None and te[2] != '' else 'sinon'}\n"
+                    else:
+                        text += f"  - {te[0]} {te[1]} {te[2].to_text() if te[2] is not None and te[2] != '' else ''}\n"
+        return text
+
     @staticmethod
     def from_string(data: str):
         """Create TariffElements from a string representation."""
@@ -505,12 +634,14 @@ class Tariff(OCPIBaseModel):
         tariff_alt_text = data.get("tariff_alt_text")
         min_price = (
             Price(amount=data["min_price"], tax_included=tax)
-            if "min_price" in data
+            if False
+            # if "min_price" in data
             else None
         )
         max_price = (
             Price(amount=data["max_price"], tax_included=tax)
-            if "max_price" in data
+            if False
+            # if "max_price" in data
             else None
         )
         start_date_time = (
@@ -571,6 +702,18 @@ class Tariff(OCPIBaseModel):
     def to_string(self):
         """Convert the Tariff to a string representation."""
         return self.elements.to_string()
+
+    def to_text(self):
+        """Convert the Tariff to a multi-line string representation."""
+        text = f'Tariff : "{self.id}"\n'
+        if self.start_date_time is not None and self.end_date_time is not None:
+            text += f"- applicable du {self.start_date_time.isoformat()} au {self.end_date_time.isoformat()}\n"
+        elif self.start_date_time is not None:
+            text += f"- applicable à partir du {self.start_date_time.isoformat()}\n"
+        elif self.end_date_time is not None:
+            text += f"- applicable jusqu'au {self.end_date_time.isoformat()}\n"
+        text += self.elements.to_text()
+        return text
 
     @staticmethod
     def from_string(

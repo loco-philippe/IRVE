@@ -315,6 +315,19 @@ def test_json_validation():
         assert Tariff.is_valid_json(example)
 
 
+def test_to_text():
+    """Test the to_text method of the Tariff class."""
+
+    with open("examples/examples.json") as f:
+        examples_data = json.load(f)
+    text = ""
+    for example in examples_data:
+        tariff = Tariff.from_json(example)
+        text += tariff.to_text() + "\n\n"
+    with open("examples/examples.md", "w", encoding="utf-8") as f:
+        f.write(text)
+
+
 test_price()
 test_pricecomponent()
 test_pricecomponent_tax_included()
@@ -328,3 +341,4 @@ test_tariff_json()
 test_tariff_string()
 test_string_validation()
 test_json_validation()
+test_to_text()
