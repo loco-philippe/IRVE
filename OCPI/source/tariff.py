@@ -620,11 +620,18 @@ class TariffElements(OCPIBaseModel):
                     te for te in text_elements if te[0] is not None and te[0] > 0
                 ]
                 for te in valid_text_elements:
-                    if te == text_elements[-1]:
-                        te_text = f"  - {te[0]} {te[1]} {te[2].to_text() if te[2] is not None and te[2] != '' else 'sinon'}"
+                    restrictions = (
+                        te[2].to_text()
+                        if te[2] is not None and len(te[2].to_text()) > 0
+                        else "sinon"
+                    )
+                    last = te == valid_text_elements[-1] or restrictions == "sinon"
+                    if last:
+                        te_text = f"  - {te[0]} {te[1]} {restrictions}"
                         text += te_text.rstrip() + "\n"
+                        break
                     else:
-                        te_text = f"  - {te[0]} {te[1]} {te[2].to_text() if te[2] is not None and te[2] != '' else ''}"
+                        te_text = f"  - {te[0]} {te[1]} {restrictions}"
                         text += te_text.rstrip() + "\n"
 
         return text
