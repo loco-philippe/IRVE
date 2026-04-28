@@ -90,18 +90,18 @@ class TariffRestrictionsText(Enum):
     """Enumeration for tariff restrictions texts."""
 
     DAYS_OF_WEEK = "les"
-    START_DATE = "si après le"
-    END_DATE = "si avant le"
-    START_TIME = "si après"
-    END_TIME = "si avant"
-    MAX_POWER = "si puissance inférieure à"
-    MIN_POWER = "si puissance supérieure à"
-    MAX_KWH = "si énergie inférieure à"
-    MIN_KWH = "si énergie supérieure à"
-    MAX_DURATION = "si durée inférieure à"
-    MIN_DURATION = "si durée supérieure à"
-    MAX_CURRENT = "si courant inférieur à"
-    MIN_CURRENT = "si courant supérieur à"
+    START_DATE = "après le"
+    END_DATE = "avant le"
+    START_TIME = "après"
+    END_TIME = "avant"
+    MAX_POWER = "si la puissance est inférieure à"
+    MIN_POWER = "si la puissance est supérieure à"
+    MAX_KWH = "si l'énergie est inférieure à"
+    MIN_KWH = "si l'énergie est supérieure à"
+    MAX_DURATION = "si la durée est inférieure à"
+    MIN_DURATION = "si la durée est supérieure à"
+    MAX_CURRENT = "si le courant est inférieur à"
+    MIN_CURRENT = "si le courant est supérieur à"
 
 
 class TariffRestrictionsUnite(Enum):
@@ -116,8 +116,8 @@ class TariffRestrictionsUnite(Enum):
     MIN_POWER = " kW"
     MAX_KWH = " kWh"
     MIN_KWH = " kWh"
-    MAX_DURATION = " s"
-    MIN_DURATION = " s"
+    MAX_DURATION = " min"
+    MIN_DURATION = " min"
     MAX_CURRENT = " A"
     MIN_CURRENT = " A"
 
@@ -143,8 +143,13 @@ class TariffDimensionType(Enum):
 
     @property
     def code(self):
-        """text code of the dimension."""
+        """code of the dimension."""
         return TariffDimensionCode[self.name].value
+
+    @property
+    def text(self):
+        """text of the dimension."""
+        return TariffDimensionText[self.name].value
 
 
 class TariffDimensionCode(Enum):
@@ -155,6 +160,16 @@ class TariffDimensionCode(Enum):
     FLAT = "FL"
     PARKING_TIME = "PT"
     CONGESTION_TIME = "CT"
+
+
+class TariffDimensionText(Enum):
+    """Enumeration for tariff dimension types."""
+
+    ENERGY = "énergie"
+    TIME = "durée de recharge"
+    FLAT = "forfait"
+    PARKING_TIME = "durée de parking"
+    CONGESTION_TIME = "durée de congestion"
 
 
 class TariffDimensionUnit(Enum):

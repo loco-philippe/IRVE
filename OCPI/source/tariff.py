@@ -247,35 +247,46 @@ class TariffRestrictions(OCPIBaseModel):
                 + " ".join(day.code for day in self.days_of_week)
                 + TariffRestrictionsUnite.DAYS_OF_WEEK.value
             )
-        if self.start_date is not None:
+        if self.start_date is not None and self.end_date is not None:
+            parts.append(
+                "du " + self.start_date.isoformat() + "au " + self.end_date.isoformat()
+            )
+        elif self.start_date is not None:
             parts.append(
                 TariffRestrictionsText.START_DATE.value
                 + " "
                 + self.start_date.isoformat()
                 + TariffRestrictionsUnite.START_DATE.value
             )
-        if self.end_date is not None:
+        elif self.end_date is not None:
             parts.append(
                 TariffRestrictionsText.END_DATE.value
                 + " "
                 + self.end_date.isoformat()
                 + TariffRestrictionsUnite.END_DATE.value
             )
-        if self.start_time is not None:
+        if self.start_time is not None and self.end_time is not None:
+            parts.append(
+                "entre "
+                + self.start_time.isoformat(timespec="minutes")
+                + " et "
+                + self.end_time.isoformat(timespec="minutes")
+            )
+        elif self.start_time is not None:
             parts.append(
                 TariffRestrictionsText.START_TIME.value
                 + " "
                 + self.start_time.isoformat(timespec="minutes")
                 + TariffRestrictionsUnite.START_TIME.value
             )
-        if self.end_time is not None:
+        elif self.end_time is not None:
             parts.append(
                 TariffRestrictionsText.END_TIME.value
                 + " "
                 + self.end_time.isoformat(timespec="minutes")
                 + TariffRestrictionsUnite.END_TIME.value
             )
-        if self.min_current is not None:
+        if self.min_current is not None and self.min_current > 0:
             parts.append(
                 TariffRestrictionsText.MIN_CURRENT.value
                 + " "
@@ -289,42 +300,77 @@ class TariffRestrictions(OCPIBaseModel):
                 + str(int(self.max_current))
                 + TariffRestrictionsUnite.MAX_CURRENT.value
             )
-        if self.min_duration is not None:
+        if (
+            self.min_duration is not None
+            and self.min_duration > 0
+            and self.max_duration is not None
+        ):
+            parts.append(
+                "si la durée est comprise entre "
+                + str(int(self.min_duration / 60))
+                + TariffRestrictionsUnite.MAX_DURATION.value
+                + " et "
+                + str(int(self.max_duration / 60))
+                + TariffRestrictionsUnite.MAX_DURATION.value
+            )
+        elif self.min_duration is not None and self.min_duration > 0:
             parts.append(
                 TariffRestrictionsText.MIN_DURATION.value
                 + " "
-                + str(int(self.min_duration))
+                + str(int(self.min_duration / 60))
                 + TariffRestrictionsUnite.MIN_DURATION.value
             )
-        if self.max_duration is not None:
+        elif self.max_duration is not None:
             parts.append(
                 TariffRestrictionsText.MAX_DURATION.value
                 + " "
-                + str(int(self.max_duration))
+                + str(int(self.max_duration / 60))
                 + TariffRestrictionsUnite.MAX_DURATION.value
             )
-        if self.min_kwh is not None:
+        if self.min_kwh is not None and self.min_kwh > 0 and self.max_kwh is not None:
+            parts.append(
+                "si l'énergie est comprise entre "
+                + str(int(self.min_kwh))
+                + TariffRestrictionsUnite.MIN_KWH.value
+                + " et "
+                + str(int(self.max_kwh))
+                + TariffRestrictionsUnite.MAX_KWH.value
+            )
+        elif self.min_kwh is not None and self.min_kwh > 0:
             parts.append(
                 TariffRestrictionsText.MIN_KWH.value
                 + " "
                 + str(int(self.min_kwh))
                 + TariffRestrictionsUnite.MIN_KWH.value
             )
-        if self.max_kwh is not None:
+        elif self.max_kwh is not None:
             parts.append(
                 TariffRestrictionsText.MAX_KWH.value
                 + " "
                 + str(int(self.max_kwh))
                 + TariffRestrictionsUnite.MAX_KWH.value
             )
-        if self.min_power is not None:
+        if (
+            self.min_power is not None
+            and self.min_power > 0
+            and self.max_power is not None
+        ):
+            parts.append(
+                "si la puissance est comprise entre "
+                + str(int(self.min_power))
+                + TariffRestrictionsUnite.MIN_POWER.value
+                + " et "
+                + str(int(self.max_power))
+                + TariffRestrictionsUnite.MAX_POWER.value
+            )
+        elif self.min_power is not None and self.min_power > 0:
             parts.append(
                 TariffRestrictionsText.MIN_POWER.value
                 + " "
                 + str(int(self.min_power))
                 + TariffRestrictionsUnite.MIN_POWER.value
             )
-        if self.max_power is not None:
+        elif self.max_power is not None:
             parts.append(
                 TariffRestrictionsText.MAX_POWER.value
                 + " "
@@ -565,15 +611,22 @@ class TariffElements(OCPIBaseModel):
             if [te[0] for te in text_elements] == [
                 text_elements[0][0] for _ in text_elements
             ]:
-                text += f"- {dimension.value} :\n"
-                text += f"  - {text_elements[0][0]} {text_elements[0][1]}\n"
+                text += f"- {dimension.text} :\n"
+                te_text = f"  - {text_elements[0][0]} {text_elements[0][1]}"
+                text += te_text.rstrip() + "\n"
             else:
-                text += f"- {dimension.value} :\n"
-                for te in text_elements:
+                text += f"- {dimension.text} :\n"
+                valid_text_elements = [
+                    te for te in text_elements if te[0] is not None and te[0] > 0
+                ]
+                for te in valid_text_elements:
                     if te == text_elements[-1]:
-                        text += f"  - {te[0]} {te[1]} {te[2].to_text() if te[2] is not None and te[2] != '' else 'sinon'}\n"
+                        te_text = f"  - {te[0]} {te[1]} {te[2].to_text() if te[2] is not None and te[2] != '' else 'sinon'}"
+                        text += te_text.rstrip() + "\n"
                     else:
-                        text += f"  - {te[0]} {te[1]} {te[2].to_text() if te[2] is not None and te[2] != '' else ''}\n"
+                        te_text = f"  - {te[0]} {te[1]} {te[2].to_text() if te[2] is not None and te[2] != '' else ''}"
+                        text += te_text.rstrip() + "\n"
+
         return text
 
     @staticmethod
@@ -705,13 +758,13 @@ class Tariff(OCPIBaseModel):
 
     def to_text(self):
         """Convert the Tariff to a multi-line string representation."""
-        text = f'Tariff : "{self.id}"\n'
+        text = f'Tariff : "{self.id}"\n\n'
         if self.start_date_time is not None and self.end_date_time is not None:
-            text += f"- applicable du {self.start_date_time.isoformat()} au {self.end_date_time.isoformat()}\n"
+            text += f"- applicable du {self.start_date_time.strftime('%d/%m/%Y')} au {self.end_date_time.strftime('%d/%m/%Y')}\n"
         elif self.start_date_time is not None:
-            text += f"- applicable à partir du {self.start_date_time.isoformat()}\n"
+            text += f"- applicable à partir du {self.start_date_time.strftime('%d/%m/%Y')}\n"
         elif self.end_date_time is not None:
-            text += f"- applicable jusqu'au {self.end_date_time.isoformat()}\n"
+            text += f"- applicable jusqu'au {self.end_date_time.strftime('%d/%m/%Y')}\n"
         text += self.elements.to_text()
         return text
 

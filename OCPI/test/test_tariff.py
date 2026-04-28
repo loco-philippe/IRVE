@@ -320,12 +320,12 @@ def test_to_text():
 
     with open("examples/examples.json") as f:
         examples_data = json.load(f)
-    text = ""
+    text = "# tarifs au format texte des exemples du fichier examples.json\n\n"
     for example in examples_data:
         tariff = Tariff.from_json(example)
-        text += tariff.to_text() + "\n\n"
+        text += tariff.to_text() + "\n"
     with open("examples/examples.md", "w", encoding="utf-8") as f:
-        f.write(text)
+        f.write(text[:-1])
 
 
 test_price()
