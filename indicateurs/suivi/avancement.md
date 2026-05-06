@@ -77,24 +77,45 @@
   - extension de l'analyse de saturation Vinci ?
   - autres ?
 
-## Orientations avril (15 jours)
+## Activités mai (15 jours)
 
 - onboarding des opérateurs
-  - validation de flux d'opérateurs (14 en cours: Wewise, Partage ma borne, OZECAR, Monta, Indelec, Bouygues extension, Watt Up, electric 55, LoadStations, FRC2A, Car2plug, Fastned CHA, Faroad, Modulo)
-  - activité récurrente de suivi des opérateurs
-  - partage du dashboard opérateur de suivi qualité des données
+  - validation de flux d'opérateurs (13 en cours: Wewise, Partage ma borne, OZECAR, Monta, Indelec, Bouygues extension, Watt Up, electric 55, FRC2A, Car2plug, Fastned CHA, Faroad, Modulo)
+  - activité récurrente de suivi des opérateurs et des incidents
 - indicateurs
-  - ajout de l'indicateurs de volume pour le dashboard opérateur
   - calcul de l'indicateur de fiabilité des statuts
   - stockage des données pour les indicateurs saturation, disponibilité, occupation
   - mise à niveau des indicateurs dynamiques (decommission, doublons de sessions)
 - CarbuRe
   - validation des volumes aménageurs
-- modèle de données européen
-  - Formalisation pour Qualicharge de la V3.1 et V3.2
+  - formalisation du processus de validation opérateur des volumes
+- tarifs
+  - calcul de scénarios de prix
+  - intégration des modules Tariff dans Qualicharge
+  - intégration dans les indicateurs qualité et dans le processus d'onboarding
+- modèle de données européen AFIR
+  - Formalisation pour Qualicharge de l'évolution de la structure de données (en liaison avec le PAN)
 - saturation
-  - calcul sur les journées de forte charge de décembre (26, 27)
-  - démarrage des travaux sur la pleine utilisation
+  - démarrage des travaux sur la pleine utilisation ?
+
+## Activités avril (16 jours)
+
+- onboarding des opérateurs
+  - validation de flux d'opérateurs (IZIVIA : FRIIM/FRILF/FRIMX/FRIGF, Citeos : FRBFC/FRMBI/FRPRP, LoadStations)
+  - activité récurrente de suivi des opérateurs
+- indicateurs
+  - ajout de l'indicateurs de volume pour le dashboard opérateur
+  - extension des indicateurs aux unités d'exploitation
+- CarbuRe
+  - validation des volumes aménageurs
+  - Analyse des écarts T4 2025 Izivia, Tesla, EVZen
+- modèle de données européen
+  - Formalisation pour Qualicharge de la V3.1
+- Tarifs
+  - formalisation du modèle de données (issu d'OCPI)
+  - enquète opérateurs sur le format OCPI
+  - decodage JSON OCPI et génération de formats texte
+  - analyse de la restitution cartographique
 
 ## Activité mars (15 jours)
 

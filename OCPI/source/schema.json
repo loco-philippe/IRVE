@@ -70,7 +70,18 @@
             "anyOf": [
                 {
                     "description": "OCPI 2.2 format",
-                    "type": "number"
+                    "type": "object",
+                    "required": [
+                        "excl_vat"
+                    ],
+                    "properties": {
+                        "excl_vat": {
+                            "type": "number"
+                        },
+                        "incl_vat": {
+                            "type": "number"
+                        }
+                    }
                 },
                 {
                     "description": "OCPI 2.3 format",

@@ -765,7 +765,7 @@ class Tariff(OCPIBaseModel):
 
     def to_text(self):
         """Convert the Tariff to a multi-line string representation."""
-        text = f'Tariff : "{self.id}"\n\n'
+        text = f'Tariff : "{self.id}" version du {self.last_updated.strftime("%d/%m/%Y")}\n\n'
         if self.start_date_time is not None and self.end_date_time is not None:
             text += f"- applicable du {self.start_date_time.strftime('%d/%m/%Y')} au {self.end_date_time.strftime('%d/%m/%Y')}\n"
         elif self.start_date_time is not None:

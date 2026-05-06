@@ -26,7 +26,7 @@ L'attribut `tarif_object` est la représentation Json d'un `TariffObject` tel qu
 Les autres attributs associés au `Tariff` sont extraits de la représentation Json et sont utilisés pour :
 
 - `tariff_id` et `last_updated` : déterminer l'unicité d'un tarif (éviter les doublons)
-- `start_date_time` et `end_date_time` : déterminer le tarif applicable 
+- `start_date_time` et `end_date_time` : déterminer le tarif applicable
 
 Parmi les tarifs associés à un pdc, le tarif applicable à un instant donné est celui dont la `start_date_time` est la plus proche de l'instant  (ou si aucune `start_date_time` n'existe, celui avec `last_updated` le plus récent) parmi ceux avec une `end_date_time` nulle ou postérieure à l'instant.
 

@@ -3818,5 +3818,31 @@
         ],
         "start_date_time": "2026-03-25T23:00:00Z",
         "last_updated": "2026-03-26T02:40:36Z"
+    },
+    {
+        "id": "NLCPIT2otd*2*0",
+        "currency": "EUR",
+        "elements": [
+            {
+                "price_components": [
+                    {
+                        "type": "ENERGY",
+                        "price": 0.43,
+                        "step_size": 1
+                    }
+                ],
+                "restrictions": {
+                    "start_time": "00:00",
+                    "end_time": "23:59"
+                }
+            }
+        ],
+        "tariff_alt_text": [
+            {
+                "language": "en",
+                "text": "Energy\n   0.43 EUR per kWh\n"
+            }
+        ],
+        "last_updated": "2024-07-06T10:26:26Z"
     }
 ]
