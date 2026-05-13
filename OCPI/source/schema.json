@@ -11,8 +11,10 @@
     ],
     "properties": {
         "country_code": {
-            "const": "FR",
-            "description": "ISO-3166 alpha-2 country code of France"
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 2,
+            "description": "ISO-3166 alpha-2 country code. FR is expected"
         },
         "party_id": {
             "type": "string",
@@ -119,7 +121,7 @@
                             "enum": ["NUCLEAR_WASTE", "CARBON_DIOXIDE"]
                         },
                         "amount": {
-                                "type": "number",
+                                "type": "number"
                         }
                     }
                 }

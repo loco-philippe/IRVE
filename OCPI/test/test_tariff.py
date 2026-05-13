@@ -312,7 +312,7 @@ def test_json_validation():
     with open("examples/examples.json") as f:
         examples_data = json.load(f)
     for example in examples_data:
-        assert Tariff.is_valid_json(example)
+        assert Tariff.is_valid_json(example, verbose=False)
 
 
 def test_to_text():
