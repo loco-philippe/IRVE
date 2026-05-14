@@ -20,6 +20,7 @@ TARIFF_REGEX = re.compile(
   $""",
     re.VERBOSE,
 )
+VAT = 0.20
 
 
 class Format(Enum):

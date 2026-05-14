@@ -36,7 +36,8 @@
             "items": {
                 "type": "object",
                 "required": [
-                    "language", "text"
+                    "language",
+                    "text"
                 ],
                 "properties": {
                     "language": {
@@ -50,7 +51,7 @@
                 }
             }
         },
-        "tariff_alt_url":{
+        "tariff_alt_url": {
             "type": "string",
             "format": "uri",
             "maxLength": 255
@@ -95,12 +96,20 @@
                     "items": {
                         "type": "object",
                         "required": [
-                            "source", "percentage"
+                            "source",
+                            "percentage"
                         ],
                         "properties": {
                             "source": {
                                 "enum": [
-                                    "NUCLEAR", "GENERAL_FOSSIL", "COAL", "GAS", "GENERAL_GREEN", "SOLAR", "WIND", "WATER"
+                                    "NUCLEAR",
+                                    "GENERAL_FOSSIL",
+                                    "COAL",
+                                    "GAS",
+                                    "GENERAL_GREEN",
+                                    "SOLAR",
+                                    "WIND",
+                                    "WATER"
                                 ]
                             },
                             "percentage": {
@@ -111,17 +120,21 @@
                         }
                     }
                 },
-                "environ_impact":{
+                "environ_impact": {
                     "type": "object",
                     "required": [
-                        "category", "amount"
+                        "category",
+                        "amount"
                     ],
                     "properties": {
                         "category": {
-                            "enum": ["NUCLEAR_WASTE", "CARBON_DIOXIDE"]
+                            "enum": [
+                                "NUCLEAR_WASTE",
+                                "CARBON_DIOXIDE"
+                            ]
                         },
                         "amount": {
-                                "type": "number"
+                            "type": "number"
                         }
                     }
                 }
