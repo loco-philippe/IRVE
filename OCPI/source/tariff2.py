@@ -3,27 +3,27 @@
 from __future__ import annotations
 
 import json
-from datetime import date, datetime, time
+from datetime import date, time
 from enum import StrEnum
 from typing import Annotated, List, Optional, Union
 
 from annotated_types import Ge
 from jsonschema import validate
 from jsonschema.exceptions import ValidationError
-from pydantic import BaseModel, Field, StringConstraints, model_validator
+from pydantic import BaseModel, Field, RootModel, StringConstraints, model_validator
 from pydantic.types import AwareDatetime
 from typing_extensions import Self
 
 from .utils import (
     DayOfWeekCode,
-    Format,
+    # Format,
     TariffDimensionCode,
     TariffDimensionUnit,
-    TariffRestrictionsCode,
+    # TariffRestrictionsCode,
     TariffRestrictionsText,
     TariffRestrictionsUnite,
     TariffDimensionType,
-    TARIFF_REGEX,
+    # TARIFF_REGEX,
     VAT,
 )
 
@@ -65,6 +65,16 @@ class DayOfWeekEnum(StrEnum):
         return DayOfWeekCode[self.name].value
 
 
+class TariffType(StrEnum):
+    """Enumeration for tariff types."""
+
+    AD_HOC_PAYMENT = "AD_HOC_PAYMENT"
+    PROFILE_CHEAP = "PROFILE_CHEAP"
+    PROFILE_FAST = "PROFILE_FAST"
+    PROFILE_GREEN = "PROFILE_GREEN"
+    REGULAR = "REGULAR"
+
+
 class TaxIncludedEnum(StrEnum):
     """Whether tariff prices include taxes."""
 
@@ -102,7 +112,7 @@ class PriceComponent(BaseModel):
     vat: Optional[float] = None
     step_size: Optional[Annotated[int, Ge(1)]] = None
 
-    def __str__(self) -> str:
+    """def __str__(self) -> str:
         return f"PriceComponent(type={self.type}, price={self.price})"
 
     def __repr__(self) -> str:
@@ -127,9 +137,10 @@ class PriceComponent(BaseModel):
         return PriceComponent(
             type=type_value, price=price_incl_vat if incl_vat else price_excl_vat
         )
+    """
 
     def to_json(
-        self, tax_included: bool = True, incl_vat: bool = True, vat_rate: float = VAT
+        self, tax_included: bool, incl_vat: bool, vat_rate: float = VAT
     ) -> dict:
         return {
             "type": self.type.value,
@@ -140,17 +151,17 @@ class PriceComponent(BaseModel):
             ),
         }
 
-    def price_excl_vat(self, tax_included: bool = True, vat_rate: float = VAT) -> float:
+    def price_excl_vat(self, tax_included: bool, vat_rate: float = VAT) -> float:
         if not tax_included:
             return self.price
         return round(self.price / (1 + vat_rate), 2)
 
-    def price_incl_vat(self, tax_included: bool = True, vat_rate: float = VAT) -> float:
+    def price_incl_vat(self, tax_included: bool, vat_rate: float = VAT) -> float:
         if tax_included:
             return self.price
         return round(self.price * (1 + vat_rate), 2)
 
-    @staticmethod
+    """@staticmethod
     def from_string(data: str) -> list["PriceComponent"]:
         parts = data.split("+")
         price_components: list[PriceComponent] = []
@@ -164,6 +175,7 @@ class PriceComponent(BaseModel):
 
     def to_string(self) -> str:
         return f"{self.type.code}{int(self.price * 100)}"
+    """
 
 
 class TariffRestrictions(BaseModel):
@@ -192,7 +204,7 @@ class TariffRestrictions(BaseModel):
     def __len__(self) -> int:
         return len(self.to_json())
 
-    @staticmethod
+    """@staticmethod
     def from_json(data: dict) -> "TariffRestrictions":
         restrictions = TariffRestrictions()
         if "day_of_week" in data:
@@ -224,6 +236,7 @@ class TariffRestrictions(BaseModel):
         if "max_power" in data:
             restrictions.max_power = data["max_power"]
         return restrictions
+    """
 
     def to_json(self) -> dict:
         data: dict = {}
@@ -395,7 +408,7 @@ class TariffRestrictions(BaseModel):
             )
         return "" if not parts else " et ".join(parts)
 
-    def to_string(self) -> str:
+    """def to_string(self) -> str:
         parts: list[str] = []
         if self.days_of_week is not None:
             parts.append(
@@ -487,6 +500,7 @@ class TariffRestrictions(BaseModel):
             elif code == TariffRestrictionsCode.MAX_POWER.value:
                 restrictions.max_power = float(value)
         return restrictions
+    """
 
 
 class TariffElement(BaseModel):
@@ -495,7 +509,7 @@ class TariffElement(BaseModel):
     price_components: List[PriceComponent] = Field(min_length=1)
     restrictions: Optional[TariffRestrictions] = None
 
-    def __str__(self) -> str:
+    """def __str__(self) -> str:
         return f"TariffElement(price_components={self.price_components})"
 
     @staticmethod
@@ -520,8 +534,9 @@ class TariffElement(BaseModel):
         return TariffElement(
             price_components=price_components, restrictions=restrictions
         )
+    """
 
-    def to_json(self, simple: bool = False) -> dict:
+    def to_json(self, simple: bool, tax_included: bool, incl_vat: bool) -> dict:
         if simple:
             data = {
                 "price_components": {
@@ -529,12 +544,17 @@ class TariffElement(BaseModel):
                 }
             }
         else:
-            data = {"price_components": [pc.to_json() for pc in self.price_components]}
+            data = {
+                "price_components": [
+                    pc.to_json(tax_included=tax_included, incl_vat=incl_vat)
+                    for pc in self.price_components
+                ]
+            }
         if self.restrictions is not None:
             data["restrictions"] = self.restrictions.to_json()
         return data
 
-    def to_string(self) -> str:
+    """def to_string(self) -> str:
         text = "+".join(pc.to_string() for pc in self.price_components)
         if self.restrictions is not None and len(self.restrictions) > 0:
             text += "+" + self.restrictions.to_string()
@@ -548,44 +568,40 @@ class TariffElement(BaseModel):
         return TariffElement(
             price_components=price_components, restrictions=restrictions
         )
+    """
 
 
-class TariffElements(BaseModel):
+class TariffElements(RootModel[List[TariffElement]]):
     """Represents a list of tariff elements."""
 
-    elements: List[TariffElement]
+    root: List[TariffElement] = Field(min_length=1)
 
-    def __str__(self) -> str:
-        return f"TariffElements(elements={self.elements})"
+    def to_json(self, simple: bool, tax_included: bool, incl_vat: bool) -> list[dict]:
+        return [
+            element.to_json(simple, tax_included=tax_included, incl_vat=incl_vat)
+            for element in self.root
+        ]
 
-    def __len__(self) -> int:
-        return len(self.elements)
-
-    def __getitem__(self, index: int) -> TariffElement:
-        return self.elements[index]
-
-    def to_json(self, simple: bool = False) -> list[dict]:
-        return [element.to_json(simple) for element in self.elements]
-
-    @staticmethod
+    """@staticmethod
     def from_json(data: list[dict], tax_included: bool = True) -> "TariffElements":
         return TariffElements(
-            elements=[
+            root=[
                 TariffElement.from_json(element, tax_included=tax_included)
                 for element in data
             ]
         )
-
-    def to_string(self, mono_line: bool = True) -> str:
+    """
+    """def to_string(self, mono_line: bool = True) -> str:
         if mono_line:
-            return "|".join(elt.to_string() for elt in self.elements)
-        return "\n".join(elt.to_string() for elt in self.elements)
+            return "|".join(elt.to_string() for elt in self.root)
+        return "\n".join(elt.to_string() for elt in self.root)
+    """
 
     def to_text(self) -> str:
         text = ""
         for dimension in TariffDimensionType:
             text_elements = []
-            for element in self.elements:
+            for element in self.root:
                 for pc in element.price_components:
                     if pc.type == PriceComponentTypeEnum[dimension.name]:
                         text_elements.append(
@@ -621,21 +637,23 @@ class TariffElements(BaseModel):
                         break
         return text
 
-    @staticmethod
+    """@staticmethod
     def from_string(data: str) -> "TariffElements":
         data_line = data.replace("\n", "|").replace(" ", "")
         return TariffElements(
-            elements=[
+            root=[
                 TariffElement.from_string(elt)
                 for elt in data_line.split("|")
                 if elt != ""
             ]
         )
+    """
 
 
 class TariffObject(BaseModel):
     """Internal tariff object compatible with a subset of OCPI."""
 
+    type: Optional[TariffType] = None
     country_code: Optional[
         Annotated[str, StringConstraints(min_length=2, max_length=2)]
     ] = None
@@ -646,7 +664,7 @@ class TariffObject(BaseModel):
     currency: Optional[
         Annotated[str, StringConstraints(min_length=3, max_length=3)]
     ] = None
-    elements: List[TariffElement] = Field(min_length=1)
+    elements: TariffElements
     tariff_alt_text: Optional[List[TariffAltText]] = None
     start_date_time: Optional[AwareDatetime] = None
     end_date_time: Optional[AwareDatetime] = None
@@ -663,16 +681,43 @@ class TariffObject(BaseModel):
             and self.start_date_time > self.end_date_time
         ):
             raise ValueError("A tariff cannot start after it has ended.")
+        if (
+            self.start_date_time is not None
+            and self.last_updated > self.start_date_time
+        ):
+            raise ValueError("A tariff cannot start before his last updated time.")
         return self
 
-    def __str__(self) -> str:
+    @model_validator(mode="after")
+    def check_valid_enums(self) -> Self:
+        if self.type is not None and self.type != TariffType.AD_HOC_PAYMENT:
+            raise ValueError("type must be 'AD_HOC_PAYMENT'.")
+        if self.country_code is not None and self.country_code != "FR":
+            raise ValueError("country_code must be 'FR'.")
+        if self.currency is not None and self.currency != "EUR":
+            raise ValueError("currency must be 'EUR'.")
+        if self.tax_included is not None and self.tax_included == TaxIncludedEnum.NA:
+            raise ValueError("tax_included must not be 'NA'.")
+        return self
+
+    @property
+    def is_ocpi_23(self) -> bool:
+        return self.tax_included is not None
+
+    @property
+    def is_tax_included(self) -> bool:
+        return (
+            self.tax_included is not None and self.tax_included == TaxIncludedEnum.YES
+        )
+
+    """def __str__(self) -> str:
         return (
             f"Tariff(id={self.tariff_id}, elements={self.elements}, tariff_alt_text={self.tariff_alt_text}, "
             f"start_date_time={self.start_date_time}, end_date_time={self.end_date_time})"
         )
-
-    @staticmethod
-    def from_json(data: dict) -> "TariffObject":
+    """
+    """@staticmethod
+    def from_json(data: dict) -> TariffObject:
         tax_included = (
             TaxIncludedEnum(data["tax_included"])
             if "tax_included" in data
@@ -703,15 +748,20 @@ class TariffObject(BaseModel):
         if "end_date_time" in data:
             kwargs["end_date_time"] = datetime.fromisoformat(data["end_date_time"])
         return TariffObject(**kwargs)
+    """
 
-    def to_json(self, ocpi: bool = True, simple: bool = False) -> dict:
-        if not ocpi:
-            return self.model_dump(by_alias=True, exclude_none=True)
+    def to_json(
+        self, ocpi: bool = True, simple: bool = False, incl_vat: bool = True
+    ) -> dict:
         data = {
             "id": self.tariff_id,
-            "elements": self.elements.to_json(simple),
+            "elements": self.elements.to_json(
+                simple, tax_included=self.is_tax_included, incl_vat=incl_vat
+            ),
         }
-        if self.currency is not None:
+        if self.type is not None and ocpi:
+            data["type"] = self.type.value
+        if self.currency is not None and ocpi:
             data["currency"] = self.currency
         if self.tariff_alt_text is not None:
             data["tariff_alt_text"] = [
@@ -723,15 +773,15 @@ class TariffObject(BaseModel):
             data["end_date_time"] = self.end_date_time.isoformat()
         if self.last_updated is not None:
             data["last_updated"] = self.last_updated.isoformat()
-        if self.tax_included is not None:
+        if self.tax_included is not None and ocpi:
             data["tax_included"] = self.tax_included.value
-        if self.min_price is not None:
+        if self.min_price is not None and ocpi:
             data["min_price"] = (
                 self.min_price
                 if isinstance(self.min_price, float)
                 else self.min_price.model_dump()
             )
-        if self.max_price is not None:
+        if self.max_price is not None and ocpi:
             data["max_price"] = (
                 self.max_price
                 if isinstance(self.max_price, float)
@@ -739,8 +789,9 @@ class TariffObject(BaseModel):
             )
         return data
 
-    def to_string(self) -> str:
+    """def to_string(self) -> str:
         return self.elements.to_string()
+    """
 
     def to_text(self) -> str:
         text = f'Tariff : "{self.tariff_id}" version du {self.last_updated.strftime("%d/%m/%Y")}\n\n'
@@ -753,6 +804,7 @@ class TariffObject(BaseModel):
         text += self.elements.to_text()
         return text
 
+    """
     @staticmethod
     def from_string(
         data: str,
@@ -775,8 +827,8 @@ class TariffObject(BaseModel):
             end_date_time=end_date_time,
             last_updated=last_updated or datetime.now(),
         )
-
-    @staticmethod
+    """
+    """@staticmethod
     def convert(data: str, format: Format) -> Union[str, dict]:
         if not isinstance(data, str):
             return {}
@@ -805,14 +857,16 @@ class TariffObject(BaseModel):
         if format == Format.JSON_LIGHT_PLUS:
             return tarif.to_json(ocpi=False, simple=True)
         return tarif.to_json(ocpi=True, simple=False)
-
+    """
+    """
     @staticmethod
     def is_valid_string(data: str) -> bool:
         return TARIFF_REGEX.match(data) is not None
+    """
 
     @staticmethod
     def is_valid_json(data: dict, verbose: bool = False) -> bool:
-        with open("source/schema.json") as f:
+        with open("OCPI/source/schema.json") as f:
             schema = json.load(f)
         try:
             validate(instance=data, schema=schema)
