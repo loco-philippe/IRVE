@@ -149,7 +149,6 @@ def test_tariffelement_from_json():
         },
     }
     tariff_element = TariffElement.model_validate(json_data)
-    # print(tariff_element.to_json())
     assert len(tariff_element.price_components) == 1
     assert tariff_element.price_components[0].type.value == "ENERGY"
     assert tariff_element.price_components[0].price == 0.31
@@ -166,10 +165,14 @@ def test_tariff():
         root=[TariffElement(price_components=[price_component])]
     )
     tariff = TariffObject(
-        id="tariff1", elements=tariff_elements, last_updated="2024-06-01T12:00:00Z"
+        country_code="FR",
+        party_id="QUA",
+        id="tariff1",
+        elements=tariff_elements,
+        last_updated="2024-06-01T12:00:00Z",
     )
 
-    assert tariff.tariff_id == "tariff1"
+    assert tariff.tariff_id == "FRQUAtariff1"
     assert len(tariff.elements.root) == 1
     assert len(tariff.elements.root[0].price_components) == 1
     assert (
@@ -183,6 +186,8 @@ def test_tariff():
 def test_tariff_json():
     """Test the Tariff class from JSON."""
     json_data = {
+        "country_code": "FR",
+        "party_id": "QUA",
         "id": "tariff1",
         "type": "AD_HOC_PAYMENT",
         "elements": [
@@ -200,24 +205,20 @@ def test_tariff_json():
     }
     tariff = TariffObject.model_validate(json_data)
     # print(tariff.to_json())
-    assert tariff.tariff_id == "tariff1"
+    assert tariff.tariff_id == "FRQUAtariff1"
     assert len(tariff.elements.root) == 1
     assert len(tariff.elements.root[0].price_components) == 1
     assert tariff.elements.root[0].price_components[0].type.value == "ENERGY"
     assert tariff.elements.root[0].price_components[0].price == 0.30
     assert tariff.last_updated.isoformat() == "2024-06-01T12:00:00+00:00"
-    print(tariff.to_json())
     assert tariff.to_json() == json_data
     assert tariff.to_json(ocpi=False, simple=True) == {
+        "country_code": "FR",
+        "party_id": "QUA",
         "id": "tariff1",
         "elements": [{"price_components": {"ENERGY": 0.3}}],
         "last_updated": "2024-06-01T12:00:00+00:00",
     }
-    print(
-        TariffObject.model_validate(tariff.to_json(incl_vat=True)).to_json(
-            incl_vat=True
-        )["elements"]
-    )
     assert (
         TariffObject.model_validate(tariff.to_json(incl_vat=True)).to_json(
             incl_vat=True
@@ -295,6 +296,8 @@ def test_string_validation():
 def test_json_validation():
     """Test the JSON schema for the Tariff class."""
     json_data = {
+        "country_code": "FR",
+        "party_id": "QUA",
         "id": "tariff1",
         "type": "AD_HOC_PAYMENT",
         "elements": [
@@ -325,6 +328,8 @@ def test_to_text():
         examples_data = json.load(f)
     text = "# tarifs au format texte des exemples du fichier examples.json\n\n"
     for example in examples_data:
+        example["country_code"] = example.get("country_code", "NO")
+        example["party_id"] = example.get("party_id", "NOP")
         tariff = TariffObject.model_validate(example)
         text += tariff.to_text() + "\n"
     with open("OCPI/examples/examples2.md", "w", encoding="utf-8") as f:

@@ -152,6 +152,10 @@ class TariffDimensionType(Enum):
         """text of the dimension."""
         return TariffDimensionText[self.name].value
 
+    @property
+    def unit(self):
+        """unit of the dimension."""
+        return TariffDimensionUnit[self.name].value
 
 class TariffDimensionCode(Enum):
     """Enumeration for tariff dimension types."""
@@ -169,7 +173,7 @@ class TariffDimensionText(Enum):
     ENERGY = "énergie"
     TIME = "durée de recharge"
     FLAT = "forfait"
-    PARKING_TIME = "durée de parking"
+    PARKING_TIME = "durée d'occupation hors charge"
     CONGESTION_TIME = "durée de congestion"
 
 
