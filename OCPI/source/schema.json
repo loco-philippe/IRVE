@@ -5,6 +5,8 @@
     "description": "This schema defines the structure and validation rules for OCPI Tariff objects used in the Qualicharge platform. It includes properties of OCPI 2.2 and OCPI 2.3 and requires only the properties that are applicable to the Qualicharge platform. The schema ensures that OCPI Tariff data adheres to the required format and constraints.",
     "type": "object",
     "required": [
+        "country_code",
+        "party_id",
         "id",
         "elements",
         "last_updated"
@@ -14,7 +16,7 @@
             "type": "string",
             "minLength": 2,
             "maxLength": 2,
-            "description": "ISO-3166 alpha-2 country code. FR is expected"
+            "description": "ISO-3166 alpha-2 country code."
         },
         "party_id": {
             "type": "string",
@@ -240,7 +242,8 @@
                             "type": "object",
                             "required": [
                                 "type",
-                                "price"
+                                "price",
+                                "step_size"
                             ],
                             "properties": {
                                 "type": {
@@ -257,8 +260,10 @@
                                     "type": "number"
                                 },
                                 "vat": {
-                                    "type": "number"
-                                },
+                                    "type": "number",
+                                    "minimum": 19.9,
+                                    "maximum": 20.1
+                                   },
                                 "step_size": {
                                     "type": "integer",
                                     "minimum": 1

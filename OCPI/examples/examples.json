@@ -99,14 +99,14 @@
         "id": "64",
         "currency": "EUR",
         "type": "AD_HOC_PAYMENT",
-        "tariff_alt_url": "",
+        "tariff_alt_url": "https://qualicharge-landing.osc-fr1.scalingo.io/integrerqualicharge/",
         "elements": [
             {
                 "price_components": [
                     {
                         "type": "ENERGY",
                         "price": 0.3471,
-                        "vat": 21,
+                        "vat": 20,
                         "step_size": 1
                     }
                 ]
@@ -127,7 +127,7 @@
                     {
                         "type": "ENERGY",
                         "price": 0.3719,
-                        "vat": 21,
+                        "vat": 20,
                         "step_size": 1
                     }
                 ],
@@ -148,7 +148,7 @@
                     {
                         "type": "ENERGY",
                         "price": 0.2479,
-                        "vat": 21,
+                        "vat": 20,
                         "step_size": 1
                     }
                 ],
@@ -166,7 +166,7 @@
                     {
                         "type": "ENERGY",
                         "price": 0.4959,
-                        "vat": 21,
+                        "vat": 20,
                         "step_size": 1
                     }
                 ]
@@ -221,7 +221,7 @@
                         "type": "ENERGY",
                         "price": 0.44167,
                         "step_size": 1,
-                        "vat": 0
+                        "vat": 20
                     }
                 ]
             }
@@ -2312,19 +2312,19 @@
                         "type": "TIME",
                         "price": 0,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 0,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "ENERGY",
                         "price": 0.35,
                         "step_size": 1000,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -2338,19 +2338,19 @@
                         "type": "TIME",
                         "price": 20,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 20,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "ENERGY",
                         "price": 0.35,
                         "step_size": 1000,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -2378,19 +2378,19 @@
                         "type": "TIME",
                         "price": 0,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 0,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "ENERGY",
                         "price": 0.4583,
                         "step_size": 1000,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -2404,19 +2404,19 @@
                         "type": "TIME",
                         "price": 20,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 20,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "ENERGY",
                         "price": 0.4583,
                         "step_size": 1000,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -2444,19 +2444,19 @@
                         "type": "TIME",
                         "price": 0,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 0,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "ENERGY",
                         "price": 0.425,
                         "step_size": 1000,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -2470,19 +2470,19 @@
                         "type": "TIME",
                         "price": 20,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 20,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "ENERGY",
                         "price": 0.425,
                         "step_size": 1000,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -2510,19 +2510,19 @@
                         "type": "TIME",
                         "price": 0,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 0,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "ENERGY",
                         "price": 0.4917,
                         "step_size": 1000,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -2536,19 +2536,19 @@
                         "type": "TIME",
                         "price": 20,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 20,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "ENERGY",
                         "price": 0.4917,
                         "step_size": 1000,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -2576,19 +2576,19 @@
                         "type": "TIME",
                         "price": 0,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 0,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "ENERGY",
                         "price": 0.4083,
                         "step_size": 1000,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -2602,19 +2602,19 @@
                         "type": "TIME",
                         "price": 20,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 20,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "ENERGY",
                         "price": 0.4083,
                         "step_size": 1000,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -2642,13 +2642,13 @@
                         "type": "TIME",
                         "price": 24.5,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 24.5,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -2675,19 +2675,19 @@
                         "type": "TIME",
                         "price": 0,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 0,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "ENERGY",
                         "price": 0.4167,
                         "step_size": 1000,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -2701,19 +2701,19 @@
                         "type": "TIME",
                         "price": 25,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 25,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "ENERGY",
                         "price": 0.4167,
                         "step_size": 1000,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -2741,19 +2741,19 @@
                         "type": "TIME",
                         "price": 0,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 0,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "ENERGY",
                         "price": 0.5,
                         "step_size": 1000,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -2769,19 +2769,19 @@
                         "type": "TIME",
                         "price": 25,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 25,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "ENERGY",
                         "price": 0.5,
                         "step_size": 1000,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -2797,19 +2797,19 @@
                         "type": "TIME",
                         "price": 0,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 0,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "ENERGY",
                         "price": 0.5,
                         "step_size": 1000,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -2825,19 +2825,19 @@
                         "type": "TIME",
                         "price": 25,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 25,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "ENERGY",
                         "price": 0.5,
                         "step_size": 1000,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -2853,19 +2853,19 @@
                         "type": "TIME",
                         "price": 0,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 0,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "ENERGY",
                         "price": 0.5,
                         "step_size": 1000,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -2881,19 +2881,19 @@
                         "type": "TIME",
                         "price": 25,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 25,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "ENERGY",
                         "price": 0.5,
                         "step_size": 1000,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -2923,19 +2923,19 @@
                         "type": "TIME",
                         "price": 0,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 0,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "ENERGY",
                         "price": 0.5167,
                         "step_size": 1000,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -2949,19 +2949,19 @@
                         "type": "TIME",
                         "price": 25,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 25,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "ENERGY",
                         "price": 0.5167,
                         "step_size": 1000,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -2989,13 +2989,13 @@
                         "type": "TIME",
                         "price": 24.5,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 24.5,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -3022,13 +3022,13 @@
                         "type": "FLAT",
                         "price": 0,
                         "step_size": 1,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "ENERGY",
                         "price": 0.3167,
                         "step_size": 1000,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -3055,19 +3055,19 @@
                         "type": "TIME",
                         "price": 1.9,
                         "step_size": 900,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 1.9,
                         "step_size": 900,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "ENERGY",
                         "price": 0.275,
                         "step_size": 1000,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -3081,19 +3081,19 @@
                         "type": "TIME",
                         "price": 8.3333,
                         "step_size": 3600,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 8.3333,
                         "step_size": 3600,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "ENERGY",
                         "price": 0.275,
                         "step_size": 1000,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -3121,19 +3121,19 @@
                         "type": "TIME",
                         "price": 0,
                         "step_size": 60,
-                        "vat": 0.21
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 0,
                         "step_size": 60,
-                        "vat": 0.21
+                        "vat": 20
                     },
                     {
                         "type": "ENERGY",
                         "price": 0.5041,
                         "step_size": 1000,
-                        "vat": 0.21
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -3147,19 +3147,19 @@
                         "type": "TIME",
                         "price": 19.8347,
                         "step_size": 60,
-                        "vat": 0.21
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 19.8347,
                         "step_size": 60,
-                        "vat": 0.21
+                        "vat": 20
                     },
                     {
                         "type": "ENERGY",
                         "price": 0.5041,
                         "step_size": 1000,
-                        "vat": 0.21
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -3187,19 +3187,19 @@
                         "type": "TIME",
                         "price": 0,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 0,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "ENERGY",
                         "price": 0.5,
                         "step_size": 1000,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -3213,19 +3213,19 @@
                         "type": "TIME",
                         "price": 25,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 25,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "ENERGY",
                         "price": 0.5,
                         "step_size": 1000,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -3253,13 +3253,13 @@
                         "type": "TIME",
                         "price": 7.6667,
                         "step_size": 900,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 7.6667,
                         "step_size": 900,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -3273,13 +3273,13 @@
                         "type": "TIME",
                         "price": 8.3333,
                         "step_size": 3600,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 8.3333,
                         "step_size": 3600,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -3307,19 +3307,19 @@
                         "type": "TIME",
                         "price": 0,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 0,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "ENERGY",
                         "price": 0.5417,
                         "step_size": 1000,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -3333,19 +3333,19 @@
                         "type": "TIME",
                         "price": 25,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 25,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "ENERGY",
                         "price": 0.5417,
                         "step_size": 1000,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -3373,19 +3373,19 @@
                         "type": "TIME",
                         "price": 0,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 0,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "ENERGY",
                         "price": 0.3583,
                         "step_size": 1000,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -3399,19 +3399,19 @@
                         "type": "TIME",
                         "price": 20,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 20,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "ENERGY",
                         "price": 0.3583,
                         "step_size": 1000,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -3439,19 +3439,19 @@
                         "type": "TIME",
                         "price": 0,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 0,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "ENERGY",
                         "price": 0.4583,
                         "step_size": 1000,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {
@@ -3465,19 +3465,19 @@
                         "type": "TIME",
                         "price": 25,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "PARKING_TIME",
                         "price": 25,
                         "step_size": 60,
-                        "vat": 0.2
+                        "vat": 20
                     },
                     {
                         "type": "ENERGY",
                         "price": 0.4583,
                         "step_size": 1000,
-                        "vat": 0.2
+                        "vat": 20
                     }
                 ],
                 "restrictions": {

@@ -23,8 +23,8 @@ Tariff : "ESZUN64" version du 18/03/2024
 Tariff : "ESZUN12880" version du 01/07/2025
 
 - énergie :
-  - 0.45 €/kWh lesLu Ma Me Je Ve et entre 08:00 et 20:00
-  - 0.3 €/kWh lesSa Di et entre 08:00 et 20:00
+  - 0.45 €/kWh les Lu Ma Me Je Ve et entre 08:00 et 20:00
+  - 0.3 €/kWh les Sa Di et entre 08:00 et 20:00
   - 0.6 €/kWh sinon
 
 Tariff : "NLFAS716" version du 01/04/2026
@@ -544,7 +544,7 @@ Tariff : "FRMFC9b17f9ed-a9e8-4fa9-b508-328b7406f80a" version du 19/02/2026
 - énergie :
   - 0.49 €/kWh
 - durée d'occupation hors charge :
-  - 18.0 €/h les et si la durée est comprise entre 60 min et 360 min
+  - 18.0 €/h les  et si la durée est comprise entre 60 min et 360 min
 
 Tariff : "FRORV1" version du 22/04/2026
 
@@ -743,10 +743,10 @@ Tariff : "NLTSL1c7c169c-c4f2-48ae-bb4d-cc6e2f691431" version du 26/03/2026
 Tariff : "NLTSL84180095-abd3-472c-9584-7ccb6e3bc55b" version du 26/03/2026
 
 - énergie :
-  - 0.34 €/kWh lesLu Ma Me Je Ve Sa Di et entre 00:00 et 04:00
-  - 0.42 €/kWh lesLu Ma Me Je Ve Sa Di et entre 04:00 et 09:00
-  - 0.77 €/kWh lesLu Ma Me Je Ve Sa Di et entre 09:00 et 20:00
-  - 0.42 €/kWh lesLu Ma Me Je Ve Sa Di et entre 20:00 et 00:00
+  - 0.34 €/kWh les Lu Ma Me Je Ve Sa Di et entre 00:00 et 04:00
+  - 0.42 €/kWh les Lu Ma Me Je Ve Sa Di et entre 04:00 et 09:00
+  - 0.77 €/kWh les Lu Ma Me Je Ve Sa Di et entre 09:00 et 20:00
+  - 0.42 €/kWh les Lu Ma Me Je Ve Sa Di et entre 20:00 et 00:00
   - 0.55 €/kWh sinon
 - durée de congestion :
   - 36.0 €/h sinon

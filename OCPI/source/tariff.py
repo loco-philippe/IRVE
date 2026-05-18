@@ -7,10 +7,17 @@ from datetime import date, time
 from enum import StrEnum
 from typing import Annotated, List, Optional, Union
 
-from annotated_types import Ge
+from annotated_types import Ge, Le, MaxLen
 from jsonschema import validate
 from jsonschema.exceptions import ValidationError
-from pydantic import BaseModel, Field, RootModel, StringConstraints, model_validator
+from pydantic import (
+    BaseModel,
+    Field,
+    HttpUrl,
+    RootModel,
+    StringConstraints,
+    model_validator,
+)
 from pydantic.types import AwareDatetime
 from typing_extensions import Self
 
@@ -112,7 +119,7 @@ class PriceComponent(BaseModel):
 
     type: TariffDimensionTypeEnum
     price: Annotated[float, Ge(0.0)]
-    vat: Optional[float] = None
+    vat: Optional[Annotated[float, Ge(19.9), Le(20.1)]] = None
     step_size: Optional[Annotated[int, Ge(1)]] = None
 
     def to_json(
@@ -431,6 +438,7 @@ class TariffObject(BaseModel):
     type: Optional[TariffTypeEnum] = None
     elements: TariffElements
     tariff_alt_text: Optional[List[TariffAltText]] = None
+    tariff_alt_url: Optional[Annotated[HttpUrl, MaxLen(255)]] = None
     start_date_time: Optional[AwareDatetime] = None
     end_date_time: Optional[AwareDatetime] = None
     last_updated: AwareDatetime
@@ -457,14 +465,11 @@ class TariffObject(BaseModel):
     @model_validator(mode="after")
     def check_valid_enums(self) -> Self:
         if self.type is not None and self.type != TariffTypeEnum.AD_HOC_PAYMENT:
-            # raise ValueError(f"Tariff {self.tariff_id} type must be 'AD_HOC_PAYMENT'.")
-            print(f"Tariff {self.tariff_id} type must be 'AD_HOC_PAYMENT'.")
-        # if self.country_code is not None and self.country_code != "FR":
-        #    raise ValueError(f"Tariff {self.tariff_id} country_code must be 'FR'.")
+            raise ValueError(f"Tariff {self.tariff_id} type must be 'AD_HOC_PAYMENT'.")
         if self.currency is not None and self.currency != "EUR":
-            print(f"Tariff {self.tariff_id} currency must be 'EUR'.")
+            raise ValueError(f"Tariff {self.tariff_id} currency must be 'EUR'.")
         if self.tax_included is not None and self.tax_included == TaxIncludedEnum.NA:
-            print(f"Tariff {self.tariff_id} tax_included must not be 'NA'.")
+            raise ValueError(f"Tariff {self.tariff_id} tax_included must not be 'NA'.")
         return self
 
     @property
@@ -476,8 +481,10 @@ class TariffObject(BaseModel):
         return self.country_code + self.party_id + self.id
 
     @property
-    def is_ocpi_23(self) -> bool:
-        return self.tax_included is not None
+    def ocpi_version(self) -> str:
+        if self.tax_included is not None:
+            return "2.3"
+        return "2.2"
 
     @property
     def is_tax_included(self) -> bool:

@@ -236,12 +236,7 @@ def test_json_validation():
         "type": "AD_HOC_PAYMENT",
         "elements": [
             {
-                "price_components": [
-                    {
-                        "type": "ENERGY",
-                        "price": 0.30,
-                    }
-                ],
+                "price_components": [{"type": "ENERGY", "price": 0.30, "step_size": 1}],
             }
         ],
         "last_updated": "2024-06-01T12:00:00+00:00",
@@ -252,7 +247,11 @@ def test_json_validation():
     with open("OCPI/examples/examples.json") as f:
         examples_data = json.load(f)
     for example in examples_data:
+        example["country_code"] = example.get("country_code", "NO")
+        example["party_id"] = example.get("party_id", "NOP")
         assert TariffObject.is_valid_json(example, verbose=False)
+    with open("OCPI/examples/model_schema.json", "w", encoding="utf-8") as f:
+        json.dump(TariffObject.model_json_schema(), f, indent=4)
 
 
 def test_to_text():
@@ -264,6 +263,7 @@ def test_to_text():
     for example in examples_data:
         example["country_code"] = example.get("country_code", "NO")
         example["party_id"] = example.get("party_id", "NOP")
+        # print(example["id"])
         tariff = TariffObject.model_validate(example)
         text += tariff.to_text() + "\n"
     with open("OCPI/examples/examples.md", "w", encoding="utf-8") as f:

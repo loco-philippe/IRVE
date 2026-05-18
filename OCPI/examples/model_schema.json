@@ -1,0 +1,590 @@
+{
+    "$defs": {
+        "DayOfWeekEnum": {
+            "description": "OCPI days of week.",
+            "enum": [
+                "MONDAY",
+                "TUESDAY",
+                "WEDNESDAY",
+                "THURSDAY",
+                "FRIDAY",
+                "SATURDAY",
+                "SUNDAY"
+            ],
+            "title": "DayOfWeekEnum",
+            "type": "string"
+        },
+        "Price": {
+            "description": "OCPI 2.2 price with VAT split.",
+            "properties": {
+                "excl_vat": {
+                    "title": "Excl Vat",
+                    "type": "number"
+                },
+                "incl_vat": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "default": null,
+                    "title": "Incl Vat"
+                }
+            },
+            "required": [
+                "excl_vat"
+            ],
+            "title": "Price",
+            "type": "object"
+        },
+        "PriceComponent": {
+            "description": "A tariff price component.",
+            "properties": {
+                "type": {
+                    "$ref": "#/$defs/TariffDimensionTypeEnum"
+                },
+                "price": {
+                    "minimum": 0,
+                    "title": "Price",
+                    "type": "number"
+                },
+                "vat": {
+                    "anyOf": [
+                        {
+                            "maximum": 20.1,
+                            "minimum": 19.9,
+                            "type": "number"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "default": null,
+                    "title": "Vat"
+                },
+                "step_size": {
+                    "anyOf": [
+                        {
+                            "minimum": 1,
+                            "type": "integer"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "default": null,
+                    "title": "Step Size"
+                }
+            },
+            "required": [
+                "type",
+                "price"
+            ],
+            "title": "PriceComponent",
+            "type": "object"
+        },
+        "PriceLimit": {
+            "description": "OCPI 2.3 price with taxes split.",
+            "properties": {
+                "before_taxes": {
+                    "title": "Before Taxes",
+                    "type": "number"
+                },
+                "after_taxes": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "default": null,
+                    "title": "After Taxes"
+                }
+            },
+            "required": [
+                "before_taxes"
+            ],
+            "title": "PriceLimit",
+            "type": "object"
+        },
+        "ReservationRestrictionEnum": {
+            "description": "OCPI reservation restriction.",
+            "enum": [
+                "RESERVATION",
+                "RESERVATION_EXPIRES"
+            ],
+            "title": "ReservationRestrictionEnum",
+            "type": "string"
+        },
+        "TariffAltText": {
+            "description": "Localized tariff display text.",
+            "properties": {
+                "language": {
+                    "title": "Language",
+                    "type": "string"
+                },
+                "text": {
+                    "title": "Text",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "language",
+                "text"
+            ],
+            "title": "TariffAltText",
+            "type": "object"
+        },
+        "TariffDimensionTypeEnum": {
+            "description": "Enumeration for tariff dimension types.",
+            "enum": [
+                "ENERGY",
+                "TIME",
+                "FLAT",
+                "PARKING_TIME",
+                "CONGESTION_TIME"
+            ],
+            "title": "TariffDimensionTypeEnum",
+            "type": "string"
+        },
+        "TariffElement": {
+            "description": "A tariff element, composed of prices and optional restrictions.",
+            "properties": {
+                "price_components": {
+                    "items": {
+                        "$ref": "#/$defs/PriceComponent"
+                    },
+                    "minItems": 1,
+                    "title": "Price Components",
+                    "type": "array"
+                },
+                "restrictions": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/TariffRestrictions"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "default": null
+                }
+            },
+            "required": [
+                "price_components"
+            ],
+            "title": "TariffElement",
+            "type": "object"
+        },
+        "TariffElements": {
+            "description": "Represents a list of tariff elements.",
+            "items": {
+                "$ref": "#/$defs/TariffElement"
+            },
+            "minItems": 1,
+            "title": "TariffElements",
+            "type": "array"
+        },
+        "TariffRestrictions": {
+            "description": "Restrictions that control when a tariff element applies.",
+            "properties": {
+                "start_time": {
+                    "anyOf": [
+                        {
+                            "format": "time",
+                            "type": "string"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "default": null,
+                    "title": "Start Time"
+                },
+                "end_time": {
+                    "anyOf": [
+                        {
+                            "format": "time",
+                            "type": "string"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "default": null,
+                    "title": "End Time"
+                },
+                "start_date": {
+                    "anyOf": [
+                        {
+                            "format": "date",
+                            "type": "string"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "default": null,
+                    "title": "Start Date"
+                },
+                "end_date": {
+                    "anyOf": [
+                        {
+                            "format": "date",
+                            "type": "string"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "default": null,
+                    "title": "End Date"
+                },
+                "min_kwh": {
+                    "anyOf": [
+                        {
+                            "minimum": 0,
+                            "type": "number"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "default": null,
+                    "title": "Min Kwh"
+                },
+                "max_kwh": {
+                    "anyOf": [
+                        {
+                            "minimum": 0,
+                            "type": "number"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "default": null,
+                    "title": "Max Kwh"
+                },
+                "min_current": {
+                    "anyOf": [
+                        {
+                            "minimum": 0,
+                            "type": "number"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "default": null,
+                    "title": "Min Current"
+                },
+                "max_current": {
+                    "anyOf": [
+                        {
+                            "minimum": 0,
+                            "type": "number"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "default": null,
+                    "title": "Max Current"
+                },
+                "min_power": {
+                    "anyOf": [
+                        {
+                            "minimum": 0,
+                            "type": "number"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "default": null,
+                    "title": "Min Power"
+                },
+                "max_power": {
+                    "anyOf": [
+                        {
+                            "minimum": 0,
+                            "type": "number"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "default": null,
+                    "title": "Max Power"
+                },
+                "min_duration": {
+                    "anyOf": [
+                        {
+                            "minimum": 0,
+                            "type": "integer"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "default": null,
+                    "title": "Min Duration"
+                },
+                "max_duration": {
+                    "anyOf": [
+                        {
+                            "minimum": 0,
+                            "type": "integer"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "default": null,
+                    "title": "Max Duration"
+                },
+                "day_of_week": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "$ref": "#/$defs/DayOfWeekEnum"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "default": null,
+                    "title": "Day Of Week"
+                },
+                "reservation": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ReservationRestrictionEnum"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "default": null
+                },
+                "min_vehicle_soc": {
+                    "anyOf": [
+                        {
+                            "minimum": 0,
+                            "type": "integer"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "default": null,
+                    "title": "Min Vehicle Soc"
+                },
+                "min_congestion_threshold": {
+                    "anyOf": [
+                        {
+                            "minimum": 0,
+                            "type": "integer"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "default": null,
+                    "title": "Min Congestion Threshold"
+                }
+            },
+            "title": "TariffRestrictions",
+            "type": "object"
+        },
+        "TariffTypeEnum": {
+            "description": "Enumeration for tariff types.",
+            "enum": [
+                "AD_HOC_PAYMENT",
+                "PROFILE_CHEAP",
+                "PROFILE_FAST",
+                "PROFILE_GREEN",
+                "REGULAR"
+            ],
+            "title": "TariffTypeEnum",
+            "type": "string"
+        },
+        "TaxIncludedEnum": {
+            "description": "Whether tariff prices include taxes.",
+            "enum": [
+                "YES",
+                "NO",
+                "N/A"
+            ],
+            "title": "TaxIncludedEnum",
+            "type": "string"
+        }
+    },
+    "description": "Internal tariff object compatible with a subset of OCPI.",
+    "properties": {
+        "country_code": {
+            "maxLength": 2,
+            "minLength": 2,
+            "title": "Country Code",
+            "type": "string"
+        },
+        "party_id": {
+            "maxLength": 3,
+            "minLength": 3,
+            "title": "Party Id",
+            "type": "string"
+        },
+        "id": {
+            "maxLength": 36,
+            "title": "Id",
+            "type": "string"
+        },
+        "currency": {
+            "anyOf": [
+                {
+                    "maxLength": 3,
+                    "minLength": 3,
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "default": null,
+            "title": "Currency"
+        },
+        "type": {
+            "anyOf": [
+                {
+                    "$ref": "#/$defs/TariffTypeEnum"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "default": null
+        },
+        "elements": {
+            "$ref": "#/$defs/TariffElements"
+        },
+        "tariff_alt_text": {
+            "anyOf": [
+                {
+                    "items": {
+                        "$ref": "#/$defs/TariffAltText"
+                    },
+                    "type": "array"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "default": null,
+            "title": "Tariff Alt Text"
+        },
+        "tariff_alt_url": {
+            "anyOf": [
+                {
+                    "format": "uri",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "default": null,
+            "title": "Tariff Alt Url"
+        },
+        "start_date_time": {
+            "anyOf": [
+                {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "default": null,
+            "title": "Start Date Time"
+        },
+        "end_date_time": {
+            "anyOf": [
+                {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "default": null,
+            "title": "End Date Time"
+        },
+        "last_updated": {
+            "format": "date-time",
+            "title": "Last Updated",
+            "type": "string"
+        },
+        "tax_included": {
+            "anyOf": [
+                {
+                    "$ref": "#/$defs/TaxIncludedEnum"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "default": null
+        },
+        "min_price": {
+            "anyOf": [
+                {
+                    "$ref": "#/$defs/Price"
+                },
+                {
+                    "$ref": "#/$defs/PriceLimit"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "default": null,
+            "title": "Min Price"
+        },
+        "max_price": {
+            "anyOf": [
+                {
+                    "$ref": "#/$defs/Price"
+                },
+                {
+                    "$ref": "#/$defs/PriceLimit"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "default": null,
+            "title": "Max Price"
+        }
+    },
+    "required": [
+        "country_code",
+        "party_id",
+        "id",
+        "elements",
+        "last_updated"
+    ],
+    "title": "TariffObject",
+    "type": "object"
+}

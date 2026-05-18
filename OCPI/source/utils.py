@@ -21,7 +21,7 @@ class DayOfWeekCode(Enum):
 class TariffRestrictionsText(Enum):
     """Enumeration for tariff restrictions texts."""
 
-    DAYS_OF_WEEK = "les"
+    DAYS_OF_WEEK = "les "
     START_DATE = "après le"
     END_DATE = "avant le"
     START_TIME = "après"
