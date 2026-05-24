@@ -31,6 +31,26 @@ from .utils import (
 )
 
 
+class TariffDimensionTypeEnum(StrEnum):
+    """Enumeration for tariff dimension types."""
+
+    ENERGY = "ENERGY"
+    TIME = "TIME"
+    FLAT = "FLAT"
+    PARKING_TIME = "PARKING_TIME"
+    CONGESTION_TIME = "CONGESTION_TIME"
+
+    @property
+    def text(self):
+        """text of the dimension."""
+        return TariffDimensionText[self.name].value
+
+    @property
+    def unit(self):
+        """unit of the dimension."""
+        return TariffDimensionUnit[self.name].value
+
+
 class ReservationRestrictionEnum(StrEnum):
     """OCPI reservation restriction."""
 
@@ -63,26 +83,6 @@ class TariffTypeEnum(StrEnum):
     PROFILE_FAST = "PROFILE_FAST"
     PROFILE_GREEN = "PROFILE_GREEN"
     REGULAR = "REGULAR"
-
-
-class TariffDimensionTypeEnum(StrEnum):
-    """Enumeration for tariff dimension types."""
-
-    ENERGY = "ENERGY"
-    TIME = "TIME"
-    FLAT = "FLAT"
-    PARKING_TIME = "PARKING_TIME"
-    CONGESTION_TIME = "CONGESTION_TIME"
-
-    @property
-    def text(self):
-        """text of the dimension."""
-        return TariffDimensionText[self.name].value
-
-    @property
-    def unit(self):
-        """unit of the dimension."""
-        return TariffDimensionUnit[self.name].value
 
 
 class TaxIncludedEnum(StrEnum):
@@ -165,15 +165,80 @@ class TariffRestrictions(BaseModel):
     min_vehicle_soc: Optional[Annotated[int, Ge(0)]] = None
     min_congestion_threshold: Optional[Annotated[int, Ge(0)]] = None
 
-    @property
-    def text(self):
-        """text of the restriction."""
-        return TariffRestrictionsText[self.name].value
+    def is_met(
+        self, param_session: dict, param_pdc: dict, param_other: dict
+    ) -> bool | None:
+        """Check if the restrictions are met for a given session parameters.
+        - param_session: dict containing session parameters (time, date, kWh, duration, day_of_week)
+        - param_pdc: dict containing PDC parameters (power)
+        - param_other: dict containing optional other parameters (vehicle SOC, congestion, reservation, current)
 
-    @property
-    def unit(self):
-        """unit of the restriction."""
-        return TariffRestrictionsUnit[self.name].value
+        Returns True if the restrictions are met, False if not, and None if the restrictions cannot be evaluated due to missing optional parameters.
+        """
+        if self.max_current is not None and "current" not in param_other:
+            return None
+        if self.min_current is not None and "current" not in param_other:
+            return None
+        if self.reservation is not None and "reservation" not in param_other:
+            return None
+        if self.min_vehicle_soc is not None and "vehicle_soc" not in param_other:
+            return None
+        if (
+            self.min_congestion_threshold is not None
+            and "congestion" not in param_other
+        ):
+            return None
+        if (
+            self.day_of_week is not None
+            and param_session["day_of_week"] not in self.day_of_week
+        ):
+            return False
+        if self.start_date is not None and param_session["date"] < self.start_date:
+            return False
+        if self.end_date is not None and param_session["date"] > self.end_date:
+            return False
+        if self.start_time is not None and param_session["time"] < self.start_time:
+            return False
+        if self.end_time is not None and param_session["time"] > self.end_time:
+            return False
+        if self.min_kwh is not None and param_session["kwh"] < self.min_kwh:
+            return False
+        if self.max_kwh is not None and param_session["kwh"] > self.max_kwh:
+            return False
+        if self.min_power is not None and param_pdc["power"] < self.min_power:
+            return False
+        if self.max_power is not None and param_pdc["power"] > self.max_power:
+            return False
+        if (
+            self.min_duration is not None
+            and param_session["duration"] < self.min_duration
+        ):
+            return False
+        if (
+            self.max_duration is not None
+            and param_session["duration"] > self.max_duration
+        ):
+            return False
+        if self.max_current is not None and param_other["current"] > self.max_current:
+            return False
+        if self.min_current is not None and param_other["current"] < self.min_current:
+            return False
+        if (
+            self.reservation is not None
+            and param_other["reservation"] != self.reservation
+        ):
+            return False
+        if (
+            self.min_vehicle_soc is not None
+            and param_other["vehicle_soc"] < self.min_vehicle_soc
+        ):
+            return False
+        if (
+            self.min_congestion_threshold is not None
+            and param_other["congestion"] < self.min_congestion_threshold
+        ):
+            return False
+        return True
 
     def to_json(self) -> dict:
         data: dict = {}
@@ -376,6 +441,44 @@ class TariffElements(RootModel[List[TariffElement]]):
 
     root: List[TariffElement] = Field(min_length=1)
 
+    def dimensions_values(
+        self,
+        tax_included: bool,
+        param_session: dict,
+        param_pdc: dict,
+        param_other: dict,
+    ) -> dict:
+        """Get the dimensions and their corresponding price values from the tariff elements.
+        - param_session: dict containing session parameters (time, date, kWh, duration, day_of_week)
+        - param_pdc: dict containing PDC parameters (power)
+        - param_other: dict containing optional other parameters (vehicle SOC, congestion, reservation, current)
+
+        Returns a dictionary mapping each dimension to its corresponding price value.
+        """
+        values = {
+            "ENERGY": None,
+            "TIME": None,
+            "FLAT": None,
+            "PARKING_TIME": None,
+            "CONGESTION_TIME": None,
+        }
+        for element in self.root:
+            if (
+                element.restrictions is not None
+                and element.restrictions.is_met(param_session, param_pdc, param_other)
+                is None
+            ):
+                return values
+            if element.restrictions is None or element.restrictions.is_met(
+                param_session, param_pdc, param_other
+            ):
+                for pc in element.price_components:
+                    if values[pc.type.value] is None:
+                        values[pc.type.value] = pc.price_incl_vat(
+                            tax_included=tax_included
+                        )
+        return values
+
     def to_json(self, simple: bool, tax_included: bool, incl_vat: bool) -> list[dict]:
         return [
             element.to_json(simple, tax_included=tax_included, incl_vat=incl_vat)
@@ -546,6 +649,30 @@ class TariffObject(BaseModel):
             text += f"- applicable jusqu'au {self.end_date_time.strftime('%d/%m/%Y')}\n"
         text += self.elements.to_text(tax_included=self.is_tax_included)
         return text
+
+    def current_price(
+        self, param_session: dict, param_pdc: dict, param_other: dict
+    ) -> dict:
+        """Get the current tariff price for a given session parameters.
+        - param_session: dict containing session parameters (time, date, kWh, duration, day_of_week)
+        - param_pdc: dict containing PDC parameters (power)
+        - param_other: dict containing optional other parameters (vehicle SOC, congestion, reservation, current)
+
+        Returns the main price (energy else time else flat).
+        """
+        dimensions_values = self.elements.dimensions_values(
+            tax_included=self.is_tax_included,
+            param_session=param_session,
+            param_pdc=param_pdc,
+            param_other=param_other,
+        )
+        if dimensions_values["ENERGY"] is not None:
+            return {"type": "ENERGY", "price": dimensions_values["ENERGY"]}
+        if dimensions_values["TIME"] is not None:
+            return {"type": "TIME", "price": dimensions_values["TIME"]}
+        if dimensions_values["FLAT"] is not None:
+            return {"type": "FLAT", "price": dimensions_values["FLAT"]}
+        return {"type": "UNKNOWN", "price": 0.0}
 
     @staticmethod
     def is_valid_json(data: dict, verbose: bool = False) -> bool:

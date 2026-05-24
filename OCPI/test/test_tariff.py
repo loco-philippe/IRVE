@@ -1,6 +1,6 @@
 """Tests for the tariff module."""
 
-from datetime import datetime
+from datetime import date, datetime, time
 import json
 
 from OCPI.source.tariff import (
@@ -12,6 +12,14 @@ from OCPI.source.tariff import (
     TariffRestrictions,
     DayOfWeekEnum,
 )
+
+VALUES = {
+    "ENERGY": None,
+    "TIME": None,
+    "FLAT": None,
+    "PARKING_TIME": None,
+    "CONGESTION_TIME": None,
+}
 
 
 def test_pricecomponent():
@@ -83,20 +91,21 @@ def test_tariffrestrictions():
 
 def test_tariffrestrictions_from_json():
     """Test the TariffRestrictions class from JSON."""
-    json_data = {
+    json_data_simple = {
         "day_of_week": ["MONDAY", "TUESDAY"],
         "start_date": "2024-01-01",
         "end_date": "2024-12-31",
         "start_time": "13:10",
         "end_time": "23:59",
-        "min_current": 10.0,
-        "max_current": 100.0,
         "min_duration": 30,
         "max_duration": 120,
         "min_kwh": 1.0,
         "max_kwh": 50.0,
         "min_power": 5.0,
         "max_power": 20.0,
+    }
+    json_data = json_data_simple | {
+        "min_current": 10.0,
     }
     restrictions = TariffRestrictions.model_validate(json_data)
     assert restrictions.day_of_week == [DayOfWeekEnum.MONDAY, DayOfWeekEnum.TUESDAY]
@@ -105,7 +114,6 @@ def test_tariffrestrictions_from_json():
     assert restrictions.start_time.isoformat() == "13:10:00"
     assert restrictions.end_time.isoformat() == "23:59:00"
     assert restrictions.min_current == 10.0
-    assert restrictions.max_current == 100.0
     assert restrictions.min_duration == 30
     assert restrictions.max_duration == 120
     assert restrictions.min_kwh == 1.0
@@ -113,6 +121,27 @@ def test_tariffrestrictions_from_json():
     assert restrictions.min_power == 5.0
     assert restrictions.max_power == 20.0
     assert restrictions.to_json() == json_data
+
+    param_other = {}
+    param_session = {
+        "day_of_week": "MONDAY",
+        "time": time.fromisoformat("15:00"),
+        "date": date.fromisoformat("2024-02-01"),
+        "duration": 60,
+        "kwh": 10.0,
+    }
+    param_pdc = {"power": 10.0}
+    restrictions_simple = TariffRestrictions.model_validate(json_data_simple)
+    assert restrictions_simple.is_met(param_session, param_pdc, param_other)
+    assert restrictions.is_met(param_session, param_pdc, param_other) is None
+    param_other_ok = {"current": 15.0}
+    assert restrictions.is_met(param_session, param_pdc, param_other_ok)
+    param_other_ko = {"current": 5.0}
+    assert not restrictions.is_met(param_session, param_pdc, param_other_ko)
+    param_session_ko = param_session | {"day_of_week": "WEDNESDAY"}
+    assert not restrictions_simple.is_met(param_session_ko, param_pdc, param_other)
+    param_pdc_ko = param_pdc | {"power": 30.0}
+    assert not restrictions_simple.is_met(param_session, param_pdc_ko, param_other)
 
 
 def test_tariffelement():
@@ -156,6 +185,50 @@ def test_tariffelement_from_json():
         tariff_element.to_json(simple=False, tax_included=False, incl_vat=False)
         == json_data
     )
+
+
+def test_tariffelements():
+    """Test the TariffElements class."""
+    json_data = [
+        {
+            "price_components": [
+                {
+                    "type": "ENERGY",
+                    "price": 0.30,
+                }
+            ],
+            "restrictions": {
+                "end_time": "13:00",
+            },
+        },
+        {
+            "price_components": [
+                {
+                    "type": "ENERGY",
+                    "price": 0.50,
+                },
+                {
+                    "type": "FLAT",
+                    "price": 4.0,
+                },
+            ],
+            "restrictions": {
+                "end_time": "20:00",
+            },
+        },
+    ]
+
+    tariff_elements = TariffElements.model_validate(json_data)
+    assert len(tariff_elements.root) == 2
+    assert len(tariff_elements.root[0].price_components) == 1
+    assert tariff_elements.root[0].price_components[0].type.value == "ENERGY"
+    assert tariff_elements.root[0].price_components[0].price == 0.30
+    param_session = {"time": time.fromisoformat("14:00")}
+    expected = VALUES | {"ENERGY": 0.5, "FLAT": 4.0}
+    assert tariff_elements.dimensions_values(True, param_session, {}, {}) == expected
+    param_session = {"time": time.fromisoformat("10:00")}
+    expected = VALUES | {"ENERGY": 0.3, "FLAT": 4.0}
+    assert tariff_elements.dimensions_values(True, param_session, {}, {}) == expected
 
 
 def test_tariff():
@@ -225,6 +298,7 @@ def test_tariff_json():
         )["elements"]
         == json_data["elements"]
     )
+    assert tariff.current_price({}, {}, {}) == {"type": "ENERGY", "price": 0.3}
 
 
 def test_json_validation():
@@ -277,6 +351,7 @@ test_tariffrestrictions()
 test_tariffrestrictions_from_json()
 test_tariffelement()
 test_tariffelement_from_json()
+test_tariffelements()
 test_tariff()
 test_tariff_json()
 test_json_validation()
