@@ -190,7 +190,7 @@ class TariffRestrictions(BaseModel):
             return None
         if (
             self.day_of_week is not None
-            and param_session["day_of_week"] not in self.day_of_week
+            and DayOfWeekEnum(param_session["day_of_week"]) not in self.day_of_week
         ):
             return False
         if self.start_date is not None and param_session["date"] < self.start_date:
@@ -272,7 +272,7 @@ class TariffRestrictions(BaseModel):
 
     def to_text(self) -> str:
         parts: list[str] = []
-        if self.day_of_week is not None:
+        if self.day_of_week is not None and len(self.day_of_week) > 0:
             parts.append(
                 TariffRestrictionsText.DAYS_OF_WEEK.value
                 + " ".join(day.code for day in self.day_of_week)

@@ -331,6 +331,20 @@ def test_json_validation():
 def test_to_text():
     """Test the to_text method of the Tariff class."""
 
+    p_session = {
+        "time": time.fromisoformat("15:00"),
+        "date": date.fromisoformat("2026-05-01"),
+        "day_of_week": "MONDAY",
+        "duration": 30,
+        "kwh": 51.0,
+    }
+    p_pdc = {"power": 100.0}
+    p_other = {
+        "current": 1.0,
+        "vehicle_soc": 50.0,
+        "congestion_threshold": 0.0,
+        "reservation": False,
+    }
     with open("OCPI/examples/examples.json") as f:
         examples_data = json.load(f)
     text = "# tarifs au format texte des exemples du fichier examples.json\n\n"
@@ -340,9 +354,17 @@ def test_to_text():
         # print(example["id"])
         tariff = TariffObject.model_validate(example)
         text += tariff.to_text() + "\n"
+        text += (
+            "pastille tarif : "
+            + json.dumps(tariff.current_price(p_session, p_pdc, p_other))
+            + "\n\n"
+        )
     with open("OCPI/examples/examples.md", "w", encoding="utf-8") as f:
         f.write(text[:-1])
 
+
+# print(DayOfWeekEnum("MONDAY") in [DayOfWeekEnum.MONDAY, DayOfWeekEnum.TUESDAY])
+print("test ko sur 84180095-abd3-472c-9584-7ccb6e3bc55b (tesla ligne 3627)")
 
 test_pricecomponent()
 test_pricecomponent_tax_included()
