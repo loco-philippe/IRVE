@@ -968,7 +968,7 @@ Tariff : "NLTSL1c7c169c-c4f2-48ae-bb4d-cc6e2f691431" version du 26/03/2026
 - durée de congestion :
   - 36.0 €/h sinon
 
-pastille tarif : {"type": "UNKNOWN", "price": 0.0}
+pastille tarif : {"type": "ENERGY", "price": 0.48}
 
 Tariff : "NLTSL84180095-abd3-472c-9584-7ccb6e3bc55b" version du 26/03/2026
 
@@ -981,7 +981,7 @@ Tariff : "NLTSL84180095-abd3-472c-9584-7ccb6e3bc55b" version du 26/03/2026
 - durée de congestion :
   - 36.0 €/h sinon
 
-pastille tarif : {"type": "UNKNOWN", "price": 0.0}
+pastille tarif : {"type": "ENERGY", "price": 0.77}
 
 Tariff : "NLTSL13b15ade-935c-41f4-9bd4-ae3d0d2a14bb" version du 26/03/2026
 
@@ -990,7 +990,7 @@ Tariff : "NLTSL13b15ade-935c-41f4-9bd4-ae3d0d2a14bb" version du 26/03/2026
 - durée de congestion :
   - 36.0 €/h sinon
 
-pastille tarif : {"type": "UNKNOWN", "price": 0.0}
+pastille tarif : {"type": "ENERGY", "price": 0.35}
 
 Tariff : "NONOPNLCPIT2otd*2*0" version du 06/07/2024
 

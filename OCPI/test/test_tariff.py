@@ -20,6 +20,20 @@ VALUES = {
     "PARKING_TIME": None,
     "CONGESTION_TIME": None,
 }
+SESSION = {
+    "time": time.fromisoformat("15:00"),
+    "date": date.fromisoformat("2026-05-01"),
+    "day_of_week": "MONDAY",
+    "duration": 30,
+    "kwh": 51.0,
+}
+PDC = {"power": 100.0}
+OTHER = {
+    "current": 1.0,
+    "vehicle_soc": 50.0,
+    "congestion": 10.0,
+    "reservation": False,
+}
 
 
 def test_pricecomponent():
@@ -231,6 +245,97 @@ def test_tariffelements():
     assert tariff_elements.dimensions_values(True, param_session, {}, {}) == expected
 
 
+def test_dimensions_values():
+    """Test the dimensions_values method of the TariffElements class."""
+    json_data = [
+        {
+            "price_components": [
+                {"type": "CONGESTION_TIME", "price": 0.00, "step_size": 60}
+            ],
+            "restrictions": {
+                "min_duration": 0,
+                "max_duration": 300,
+                "min_vehicle_soc": 80,
+                "min_congestion_threshold": 90,
+            },
+        },
+        {
+            "price_components": [
+                {"type": "CONGESTION_TIME", "price": 30.00, "step_size": 60}
+            ],
+            "restrictions": {"min_vehicle_soc": 80, "min_congestion_threshold": 90},
+        },
+        {
+            "price_components": [{"type": "ENERGY", "price": 0.28, "step_size": 1}],
+            "restrictions": {
+                "start_time": "00:00",
+                "end_time": "04:00",
+                "day_of_week": [
+                    "MONDAY",
+                    "TUESDAY",
+                    "WEDNESDAY",
+                    "THURSDAY",
+                    "FRIDAY",
+                    "SATURDAY",
+                    "SUNDAY",
+                ],
+            },
+        },
+        {
+            "price_components": [{"type": "ENERGY", "price": 0.35, "step_size": 1}],
+            "restrictions": {
+                "start_time": "04:00",
+                "end_time": "09:00",
+                "day_of_week": [
+                    "MONDAY",
+                    "TUESDAY",
+                    "WEDNESDAY",
+                    "THURSDAY",
+                    "FRIDAY",
+                    "SATURDAY",
+                    "SUNDAY",
+                ],
+            },
+        },
+        {
+            "price_components": [{"type": "ENERGY", "price": 0.64, "step_size": 1}],
+            "restrictions": {
+                "start_time": "09:00",
+                "end_time": "20:00",
+                "day_of_week": [
+                    "MONDAY",
+                    "TUESDAY",
+                    "WEDNESDAY",
+                    "THURSDAY",
+                    "FRIDAY",
+                    "SATURDAY",
+                    "SUNDAY",
+                ],
+            },
+        },
+        {
+            "price_components": [{"type": "ENERGY", "price": 0.35, "step_size": 1}],
+            "restrictions": {
+                "start_time": "20:00",
+                "end_time": "00:00",
+                "day_of_week": [
+                    "MONDAY",
+                    "TUESDAY",
+                    "WEDNESDAY",
+                    "THURSDAY",
+                    "FRIDAY",
+                    "SATURDAY",
+                    "SUNDAY",
+                ],
+            },
+        },
+        {"price_components": [{"type": "ENERGY", "price": 0.46, "step_size": 1}]},
+    ]
+    tariff_elements = TariffElements.model_validate(json_data)
+    expected = VALUES | {"ENERGY": 0.64}
+    assert tariff_elements.dimensions_values(True, SESSION, PDC, OTHER) == expected
+
+
 def test_tariff():
     """Test the Tariff class."""
     price_component = PriceComponent(type=TariffDimensionTypeEnum.ENERGY, price=0.30)
@@ -331,20 +436,6 @@ def test_json_validation():
 def test_to_text():
     """Test the to_text method of the Tariff class."""
 
-    p_session = {
-        "time": time.fromisoformat("15:00"),
-        "date": date.fromisoformat("2026-05-01"),
-        "day_of_week": "MONDAY",
-        "duration": 30,
-        "kwh": 51.0,
-    }
-    p_pdc = {"power": 100.0}
-    p_other = {
-        "current": 1.0,
-        "vehicle_soc": 50.0,
-        "congestion_threshold": 0.0,
-        "reservation": False,
-    }
     with open("OCPI/examples/examples.json") as f:
         examples_data = json.load(f)
     text = "# tarifs au format texte des exemples du fichier examples.json\n\n"
@@ -356,15 +447,12 @@ def test_to_text():
         text += tariff.to_text() + "\n"
         text += (
             "pastille tarif : "
-            + json.dumps(tariff.current_price(p_session, p_pdc, p_other))
+            + json.dumps(tariff.current_price(SESSION, PDC, OTHER))
             + "\n\n"
         )
     with open("OCPI/examples/examples.md", "w", encoding="utf-8") as f:
         f.write(text[:-1])
 
-
-# print(DayOfWeekEnum("MONDAY") in [DayOfWeekEnum.MONDAY, DayOfWeekEnum.TUESDAY])
-print("test ko sur 84180095-abd3-472c-9584-7ccb6e3bc55b (tesla ligne 3627)")
 
 test_pricecomponent()
 test_pricecomponent_tax_included()
@@ -374,6 +462,7 @@ test_tariffrestrictions_from_json()
 test_tariffelement()
 test_tariffelement_from_json()
 test_tariffelements()
+test_dimensions_values()
 test_tariff()
 test_tariff_json()
 test_json_validation()
