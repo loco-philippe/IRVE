@@ -15,7 +15,7 @@ Tariff : "NONOP5" version du 17/12/2024
   - 4.8 €/h entre 06:00 et 00:00 et si la durée est comprise entre 120 min et 180 min
   - 9.6 €/h entre 06:00 et 00:00 et si la durée est supérieure à 180 min
 
-pastille tarif : {"type": "ENERGY", "price": 0.25}
+pastille tarif : {"type": "ENERGY", "price": 0.4}
 
 Tariff : "ESZUN64" version du 18/03/2024
 

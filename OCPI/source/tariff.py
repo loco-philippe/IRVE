@@ -199,7 +199,11 @@ class TariffRestrictions(BaseModel):
             return False
         if self.start_time is not None and param_session["time"] < self.start_time:
             return False
-        if self.end_time is not None and param_session["time"] > self.end_time:
+        if (
+            self.end_time is not None
+            and param_session["time"] > self.end_time
+            and self.end_time != time.min
+        ):
             return False
         if self.min_kwh is not None and param_session["kwh"] < self.min_kwh:
             return False
