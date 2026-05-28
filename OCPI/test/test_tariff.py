@@ -438,7 +438,11 @@ def test_to_text():
 
     with open("OCPI/examples/examples.json") as f:
         examples_data = json.load(f)
-    text = "# tarifs au format texte des exemples du fichier examples.json\n\n"
+    text = """# Tarifs au format texte des exemples du fichier examples.json
+
+*pastilles calculées avec "time":"15:00", "date":"2026-05-01", "day_of_week": "MONDAY", "duration": 30, "kwh": 51.0, "power": 100.0*
+
+"""
     for example in examples_data:
         example["country_code"] = example.get("country_code", "NO")
         example["party_id"] = example.get("party_id", "NOP")

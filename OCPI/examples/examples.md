@@ -1,4 +1,6 @@
-# tarifs au format texte des exemples du fichier examples.json
+# Tarifs au format texte des exemples du fichier examples.json
+
+*pastilles calculées avec "time":"15:00", "date":"2026-05-01", "day_of_week": "MONDAY", "duration": 30, "kwh": 51.0, "power": 100.0*
 
 Tariff : "NONOP5" version du 17/12/2024
 
