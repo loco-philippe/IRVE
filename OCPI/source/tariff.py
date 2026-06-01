@@ -679,9 +679,7 @@ class TariffObject(BaseModel):
         return {"type": "UNKNOWN", "price": 0.0}
 
     @staticmethod
-    def is_valid_json(data: dict, verbose: bool = False) -> bool:
-        with open("OCPI/source/schema.json") as f:
-            schema = json.load(f)
+    def is_valid_json(schema: dict, data: dict, verbose: bool = False) -> bool:
         try:
             validate(instance=data, schema=schema)
             if verbose:

@@ -421,14 +421,17 @@ def test_json_validation():
         "last_updated": "2024-06-01T12:00:00+00:00",
         "tax_included": "YES",
     }
-    assert TariffObject.is_valid_json(json_data)
+    with open("OCPI/source/schema.json") as f:
+        schema = json.load(f)
+
+    assert TariffObject.is_valid_json(schema, json_data)
 
     with open("OCPI/examples/examples.json") as f:
         examples_data = json.load(f)
     for example in examples_data:
         example["country_code"] = example.get("country_code", "NO")
         example["party_id"] = example.get("party_id", "NOP")
-        assert TariffObject.is_valid_json(example, verbose=False)
+        assert TariffObject.is_valid_json(schema, example, verbose=False)
     with open("OCPI/examples/model_schema.json", "w", encoding="utf-8") as f:
         json.dump(TariffObject.model_json_schema(), f, indent=4)
 

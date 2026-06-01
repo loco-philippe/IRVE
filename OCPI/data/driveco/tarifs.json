@@ -1,0 +1,1844 @@
+[
+        {
+            "id": "DRV-energy-5",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.325,
+                            "step_size": 1
+                        }
+                    ]
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "PARKING_TIME",
+                            "price": 9.996,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "min_duration": 900
+                    }
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "DRV-energy-10",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.5333,
+                            "step_size": 1
+                        }
+                    ]
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "PARKING_TIME",
+                            "price": 15,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "min_duration": 900
+                    }
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "FREE",
+            "currency": "EUR",
+            "elements": [],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "DRV-energy-2",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.2417,
+                            "step_size": 1
+                        }
+                    ]
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "PARKING_TIME",
+                            "price": 4.998,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "min_duration": 900
+                    }
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "_tariff_65",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "TIME",
+                            "price": 4,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "F1",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "FLAT",
+                            "price": 5.4166,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "DRV-energy-6",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.3667,
+                            "step_size": 1
+                        }
+                    ]
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "PARKING_TIME",
+                            "price": 9.996,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "min_duration": 900
+                    }
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "DRV-energy-3",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.25,
+                            "step_size": 1
+                        }
+                    ]
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "PARKING_TIME",
+                            "price": 4.998,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "min_duration": 900
+                    }
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "temps-energie-4",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.242,
+                            "step_size": 1
+                        }
+                    ]
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "TIME",
+                            "price": 4.5,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "DRV-energy-2-NoOSF",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.2417,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "TD1",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "FLAT",
+                            "price": 1.25,
+                            "step_size": 1
+                        }
+                    ]
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "TIME",
+                            "price": 4.1666,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "DRV-energy-5-NoOSF",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.325,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "DRV-energy-6-NoOSF",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.3667,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "DRV-energy-4-NoOSF",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.2833,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "TH1G",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "TIME",
+                            "price": 1.6666,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "start_time": "00:00",
+                        "end_time": "11:59",
+                        "min_duration": 1800
+                    }
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "TIME",
+                            "price": 3.3333,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "start_time": "12:00",
+                        "end_time": "21:59",
+                        "min_duration": 1800
+                    }
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "TIME",
+                            "price": 1.6666,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "start_time": "22:00",
+                        "end_time": "23:59",
+                        "min_duration": 1800
+                    }
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "DRV-energy-8",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.45,
+                            "step_size": 1
+                        }
+                    ]
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "PARKING_TIME",
+                            "price": 15,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "min_duration": 900
+                    }
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:17Z"
+        },
+        {
+            "id": "DRV-energy-7-NoOSF",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.4083,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "temps-session-nrc",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "FLAT",
+                            "price": 2.083,
+                            "step_size": 1
+                        }
+                    ]
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "TIME",
+                            "price": 3.48,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "temps-energie-6",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.408,
+                            "step_size": 1
+                        }
+                    ]
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "TIME",
+                            "price": 6.4799999999999995,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "DRV-energy-7",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.4083,
+                            "step_size": 1
+                        }
+                    ]
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "PARKING_TIME",
+                            "price": 9.996,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "min_duration": 900
+                    }
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "ED2",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "FLAT",
+                            "price": 1.25,
+                            "step_size": 1
+                        },
+                        {
+                            "type": "ENERGY",
+                            "price": 0.15,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "TSD2",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "FLAT",
+                            "price": 1.25,
+                            "step_size": 1
+                        }
+                    ]
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "TIME",
+                            "price": 1.6666,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "max_duration": 3600
+                    }
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "TIME",
+                            "price": 3.3333,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "min_duration": 3600
+                    }
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "energie-5",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.358,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "ED3",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "FLAT",
+                            "price": 1.25,
+                            "step_size": 1
+                        },
+                        {
+                            "type": "ENERGY",
+                            "price": 0.25,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "TS2",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "TIME",
+                            "price": 1.6666,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "max_duration": 3600
+                    }
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "TIME",
+                            "price": 3.3333,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "min_duration": 3600
+                    }
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "DRV-energy-4",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.2833,
+                            "step_size": 1
+                        }
+                    ]
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "PARKING_TIME",
+                            "price": 4.998,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "min_duration": 900
+                    }
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "T1",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "TIME",
+                            "price": 4.1666,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "temps-energie-2",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.2,
+                            "step_size": 1
+                        }
+                    ]
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "TIME",
+                            "price": 1.98,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "DRV-energy-9-NoOSF",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.4917,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "Temps-2",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "TIME",
+                            "price": 4.5,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "temps-creneau-csc",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "TIME",
+                            "price": 1.6666,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "max_duration": 3600
+                    }
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "TIME",
+                            "price": 3.3332,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "min_duration": 3600
+                    }
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "E3",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.25,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "Energie-10",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 1.2416,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "DRV-energy-9",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.4917,
+                            "step_size": 1
+                        }
+                    ]
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "PARKING_TIME",
+                            "price": 15,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "min_duration": 900
+                    }
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "Temps-3",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "TIME",
+                            "price": 9.48,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "DRV-energy-3-NoOSF",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.25,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "DRV-energy-1-NoOSF",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.2,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "_tariff_66",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "TIME",
+                            "price": 4,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "energie-4",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.292,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "temps-energie-5",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.325,
+                            "step_size": 1
+                        }
+                    ]
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "TIME",
+                            "price": 4.5,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "energie-7",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.658,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "Temps-Energie-8",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.825,
+                            "step_size": 1
+                        }
+                    ]
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "TIME",
+                            "price": 14.52,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "energie-1",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.15,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "temps-energie-7",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.492,
+                            "step_size": 1
+                        }
+                    ]
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "TIME",
+                            "price": 6.4799999999999995,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "TSD1",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "FLAT",
+                            "price": 1.25,
+                            "step_size": 1
+                        }
+                    ]
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "TIME",
+                            "price": 4.1666,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "max_duration": 3600
+                    }
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "TIME",
+                            "price": 8.3333,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "min_duration": 3600
+                    }
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "temps-energie-3",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.242,
+                            "step_size": 1
+                        }
+                    ]
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "TIME",
+                            "price": 1.98,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "energie-6",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.45,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "temps-5",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "TIME",
+                            "price": 24.479999999999997,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "temps-7",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "TIME",
+                            "price": 49.5,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "DRV-energy-3",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.25,
+                            "step_size": 1
+                        }
+                    ]
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "PARKING_TIME",
+                            "price": 4.998,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "min_duration": 900
+                    }
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "DRV-energy-1",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.2,
+                            "step_size": 1
+                        }
+                    ]
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "PARKING_TIME",
+                            "price": 4.998,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "min_duration": 900
+                    }
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "DRV-energy-12",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.6167,
+                            "step_size": 1
+                        }
+                    ]
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "PARKING_TIME",
+                            "price": 15,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "min_duration": 900
+                    }
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "Energie-8",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.825,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "DRV-energy-8-NoOSF",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.45,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "DRV-energy-0",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.15,
+                            "step_size": 1
+                        }
+                    ]
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "PARKING_TIME",
+                            "price": 4.998,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "min_duration": 900
+                    }
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "energie-2",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.2,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "DRV-energy-10-NoOSF",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.5333,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "temps-6",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "TIME",
+                            "price": 39.480000000000004,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "AIR-energy-4",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.15,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "energie-3",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.242,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "AIR-temps-2",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.275,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "AIR-temps-3",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.275,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "AIR-temps-4",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.15,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "AIR-fixe-temps-4",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.15,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "AIR-energy-2",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.2917,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "AIR-temps-5",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.15,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "DRV-energy-42",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.425,
+                            "step_size": 1
+                        }
+                    ]
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "PARKING_TIME",
+                            "price": 9.996,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "min_duration": 900
+                    }
+                }
+            ],
+            "last_updated": "2026-03-26T09:09:08Z"
+        },
+        {
+            "id": "DRV-energy-6-2",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.3833,
+                            "step_size": 1
+                        }
+                    ]
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "PARKING_TIME",
+                            "price": 9.996,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "min_duration": 900
+                    }
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:17Z"
+        },
+        {
+            "id": "PL1-energy-3",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.2416,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "PL1-energy-6",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.3583,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "PL1-energy-7",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.45,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "AIR-energy-5",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.1583,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "DRV-energy-8-NoOSF",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.45,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "DRV-energy-6-2-ECO",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.3833,
+                            "step_size": 1
+                        }
+                    ]
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.27,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "start_time": "20:00",
+                        "end_time": "08:00"
+                    }
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "PARKING_TIME",
+                            "price": 9.996,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "min_duration": 900
+                    }
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:17Z"
+        },
+        {
+            "id": "DRV-energy-8-ECO",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.45,
+                            "step_size": 1
+                        }
+                    ]
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.32,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "start_time": "20:00",
+                        "end_time": "08:00"
+                    }
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "PARKING_TIME",
+                            "price": 15,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "min_duration": 900
+                    }
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:17Z"
+        },
+        {
+            "id": "DRV-energy-9",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.4917,
+                            "step_size": 1
+                        }
+                    ]
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "PARKING_TIME",
+                            "price": 15,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "min_duration": 900
+                    }
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "DRV-energy-8",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.45,
+                            "step_size": 1
+                        }
+                    ]
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "PARKING_TIME",
+                            "price": 15,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "min_duration": 900
+                    }
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:16Z"
+        },
+        {
+            "id": "DRV-energy-8-sp",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.44628,
+                            "step_size": 1
+                        }
+                    ]
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "PARKING_TIME",
+                            "price": 14.874,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "min_duration": 900
+                    }
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:17Z"
+        },
+        {
+            "id": "DRV-energy-64-be",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.6446,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:17Z"
+        },
+        {
+            "id": "DRV-energy-41-be",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.4132,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:17Z"
+        },
+        {
+            "id": "DRV-energy-64-it",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.6475,
+                            "step_size": 1
+                        }
+                    ]
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "PARKING_TIME",
+                            "price": 9.834,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "min_duration": 900
+                    }
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:17Z"
+        },
+        {
+            "id": "DRV-energy-61-be",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.6198,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:17Z"
+        },
+        {
+            "id": "DRV-energy-45-be",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.4545,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:17Z"
+        },
+        {
+            "id": "DRV-energy-64-it",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.6475,
+                            "step_size": 1
+                        }
+                    ]
+                },
+                {
+                    "price_components": [
+                        {
+                            "type": "PARKING_TIME",
+                            "price": 9.834,
+                            "step_size": 1
+                        }
+                    ],
+                    "restrictions": {
+                        "min_duration": 900
+                    }
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:17Z"
+        },
+        {
+            "id": "DRV-energy-61-be",
+            "currency": "EUR",
+            "elements": [
+                {
+                    "price_components": [
+                        {
+                            "type": "ENERGY",
+                            "price": 0.6198,
+                            "step_size": 1
+                        }
+                    ]
+                }
+            ],
+            "last_updated": "2026-02-09T21:36:17Z"
+        }
+    ]
