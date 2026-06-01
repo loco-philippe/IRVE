@@ -58,21 +58,23 @@ Bilan des données reçues:
 
 ## Données disponibles
   - 1 : Tesla (262 tarifs et stations)
-  - 2 : 
+  - 2 : aucun
   - 3 : Total (65 tarifs) : corrections sur $date, _id, vat=0.2, type=REGULAR
   - 4 : 
     - Powerdot (3 tarifs représentatifs), 
     - Fastned (1 exemple représentatif à maj via eco-movement)
+    - Shell (1 exemple représentatif)
+    - Lidl (1 exemple représentatif)
+    - Plug-inn (5 exemples 2.3 et 2.2)
   - 5 : 
     - Electra (1 tarif à prix fixe, variable à fournir) : corrections sur vat=0
     - Cieos (1 tarif) : champs obligatoires manquant (country_code, party_id)
     - Zunder (1 simple, 1 complexe) : correction à faire (type REGULAR indiqué) 
     - Driveco (85 exemples non représentatifs) : champs obligatoires manquant (country_code, party_id)
-    - Shell (1 exemple non représentatif)
   - 6 :
     - Atlante (format spécifique)
     - Engie (format CSV)
-  - 7 : Allego, EVcars, NW IECharge
+  - 7 : Allego, EVcars, NW IECharge, Ionity, BP
 
 
 
