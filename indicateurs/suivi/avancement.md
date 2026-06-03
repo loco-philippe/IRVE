@@ -77,10 +77,10 @@
   - extension de l'analyse de saturation Vinci ?
   - autres ?
 
-## Activités mai (15 jours)
+## Activités juin (15 jours)
 
 - onboarding des opérateurs
-  - validation de flux d'opérateurs (13 en cours: Wewise, Partage ma borne, OZECAR, Monta, Indelec, Bouygues extension, Watt Up, electric 55, FRC2A, Car2plug, Fastned CHA, Faroad, Modulo)
+  - validation de flux d'opérateurs (12 en cours: Wewise, Partage ma borne, OZECAR, Monta, Indelec, Bouygues extension, Watt Up, electric 55, FRC2A, Car2plug, Fastned CHA, Modulo)
   - activité récurrente de suivi des opérateurs et des incidents
 - indicateurs
   - calcul de l'indicateur de fiabilité des statuts
@@ -88,15 +88,31 @@
   - mise à niveau des indicateurs dynamiques (decommission, doublons de sessions)
 - CarbuRe
   - validation des volumes aménageurs
+  - analyse des écarts de volumes
   - formalisation du processus de validation opérateur des volumes
 - tarifs
-  - calcul de scénarios de prix
-  - intégration des modules Tariff dans Qualicharge
+  - obtention des tarifs pour chaque pdc auprès des opérateurs principaux
+  - génération de formats parquet pour initialisation BD
   - intégration dans les indicateurs qualité et dans le processus d'onboarding
 - modèle de données européen AFIR
   - Formalisation pour Qualicharge de l'évolution de la structure de données (en liaison avec le PAN)
 - saturation
   - démarrage des travaux sur la pleine utilisation ?
+  - validation des données consolidées par Vinci ?
+
+## Activités mai (12 jours)
+
+- onboarding des opérateurs
+  - validation de flux d'opérateurs (Faroad, Easycharge : FRTDA, SPIE City : FROSC)
+  - activité récurrente de suivi des opérateurs et des incidents
+- CarbuRe
+  - validation des volumes aménageurs
+  - Analyse des écarts de volumes Electra, Fastned, Powerdot, Plug-inn
+  - Etude de la part renouvelable
+- tarifs
+  - calcul de scénarios de prix (ex affichage de "pastilles")
+- modèle de données européen AFIR
+  - Accompagnement nouvelle version du schéma de données
 
 ## Activités avril (16 jours)
 
