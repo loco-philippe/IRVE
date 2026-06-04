@@ -967,21 +967,21 @@ Tariff : "NLTSL1c7c169c-c4f2-48ae-bb4d-cc6e2f691431" version du 26/03/2026
 
 - énergie :
   - 0.48 €/kWh
-- durée de congestion :
-  - 36.0 €/h sinon
+- période de congestion :
+  - 36.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.48}
 
 Tariff : "NLTSL84180095-abd3-472c-9584-7ccb6e3bc55b" version du 26/03/2026
 
 - énergie :
-  - 0.34 €/kWh les Lu Ma Me Je Ve Sa Di et entre 00:00 et 04:00
-  - 0.42 €/kWh les Lu Ma Me Je Ve Sa Di et entre 04:00 et 09:00
-  - 0.77 €/kWh les Lu Ma Me Je Ve Sa Di et entre 09:00 et 20:00
-  - 0.42 €/kWh les Lu Ma Me Je Ve Sa Di et entre 20:00 et 00:00
+  - 0.34 €/kWh entre 00:00 et 04:00
+  - 0.42 €/kWh entre 04:00 et 09:00
+  - 0.77 €/kWh entre 09:00 et 20:00
+  - 0.42 €/kWh entre 20:00 et 00:00
   - 0.55 €/kWh sinon
-- durée de congestion :
-  - 36.0 €/h sinon
+- période de congestion :
+  - 36.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.77}
 
@@ -989,8 +989,8 @@ Tariff : "NLTSL13b15ade-935c-41f4-9bd4-ae3d0d2a14bb" version du 26/03/2026
 
 - énergie :
   - 0.35 €/kWh
-- durée de congestion :
-  - 36.0 €/h sinon
+- période de congestion :
+  - 36.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.35}
 

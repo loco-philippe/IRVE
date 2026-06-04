@@ -93,7 +93,7 @@
 - tarifs
   - obtention des tarifs pour chaque pdc auprès des opérateurs principaux
   - génération de formats parquet pour initialisation BD
-  - intégration dans les indicateurs qualité et dans le processus d'onboarding
+  - intégration des tarifs dans les indicateurs qualité et dans le processus d'onboarding
 - modèle de données européen AFIR
   - Formalisation pour Qualicharge de l'évolution de la structure de données (en liaison avec le PAN)
 - saturation
@@ -110,6 +110,7 @@
   - Analyse des écarts de volumes Electra, Fastned, Powerdot, Plug-inn
   - Etude de la part renouvelable
 - tarifs
+  - formalisation d'une spécification pour les opérateurs
   - calcul de scénarios de prix (ex affichage de "pastilles")
 - modèle de données européen AFIR
   - Accompagnement nouvelle version du schéma de données

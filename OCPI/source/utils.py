@@ -61,7 +61,7 @@ class TariffDimensionText(Enum):
     TIME = "durée de recharge"
     FLAT = "forfait"
     PARKING_TIME = "durée d'occupation hors charge"
-    CONGESTION_TIME = "durée de congestion"
+    CONGESTION_TIME = "période de congestion"
 
 
 class TariffDimensionUnit(Enum):

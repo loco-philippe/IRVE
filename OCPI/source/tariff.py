@@ -276,7 +276,11 @@ class TariffRestrictions(BaseModel):
 
     def to_text(self) -> str:
         parts: list[str] = []
-        if self.day_of_week is not None and len(self.day_of_week) > 0:
+        if (
+            self.day_of_week is not None
+            and len(self.day_of_week) > 0
+            and len(self.day_of_week) < 7
+        ):
             parts.append(
                 TariffRestrictionsText.DAYS_OF_WEEK.value
                 + " ".join(day.code for day in self.day_of_week)
@@ -526,6 +530,8 @@ class TariffElements(RootModel[List[TariffElement]]):
                         else "sinon"
                     )
                     last = te == valid_text_elements[-1] or restrictions == "sinon"
+                    if restrictions == "sinon" and len(valid_text_elements) == 1:
+                        restrictions = ""
                     te_text = f"  - {te['price']} {te['unit']} {restrictions}"
                     text += te_text.rstrip() + "\n"
                     if last:
