@@ -499,7 +499,11 @@ class TariffElements(RootModel[List[TariffElement]]):
             text_elements = []
             for element in self.root:
                 for pc in element.price_components:
-                    if pc.type == TariffDimensionTypeEnum[dimension.name]:
+                    if (
+                        pc.type == TariffDimensionTypeEnum[dimension.name]
+                        and pc.price is not None
+                        and pc.price > 0
+                    ):
                         text_elements.append(
                             {
                                 "price": pc.price_incl_vat(tax_included=tax_included),
