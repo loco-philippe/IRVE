@@ -13,7 +13,7 @@ Tariff : "NONOP5" version du 17/12/2024
 - durée de recharge :
   - 4.8 €/h entre 06:00 et 00:00 et si la durée est comprise entre 120 min et 180 min
   - 9.6 €/h entre 06:00 et 00:00 et si la durée est supérieure à 180 min
-- durée d'occupation hors charge :
+- durée d'occupation hors recharge :
   - 4.8 €/h entre 06:00 et 00:00 et si la durée est comprise entre 120 min et 180 min
   - 9.6 €/h entre 06:00 et 00:00 et si la durée est supérieure à 180 min
 
@@ -44,6 +44,8 @@ pastille tarif : {"type": "ENERGY", "price": 0.61}
 
 Tariff : "FRELC20f78a9c-38d6-11f1-a1fb-ff01c81d1342" version du 15/04/2026
 
+Default terminal payment (localpayment) pricing France fast charge
+
 - applicable du 16/04/2026 au 01/01/3000
 - énergie :
   - 0.53 €/kWh
@@ -54,7 +56,7 @@ Tariff : "NONOPDRV-energy-5" version du 09/02/2026
 
 - énergie :
   - 0.39 €/kWh
-- durée d'occupation hors charge :
+- durée d'occupation hors recharge :
   - 12.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.39}
@@ -63,7 +65,7 @@ Tariff : "NONOPDRV-energy-10" version du 09/02/2026
 
 - énergie :
   - 0.64 €/kWh
-- durée d'occupation hors charge :
+- durée d'occupation hors recharge :
   - 18.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.64}
@@ -72,7 +74,7 @@ Tariff : "NONOPDRV-energy-2" version du 09/02/2026
 
 - énergie :
   - 0.29 €/kWh
-- durée d'occupation hors charge :
+- durée d'occupation hors recharge :
   - 6.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.29}
@@ -95,7 +97,7 @@ Tariff : "NONOPDRV-energy-6" version du 09/02/2026
 
 - énergie :
   - 0.44 €/kWh
-- durée d'occupation hors charge :
+- durée d'occupation hors recharge :
   - 12.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.44}
@@ -104,7 +106,7 @@ Tariff : "NONOPDRV-energy-3" version du 09/02/2026
 
 - énergie :
   - 0.3 €/kWh
-- durée d'occupation hors charge :
+- durée d'occupation hors recharge :
   - 6.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.3}
@@ -168,7 +170,7 @@ Tariff : "NONOPDRV-energy-8" version du 09/02/2026
 
 - énergie :
   - 0.54 €/kWh
-- durée d'occupation hors charge :
+- durée d'occupation hors recharge :
   - 18.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.54}
@@ -202,7 +204,7 @@ Tariff : "NONOPDRV-energy-7" version du 09/02/2026
 
 - énergie :
   - 0.49 €/kWh
-- durée d'occupation hors charge :
+- durée d'occupation hors recharge :
   - 12.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.49}
@@ -254,7 +256,7 @@ Tariff : "NONOPDRV-energy-4" version du 09/02/2026
 
 - énergie :
   - 0.34 €/kWh
-- durée d'occupation hors charge :
+- durée d'occupation hors recharge :
   - 6.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.34}
@@ -315,7 +317,7 @@ Tariff : "NONOPDRV-energy-9" version du 09/02/2026
 
 - énergie :
   - 0.59 €/kWh
-- durée d'occupation hors charge :
+- durée d'occupation hors recharge :
   - 18.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.59}
@@ -440,7 +442,7 @@ Tariff : "NONOPDRV-energy-3" version du 09/02/2026
 
 - énergie :
   - 0.3 €/kWh
-- durée d'occupation hors charge :
+- durée d'occupation hors recharge :
   - 6.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.3}
@@ -449,7 +451,7 @@ Tariff : "NONOPDRV-energy-1" version du 09/02/2026
 
 - énergie :
   - 0.24 €/kWh
-- durée d'occupation hors charge :
+- durée d'occupation hors recharge :
   - 6.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.24}
@@ -458,7 +460,7 @@ Tariff : "NONOPDRV-energy-12" version du 09/02/2026
 
 - énergie :
   - 0.74 €/kWh
-- durée d'occupation hors charge :
+- durée d'occupation hors recharge :
   - 18.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.74}
@@ -481,7 +483,7 @@ Tariff : "NONOPDRV-energy-0" version du 09/02/2026
 
 - énergie :
   - 0.18 €/kWh
-- durée d'occupation hors charge :
+- durée d'occupation hors recharge :
   - 6.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.18}
@@ -567,7 +569,7 @@ Tariff : "NONOPDRV-energy-42" version du 26/03/2026
 
 - énergie :
   - 0.51 €/kWh
-- durée d'occupation hors charge :
+- durée d'occupation hors recharge :
   - 12.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.51}
@@ -576,7 +578,7 @@ Tariff : "NONOPDRV-energy-6-2" version du 09/02/2026
 
 - énergie :
   - 0.46 €/kWh
-- durée d'occupation hors charge :
+- durée d'occupation hors recharge :
   - 12.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.46}
@@ -620,7 +622,7 @@ Tariff : "NONOPDRV-energy-6-2-ECO" version du 09/02/2026
 
 - énergie :
   - 0.46 €/kWh sinon
-- durée d'occupation hors charge :
+- durée d'occupation hors recharge :
   - 12.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.46}
@@ -629,7 +631,7 @@ Tariff : "NONOPDRV-energy-8-ECO" version du 09/02/2026
 
 - énergie :
   - 0.54 €/kWh sinon
-- durée d'occupation hors charge :
+- durée d'occupation hors recharge :
   - 18.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.54}
@@ -638,7 +640,7 @@ Tariff : "NONOPDRV-energy-9" version du 09/02/2026
 
 - énergie :
   - 0.59 €/kWh
-- durée d'occupation hors charge :
+- durée d'occupation hors recharge :
   - 18.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.59}
@@ -647,7 +649,7 @@ Tariff : "NONOPDRV-energy-8" version du 09/02/2026
 
 - énergie :
   - 0.54 €/kWh
-- durée d'occupation hors charge :
+- durée d'occupation hors recharge :
   - 18.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.54}
@@ -656,7 +658,7 @@ Tariff : "NONOPDRV-energy-8-sp" version du 09/02/2026
 
 - énergie :
   - 0.54 €/kWh
-- durée d'occupation hors charge :
+- durée d'occupation hors recharge :
   - 17.85 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.54}
@@ -679,7 +681,7 @@ Tariff : "NONOPDRV-energy-64-it" version du 09/02/2026
 
 - énergie :
   - 0.78 €/kWh
-- durée d'occupation hors charge :
+- durée d'occupation hors recharge :
   - 11.8 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.78}
@@ -702,7 +704,7 @@ Tariff : "NONOPDRV-energy-64-it" version du 09/02/2026
 
 - énergie :
   - 0.78 €/kWh
-- durée d'occupation hors charge :
+- durée d'occupation hors recharge :
   - 11.8 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.78}
@@ -716,6 +718,8 @@ pastille tarif : {"type": "ENERGY", "price": 0.74}
 
 Tariff : "NLSHE43c8782ddd15d1c63ae9366842067806" version du 03/04/2026
 
+
+
 - énergie :
   - 0.65 €/kWh
 
@@ -723,10 +727,12 @@ pastille tarif : {"type": "ENERGY", "price": 0.65}
 
 Tariff : "FRMFC9b17f9ed-a9e8-4fa9-b508-328b7406f80a" version du 19/02/2026
 
+Frais d'Ã©nergie + 15 euros de stationnement par heure supplÃ©mentaire aprÃ¨s la premiÃ¨re heure, jusqu'Ã  un maximum de six heures.
+
 - énergie :
   - 0.49 €/kWh
-- durée d'occupation hors charge :
-  - 18.0 €/h si la durée est comprise entre 60 min et 360 min
+- durée d'occupation hors recharge :
+  - 18.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.49}
 
@@ -739,131 +745,137 @@ pastille tarif : {"type": "ENERGY", "price": 0.55}
 
 Tariff : "FRTCBFR*HPC_DYN_A" version du 24/02/2026
 
+- prix maximum : 72.0 €
 - énergie :
   - 0.42 €/kWh
 - durée de recharge :
-  - 24.0 €/h après le 2025-05-05 et si la durée est supérieure à 45 min
-- durée d'occupation hors charge :
-  - 24.0 €/h après le 2025-05-05 et si la durée est supérieure à 45 min
+  - 24.0 €/h
+- durée d'occupation hors recharge :
+  - 24.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.42}
 
 Tariff : "FRTCBFR*HPC_DYN_N" version du 24/02/2026
 
+- prix maximum : 72.0 €
 - énergie :
   - 0.55 €/kWh
 - durée de recharge :
-  - 24.0 €/h après le 2025-05-05 et si la durée est supérieure à 45 min
-- durée d'occupation hors charge :
-  - 24.0 €/h après le 2025-05-05 et si la durée est supérieure à 45 min
+  - 24.0 €/h
+- durée d'occupation hors recharge :
+  - 24.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.55}
 
 Tariff : "FRTCBFR*HPC_DYN_J" version du 24/02/2026
 
+- prix maximum : 99.17 €
 - énergie :
   - 0.51 €/kWh
 - durée de recharge :
-  - 24.0 €/h après le 2025-05-05 et si la durée est supérieure à 45 min
-- durée d'occupation hors charge :
-  - 24.0 €/h après le 2025-05-05 et si la durée est supérieure à 45 min
+  - 24.0 €/h
+- durée d'occupation hors recharge :
+  - 24.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.51}
 
 Tariff : "FRTCBFR*HPC_GEX_DC180_KWH_FR" version du 24/02/2026
 
+- prix maximum : 72.0 €
 - énergie :
   - 0.59 €/kWh
 - durée de recharge :
-  - 24.0 €/h après le 2024-07-16 et si la durée est supérieure à 45 min
-- durée d'occupation hors charge :
-  - 24.0 €/h après le 2024-07-16 et si la durée est supérieure à 45 min
+  - 24.0 €/h
+- durée d'occupation hors recharge :
+  - 24.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.59}
 
 Tariff : "FRTCBFR*HPC_GEX_AC22_KWH_FR" version du 24/02/2026
 
+- prix maximum : 72.0 €
 - énergie :
   - 0.49 €/kWh
 - durée de recharge :
-  - 24.0 €/h après le 2024-07-16 et si la durée est supérieure à 45 min
-- durée d'occupation hors charge :
-  - 24.0 €/h après le 2024-07-16 et si la durée est supérieure à 45 min
+  - 24.0 €/h
+- durée d'occupation hors recharge :
+  - 24.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.49}
 
 Tariff : "FRTCBFR*HPC_GEX_AC43_FR" version du 24/02/2026
 
+- prix maximum : 72.0 €
 - durée de recharge :
   - 29.4 €/h
-- durée d'occupation hors charge :
+- durée d'occupation hors recharge :
   - 29.4 €/h
 
 pastille tarif : {"type": "TIME", "price": 29.4}
 
 Tariff : "FRTCBFR*HPC_50_IF50" version du 24/02/2026
 
+- prix maximum : 72.0 €
 - énergie :
   - 0.5 €/kWh
 - durée de recharge :
-  - 30.0 €/h après le 2026-01-05 et si la durée est supérieure à 45 min
-- durée d'occupation hors charge :
-  - 30.0 €/h après le 2026-01-05 et si la durée est supérieure à 45 min
+  - 30.0 €/h
+- durée d'occupation hors recharge :
+  - 30.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.5}
 
 Tariff : "FRTCBFR*HPC_60_IF50_VACS" version du 26/02/2026
 
+- prix maximum : 72.0 €
 - énergie :
   - 0.6 €/kWh
 - durée de recharge :
-  - 30.0 €/h après le 2026-02-16 et entre 10:00 et 20:00 et si la durée est supérieure à 30 min
-  - 30.0 €/h après le 2026-02-16 et entre 20:00 et 00:00 et si la durée est supérieure à 45 min
-  - 30.0 €/h après le 2026-02-16 et entre 00:00 et 10:00 et si la durée est supérieure à 45 min
-- durée d'occupation hors charge :
-  - 30.0 €/h après le 2026-02-16 et entre 10:00 et 20:00 et si la durée est supérieure à 30 min
-  - 30.0 €/h après le 2026-02-16 et entre 20:00 et 00:00 et si la durée est supérieure à 45 min
-  - 30.0 €/h après le 2026-02-16 et entre 00:00 et 10:00 et si la durée est supérieure à 45 min
+  - 30.0 €/h
+- durée d'occupation hors recharge :
+  - 30.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.6}
 
 Tariff : "FRTCBFR*HPC_62_IF50" version du 24/02/2026
 
+- prix maximum : 72.0 €
 - énergie :
   - 0.62 €/kWh
 - durée de recharge :
-  - 30.0 €/h après le 2026-01-05 et si la durée est supérieure à 45 min
-- durée d'occupation hors charge :
-  - 30.0 €/h après le 2026-01-05 et si la durée est supérieure à 45 min
+  - 30.0 €/h
+- durée d'occupation hors recharge :
+  - 30.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.62}
 
 Tariff : "FRTCBFR*HPC_GEX_AC22_FR" version du 24/02/2026
 
+- prix maximum : 72.0 €
 - durée de recharge :
   - 29.4 €/h
-- durée d'occupation hors charge :
+- durée d'occupation hors recharge :
   - 29.4 €/h
 
 pastille tarif : {"type": "TIME", "price": 29.4}
 
 Tariff : "FRTCBFR*HXW_ADL_AC_EMP" version du 24/02/2026
 
+- prix maximum : 69.58 €
 - énergie :
   - 0.38 €/kWh
-- forfait :
-  - 0.0 €
 
 pastille tarif : {"type": "ENERGY", "price": 0.38}
 
 Tariff : "FRTCBFR*V75_02_FLEX" version du 24/02/2026
 
+- prix maximum : 49.0 €
 - énergie :
   - 0.33 €/kWh
 - durée de recharge :
   - 2.28 €/h après le 2025-06-02 et si la durée est inférieure à 840 min
   - 10.0 €/h après le 2025-06-02 et si la durée est supérieure à 840 min
-- durée d'occupation hors charge :
+- durée d'occupation hors recharge :
   - 2.28 €/h après le 2025-06-02 et si la durée est inférieure à 840 min
   - 10.0 €/h après le 2025-06-02 et si la durée est supérieure à 840 min
 
@@ -871,32 +883,35 @@ pastille tarif : {"type": "ENERGY", "price": 0.33}
 
 Tariff : "FRTCBFR*HPC_DYN_T" version du 24/02/2026
 
+- prix maximum : 72.0 €
 - énergie :
   - 0.6 €/kWh
 - durée de recharge :
-  - 23.8 €/h après le 2025-05-05 et si la durée est supérieure à 45 min
-- durée d'occupation hors charge :
-  - 23.8 €/h après le 2025-05-05 et si la durée est supérieure à 45 min
+  - 23.8 €/h
+- durée d'occupation hors recharge :
+  - 23.8 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.6}
 
 Tariff : "FRTCBFR*HPC_60_IF50" version du 24/02/2026
 
+- prix maximum : 72.0 €
 - énergie :
   - 0.6 €/kWh
 - durée de recharge :
-  - 30.0 €/h après le 2026-01-05 et si la durée est supérieure à 45 min
-- durée d'occupation hors charge :
-  - 30.0 €/h après le 2026-01-05 et si la durée est supérieure à 45 min
+  - 30.0 €/h
+- durée d'occupation hors recharge :
+  - 30.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.6}
 
 Tariff : "FRTCBFR*V75_02_BOOST" version du 24/02/2026
 
+- prix maximum : 150.0 €
 - durée de recharge :
   - 9.2 €/h après le 2025-06-02 et si la durée est inférieure à 840 min
   - 10.0 €/h après le 2025-06-02 et si la durée est supérieure à 840 min
-- durée d'occupation hors charge :
+- durée d'occupation hors recharge :
   - 9.2 €/h après le 2025-06-02 et si la durée est inférieure à 840 min
   - 10.0 €/h après le 2025-06-02 et si la durée est supérieure à 840 min
 
@@ -904,34 +919,37 @@ pastille tarif : {"type": "TIME", "price": 9.2}
 
 Tariff : "FRTCBFR*HPC_65_IF50" version du 24/02/2026
 
+- prix maximum : 72.0 €
 - énergie :
   - 0.65 €/kWh
 - durée de recharge :
-  - 30.0 €/h après le 2026-01-05 et si la durée est supérieure à 45 min
-- durée d'occupation hors charge :
-  - 30.0 €/h après le 2026-01-05 et si la durée est supérieure à 45 min
+  - 30.0 €/h
+- durée d'occupation hors recharge :
+  - 30.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.65}
 
 Tariff : "FRTCBFR*HPC_DYN_B" version du 24/02/2026
 
+- prix maximum : 49.0 €
 - énergie :
   - 0.43 €/kWh
 - durée de recharge :
-  - 24.0 €/h après le 2025-05-05 et si la durée est supérieure à 45 min
-- durée d'occupation hors charge :
-  - 24.0 €/h après le 2025-05-05 et si la durée est supérieure à 45 min
+  - 24.0 €/h
+- durée d'occupation hors recharge :
+  - 24.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.43}
 
 Tariff : "FRTCBFR*HPC_55_IF50" version du 24/02/2026
 
+- prix maximum : 72.0 €
 - énergie :
   - 0.55 €/kWh
 - durée de recharge :
-  - 30.0 €/h après le 2026-01-05 et si la durée est supérieure à 45 min
-- durée d'occupation hors charge :
-  - 30.0 €/h après le 2026-01-05 et si la durée est supérieure à 45 min
+  - 30.0 €/h
+- durée d'occupation hors recharge :
+  - 30.0 €/h
 
 pastille tarif : {"type": "ENERGY", "price": 0.55}
 
@@ -965,6 +983,8 @@ pastille tarif : {"type": "ENERGY", "price": 0.55}
 
 Tariff : "NLTSL1c7c169c-c4f2-48ae-bb4d-cc6e2f691431" version du 26/03/2026
 
+Tesla charges congestion fees only when a Supercharger site is busy. The congestion fee encourages drivers to charge only as much as is needed for their trip, rather than all the way to 100%. This increases the availability of chargers so that everyone has access when they need it.
+
 - énergie :
   - 0.48 €/kWh
 - période de congestion :
@@ -973,6 +993,8 @@ Tariff : "NLTSL1c7c169c-c4f2-48ae-bb4d-cc6e2f691431" version du 26/03/2026
 pastille tarif : {"type": "ENERGY", "price": 0.48}
 
 Tariff : "NLTSL84180095-abd3-472c-9584-7ccb6e3bc55b" version du 26/03/2026
+
+Tesla charges congestion fees only when a Supercharger site is busy. The congestion fee encourages drivers to charge only as much as is needed for their trip, rather than all the way to 100%. This increases the availability of chargers so that everyone has access when they need it.
 
 - énergie :
   - 0.34 €/kWh entre 00:00 et 04:00
@@ -987,6 +1009,8 @@ pastille tarif : {"type": "ENERGY", "price": 0.77}
 
 Tariff : "NLTSL13b15ade-935c-41f4-9bd4-ae3d0d2a14bb" version du 26/03/2026
 
+Tesla charges congestion fees only when a Supercharger site is busy. The congestion fee encourages drivers to charge only as much as is needed for their trip, rather than all the way to 100%. This increases the availability of chargers so that everyone has access when they need it.
+
 - énergie :
   - 0.35 €/kWh
 - période de congestion :
@@ -996,7 +1020,49 @@ pastille tarif : {"type": "ENERGY", "price": 0.35}
 
 Tariff : "NONOPNLCPIT2otd*2*0" version du 06/07/2024
 
+Energy
+   0.43 EUR per kWh
+
+
 - énergie :
   - 0.52 €/kWh
 
 pastille tarif : {"type": "ENERGY", "price": 0.52}
+
+Tariff : "FRS54f58b116f-2ea0-5e10-ac76-e07050482622" version du 23/03/2023
+
+- énergie :
+  - 0.2 €/kWh
+
+pastille tarif : {"type": "ENERGY", "price": 0.2}
+
+Tariff : "FRS91a7ac6791-c27f-51fa-b7d0-884119f7a590" version du 25/02/2025
+
+Les premiÃ¨res 900 secondes de parking sont gratuites
+
+- énergie :
+  - 0.47 €/kWh
+- durée d'occupation hors recharge :
+  - 3.84 €/h
+
+pastille tarif : {"type": "ENERGY", "price": 0.47}
+
+Tariff : "FRBFCfb1fb9d2-2295-5103-978e-4d02fdfb372f" version du 04/02/2025
+
+Tarif Charge rapide 50 kW avec plafond - SIEEN (NiÃ¨vre)
+
+- prix maximum : 60.0 €
+- énergie :
+  - 0.5 €/kWh entre 06:00 et 00:00 et si la durée est inférieure à 120 min
+  - 0.5 €/kWh entre 06:00 et 00:00 et si la durée est comprise entre 120 min et 180 min
+  - 0.5 €/kWh entre 06:00 et 00:00 et si la durée est supérieure à 180 min
+  - 0.35 €/kWh entre 00:00 et 06:00
+  - 0.35 €/kWh sinon
+- durée de recharge :
+  - 4.8 €/h entre 06:00 et 00:00 et si la durée est comprise entre 120 min et 180 min
+  - 9.6 €/h entre 06:00 et 00:00 et si la durée est supérieure à 180 min
+- durée d'occupation hors recharge :
+  - 4.8 €/h entre 06:00 et 00:00 et si la durée est comprise entre 120 min et 180 min
+  - 9.6 €/h entre 06:00 et 00:00 et si la durée est supérieure à 180 min
+
+pastille tarif : {"type": "ENERGY", "price": 0.5}

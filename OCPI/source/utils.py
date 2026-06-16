@@ -60,7 +60,7 @@ class TariffDimensionText(Enum):
     ENERGY = "énergie"
     TIME = "durée de recharge"
     FLAT = "forfait"
-    PARKING_TIME = "durée d'occupation hors charge"
+    PARKING_TIME = "durée d'occupation hors recharge"
     CONGESTION_TIME = "période de congestion"
 
 

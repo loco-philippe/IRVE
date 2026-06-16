@@ -106,12 +106,24 @@ class PriceLimit(BaseModel):
     before_taxes: float
     after_taxes: Optional[float] = None
 
+    @property
+    def price_incl_vat(self) -> float:
+        if self.after_taxes is not None:
+            return self.after_taxes
+        return round(self.before_taxes * (1 + VAT), 2)
+
 
 class Price(BaseModel):
     """OCPI 2.2 price with VAT split."""
 
     excl_vat: float
     incl_vat: Optional[float] = None
+
+    @property
+    def price_incl_vat(self) -> float:
+        if self.incl_vat is not None:
+            return self.incl_vat
+        return round(self.excl_vat * (1 + VAT), 2)
 
 
 class PriceComponent(BaseModel):
@@ -652,6 +664,14 @@ class TariffObject(BaseModel):
 
     def to_text(self) -> str:
         text = f'Tariff : "{self.tariff_id}" version du {self.last_updated.strftime("%d/%m/%Y")}\n\n'
+        if self.tariff_alt_text is not None and len(self.tariff_alt_text) > 0:
+            description = ""
+            for alt_text in self.tariff_alt_text:
+                if alt_text.language == "fr" or alt_text.language == "FR":
+                    description = alt_text.text + "\n\n"
+            if description == "":
+                description = self.tariff_alt_text[0].text + "\n\n"
+            text += description
         if (
             self.tariff_application_date != self.last_updated
             and self.end_date_time is not None
@@ -661,6 +681,14 @@ class TariffObject(BaseModel):
             text += f"- applicable à partir du {self.tariff_application_date.strftime('%d/%m/%Y')}\n"
         elif self.end_date_time is not None:
             text += f"- applicable jusqu'au {self.end_date_time.strftime('%d/%m/%Y')}\n"
+        if self.min_price is not None:
+            text += (
+                "- prix minimum : " + str(self.min_price.price_incl_vat) + " €" + "\n"
+            )
+        if self.max_price is not None:
+            text += (
+                "- prix maximum : " + str(self.max_price.price_incl_vat) + " €" + "\n"
+            )
         text += self.elements.to_text(tax_included=self.is_tax_included)
         return text
 

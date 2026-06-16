@@ -3844,5 +3844,39 @@
             }
         ],
         "last_updated": "2024-07-06T10:26:26Z"
-    }
+    },
+    {"id": "f58b116f-2ea0-5e10-ac76-e07050482622",
+     "elements": [{"restrictions": {}, "price_components": [{"type": "ENERGY", "price": 0.1667, "step_size": 1}]}],
+     "party_id": "S54", 
+     "country_code": "FR", 
+     "last_updated": "2023-03-23T12:47:09Z"
+    },
+    {"id": "a7ac6791-c27f-51fa-b7d0-884119f7a590", 
+     "elements": [{"restrictions": {"end_time": "20:00", "start_time": "08:00"}, 
+                   "price_components": [{"type": "PARKING_TIME", "price": 3.2, "step_size": 900}, {"type": "ENERGY", "price": 0.39, "step_size": 1000}]}, 
+                  {"restrictions": {"end_time": "08:00", "start_time": "20:00"}, 
+                   "price_components": [{"type": "ENERGY", "price": 0.39, "step_size": 1000}]}, 
+                  {"restrictions": {},
+                   "price_components": [{"type": "ENERGY", "price": 0.39, "step_size": 1000}]}], 
+     "party_id": "S91", 
+     "country_code": "FR", 
+     "last_updated": "2025-02-25T13:32:20Z", 
+     "tariff_alt_text": [{"text": "Les premières 900 secondes de parking sont gratuites", "language": "fr"}]},
+    {"id": "fb1fb9d2-2295-5103-978e-4d02fdfb372f", 
+     "elements": [
+        {"restrictions": {"end_time": "00:00", "start_time": "06:00", "max_duration": 7200, "min_duration": 0},
+         "price_components": [{"type": "ENERGY", "price": 0.41667, "step_size": 1000}]},
+        {"restrictions": {"end_time": "00:00", "start_time": "06:00", "max_duration": 10800, "min_duration": 7200},
+         "price_components": [{"type": "TIME", "price": 4.0, "step_size": 60}, {"type": "ENERGY", "price": 0.41667, "step_size": 1000}, {"type": "PARKING_TIME", "price": 4.0, "step_size": 60}]}, 
+        {"restrictions": {"end_time": "00:00", "start_time": "06:00", "min_duration": 10800},
+         "price_components": [{ "type": "ENERGY", "price": 0.41667, "step_size": 1000}, { "type": "PARKING_TIME", "price": 8.0, "step_size": 60}, {"type": "TIME", "price": 8.0, "step_size": 60}]},
+        {"restrictions": {"end_time": "06:00", "start_time": "00:00"}, 
+         "price_components": [{"type": "ENERGY", "price": 0.29167, "step_size": 1000}]}, 
+        {"restrictions": {}, 
+         "price_components": [{"type": "ENERGY", "price": 0.29167, "step_size": 1000}]}],
+     "party_id": "BFC", 
+     "max_price": {"excl_vat": 50.0}, 
+     "country_code": "FR", 
+     "last_updated": "2025-02-04T10:25:17Z",
+     "tariff_alt_text": [{"text": "Tarif Charge rapide 50 kW avec plafond - SIEEN (Nièvre)", "language": "fr"}]}
 ]
