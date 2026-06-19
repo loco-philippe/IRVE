@@ -1,0 +1,5068 @@
+[
+    {
+      "_id": "FR*HPC_SUP50_A",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4917,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-02-21",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 20,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 20,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4917,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-02-21",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:09.201Z" ,
+       
+      "start_date_time":  "2025-02-21T09:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HPC_SUP50_C",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5167,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-02-21",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 20,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 20,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5167,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-02-21",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:09.130Z" ,
+       
+      "start_date_time":  "2025-02-21T09:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HDT_HPC_SUP50_C",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5167,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-04-20",
+            "max_duration": 5400
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 20,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 20,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5167,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-04-20",
+            "min_duration": 5400
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:16.267Z" ,
+       
+      "start_date_time":  "2026-04-20T08:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HXW_FR_AA_BIS",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "FLAT",
+              "price": 0,
+              "step_size": 1,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-12-29"
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:09:34.402Z" ,
+       
+      "start_date_time":  "2025-12-29T23:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HPC_50_IF50",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4167,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-01-05",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4167,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-01-05",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:13.783Z" ,
+       
+      "start_date_time":  "2026-01-05T09:00:00.000Z" ,
+      "max_price": {
+        "excl_vat": 60
+      }
+    },
+    {
+      "_id": "FR*HXW_ADL_DCSUP50",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4917,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-12-29",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 10,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 10,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4917,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-12-29",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:14.285Z" ,
+       
+      "start_date_time":  "2025-12-29T23:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HPC_62_IF50",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5167,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-01-05",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5167,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-01-05",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:13.817Z" ,
+       
+      "start_date_time":  "2026-01-05T09:00:00.000Z" ,
+      "max_price": {
+        "excl_vat": 60
+      }
+    },
+    {
+      "_id": "FR*HPC_60_IF50",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-01-05",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-01-05",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:13.864Z" ,
+       
+      "start_date_time":  "2026-01-05T09:00:00.000Z" ,
+      "max_price": {
+        "excl_vat": 60
+      }
+    },
+    {
+      "_id": "FR*HPC_DYN_E",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.3833,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-05-04",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.3833,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-05-04",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-04-28T12:34:42.360Z" ,
+       
+      "start_date_time":  "2026-05-04T08:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HXW_ADL_AC_P4",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 86400,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 86400,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.3167,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-12-29",
+            "max_duration": 86400
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0.1042,
+              "step_size": 86400,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0.1042,
+              "step_size": 86400,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.3167,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-12-29",
+            "min_duration": 86400
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:14.231Z" ,
+       
+      "start_date_time":  "2025-12-29T23:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HPC_DYN_P",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.475,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-05-04",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.475,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-05-04",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-04-28T12:41:17.304Z" ,
+       
+      "start_date_time":  "2026-05-04T08:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HPC_GEX_DC50_FR",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 24.5,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 24.5,
+              "step_size": 60,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2023-11-13"
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:04.669Z" ,
+       
+      "start_date_time":  "2023-11-13T09:00:00.000Z" ,
+      "max_price": {
+        "excl_vat": 60
+      }
+    },
+    {
+      "_id": "FR*HPC_BHC1",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.325,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "22:00",
+            "end_time": "00:00",
+            "start_date": "2026-06-15",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.325,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "22:00",
+            "end_time": "00:00",
+            "start_date": "2026-06-15",
+            "min_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.325,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "00:00",
+            "end_time": "06:00",
+            "start_date": "2026-06-15",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.325,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "00:00",
+            "end_time": "06:00",
+            "start_date": "2026-06-15",
+            "min_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5417,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "06:00",
+            "end_time": "22:00",
+            "start_date": "2026-06-15",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5417,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "06:00",
+            "end_time": "22:00",
+            "start_date": "2026-06-15",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-06-08T12:34:32.227Z" ,
+       
+      "start_date_time":  "2026-06-15T08:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HPC_DYN_Q",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4833,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-05-04",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4833,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-05-04",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-04-28T12:41:44.302Z" ,
+       
+      "start_date_time":  "2026-05-04T08:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HXW_METPK_DC50",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.19
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.19
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4118,
+              "step_size": 1000,
+              "vat": 0.19
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-06-15",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25.2101,
+              "step_size": 60,
+              "vat": 0.19
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25.2101,
+              "step_size": 60,
+              "vat": 0.19
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4118,
+              "step_size": 1000,
+              "vat": 0.19
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-06-15",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-06-08T10:32:32.616Z" ,
+       
+      "start_date_time":  "2026-06-15T08:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HPC_62_IF50_VACS",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5167,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "10:00",
+            "end_time": "20:00",
+            "start_date": "2026-02-16",
+            "max_duration": 1800
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5167,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "10:00",
+            "end_time": "20:00",
+            "start_date": "2026-02-16",
+            "min_duration": 1800
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5167,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "20:00",
+            "end_time": "00:00",
+            "start_date": "2026-02-16",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5167,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "20:00",
+            "end_time": "00:00",
+            "start_date": "2026-02-16",
+            "min_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5167,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "00:00",
+            "end_time": "10:00",
+            "start_date": "2026-02-16",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5167,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "00:00",
+            "end_time": "10:00",
+            "start_date": "2026-02-16",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:11:21.468Z" ,
+       
+      "start_date_time":  "2026-02-16T09:30:00.000Z" ,
+      "max_price": {
+        "excl_vat": 60
+      }
+    },
+    {
+      "_id": "FR*HXW_ADL_AC_EMP",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "FLAT",
+              "price": 0,
+              "step_size": 1,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.3167,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-12-29"
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:09:34.340Z" ,
+       
+      "start_date_time":  "2025-12-29T23:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HPC_INF50_B",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4167,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-02-21",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 20,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 20,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4167,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-02-21",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:08.698Z" ,
+       
+      "start_date_time":  "2025-02-21T09:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HPC_DYN_T",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5083,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-05-04",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5083,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-05-04",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-04-28T12:42:35.687Z" ,
+       
+      "start_date_time":  "2026-05-04T08:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HPC_HH1",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4083,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "14:00",
+            "end_time": "18:00",
+            "start_date": "2026-06-15",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4083,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "14:00",
+            "end_time": "18:00",
+            "start_date": "2026-06-15",
+            "min_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5417,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "18:00",
+            "end_time": "00:00",
+            "start_date": "2026-06-15",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5417,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "18:00",
+            "end_time": "00:00",
+            "start_date": "2026-06-15",
+            "min_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5417,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "00:00",
+            "end_time": "14:00",
+            "start_date": "2026-06-15",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5417,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "00:00",
+            "end_time": "14:00",
+            "start_date": "2026-06-15",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-06-08T13:25:59.368Z" ,
+       
+      "start_date_time":  "2026-06-15T08:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HXW_ADL_DC50",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.3917,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-12-29",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 10,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 10,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.3917,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-12-29",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:14.402Z" ,
+       
+      "start_date_time":  "2025-12-29T23:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HPC_FR_S",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5167,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-07-21",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 10,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 10,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5167,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-07-21",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:11.859Z" ,
+       
+      "start_date_time":  "2025-07-21T08:00:00.000Z" ,
+      "max_price": {
+        "excl_vat": 60
+      }
+    },
+    {
+      "_id": "FR*HXW_ADL_AC_LONG",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 86400,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 86400,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.3167,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-12-29",
+            "max_duration": 86400
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0.0347,
+              "step_size": 86400,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0.0347,
+              "step_size": 86400,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.3167,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-12-29",
+            "min_duration": 86400
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:14.182Z" ,
+       
+      "start_date_time":  "2025-12-29T23:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HXW_ADL_DCSUP50_BIS",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "FLAT",
+              "price": 0,
+              "step_size": 1,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4917,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-12-29"
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:09:34.614Z" ,
+       
+      "start_date_time":  "2025-12-29T23:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HPC_DYN_C",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.3667,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-05-04",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.3667,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-05-04",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-04-28T12:33:16.182Z" ,
+       
+      "start_date_time":  "2026-05-04T08:00:00.000Z" 
+    },
+    {
+      "_id": "FR*V75_01_BOOST",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 7.6667,
+              "step_size": 900,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 7.6667,
+              "step_size": 900,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-06-02",
+            "max_duration": 50400
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 8.3333,
+              "step_size": 3600,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 8.3333,
+              "step_size": 3600,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-06-02",
+            "min_duration": 50400
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:09.701Z" ,
+       
+      "start_date_time":  "2025-06-02T08:00:00.000Z" ,
+      "max_price": {
+        "excl_vat": 125
+      }
+    },
+    {
+      "_id": "FR*HPC_GEX_DC175_FR",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 29.5,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 29.5,
+              "step_size": 60,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2023-09-22"
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:04.467Z" ,
+       
+      "start_date_time":  "2023-09-22T08:00:00.000Z" ,
+      "max_price": {
+        "excl_vat": 60
+      }
+    },
+    {
+      "_id": "FR*TCB_FR_AC",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "FLAT",
+              "price": 0,
+              "step_size": 1,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4083,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-03-14"
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:08:57.680Z" ,
+       
+      "start_date_time":  "2025-03-14T14:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HPC_59_IF50",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4917,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-01-05",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4917,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-01-05",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:13.801Z" ,
+       
+      "start_date_time":  "2026-01-05T09:00:00.000Z" ,
+      "max_price": {
+        "excl_vat": 60
+      }
+    },
+    {
+      "_id": "FR*V75_01_FLEX",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 1.9,
+              "step_size": 900,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 1.9,
+              "step_size": 900,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.275,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-06-02",
+            "max_duration": 50400
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 8.3333,
+              "step_size": 3600,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 8.3333,
+              "step_size": 3600,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.275,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-06-02",
+            "min_duration": 50400
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:10.138Z" ,
+       
+      "start_date_time":  "2025-06-02T08:00:00.000Z" ,
+      "max_price": {
+        "excl_vat": 125
+      }
+    },
+    {
+      "_id": "FR*V75_02_MOTO",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0.7333,
+              "step_size": 900,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0.7333,
+              "step_size": 900,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.275,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-06-02",
+            "max_duration": 50400
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 8.3333,
+              "step_size": 3600,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 8.3333,
+              "step_size": 3600,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.275,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-06-02",
+            "min_duration": 50400
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:09.757Z" ,
+       
+      "start_date_time":  "2025-06-02T08:00:00.000Z" ,
+      "max_price": {
+        "excl_vat": 125
+      }
+    },
+    {
+      "_id": "FR*TCB_RUNGIS_DC50",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4583,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-06-15",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4583,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-06-15",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-06-08T09:47:12.827Z" ,
+       
+      "start_date_time":  "2026-06-15T08:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HPC_GEX_DC180_KWH_FR",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4917,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2024-07-16",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 20,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 20,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4917,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2024-07-16",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:06.875Z" ,
+       
+      "start_date_time":  "2024-07-16T10:00:00.000Z" ,
+      "max_price": {
+        "excl_vat": 60
+      }
+    },
+    {
+      "_id": "FR*HPC_DYN_F",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.3917,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-05-04",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.3917,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-05-04",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-04-28T12:35:21.660Z" ,
+       
+      "start_date_time":  "2026-05-04T08:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HPC_INF50_C",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4333,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-02-21",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 20,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 20,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4333,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-02-21",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:09.302Z" ,
+       
+      "start_date_time":  "2025-02-21T09:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HXW_ADL_AC_PROXI",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 86400,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 86400,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.3167,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-01-29",
+            "max_duration": 86400
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0.1736,
+              "step_size": 86400,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0.1736,
+              "step_size": 86400,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.3167,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-01-29",
+            "min_duration": 86400
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:14.979Z" ,
+       
+      "start_date_time":  "2026-01-29T16:30:00.000Z" 
+    },
+    {
+      "_id": "FR*HDT_RUNGIS_DC_50",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4583,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-06-15",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 1.6667,
+              "step_size": 900,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 1.6667,
+              "step_size": 900,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4583,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-06-15",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-06-08T10:03:20.508Z" ,
+       
+      "start_date_time":  "2026-06-15T08:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HPC_DYN_O",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4667,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-05-04",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4667,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-05-04",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-04-28T12:40:36.407Z" ,
+       
+      "start_date_time":  "2026-05-04T08:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HPC_BHC2",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.325,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "22:00",
+            "end_time": "00:00",
+            "start_date": "2026-06-15",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.325,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "22:00",
+            "end_time": "00:00",
+            "start_date": "2026-06-15",
+            "min_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.325,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "00:00",
+            "end_time": "06:00",
+            "start_date": "2026-06-15",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.325,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "00:00",
+            "end_time": "06:00",
+            "start_date": "2026-06-15",
+            "min_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4583,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "06:00",
+            "end_time": "22:00",
+            "start_date": "2026-06-15",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4583,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "06:00",
+            "end_time": "22:00",
+            "start_date": "2026-06-15",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-06-08T13:18:25.366Z" ,
+       
+      "start_date_time":  "2026-06-15T08:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HPC_GEX_DC175_KWH_FR",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4917,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2024-07-16",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 20,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 20,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4917,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2024-07-16",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:06.777Z" ,
+       
+      "start_date_time":  "2024-07-16T10:00:00.000Z" ,
+      "max_price": {
+        "excl_vat": 60
+      }
+    },
+    {
+      "_id": "FR*V75_02_FLEX",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 1.9,
+              "step_size": 900,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 1.9,
+              "step_size": 900,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.275,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-06-02",
+            "max_duration": 50400
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 8.3333,
+              "step_size": 3600,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 8.3333,
+              "step_size": 3600,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.275,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-06-02",
+            "min_duration": 50400
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:10.205Z" ,
+       
+      "start_date_time":  "2025-06-02T08:00:00.000Z" ,
+      "max_price": {
+        "excl_vat": 40.8333
+      }
+    },
+    {
+      "_id": "FR*HPC_DYN_A",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.35,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-05-04",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.35,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-05-04",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-04-28T11:06:06.515Z" ,
+       
+      "start_date_time":  "2026-05-04T08:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HPC_DYN_L",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4417,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-05-04",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4417,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-05-04",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-04-28T12:37:19.436Z" ,
+       
+      "start_date_time":  "2026-05-04T08:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HPC_DYN_M",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.45,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-05-04",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.45,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-05-04",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-04-28T12:38:19.394Z" ,
+       
+      "start_date_time":  "2026-05-04T08:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HXW_FR_AA",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5417,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-06-01",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5417,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-06-01",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-05-26T13:07:57.861Z" ,
+       
+      "start_date_time":  "2026-06-01T08:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HPC_GEX_DC150_KWH_FR",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4917,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2024-07-16",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 20,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 20,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4917,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2024-07-16",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:08.735Z" ,
+       
+      "start_date_time":  "2024-07-16T10:00:00.000Z" ,
+      "max_price": {
+        "excl_vat": 60
+      }
+    },
+    {
+      "_id": "FR*HPC_GEX_AC43_KWH_FR",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4083,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2024-07-16",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 20,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 20,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4083,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2024-07-16",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:07.015Z" ,
+       
+      "start_date_time":  "2024-07-16T10:00:00.000Z" ,
+      "max_price": {
+        "excl_vat": 60
+      }
+    },
+    {
+      "_id": "FR*HPC_GEX_AC43_FR",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 24.5,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 24.5,
+              "step_size": 60,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2023-11-17"
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:04.282Z" ,
+       
+      "start_date_time":  "2023-11-17T16:00:00.000Z" ,
+      "max_price": {
+        "excl_vat": 60
+      }
+    },
+    {
+      "_id": "FR*HXW_ADL_DC50_BIS",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "FLAT",
+              "price": 0,
+              "step_size": 1,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4083,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-12-29"
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:09:34.378Z" ,
+       
+      "start_date_time":  "2025-12-29T23:00:00.000Z" 
+    },
+    {
+      "_id": "FR*V75_01_MOTO",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0.7333,
+              "step_size": 900,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0.7333,
+              "step_size": 900,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.275,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-06-02",
+            "max_duration": 50400
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 8.3333,
+              "step_size": 3600,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 8.3333,
+              "step_size": 3600,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.275,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-06-02",
+            "min_duration": 50400
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:10.077Z" ,
+       
+      "start_date_time":  "2025-06-02T08:00:00.000Z" ,
+      "max_price": {
+        "excl_vat": 125
+      }
+    },
+    {
+      "_id": "FR*HPC_GEX_AC22_KWH_FR",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4083,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2024-07-16",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 20,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 20,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4083,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2024-07-16",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:08.719Z" ,
+       
+      "start_date_time":  "2024-07-16T10:00:00.000Z" ,
+      "max_price": {
+        "excl_vat": 60
+      }
+    },
+    {
+      "_id": "FR*TCB_COMP_DC",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-06-01",
+            "min_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.5417,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-06-01"
+          }
+        }
+      ],
+      "last_updated":  "2026-05-27T09:02:20.366Z" ,
+       
+      "start_date_time":  "2026-06-01T08:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HPC_49_IF50",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4083,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-01-05",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4083,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-01-05",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:13.904Z" ,
+       
+      "start_date_time":  "2026-01-05T09:00:00.000Z" ,
+      "max_price": {
+        "excl_vat": 60
+      }
+    },
+    {
+      "_id": "FR*HPC_DYN_N",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4583,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-05-04",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4583,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-05-04",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-04-28T12:39:57.546Z" ,
+       
+      "start_date_time":  "2026-05-04T08:00:00.000Z" 
+    },
+    {
+      "_id": "FR*TCB_RUNGIS_DC200",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.19
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.19
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5462,
+              "step_size": 1000,
+              "vat": 0.19
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-06-15",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25.2101,
+              "step_size": 60,
+              "vat": 0.19
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25.2101,
+              "step_size": 60,
+              "vat": 0.19
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5462,
+              "step_size": 1000,
+              "vat": 0.19
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-06-15",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-06-08T09:50:41.443Z" ,
+       
+      "start_date_time":  "2026-06-15T08:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HPC_GEX_AC22_FR",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 24.5,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 24.5,
+              "step_size": 60,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2023-11-17"
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:05.841Z" ,
+       
+      "start_date_time":  "2023-11-17T16:00:00.000Z" ,
+      "max_price": {
+        "excl_vat": 60
+      }
+    },
+    {
+      "_id": "FR*HPC_GEX_DC50_KWH_FR",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4083,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2024-07-16",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 20,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 20,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4083,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2024-07-16",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:06.725Z" ,
+       
+      "start_date_time":  "2024-07-16T10:00:00.000Z" ,
+      "max_price": {
+        "excl_vat": 60
+      }
+    },
+    {
+      "_id": "FR*HPC_65_IF50",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5417,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-01-05",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5417,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-01-05",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:13.833Z" ,
+       
+      "start_date_time":  "2026-01-05T09:00:00.000Z" ,
+      "max_price": {
+        "excl_vat": 60
+      }
+    },
+    {
+      "_id": "FR*TCB_FR_S",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "FLAT",
+              "price": 0,
+              "step_size": 1,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5167,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-03-14"
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:08:57.764Z" ,
+       
+      "start_date_time":  "2025-03-14T14:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HPC_DYN_G",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-05-04",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-05-04",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-04-28T12:35:57.816Z" ,
+       
+      "start_date_time":  "2026-05-04T08:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HPC_60_IF50_VACS",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "10:00",
+            "end_time": "20:00",
+            "start_date": "2026-02-16",
+            "max_duration": 1800
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "10:00",
+            "end_time": "20:00",
+            "start_date": "2026-02-16",
+            "min_duration": 1800
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "20:00",
+            "end_time": "00:00",
+            "start_date": "2026-02-16",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "20:00",
+            "end_time": "00:00",
+            "start_date": "2026-02-16",
+            "min_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "00:00",
+            "end_time": "10:00",
+            "start_date": "2026-02-16",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "00:00",
+            "end_time": "10:00",
+            "start_date": "2026-02-16",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:11:21.905Z" ,
+       
+      "start_date_time":  "2026-02-16T09:10:00.000Z" ,
+      "max_price": {
+        "excl_vat": 60
+      }
+    },
+    {
+      "_id": "FR*HPC_INF50_A",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4083,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-03-05",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 20,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 20,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4083,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-03-05",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:09.457Z" ,
+       
+      "start_date_time":  "2025-03-05T09:00:00.000Z" 
+    },
+    {
+      "_id": "FR*TCB_FR_AA",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "FLAT",
+              "price": 0,
+              "step_size": 1,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-03-14"
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:09:01.493Z" ,
+       
+      "start_date_time":  "2025-03-14T14:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HPC_TEST_CALIFORNIAV2",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.0833,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-04-28",
+            "max_duration": 600
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 10,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 10,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.0833,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-04-28",
+            "min_duration": 600
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:16.870Z" ,
+       
+      "start_date_time":  "2026-04-28T12:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HPC_DYN_B",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.3583,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-05-04",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.3583,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-05-04",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-04-28T12:29:50.564Z" ,
+       
+      "start_date_time":  "2026-05-04T08:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HPC_DYN_J",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.425,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-05-04",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.425,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-05-04",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-04-28T12:36:43.005Z" ,
+       
+      "start_date_time":  "2026-05-04T08:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HXW_METPK_DC200",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4667,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-06-15",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4667,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-06-15",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-06-08T10:30:21.605Z" ,
+       
+      "start_date_time":  "2026-06-15T08:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HPC_DYN_D",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.375,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-05-04",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.375,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-05-04",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-04-28T12:33:57.603Z" ,
+       
+      "start_date_time":  "2026-05-04T08:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HXW_TPE_49_BIS",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "FLAT",
+              "price": 0,
+              "step_size": 1,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4083,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-12-29"
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:09:34.485Z" ,
+       
+      "start_date_time":  "2025-12-29T23:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HPC_HH2",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4083,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "14:00",
+            "end_time": "18:00",
+            "start_date": "2026-06-15",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4083,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "14:00",
+            "end_time": "18:00",
+            "start_date": "2026-06-15",
+            "min_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4667,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "18:00",
+            "end_time": "00:00",
+            "start_date": "2026-06-15",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4667,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "18:00",
+            "end_time": "00:00",
+            "start_date": "2026-06-15",
+            "min_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4667,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "00:00",
+            "end_time": "14:00",
+            "start_date": "2026-06-15",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4667,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_time": "00:00",
+            "end_time": "14:00",
+            "start_date": "2026-06-15",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-06-08T13:55:22.220Z" ,
+       
+      "start_date_time":  "2026-06-15T08:00:00.000Z" 
+    },
+    {
+      "_id": "FR*HPC_SUP50_B",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-02-21",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 20,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 20,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-02-21",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:08.743Z" ,
+       
+      "start_date_time":  "2025-02-21T09:00:00.000Z" 
+    },
+    {
+      "_id": "FR*V75_02_BOOST",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 7.6667,
+              "step_size": 900,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 7.6667,
+              "step_size": 900,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-06-02",
+            "max_duration": 50400
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 8.3333,
+              "step_size": 3600,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 8.3333,
+              "step_size": 3600,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2025-06-02",
+            "min_duration": 50400
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:10.803Z" ,
+       
+      "start_date_time":  "2025-06-02T08:00:00.000Z" ,
+      "max_price": {
+        "excl_vat": 125
+      }
+    },
+    {
+      "_id": "FR*HPC_55_IF50",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4583,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-01-05",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4583,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-01-05",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:13.888Z" ,
+       
+      "start_date_time":  "2026-01-05T09:00:00.000Z" ,
+      "max_price": {
+        "excl_vat": 60
+      }
+    },
+    {
+      "_id": "FR*HPC_52_IF50",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4333,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-01-05",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4333,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2026-01-05",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:14.094Z" ,
+       
+      "start_date_time":  "2026-01-05T09:00:00.000Z" ,
+      "max_price": {
+        "excl_vat": 60
+      }
+    },
+    {
+      "_id": "FR*HPC_GEX_DC300_KWH_FR",
+      "country_code": "FR",
+      "party_id": "TCB",
+      "currency": "EUR",
+      "elements": [
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4917,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2024-07-16",
+            "max_duration": 2700
+          }
+        },
+        {
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 20,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 20,
+              "step_size": 60,
+              "vat": 0.2
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4917,
+              "step_size": 1000,
+              "vat": 0.2
+            }
+          ],
+          "restrictions": {
+            "start_date": "2024-07-16",
+            "min_duration": 2700
+          }
+        }
+      ],
+      "last_updated":  "2026-05-20T09:05:07.040Z" ,
+       
+      "start_date_time":  "2024-07-16T10:00:00.000Z" ,
+      "max_price": {
+        "excl_vat": 60
+      }
+    }
+  ]

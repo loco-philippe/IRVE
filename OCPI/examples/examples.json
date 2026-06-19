@@ -3878,5 +3878,117 @@
      "max_price": {"excl_vat": 50.0}, 
      "country_code": "FR", 
      "last_updated": "2025-02-04T10:25:17Z",
-     "tariff_alt_text": [{"text": "Tarif Charge rapide 50 kW avec plafond - SIEEN (Nièvre)", "language": "fr"}]}
+     "tariff_alt_text": [{"text": "Tarif Charge rapide 50 kW avec plafond - SIEEN (Nièvre)", "language": "fr"}]},
+     {
+    "country_code": "FR",
+    "party_id": "IZF",
+    "id": "IZIVIAFAST-MCDO-AM",
+    "currency": "EUR",
+    "tariff_alt_text": [
+        {
+            "language": "fr",
+            "text": "0,30€/kWh (9h-11h, 15h-17h) ou 0,35€/kWh (hors créneaux). L'horaire de branchement définit le prix du kWh pour toute la session. Frais de stationnement après 1h : 0,30€/min. Tout kWh ou minute entamée est due."
+        }
+    ],
+    "elements": [
+        {
+            "price_components": [
+                {
+                    "type": "ENERGY",
+                    "price": 0.25,
+                    "vat": 20.0,
+                    "step_size": 1000
+                }
+            ],
+            "restrictions": {
+                "start_time": "09:00",
+                "end_time": "11:00"
+            }
+        },
+        {
+            "price_components": [
+                {
+                    "type": "ENERGY",
+                    "price": 0.25,
+                    "vat": 20.0,
+                    "step_size": 1000
+                }
+            ],
+            "restrictions": {
+                "start_time": "15:00",
+                "end_time": "17:00"
+            }
+        },
+        {
+            "price_components": [
+                {
+                    "type": "ENERGY",
+                    "price": 0.2917,
+                    "vat": 20.0,
+                    "step_size": 1000
+                }
+            ],
+            "restrictions": {
+                "start_time": "00:00",
+                "end_time": "09:00"
+            }
+        },
+        {
+            "price_components": [
+                {
+                    "type": "ENERGY",
+                    "price": 0.2917,
+                    "vat": 20.0,
+                    "step_size": 1000
+                }
+            ],
+            "restrictions": {
+                "start_time": "11:00",
+                "end_time": "15:00"
+            }
+        },
+        {
+            "price_components": [
+                {
+                    "type": "ENERGY",
+                    "price": 0.2917,
+                    "vat": 20.0,
+                    "step_size": 1000
+                }
+            ],
+            "restrictions": {
+                "start_time": "17:00",
+                "end_time": "23:59"
+            }
+        },
+        {
+            "price_components": [
+                {
+                    "type": "TIME",
+                    "price": 0.0,
+                    "vat": 20.0,
+                    "step_size": 60
+                }
+            ],
+            "restrictions": {
+                "min_duration": 0,
+                "max_duration": 3600
+            }
+        },
+        {
+            "price_components": [
+                {
+                    "type": "TIME",
+                    "price": 15.0,
+                    "vat": 20.0,
+                    "step_size": 60
+                }
+            ],
+            "restrictions": {
+                "min_duration": 3600
+            }
+        }
+    ],
+    "last_updated": "2026-06-18T12:00:00Z"
+}
 ]

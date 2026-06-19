@@ -1066,3 +1066,18 @@ Tarif Charge rapide 50 kW avec plafond - SIEEN (NiÃ¨vre)
   - 9.6 €/h entre 06:00 et 00:00 et si la durée est supérieure à 180 min
 
 pastille tarif : {"type": "ENERGY", "price": 0.5}
+
+Tariff : "FRIZFIZIVIAFAST-MCDO-AM" version du 18/06/2026
+
+0,30â‚¬/kWh (9h-11h, 15h-17h) ou 0,35â‚¬/kWh (hors crÃ©neaux). L'horaire de branchement dÃ©finit le prix du kWh pour toute la session. Frais de stationnement aprÃ¨s 1h : 0,30â‚¬/min. Tout kWh ou minute entamÃ©e est due.
+
+- énergie :
+  - 0.3 €/kWh entre 09:00 et 11:00
+  - 0.3 €/kWh entre 15:00 et 17:00
+  - 0.35 €/kWh entre 00:00 et 09:00
+  - 0.35 €/kWh entre 11:00 et 15:00
+  - 0.35 €/kWh entre 17:00 et 23:59
+- durée de recharge :
+  - 18.0 €/h
+
+pastille tarif : {"type": "ENERGY", "price": 0.3}
