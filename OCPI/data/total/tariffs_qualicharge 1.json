@@ -1,6 +1,6 @@
 [
     {
-      "_id": "FR*HPC_SUP50_A",
+      "id": "FR*HPC_SUP50_A",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -11,19 +11,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4917,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -37,19 +37,19 @@
               "type": "TIME",
               "price": 20,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 20,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4917,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -63,7 +63,7 @@
       "start_date_time":  "2025-02-21T09:00:00.000Z" 
     },
     {
-      "_id": "FR*HPC_SUP50_C",
+      "id": "FR*HPC_SUP50_C",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -74,19 +74,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5167,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -100,19 +100,19 @@
               "type": "TIME",
               "price": 20,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 20,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5167,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -126,7 +126,7 @@
       "start_date_time":  "2025-02-21T09:00:00.000Z" 
     },
     {
-      "_id": "FR*HDT_HPC_SUP50_C",
+      "id": "FR*HDT_HPC_SUP50_C",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -137,19 +137,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5167,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -163,19 +163,19 @@
               "type": "TIME",
               "price": 20,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 20,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5167,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -189,7 +189,7 @@
       "start_date_time":  "2026-04-20T08:00:00.000Z" 
     },
     {
-      "_id": "FR*HXW_FR_AA_BIS",
+      "id": "FR*HXW_FR_AA_BIS",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -200,13 +200,13 @@
               "type": "FLAT",
               "price": 0,
               "step_size": 1,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -219,7 +219,7 @@
       "start_date_time":  "2025-12-29T23:00:00.000Z" 
     },
     {
-      "_id": "FR*HPC_50_IF50",
+      "id": "FR*HPC_50_IF50",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -230,19 +230,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4167,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -256,19 +256,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4167,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -285,7 +285,7 @@
       }
     },
     {
-      "_id": "FR*HXW_ADL_DCSUP50",
+      "id": "FR*HXW_ADL_DCSUP50",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -296,19 +296,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4917,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -322,19 +322,19 @@
               "type": "TIME",
               "price": 10,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 10,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4917,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -348,7 +348,7 @@
       "start_date_time":  "2025-12-29T23:00:00.000Z" 
     },
     {
-      "_id": "FR*HPC_62_IF50",
+      "id": "FR*HPC_62_IF50",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -359,19 +359,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5167,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -385,19 +385,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5167,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -414,7 +414,7 @@
       }
     },
     {
-      "_id": "FR*HPC_60_IF50",
+      "id": "FR*HPC_60_IF50",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -425,19 +425,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -451,19 +451,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -480,7 +480,7 @@
       }
     },
     {
-      "_id": "FR*HPC_DYN_E",
+      "id": "FR*HPC_DYN_E",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -491,19 +491,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.3833,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -517,19 +517,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.3833,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -543,7 +543,7 @@
       "start_date_time":  "2026-05-04T08:00:00.000Z" 
     },
     {
-      "_id": "FR*HXW_ADL_AC_P4",
+      "id": "FR*HXW_ADL_AC_P4",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -554,19 +554,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 86400,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 86400,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.3167,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -580,19 +580,19 @@
               "type": "TIME",
               "price": 0.1042,
               "step_size": 86400,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0.1042,
               "step_size": 86400,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.3167,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -606,7 +606,7 @@
       "start_date_time":  "2025-12-29T23:00:00.000Z" 
     },
     {
-      "_id": "FR*HPC_DYN_P",
+      "id": "FR*HPC_DYN_P",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -617,19 +617,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.475,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -643,19 +643,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.475,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -669,7 +669,7 @@
       "start_date_time":  "2026-05-04T08:00:00.000Z" 
     },
     {
-      "_id": "FR*HPC_GEX_DC50_FR",
+      "id": "FR*HPC_GEX_DC50_FR",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -680,13 +680,13 @@
               "type": "TIME",
               "price": 24.5,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 24.5,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -702,7 +702,7 @@
       }
     },
     {
-      "_id": "FR*HPC_BHC1",
+      "id": "FR*HPC_BHC1",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -713,19 +713,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.325,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -741,19 +741,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.325,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -769,19 +769,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.325,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -797,19 +797,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.325,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -825,19 +825,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5417,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -853,19 +853,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5417,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -881,7 +881,7 @@
       "start_date_time":  "2026-06-15T08:00:00.000Z" 
     },
     {
-      "_id": "FR*HPC_DYN_Q",
+      "id": "FR*HPC_DYN_Q",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -892,19 +892,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4833,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -918,19 +918,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4833,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -944,7 +944,7 @@
       "start_date_time":  "2026-05-04T08:00:00.000Z" 
     },
     {
-      "_id": "FR*HXW_METPK_DC50",
+      "id": "FR*HXW_METPK_DC50",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -955,19 +955,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.19
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.19
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4118,
               "step_size": 1000,
-              "vat": 0.19
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -981,19 +981,19 @@
               "type": "TIME",
               "price": 25.2101,
               "step_size": 60,
-              "vat": 0.19
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25.2101,
               "step_size": 60,
-              "vat": 0.19
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4118,
               "step_size": 1000,
-              "vat": 0.19
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -1007,7 +1007,7 @@
       "start_date_time":  "2026-06-15T08:00:00.000Z" 
     },
     {
-      "_id": "FR*HPC_62_IF50_VACS",
+      "id": "FR*HPC_62_IF50_VACS",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -1018,19 +1018,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5167,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -1046,19 +1046,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5167,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -1074,19 +1074,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5167,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -1102,19 +1102,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5167,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -1130,19 +1130,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5167,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -1158,19 +1158,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5167,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -1189,7 +1189,7 @@
       }
     },
     {
-      "_id": "FR*HXW_ADL_AC_EMP",
+      "id": "FR*HXW_ADL_AC_EMP",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -1200,13 +1200,13 @@
               "type": "FLAT",
               "price": 0,
               "step_size": 1,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.3167,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -1219,7 +1219,7 @@
       "start_date_time":  "2025-12-29T23:00:00.000Z" 
     },
     {
-      "_id": "FR*HPC_INF50_B",
+      "id": "FR*HPC_INF50_B",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -1230,19 +1230,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4167,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -1256,19 +1256,19 @@
               "type": "TIME",
               "price": 20,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 20,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4167,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -1282,7 +1282,7 @@
       "start_date_time":  "2025-02-21T09:00:00.000Z" 
     },
     {
-      "_id": "FR*HPC_DYN_T",
+      "id": "FR*HPC_DYN_T",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -1293,19 +1293,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5083,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -1319,19 +1319,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5083,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -1345,7 +1345,7 @@
       "start_date_time":  "2026-05-04T08:00:00.000Z" 
     },
     {
-      "_id": "FR*HPC_HH1",
+      "id": "FR*HPC_HH1",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -1356,19 +1356,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4083,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -1384,19 +1384,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4083,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -1412,19 +1412,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5417,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -1440,19 +1440,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5417,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -1468,19 +1468,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5417,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -1496,19 +1496,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5417,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -1524,7 +1524,7 @@
       "start_date_time":  "2026-06-15T08:00:00.000Z" 
     },
     {
-      "_id": "FR*HXW_ADL_DC50",
+      "id": "FR*HXW_ADL_DC50",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -1535,19 +1535,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.3917,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -1561,19 +1561,19 @@
               "type": "TIME",
               "price": 10,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 10,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.3917,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -1587,7 +1587,7 @@
       "start_date_time":  "2025-12-29T23:00:00.000Z" 
     },
     {
-      "_id": "FR*HPC_FR_S",
+      "id": "FR*HPC_FR_S",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -1598,19 +1598,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5167,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -1624,19 +1624,19 @@
               "type": "TIME",
               "price": 10,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 10,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5167,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -1653,7 +1653,7 @@
       }
     },
     {
-      "_id": "FR*HXW_ADL_AC_LONG",
+      "id": "FR*HXW_ADL_AC_LONG",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -1664,19 +1664,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 86400,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 86400,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.3167,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -1690,19 +1690,19 @@
               "type": "TIME",
               "price": 0.0347,
               "step_size": 86400,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0.0347,
               "step_size": 86400,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.3167,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -1716,7 +1716,7 @@
       "start_date_time":  "2025-12-29T23:00:00.000Z" 
     },
     {
-      "_id": "FR*HXW_ADL_DCSUP50_BIS",
+      "id": "FR*HXW_ADL_DCSUP50_BIS",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -1727,13 +1727,13 @@
               "type": "FLAT",
               "price": 0,
               "step_size": 1,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4917,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -1746,7 +1746,7 @@
       "start_date_time":  "2025-12-29T23:00:00.000Z" 
     },
     {
-      "_id": "FR*HPC_DYN_C",
+      "id": "FR*HPC_DYN_C",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -1757,19 +1757,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.3667,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -1783,19 +1783,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.3667,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -1809,7 +1809,7 @@
       "start_date_time":  "2026-05-04T08:00:00.000Z" 
     },
     {
-      "_id": "FR*V75_01_BOOST",
+      "id": "FR*V75_01_BOOST",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -1820,13 +1820,13 @@
               "type": "TIME",
               "price": 7.6667,
               "step_size": 900,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 7.6667,
               "step_size": 900,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -1840,13 +1840,13 @@
               "type": "TIME",
               "price": 8.3333,
               "step_size": 3600,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 8.3333,
               "step_size": 3600,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -1863,7 +1863,7 @@
       }
     },
     {
-      "_id": "FR*HPC_GEX_DC175_FR",
+      "id": "FR*HPC_GEX_DC175_FR",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -1874,13 +1874,13 @@
               "type": "TIME",
               "price": 29.5,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 29.5,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -1896,7 +1896,7 @@
       }
     },
     {
-      "_id": "FR*TCB_FR_AC",
+      "id": "FR*TCB_FR_AC",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -1907,13 +1907,13 @@
               "type": "FLAT",
               "price": 0,
               "step_size": 1,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4083,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -1926,7 +1926,7 @@
       "start_date_time":  "2025-03-14T14:00:00.000Z" 
     },
     {
-      "_id": "FR*HPC_59_IF50",
+      "id": "FR*HPC_59_IF50",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -1937,19 +1937,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4917,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -1963,19 +1963,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4917,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -1992,7 +1992,7 @@
       }
     },
     {
-      "_id": "FR*V75_01_FLEX",
+      "id": "FR*V75_01_FLEX",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -2003,19 +2003,19 @@
               "type": "TIME",
               "price": 1.9,
               "step_size": 900,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 1.9,
               "step_size": 900,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.275,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -2029,19 +2029,19 @@
               "type": "TIME",
               "price": 8.3333,
               "step_size": 3600,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 8.3333,
               "step_size": 3600,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.275,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -2058,7 +2058,7 @@
       }
     },
     {
-      "_id": "FR*V75_02_MOTO",
+      "id": "FR*V75_02_MOTO",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -2069,19 +2069,19 @@
               "type": "TIME",
               "price": 0.7333,
               "step_size": 900,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0.7333,
               "step_size": 900,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.275,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -2095,19 +2095,19 @@
               "type": "TIME",
               "price": 8.3333,
               "step_size": 3600,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 8.3333,
               "step_size": 3600,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.275,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -2124,7 +2124,7 @@
       }
     },
     {
-      "_id": "FR*TCB_RUNGIS_DC50",
+      "id": "FR*TCB_RUNGIS_DC50",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -2135,19 +2135,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4583,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -2161,19 +2161,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4583,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -2187,7 +2187,7 @@
       "start_date_time":  "2026-06-15T08:00:00.000Z" 
     },
     {
-      "_id": "FR*HPC_GEX_DC180_KWH_FR",
+      "id": "FR*HPC_GEX_DC180_KWH_FR",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -2198,19 +2198,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4917,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -2224,19 +2224,19 @@
               "type": "TIME",
               "price": 20,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 20,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4917,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -2253,7 +2253,7 @@
       }
     },
     {
-      "_id": "FR*HPC_DYN_F",
+      "id": "FR*HPC_DYN_F",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -2264,19 +2264,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.3917,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -2290,19 +2290,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.3917,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -2316,7 +2316,7 @@
       "start_date_time":  "2026-05-04T08:00:00.000Z" 
     },
     {
-      "_id": "FR*HPC_INF50_C",
+      "id": "FR*HPC_INF50_C",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -2327,19 +2327,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4333,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -2353,19 +2353,19 @@
               "type": "TIME",
               "price": 20,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 20,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4333,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -2379,7 +2379,7 @@
       "start_date_time":  "2025-02-21T09:00:00.000Z" 
     },
     {
-      "_id": "FR*HXW_ADL_AC_PROXI",
+      "id": "FR*HXW_ADL_AC_PROXI",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -2390,19 +2390,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 86400,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 86400,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.3167,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -2416,19 +2416,19 @@
               "type": "TIME",
               "price": 0.1736,
               "step_size": 86400,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0.1736,
               "step_size": 86400,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.3167,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -2442,7 +2442,7 @@
       "start_date_time":  "2026-01-29T16:30:00.000Z" 
     },
     {
-      "_id": "FR*HDT_RUNGIS_DC_50",
+      "id": "FR*HDT_RUNGIS_DC_50",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -2453,19 +2453,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4583,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -2479,19 +2479,19 @@
               "type": "TIME",
               "price": 1.6667,
               "step_size": 900,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 1.6667,
               "step_size": 900,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4583,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -2505,7 +2505,7 @@
       "start_date_time":  "2026-06-15T08:00:00.000Z" 
     },
     {
-      "_id": "FR*HPC_DYN_O",
+      "id": "FR*HPC_DYN_O",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -2516,19 +2516,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4667,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -2542,19 +2542,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4667,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -2568,7 +2568,7 @@
       "start_date_time":  "2026-05-04T08:00:00.000Z" 
     },
     {
-      "_id": "FR*HPC_BHC2",
+      "id": "FR*HPC_BHC2",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -2579,19 +2579,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.325,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -2607,19 +2607,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.325,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -2635,19 +2635,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.325,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -2663,19 +2663,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.325,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -2691,19 +2691,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4583,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -2719,19 +2719,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4583,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -2747,7 +2747,7 @@
       "start_date_time":  "2026-06-15T08:00:00.000Z" 
     },
     {
-      "_id": "FR*HPC_GEX_DC175_KWH_FR",
+      "id": "FR*HPC_GEX_DC175_KWH_FR",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -2758,19 +2758,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4917,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -2784,19 +2784,19 @@
               "type": "TIME",
               "price": 20,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 20,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4917,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -2813,7 +2813,7 @@
       }
     },
     {
-      "_id": "FR*V75_02_FLEX",
+      "id": "FR*V75_02_FLEX",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -2824,19 +2824,19 @@
               "type": "TIME",
               "price": 1.9,
               "step_size": 900,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 1.9,
               "step_size": 900,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.275,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -2850,19 +2850,19 @@
               "type": "TIME",
               "price": 8.3333,
               "step_size": 3600,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 8.3333,
               "step_size": 3600,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.275,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -2879,7 +2879,7 @@
       }
     },
     {
-      "_id": "FR*HPC_DYN_A",
+      "id": "FR*HPC_DYN_A",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -2890,19 +2890,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.35,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -2916,19 +2916,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.35,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -2942,7 +2942,7 @@
       "start_date_time":  "2026-05-04T08:00:00.000Z" 
     },
     {
-      "_id": "FR*HPC_DYN_L",
+      "id": "FR*HPC_DYN_L",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -2953,19 +2953,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4417,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -2979,19 +2979,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4417,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -3005,7 +3005,7 @@
       "start_date_time":  "2026-05-04T08:00:00.000Z" 
     },
     {
-      "_id": "FR*HPC_DYN_M",
+      "id": "FR*HPC_DYN_M",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -3016,19 +3016,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.45,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -3042,19 +3042,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.45,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -3068,7 +3068,7 @@
       "start_date_time":  "2026-05-04T08:00:00.000Z" 
     },
     {
-      "_id": "FR*HXW_FR_AA",
+      "id": "FR*HXW_FR_AA",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -3079,19 +3079,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5417,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -3105,19 +3105,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5417,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -3131,7 +3131,7 @@
       "start_date_time":  "2026-06-01T08:00:00.000Z" 
     },
     {
-      "_id": "FR*HPC_GEX_DC150_KWH_FR",
+      "id": "FR*HPC_GEX_DC150_KWH_FR",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -3142,19 +3142,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4917,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -3168,19 +3168,19 @@
               "type": "TIME",
               "price": 20,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 20,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4917,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -3197,7 +3197,7 @@
       }
     },
     {
-      "_id": "FR*HPC_GEX_AC43_KWH_FR",
+      "id": "FR*HPC_GEX_AC43_KWH_FR",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -3208,19 +3208,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4083,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -3234,19 +3234,19 @@
               "type": "TIME",
               "price": 20,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 20,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4083,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -3263,7 +3263,7 @@
       }
     },
     {
-      "_id": "FR*HPC_GEX_AC43_FR",
+      "id": "FR*HPC_GEX_AC43_FR",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -3274,13 +3274,13 @@
               "type": "TIME",
               "price": 24.5,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 24.5,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -3296,7 +3296,7 @@
       }
     },
     {
-      "_id": "FR*HXW_ADL_DC50_BIS",
+      "id": "FR*HXW_ADL_DC50_BIS",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -3307,13 +3307,13 @@
               "type": "FLAT",
               "price": 0,
               "step_size": 1,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4083,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -3326,7 +3326,7 @@
       "start_date_time":  "2025-12-29T23:00:00.000Z" 
     },
     {
-      "_id": "FR*V75_01_MOTO",
+      "id": "FR*V75_01_MOTO",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -3337,19 +3337,19 @@
               "type": "TIME",
               "price": 0.7333,
               "step_size": 900,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0.7333,
               "step_size": 900,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.275,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -3363,19 +3363,19 @@
               "type": "TIME",
               "price": 8.3333,
               "step_size": 3600,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 8.3333,
               "step_size": 3600,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.275,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -3392,7 +3392,7 @@
       }
     },
     {
-      "_id": "FR*HPC_GEX_AC22_KWH_FR",
+      "id": "FR*HPC_GEX_AC22_KWH_FR",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -3403,19 +3403,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4083,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -3429,19 +3429,19 @@
               "type": "TIME",
               "price": 20,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 20,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4083,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -3458,7 +3458,7 @@
       }
     },
     {
-      "_id": "FR*TCB_COMP_DC",
+      "id": "FR*TCB_COMP_DC",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -3469,13 +3469,13 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -3489,7 +3489,7 @@
               "type": "ENERGY",
               "price": 0.5417,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -3502,7 +3502,7 @@
       "start_date_time":  "2026-06-01T08:00:00.000Z" 
     },
     {
-      "_id": "FR*HPC_49_IF50",
+      "id": "FR*HPC_49_IF50",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -3513,19 +3513,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4083,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -3539,19 +3539,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4083,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -3568,7 +3568,7 @@
       }
     },
     {
-      "_id": "FR*HPC_DYN_N",
+      "id": "FR*HPC_DYN_N",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -3579,19 +3579,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4583,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -3605,19 +3605,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4583,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -3631,7 +3631,7 @@
       "start_date_time":  "2026-05-04T08:00:00.000Z" 
     },
     {
-      "_id": "FR*TCB_RUNGIS_DC200",
+      "id": "FR*TCB_RUNGIS_DC200",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -3642,19 +3642,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.19
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.19
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5462,
               "step_size": 1000,
-              "vat": 0.19
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -3668,19 +3668,19 @@
               "type": "TIME",
               "price": 25.2101,
               "step_size": 60,
-              "vat": 0.19
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25.2101,
               "step_size": 60,
-              "vat": 0.19
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5462,
               "step_size": 1000,
-              "vat": 0.19
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -3694,7 +3694,7 @@
       "start_date_time":  "2026-06-15T08:00:00.000Z" 
     },
     {
-      "_id": "FR*HPC_GEX_AC22_FR",
+      "id": "FR*HPC_GEX_AC22_FR",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -3705,13 +3705,13 @@
               "type": "TIME",
               "price": 24.5,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 24.5,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -3727,7 +3727,7 @@
       }
     },
     {
-      "_id": "FR*HPC_GEX_DC50_KWH_FR",
+      "id": "FR*HPC_GEX_DC50_KWH_FR",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -3738,19 +3738,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4083,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -3764,19 +3764,19 @@
               "type": "TIME",
               "price": 20,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 20,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4083,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -3793,7 +3793,7 @@
       }
     },
     {
-      "_id": "FR*HPC_65_IF50",
+      "id": "FR*HPC_65_IF50",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -3804,19 +3804,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5417,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -3830,19 +3830,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5417,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -3859,7 +3859,7 @@
       }
     },
     {
-      "_id": "FR*TCB_FR_S",
+      "id": "FR*TCB_FR_S",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -3870,13 +3870,13 @@
               "type": "FLAT",
               "price": 0,
               "step_size": 1,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5167,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -3889,7 +3889,7 @@
       "start_date_time":  "2025-03-14T14:00:00.000Z" 
     },
     {
-      "_id": "FR*HPC_DYN_G",
+      "id": "FR*HPC_DYN_G",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -3900,19 +3900,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -3926,19 +3926,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -3952,7 +3952,7 @@
       "start_date_time":  "2026-05-04T08:00:00.000Z" 
     },
     {
-      "_id": "FR*HPC_60_IF50_VACS",
+      "id": "FR*HPC_60_IF50_VACS",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -3963,19 +3963,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -3991,19 +3991,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -4019,19 +4019,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -4047,19 +4047,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -4075,19 +4075,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -4103,19 +4103,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -4134,7 +4134,7 @@
       }
     },
     {
-      "_id": "FR*HPC_INF50_A",
+      "id": "FR*HPC_INF50_A",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -4145,19 +4145,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4083,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -4171,19 +4171,19 @@
               "type": "TIME",
               "price": 20,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 20,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4083,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -4197,7 +4197,7 @@
       "start_date_time":  "2025-03-05T09:00:00.000Z" 
     },
     {
-      "_id": "FR*TCB_FR_AA",
+      "id": "FR*TCB_FR_AA",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -4208,13 +4208,13 @@
               "type": "FLAT",
               "price": 0,
               "step_size": 1,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -4227,7 +4227,7 @@
       "start_date_time":  "2025-03-14T14:00:00.000Z" 
     },
     {
-      "_id": "FR*HPC_TEST_CALIFORNIAV2",
+      "id": "FR*HPC_TEST_CALIFORNIAV2",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -4238,19 +4238,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.0833,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -4264,19 +4264,19 @@
               "type": "TIME",
               "price": 10,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 10,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.0833,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -4290,7 +4290,7 @@
       "start_date_time":  "2026-04-28T12:00:00.000Z" 
     },
     {
-      "_id": "FR*HPC_DYN_B",
+      "id": "FR*HPC_DYN_B",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -4301,19 +4301,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.3583,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -4327,19 +4327,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.3583,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -4353,7 +4353,7 @@
       "start_date_time":  "2026-05-04T08:00:00.000Z" 
     },
     {
-      "_id": "FR*HPC_DYN_J",
+      "id": "FR*HPC_DYN_J",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -4364,19 +4364,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.425,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -4390,19 +4390,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.425,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -4416,7 +4416,7 @@
       "start_date_time":  "2026-05-04T08:00:00.000Z" 
     },
     {
-      "_id": "FR*HXW_METPK_DC200",
+      "id": "FR*HXW_METPK_DC200",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -4427,19 +4427,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4667,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -4453,19 +4453,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4667,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -4479,7 +4479,7 @@
       "start_date_time":  "2026-06-15T08:00:00.000Z" 
     },
     {
-      "_id": "FR*HPC_DYN_D",
+      "id": "FR*HPC_DYN_D",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -4490,19 +4490,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.375,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -4516,19 +4516,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.375,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -4542,7 +4542,7 @@
       "start_date_time":  "2026-05-04T08:00:00.000Z" 
     },
     {
-      "_id": "FR*HXW_TPE_49_BIS",
+      "id": "FR*HXW_TPE_49_BIS",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -4553,13 +4553,13 @@
               "type": "FLAT",
               "price": 0,
               "step_size": 1,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4083,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -4572,7 +4572,7 @@
       "start_date_time":  "2025-12-29T23:00:00.000Z" 
     },
     {
-      "_id": "FR*HPC_HH2",
+      "id": "FR*HPC_HH2",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -4583,19 +4583,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4083,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -4611,19 +4611,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4083,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -4639,19 +4639,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4667,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -4667,19 +4667,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4667,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -4695,19 +4695,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4667,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -4723,19 +4723,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4667,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -4751,7 +4751,7 @@
       "start_date_time":  "2026-06-15T08:00:00.000Z" 
     },
     {
-      "_id": "FR*HPC_SUP50_B",
+      "id": "FR*HPC_SUP50_B",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -4762,19 +4762,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -4788,19 +4788,19 @@
               "type": "TIME",
               "price": 20,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 20,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.5,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -4814,7 +4814,7 @@
       "start_date_time":  "2025-02-21T09:00:00.000Z" 
     },
     {
-      "_id": "FR*V75_02_BOOST",
+      "id": "FR*V75_02_BOOST",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -4825,13 +4825,13 @@
               "type": "TIME",
               "price": 7.6667,
               "step_size": 900,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 7.6667,
               "step_size": 900,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -4845,13 +4845,13 @@
               "type": "TIME",
               "price": 8.3333,
               "step_size": 3600,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 8.3333,
               "step_size": 3600,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -4868,7 +4868,7 @@
       }
     },
     {
-      "_id": "FR*HPC_55_IF50",
+      "id": "FR*HPC_55_IF50",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -4879,19 +4879,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4583,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -4905,19 +4905,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4583,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -4934,7 +4934,7 @@
       }
     },
     {
-      "_id": "FR*HPC_52_IF50",
+      "id": "FR*HPC_52_IF50",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -4945,19 +4945,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4333,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -4971,19 +4971,19 @@
               "type": "TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 25,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4333,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -5000,7 +5000,7 @@
       }
     },
     {
-      "_id": "FR*HPC_GEX_DC300_KWH_FR",
+      "id": "FR*HPC_GEX_DC300_KWH_FR",
       "country_code": "FR",
       "party_id": "TCB",
       "currency": "EUR",
@@ -5011,19 +5011,19 @@
               "type": "TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 0,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4917,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
@@ -5037,19 +5037,19 @@
               "type": "TIME",
               "price": 20,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "PARKING_TIME",
               "price": 20,
               "step_size": 60,
-              "vat": 0.2
+              "vat": 20
             },
             {
               "type": "ENERGY",
               "price": 0.4917,
               "step_size": 1000,
-              "vat": 0.2
+              "vat": 20
             }
           ],
           "restrictions": {
