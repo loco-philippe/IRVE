@@ -527,7 +527,7 @@ class TariffElements(RootModel[List[TariffElement]]):
                 continue
             if [te["price"] for te in text_elements] == [
                 text_elements[0]["price"]
-            ] * len(text_elements):
+            ] * len(text_elements) and False:
                 text += f"- {dimension.text} :\n"
                 te_text = f"  - {text_elements[0]['price']} {text_elements[0]['unit']}"
                 text += te_text.rstrip() + "\n"
