@@ -1,0 +1,32 @@
+{
+  "country_code": "FR",
+  "party_id": "GLY",
+  "id": "LYON-my50kW",
+  "currency": "EUR",
+  "tariff_alt_text": [
+    {
+      "language": "fr",
+      "text": "0,45€ par kWh + supplément de 0,20€ par minute après 45 minutes de connexion"
+    }
+  ],
+  "elements": [
+    {
+      "price_components": [
+        { "type": "ENERGY", "price": 0.375, "vat": 20.0, "step_size": 1000 }
+      ]
+    },
+    {
+      "price_components": [
+        { "type": "TIME", "price": 0, "vat": 20.0, "step_size": 60 }
+      ],
+      "restrictions": { "max_duration": 2700 }
+    },
+    {
+      "price_components": [
+        { "type": "TIME", "price": 10.002, "vat": 20.0, "step_size": 60 }
+      ],
+      "restrictions": { "min_duration": 2700 }
+    }
+  ],
+  "last_updated": "2026-06-18T00:00:00Z"
+}

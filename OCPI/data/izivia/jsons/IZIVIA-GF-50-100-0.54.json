@@ -1,0 +1,21 @@
+{
+  "country_code": "FR",
+  "party_id": "IGF",
+  "id": "IZIVIA-GF-50-100-0.54",
+  "currency": "EUR",
+  "tariff_alt_text": [
+    {
+      "language": "fr",
+      "text": "0.54€/kWh + 2€/5min si branchement sans charge. Toute énergie au kWh et tranche de 5 minutes entamée est due."
+    }
+  ],
+  "elements": [
+    {
+      "price_components": [
+        { "type": "ENERGY", "price": 0.45, "vat": 20.0, "step_size": 1000 },
+        { "type": "PARKING_TIME", "price": 20.0, "vat": 20.0, "step_size": 300 }
+      ]
+    }
+  ],
+  "last_updated": "2026-06-18T00:00:00Z"
+}

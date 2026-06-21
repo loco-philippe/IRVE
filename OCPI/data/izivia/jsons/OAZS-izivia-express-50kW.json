@@ -1,0 +1,21 @@
+{
+  "country_code": "FR",
+  "party_id": "E04",
+  "id": "OAZS-izivia-express-50kW",
+  "currency": "EUR",
+  "tariff_alt_text": [
+    {
+      "language": "fr",
+      "text": "0.45€/kWh + 1€/5min post-charge. Toute durée ou énergie entamée est due."
+    }
+  ],
+  "elements": [
+    {
+      "price_components": [
+        { "type": "ENERGY", "price": 0.375, "vat": 20.0, "step_size": 1000 },
+        { "type": "PARKING_TIME", "price": 10.0, "vat": 20.0, "step_size": 300 }
+      ]
+    }
+  ],
+  "last_updated": "2026-06-18T00:00:00Z"
+}

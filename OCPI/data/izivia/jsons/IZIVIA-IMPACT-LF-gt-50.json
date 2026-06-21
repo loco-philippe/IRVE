@@ -1,0 +1,21 @@
+{
+  "country_code": "FR",
+  "party_id": "ILF",
+  "id": "IZIVIA-IMPACT-LF-GT-50",
+  "currency": "EUR",
+  "tariff_alt_text": [
+    {
+      "language": "fr",
+      "text": "0.52€/kWh + 2€/5min si branchement sans charge. Toute énergie au kWh et tranche de 5min entamée est due."
+    }
+  ],
+  "elements": [
+    {
+      "price_components": [
+        { "type": "ENERGY", "price": 0.4333, "vat": 20.0, "step_size": 1000 },
+        { "type": "PARKING_TIME", "price": 19.98996, "vat": 20.0, "step_size": 300 }
+      ]
+    }
+  ],
+  "last_updated": "2026-06-18T00:00:00Z"
+}

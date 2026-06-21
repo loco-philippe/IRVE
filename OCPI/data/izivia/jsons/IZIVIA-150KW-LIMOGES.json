@@ -1,0 +1,21 @@
+{
+  "country_code": "FR",
+  "party_id": "IXL",
+  "id": "IZIVIA-150KW-LIMOGES",
+  "currency": "EUR",
+  "tariff_alt_text": [
+    {
+      "language": "fr",
+      "text": "0.55€/kWh puis 2€/5min post-charge. Tous kWh ou minute entamés sont dus."
+    }
+  ],
+  "elements": [
+    {
+      "price_components": [
+        { "type": "ENERGY", "price": 0.4583, "vat": 20.0, "step_size": 1000 },
+        { "type": "PARKING_TIME", "price": 20.04, "vat": 20.0, "step_size": 300 }
+      ]
+    }
+  ],
+  "last_updated": "2026-06-18T00:00:00Z"
+}

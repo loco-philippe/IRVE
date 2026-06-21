@@ -1,0 +1,21 @@
+{
+  "country_code": "FR",
+  "party_id": "IMX",
+  "id": "IZIVIA-MAX-150",
+  "currency": "EUR",
+  "tariff_alt_text": [
+    {
+      "language": "fr",
+      "text": "0.49€/kWh + 0.4€/min si branchement sans charge. Toute énergie au kWh et minute entamée est due."
+    }
+  ],
+  "elements": [
+    {
+      "price_components": [
+        { "type": "ENERGY", "price": 0.41, "vat": 20.0, "step_size": 1000 },
+        { "type": "PARKING_TIME", "price": 20.01, "vat": 20.0, "step_size": 60 }
+      ]
+    }
+  ],
+  "last_updated": "2026-06-18T00:00:00Z"
+}
