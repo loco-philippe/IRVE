@@ -1,0 +1,45 @@
+{
+    "id": "BP_tariff_ad_hoc",
+    "country_code": "FR",
+    "party_id": "BPE",
+    "elements": [
+        {
+            "price_components": [
+                {
+                    "type": "ENERGY",
+                    "price": 0.49167,
+                    "step_size": 1
+                }
+            ],
+            "restrictions": {
+                "min_power": 150
+            }
+        },
+        {
+            "price_components": [
+                {
+                    "type": "ENERGY",
+                    "price": 0.38333,
+                    "step_size": 1
+                }
+            ],
+            "restrictions": {
+                "min_power": 45,
+                "max_power": 149
+            }
+        },
+        {
+            "price_components": [
+                {
+                    "type": "ENERGY",
+                    "price": 0.35833,
+                    "step_size": 1
+                }
+            ],
+            "restrictions": {
+                "max_power": 44
+            }
+        }
+    ],
+    "last_updated": "2024-06-25T10:26:26Z"
+}

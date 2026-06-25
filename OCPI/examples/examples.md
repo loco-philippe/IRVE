@@ -1124,3 +1124,12 @@ Entre 8h et 20h : 6â‚¬ par heure. Facturation par minute effectivement branc
   - 6.0 € entre 20:00 et 08:00
 
 pastille tarif : {"type": "TIME", "price": 6.0}
+
+Tariff : "FRBPEBP_tariff_ad_hoc" version du 25/06/2024
+
+- énergie :
+  - 0.59 €/kWh si la puissance est supérieure à 150 kW
+  - 0.46 €/kWh si la puissance est comprise entre 45 kW et 149 kW
+  - 0.43 €/kWh si la puissance est inférieure à 44 kW
+
+pastille tarif : {"type": "ENERGY", "price": 0.46}
