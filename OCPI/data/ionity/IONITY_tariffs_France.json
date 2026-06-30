@@ -1,0 +1,86 @@
+[
+    {
+        "country_code": "DE",
+        "party_id": "IOY",
+        "id": "FR*HPC*ADHOC*003",
+        "currency": "EUR",
+        "elements": [
+            {
+                "price_components": [
+                    {
+                        "type": "ENERGY",
+                        "price": 0.4487,
+                        "step_size": 1,
+                        "vat": 20.0
+                    }
+                ]
+            }
+        ],
+        "last_updated": "2026-02-27T12:39:23.073Z",
+        "tax_included": "NO",
+        "type": "AD_HOC_PAYMENT"
+    },
+    {
+        "country_code": "DE",
+        "party_id": "IOY",
+        "id": "FR*ONHW*HPC*ADHOC*001",
+        "currency": "EUR",
+        "elements": [
+            {
+                "price_components": [
+                    {
+                        "type": "ENERGY",
+                        "price": 0.5162,
+                        "step_size": 1,
+                        "vat": 20.0
+                    }
+                ]
+            }
+        ],
+        "last_updated": "2026-02-27T12:36:53.804Z",
+        "tax_included": "NO",
+        "type": "AD_HOC_PAYMENT"
+    },
+    {
+        "country_code": "DE",
+        "party_id": "IOY",
+        "id": "FR*ONHW*MC*ADHOC*001",
+        "currency": "EUR",
+        "elements": [
+            {
+                "price_components": [
+                    {
+                        "type": "ENERGY",
+                        "price": 0.325,
+                        "step_size": 1,
+                        "vat": 20.0
+                    }
+                ]
+            }
+        ],
+        "last_updated": "2026-02-27T12:37:47.022Z",
+        "tax_included": "NO",
+        "type": "AD_HOC_PAYMENT"
+    },
+    {
+        "country_code": "DE",
+        "party_id": "IOY",
+        "id": "FR*MC*ADHOC*003",
+        "currency": "EUR",
+        "elements": [
+            {
+                "price_components": [
+                    {
+                        "type": "ENERGY",
+                        "price": 0.2833,
+                        "step_size": 1,
+                        "vat": 20.0
+                    }
+                ]
+            }
+        ],
+        "last_updated": "2026-02-27T12:39:48.956Z",
+        "tax_included": "NO",
+        "type": "AD_HOC_PAYMENT"
+    }
+]
