@@ -2364,7 +2364,7 @@ Tesla charges congestion fees only when a Supercharger site is busy. The congest
 - période de congestion :
   - 36.0 €/h
 
-Tariff : "NLTSLe8a842a2-e4e5-49fa-8722-fe1a7d0d8fd6" version du 28/05/2026
+Tariff : "NLTSLe8a842a2-e4e5-49fa-8722-fe1a7d0d8fd6" version du 15/06/2026
 
 Tesla charges congestion fees only when a Supercharger site is busy. The congestion fee encourages drivers to charge only as much as is needed for their trip, rather than all the way to 100%. This increases the availability of chargers so that everyone has access when they need it.
 
@@ -3143,20 +3143,6 @@ Tesla charges congestion fees only when a Supercharger site is busy. The congest
 - période de congestion :
   - 36.0 €/h
 
-Tariff : "NLTSLe8fd98c0-2056-46ad-b3d8-b24f94bbd3c9" version du 03/06/2026
-
-Tesla charges congestion fees only when a Supercharger site is busy. The congestion fee encourages drivers to charge only as much as is needed for their trip, rather than all the way to 100%. This increases the availability of chargers so that everyone has access when they need it.
-
-- énergie :
-  - 0.34 €/kWh entre 00:00 et 04:00
-  - 0.34 €/kWh entre 04:00 et 09:00
-  - 0.76 €/kWh entre 09:00 et 19:00
-  - 0.67 €/kWh entre 19:00 et 23:00
-  - 0.34 €/kWh entre 23:00 et 00:00
-  - 0.61 €/kWh sinon
-- période de congestion :
-  - 36.0 €/h
-
 Tariff : "NLTSLdc39b7f7-c6a7-42bf-b592-c4a1e30402d2" version du 03/06/2026
 
 Tesla charges congestion fees only when a Supercharger site is busy. The congestion fee encourages drivers to charge only as much as is needed for their trip, rather than all the way to 100%. This increases the availability of chargers so that everyone has access when they need it.
@@ -3167,6 +3153,37 @@ Tesla charges congestion fees only when a Supercharger site is busy. The congest
   - 0.56 €/kWh entre 09:00 et 22:00
   - 0.28 €/kWh entre 22:00 et 00:00
   - 0.58 €/kWh sinon
+- période de congestion :
+  - 36.0 €/h
+
+Tariff : "NLTSL9c5eb132-0c37-4adb-b5fb-ee2a9635d5ab" version du 17/06/2026
+
+Tesla charges congestion fees only when a Supercharger site is busy. The congestion fee encourages drivers to charge only as much as is needed for their trip, rather than all the way to 100%. This increases the availability of chargers so that everyone has access when they need it.
+
+- énergie :
+  - 0.36 €/kWh entre 00:00 et 04:00
+  - 0.36 €/kWh entre 04:00 et 08:00
+  - 0.72 €/kWh entre 08:00 et 21:00
+  - 0.36 €/kWh entre 21:00 et 00:00
+  - 0.61 €/kWh sinon
+- période de congestion :
+  - 36.0 €/h
+
+Tariff : "NLTSLa98303c9-c597-4b89-b2a7-8231fa852e5d" version du 15/06/2026
+
+Tesla charges congestion fees only when a Supercharger site is busy. The congestion fee encourages drivers to charge only as much as is needed for their trip, rather than all the way to 100%. This increases the availability of chargers so that everyone has access when they need it.
+
+- énergie :
+  - 0.61 €/kWh
+- période de congestion :
+  - 36.0 €/h
+
+Tariff : "NLTSL9b21baab-9916-45f4-8fd9-67547ceda13d" version du 17/06/2026
+
+Tesla charges congestion fees only when a Supercharger site is busy. The congestion fee encourages drivers to charge only as much as is needed for their trip, rather than all the way to 100%. This increases the availability of chargers so that everyone has access when they need it.
+
+- énergie :
+  - 0.61 €/kWh
 - période de congestion :
   - 36.0 €/h
 

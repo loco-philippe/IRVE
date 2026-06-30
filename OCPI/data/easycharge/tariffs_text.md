@@ -189,3 +189,15 @@ Tarif bornes TDEC 26 (Dole / Coteau / Longvic)
 - durée d'occupation hors recharge :
   - 8.0 €/h si la durée est supérieure à 120 min
 
+Tariff : "FREBNb903ac6b-501b-5f4b-94a3-3027c24318c5" version du 19/02/2026
+
+Tarif Bornes accélérées - MSP - 2026
+
+- prix maximum : 80.0 €
+- énergie :
+  - 0.37 €/kWh entre 08:00 et 20:00
+  - 0.37 €/kWh entre 20:00 et 08:00
+  - 0.37 €/kWh sinon
+- durée d'occupation hors recharge :
+  - 4.5 €/h entre 08:00 et 20:00
+

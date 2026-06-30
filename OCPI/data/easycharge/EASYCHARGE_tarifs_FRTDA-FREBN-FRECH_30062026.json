@@ -1,0 +1,941 @@
+[
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "EBN",
+      "id": "ee37972e-f153-5a4c-ba5d-db163a3a3e48",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "PARKING_TIME",
+              "price": 6,
+              "step_size": 60
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.42,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "max_price": {
+        "excl_vat": 66.6667
+      },
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif Bornes rapides - MSP - 2026"
+        }
+      ],
+      "last_updated": "2026-02-19T13:29:39Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "EBN",
+      "id": "09810e20-5377-50f3-a9be-0c3b168a02fc",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.5416667,
+              "step_size": 1000
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 6,
+              "step_size": 60
+            }
+          ]
+        }
+      ],
+      "max_price": {
+        "excl_vat": 66.6667
+      },
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif Bornes ultra rapides - MSP - 2026"
+        }
+      ],
+      "last_updated": "2026-02-19T13:29:48Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "ECH",
+      "id": "24b3ed65-dbfb-558e-994e-a79f57d72599",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {
+            "end_time": "20:00",
+            "start_time": "08:00",
+            "max_duration": 7200,
+            "min_duration": 0
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.3917,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "end_time": "20:00",
+            "start_time": "08:00",
+            "min_duration": 7200
+          },
+          "price_components": [
+            {
+              "type": "PARKING_TIME",
+              "price": 7.5,
+              "step_size": 60
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.3917,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "end_time": "08:00",
+            "start_time": "20:00"
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.3917,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.3917,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "max_price": {
+        "excl_vat": 100
+      },
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif bornes rapides jusqu'\u00e0 100 kW - GAP - Non abonn\u00e9s - 20/04/2026 - corrig\u00e9"
+        }
+      ],
+      "last_updated": "2026-05-07T10:37:08Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "ECH",
+      "id": "a5490b45-9fcb-5741-90c2-459be340c0c2",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {
+            "end_time": "22:00",
+            "start_time": "08:00",
+            "max_duration": 14400,
+            "min_duration": 0
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.325,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "end_time": "22:00",
+            "start_time": "08:00",
+            "min_duration": 14400
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.325,
+              "step_size": 1000
+            },
+            {
+              "type": "TIME",
+              "price": 6.6667,
+              "step_size": 900
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 6.6667,
+              "step_size": 900
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "end_time": "08:00",
+            "start_time": "22:00"
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.325,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.325,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "max_price": {
+        "excl_vat": 100
+      },
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif bornes normales jusqu'\u00e0 25 kW - Tous sauf Grand Chalon - Non abonn\u00e9s - 04/03/2025"
+        }
+      ],
+      "last_updated": "2025-03-07T11:25:57Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "ECH",
+      "id": "499c9dae-e60a-505e-8b24-6a551d6d7d05",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {
+            "end_time": "22:00",
+            "start_time": "08:00",
+            "max_duration": 14400,
+            "min_duration": 0
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.3583,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "end_time": "22:00",
+            "start_time": "08:00",
+            "min_duration": 14400
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.3583,
+              "step_size": 1000
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 6.6667,
+              "step_size": 900
+            },
+            {
+              "type": "TIME",
+              "price": 6.6667,
+              "step_size": 900
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "end_time": "08:00",
+            "start_time": "22:00"
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.3583,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.3583,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "max_price": {
+        "excl_vat": 100
+      },
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif bornes normales jusqu'\u00e0 25 kW - Grand Chalon - Non abonn\u00e9s - 04/03/2025"
+        }
+      ],
+      "last_updated": "2025-03-07T11:26:13Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "ECH",
+      "id": "55addc0b-f65c-5d32-b139-03f9c845e024",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {
+            "max_duration": 7200,
+            "min_duration": 0
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.4667,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "min_duration": 7200
+          },
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 6.6667,
+              "step_size": 900
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 6.6667,
+              "step_size": 900
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4667,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.4667,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "max_price": {
+        "excl_vat": 100
+      },
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif bornes rapides 50 kW et plus - Tous y compris Grand Chalon - Non abonn\u00e9s - 04/03/2025"
+        }
+      ],
+      "last_updated": "2025-03-07T11:26:28Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "ECH",
+      "id": "5b48fa0e-ff21-5d9e-bbf4-63843e813a8a",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.325,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "max_price": {
+        "excl_vat": 100
+      },
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif bornes normales jusqu'\u00e0 25 kW - Gap - Non abonn\u00e9s - 20/04/2026"
+        }
+      ],
+      "last_updated": "2026-04-16T09:15:04Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "ECH",
+      "id": "6c587013-dab7-5ae7-98ea-23385a97da25",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.3917,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "max_price": {
+        "excl_vat": 100
+      },
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif bornes rapides \u00e0 partir de 100 kW - Cityfs - Non abonn\u00e9s - 20/04/2026"
+        }
+      ],
+      "last_updated": "2026-04-17T07:27:01Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "ECH",
+      "id": "49139ea9-723f-56cf-8cab-6feff89dfb3c",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.375,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "max_price": {
+        "excl_vat": 100
+      },
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif bornes rapides \u00e0 partir de 100 kW - Kyriad Valence - Non abonn\u00e9s - 20/04/2026"
+        }
+      ],
+      "last_updated": "2026-04-17T07:26:51Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "ECH",
+      "id": "5305b3e9-a99e-54a2-8c01-f5a6ce11c0fc",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {
+            "end_time": "22:00",
+            "start_time": "08:00",
+            "max_duration": 14400,
+            "min_duration": 0
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.325,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "end_time": "22:00",
+            "start_time": "08:00",
+            "min_duration": 14400
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.325,
+              "step_size": 1000
+            },
+            {
+              "type": "TIME",
+              "price": 6.6667,
+              "step_size": 900
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 6.6667,
+              "step_size": 900
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "end_time": "08:00",
+            "start_time": "22:00"
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.325,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.325,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "max_price": {
+        "excl_vat": 100
+      },
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif bornes normales jusqu'\u00e0 25 kW - Tous sauf Grand Chalon - Non abonn\u00e9s - 04/03/2025 - sans tarif sp\u00e9cial"
+        }
+      ],
+      "last_updated": "2025-06-03T11:56:10Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "ECH",
+      "id": "4c3ebca4-c9ae-5b86-84f4-fa758b3b1a99",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {
+            "max_duration": 3600,
+            "min_duration": 0
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.4667,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "min_duration": 3600
+          },
+          "price_components": [
+            {
+              "type": "PARKING_TIME",
+              "price": 10,
+              "step_size": 60
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4667,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.4667,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "max_price": {
+        "excl_vat": 100
+      },
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif bornes rapides \u00e0 partir de 100 kW - GAP- Non abonn\u00e9s - 20/04/2026"
+        }
+      ],
+      "last_updated": "2026-04-24T14:26:25Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "ECH",
+      "id": "a12d8cca-75fd-5ec8-9344-fe66f879a560",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {
+            "max_duration": 7200,
+            "min_duration": 0
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.4667,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "min_duration": 7200
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.4667,
+              "step_size": 1000
+            },
+            {
+              "type": "TIME",
+              "price": 6.6667,
+              "step_size": 900
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 6.6667,
+              "step_size": 900
+            }
+          ]
+        },
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.4667,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "max_price": {
+        "excl_vat": 100
+      },
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif bornes rapides 50 kW et plus - Tous y compris Grand Chalon - Non abonn\u00e9s - 04/03/2025 - sans tarif sp\u00e9cial"
+        }
+      ],
+      "last_updated": "2025-06-03T11:56:47Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "TDA",
+      "id": "e226819c-f0ca-58f2-8d17-fcef9a0ab189",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {
+            "max_duration": 7200,
+            "min_duration": 0
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.49167,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "min_duration": 7200
+          },
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 6.667,
+              "step_size": 900
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 6.667,
+              "step_size": 900
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.49167,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "PARKING_TIME",
+              "price": 0,
+              "step_size": 1
+            },
+            {
+              "type": "TIME",
+              "price": 0,
+              "step_size": 1
+            }
+          ]
+        }
+      ],
+      "max_price": {
+        "excl_vat": 85
+      },
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif bornes TDEC"
+        }
+      ],
+      "last_updated": "2024-09-17T09:54:54Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "TDA",
+      "id": "d6b15446-b254-5251-9854-9bc5d0936eb8",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.35,
+              "step_size": 1000
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 6.6667,
+              "step_size": 900
+            }
+          ]
+        }
+      ],
+      "max_price": {
+        "excl_vat": 50
+      },
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif Bornes 24kW - 09012025"
+        }
+      ],
+      "last_updated": "2025-01-10T14:36:27Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "TDA",
+      "id": "414d2c15-ead1-586f-a91b-567a38a0b4ee",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "PARKING_TIME",
+              "price": 6.6667,
+              "step_size": 900
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.42,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "max_price": {
+        "excl_vat": 50
+      },
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif des Bornes 50kw TDA - 09012025"
+        }
+      ],
+      "last_updated": "2025-01-10T14:37:09Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "TDA",
+      "id": "cd49fbcc-a46f-59b8-b910-1405b3d16c1a",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {
+            "max_duration": 7200,
+            "min_duration": 0
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.43333334,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "min_duration": 7200
+          },
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 6.667,
+              "step_size": 900
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.43333334,
+              "step_size": 1000
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 6.667,
+              "step_size": 900
+            }
+          ]
+        },
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.43333334,
+              "step_size": 900
+            }
+          ]
+        }
+      ],
+      "max_price": {
+        "excl_vat": 85
+      },
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif bornes TDEC 26 (Dole / Coteau / Longvic)"
+        }
+      ],
+      "last_updated": "2026-02-23T10:43:11Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "EBN",
+      "id": "b903ac6b-501b-5f4b-94a3-3027c24318c5",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {
+            "end_time": "20:00",
+            "start_time": "08:00"
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.30916667,
+              "step_size": 1000
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 3.75,
+              "step_size": 60
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "end_time": "08:00",
+            "start_time": "20:00"
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.30916667,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.30916667,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "max_price": {
+        "excl_vat": 66.6667
+      },
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif Bornes accélérées - MSP - 2026"
+        }
+      ],
+      "last_updated": "2026-02-19T13:29:28Z"
+    }
+  }
+]
