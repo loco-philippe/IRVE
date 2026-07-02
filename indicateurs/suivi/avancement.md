@@ -77,10 +77,10 @@
   - extension de l'analyse de saturation Vinci ?
   - autres ?
 
-## Activités juin (15 jours)
+## Activités juillet (16 jours)
 
 - onboarding des opérateurs
-  - validation de flux d'opérateurs (12 en cours: Wewise, Partage ma borne, OZECAR, Monta, Indelec, Bouygues extension, Watt Up, electric 55, FRC2A, Car2plug, Fastned CHA, Modulo)
+  - validation de flux d'opérateurs (12 en cours: Wewise, Partage ma borne, OZECAR, Monta, Indelec, Bouygues extension, Watt Up, electric 55, FRC2A, Car2plug, Chargepoly, Modulo)
   - activité récurrente de suivi des opérateurs et des incidents
 - indicateurs
   - calcul de l'indicateur de fiabilité des statuts
@@ -89,16 +89,33 @@
 - CarbuRe
   - validation des volumes aménageurs
   - analyse des écarts de volumes
-  - formalisation du processus de validation opérateur des volumes
 - tarifs
   - obtention des tarifs pour chaque pdc auprès des opérateurs principaux
-  - génération de formats parquet pour initialisation BD
   - intégration des tarifs dans les indicateurs qualité et dans le processus d'onboarding
 - modèle de données européen AFIR
-  - Formalisation pour Qualicharge de l'évolution de la structure de données (en liaison avec le PAN)
+  - Formalisation pour Qualicharge de l'évolution du schéma (V3)
 - saturation
-  - démarrage des travaux sur la pleine utilisation ?
+  - intégration de la structure de données DMR
+  - mise en oeuvre de la phase 1 de calcul des indicateurs DMR
   - validation des données consolidées par Vinci ?
+
+## Activités juin (15 jours)
+
+- onboarding des opérateurs
+  - validation de flux d'opérateurs (IZIVIA : FRM06, Interparking)
+  - activité récurrente de suivi des opérateurs et des incidents
+- CarbuRe
+  - validation des volumes aménageurs
+  - analyse des écarts de volumes (BP, Electra, Shell, Izivia)
+  - formalisation du processus de validation opérateur des volumes
+- tarifs
+  - obtention des tarifs pour chaque pdc auprès des opérateurs principaux (50% obtenus)
+  - génération de formats parquet pour initialisation BD
+- modèle de données européen AFIR
+  - Implication sur la définition du schéma PAN V3
+- saturation
+  - réponse à l'expression de besoin DMR
+  - définition de la solution à mettre en place
 
 ## Activités mai (12 jours)
 
