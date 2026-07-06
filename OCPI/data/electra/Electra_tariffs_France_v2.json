@@ -1,0 +1,198 @@
+[
+  {
+    "country_code": "FR",
+    "party_id": "ELC",
+    "id": "d70c8658-2e94-11f1-a364-4fa368184d9e",
+    "type": "AD_HOC_PAYMENT",
+    "currency": "EUR",
+    "tariff_alt_text": [
+      {
+        "language": "fr",
+        "text": "Default terminal payment (localpayment) pricing France slow charge"
+      }
+    ],
+    "last_updated": "2026-06-08T15:32:27Z",
+    "start_date_time": "2026-04-02T13:07:02Z",
+    "end_date_time": "3000-01-01T00:00:00Z",
+    "elements": [
+      {
+        "price_components": [
+          {
+            "type": "ENERGY",
+            "price": 0.38333,
+            "step_size": 1,
+            "vat": 20.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "country_code": "FR",
+    "party_id": "ELC",
+    "id": "8b0e466c-38d8-11f1-abbd-e3f145156630",
+    "type": "AD_HOC_PAYMENT",
+    "currency": "EUR",
+    "tariff_alt_text": [
+      {
+        "language": "fr",
+        "text": "Default terminal payment (localpayment) pricing France slow charge"
+      }
+    ],
+    "last_updated": "2026-06-08T15:32:18Z",
+    "start_date_time": "2026-04-16T22:00:00Z",
+    "end_date_time": "3000-01-01T00:00:00Z",
+    "elements": [
+      {
+        "price_components": [
+          {
+            "type": "ENERGY",
+            "price": 0.31667,
+            "step_size": 1,
+            "vat": 20.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "country_code": "FR",
+    "party_id": "ELC",
+    "id": "451968ea-38d7-11f1-8546-efd65da44606",
+    "type": "AD_HOC_PAYMENT",
+    "currency": "EUR",
+    "tariff_alt_text": [
+      {
+        "language": "fr",
+        "text": "Default terminal payment (localpayment) pricing France slow charge"
+      }
+    ],
+    "last_updated": "2026-06-08T15:32:10Z",
+    "start_date_time": "2026-04-16T22:00:00Z",
+    "end_date_time": "3000-01-01T00:00:00Z",
+    "elements": [
+      {
+        "price_components": [
+          {
+            "type": "ENERGY",
+            "price": 0.33333,
+            "step_size": 1,
+            "vat": 20.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "country_code": "FR",
+    "party_id": "ELC",
+    "id": "bc786d2c-38d8-11f1-850e-6fbf1c668280",
+    "type": "AD_HOC_PAYMENT",
+    "currency": "EUR",
+    "tariff_alt_text": [
+      {
+        "language": "fr",
+        "text": "Default terminal payment (localpayment) pricing France fast charge"
+      }
+    ],
+    "last_updated": "2026-06-08T15:32:24Z",
+    "start_date_time": "2026-04-16T22:00:00Z",
+    "end_date_time": "3000-01-01T00:00:00Z",
+    "elements": [
+      {
+        "price_components": [
+          {
+            "type": "ENERGY",
+            "price": 0.39167,
+            "step_size": 1,
+            "vat": 20.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "country_code": "FR",
+    "party_id": "ELC",
+    "id": "20f78a9c-38d6-11f1-a1fb-ff01c81d1342",
+    "type": "AD_HOC_PAYMENT",
+    "currency": "EUR",
+    "tariff_alt_text": [
+      {
+        "language": "fr",
+        "text": "Default terminal payment (localpayment) pricing France fast charge"
+      }
+    ],
+    "last_updated": "2026-06-08T15:32:07Z",
+    "start_date_time": "2026-04-16T22:00:00Z",
+    "end_date_time": "3000-01-01T00:00:00Z",
+    "elements": [
+      {
+        "price_components": [
+          {
+            "type": "ENERGY",
+            "price": 0.44167,
+            "step_size": 1,
+            "vat": 20.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "country_code": "FR",
+    "party_id": "ELC",
+    "id": "2825e326-6a55-11f1-90a2-6b422dac5284",
+    "type": "AD_HOC_PAYMENT",
+    "currency": "EUR",
+    "tariff_alt_text": [
+      {
+        "language": "fr",
+        "text": "Default terminal payment (localpayment) pricing France fast charge"
+      }
+    ],
+    "last_updated": "2026-06-17T14:02:20Z",
+    "start_date_time": "2026-06-18T01:00:00Z",
+    "end_date_time": "3000-01-01T00:00:00Z",
+    "elements": [
+      {
+        "price_components": [
+          {
+            "type": "ENERGY",
+            "price": 0.53333,
+            "step_size": 1,
+            "vat": 20.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "country_code": "FR",
+    "party_id": "ELC",
+    "id": "43c34cce-2e94-11f1-a364-97b06b4eda85",
+    "type": "AD_HOC_PAYMENT",
+    "currency": "EUR",
+    "tariff_alt_text": [
+      {
+        "language": "fr",
+        "text": "Default terminal payment (localpayment) pricing France fast charge"
+      }
+    ],
+    "last_updated": "2026-06-08T15:32:10Z",
+    "start_date_time": "2026-04-02T13:02:55Z",
+    "end_date_time": "3000-01-01T00:00:00Z",
+    "elements": [
+      {
+        "price_components": [
+          {
+            "type": "ENERGY",
+            "price": 0.5,
+            "step_size": 1,
+            "vat": 20.0
+          }
+        ]
+      }
+    ]
+  }
+]
