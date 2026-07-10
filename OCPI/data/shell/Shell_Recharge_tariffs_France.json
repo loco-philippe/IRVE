@@ -1,0 +1,143 @@
+{
+    "id": "a48fe4c5a95c0cfde55ea68464991598",
+    "currency": "EUR",
+    "type": "REGULAR",
+    "elements": [
+        {
+            "restrictions": {
+                "start_time": "00:00",
+                "end_time": "23:59",
+                "min_duration": 0,
+                "max_duration": 86400,
+                "day_of_week": [
+                    "MONDAY"
+                ]
+            },
+            "price_components": [
+                {
+                    "type": "ENERGY",
+                    "price": 0.5417,
+                    "vat": 20.0,
+                    "step_size": 1
+                }
+            ]
+        },
+        {
+            "restrictions": {
+                "start_time": "00:00",
+                "end_time": "23:59",
+                "min_duration": 0,
+                "max_duration": 86400,
+                "day_of_week": [
+                    "TUESDAY"
+                ]
+            },
+            "price_components": [
+                {
+                    "type": "ENERGY",
+                    "price": 0.5417,
+                    "vat": 20.0,
+                    "step_size": 1
+                }
+            ]
+        },
+        {
+            "restrictions": {
+                "start_time": "00:00",
+                "end_time": "23:59",
+                "min_duration": 0,
+                "max_duration": 86400,
+                "day_of_week": [
+                    "WEDNESDAY"
+                ]
+            },
+            "price_components": [
+                {
+                    "type": "ENERGY",
+                    "price": 0.5417,
+                    "vat": 20.0,
+                    "step_size": 1
+                }
+            ]
+        },
+        {
+            "restrictions": {
+                "start_time": "00:00",
+                "end_time": "23:59",
+                "min_duration": 0,
+                "max_duration": 86400,
+                "day_of_week": [
+                    "THURSDAY"
+                ]
+            },
+            "price_components": [
+                {
+                    "type": "ENERGY",
+                    "price": 0.5417,
+                    "vat": 20.0,
+                    "step_size": 1
+                }
+            ]
+        },
+        {
+            "restrictions": {
+                "start_time": "00:00",
+                "end_time": "23:59",
+                "min_duration": 0,
+                "max_duration": 86400,
+                "day_of_week": [
+                    "FRIDAY"
+                ]
+            },
+            "price_components": [
+                {
+                    "type": "ENERGY",
+                    "price": 0.5417,
+                    "vat": 20.0,
+                    "step_size": 1
+                }
+            ]
+        },
+        {
+            "restrictions": {
+                "start_time": "00:00",
+                "end_time": "23:59",
+                "min_duration": 0,
+                "max_duration": 86400,
+                "day_of_week": [
+                    "SATURDAY"
+                ]
+            },
+            "price_components": [
+                {
+                    "type": "ENERGY",
+                    "price": 0.5417,
+                    "vat": 20.0,
+                    "step_size": 1
+                }
+            ]
+        },
+        {
+            "restrictions": {
+                "start_time": "00:00",
+                "end_time": "23:59",
+                "min_duration": 0,
+                "max_duration": 86400,
+                "day_of_week": [
+                    "SUNDAY"
+                ]
+            },
+            "price_components": [
+                {
+                    "type": "ENERGY",
+                    "price": 0.5417,
+                    "vat": 20.0,
+                    "step_size": 1
+                }
+            ]
+        }
+    ],
+    "country_code": "NL",
+    "party_id": "SHE",
+    "last_updated": "2026-07-06T23:26:42Z"
+}
