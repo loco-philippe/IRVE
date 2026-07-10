@@ -1,0 +1,30 @@
+{
+    "country_code": "NL",
+    "party_id": "MIL",
+    "id": "NLMILT000005",
+    "currency": "EUR",
+    "type": "REGULAR",
+    "tariff_alt_text": [
+        {
+            "language": "en",
+            "text": "Milence - FR - v1.0"
+        },
+        {
+            "language": "nl",
+            "text": "Milence - FR - v1.0"
+        }
+    ],
+    "elements": [
+        {
+            "price_components": [
+                {
+                    "type": "ENERGY",
+                    "price": 0.339,
+                    "step_size": 1.0
+                }
+            ]
+        }
+    ],
+    "start_date_time": "2025-12-31T11:00:47Z",
+    "last_updated": "2025-12-31T11:00:47Z"
+}
