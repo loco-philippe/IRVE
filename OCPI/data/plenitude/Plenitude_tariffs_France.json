@@ -1,0 +1,387 @@
+[
+    {
+        "id": "c22287d4eb8140d785467ba0d6885855_12",
+        "currency": "EUR",
+        "tariff_alt_text": [
+            {
+                "language": "en",
+                "text": "DC ≥ 150kW"
+            }
+        ],
+        "elements": [
+            {
+                "price_components": [
+                    {
+                        "type": "TIME",
+                        "price": 0,
+                        "step_size": 60
+                    },
+                    {
+                        "type": "ENERGY",
+                        "price": 0.46,
+                        "step_size": 100
+                    },
+                    {
+                        "type": "PARKING_TIME",
+                        "price": 0,
+                        "step_size": 60
+                    }
+                ],
+                "restrictions": {
+                    "day_of_week": []
+                }
+            }
+        ],
+        "last_updated": "2026-06-18T12:12:34.633Z"
+    },
+    {
+        "id": "c22287d4eb8140d785467ba0d6885855_16",
+        "currency": "EUR",
+        "tariff_alt_text": [
+            {
+                "language": "en",
+                "text": "DC ≥ 150kW"
+            }
+        ],
+        "elements": [
+            {
+                "price_components": [
+                    {
+                        "type": "TIME",
+                        "price": 0,
+                        "step_size": 60
+                    },
+                    {
+                        "type": "ENERGY",
+                        "price": 0.46,
+                        "step_size": 100
+                    },
+                    {
+                        "type": "PARKING_TIME",
+                        "price": 15,
+                        "step_size": 60
+                    }
+                ],
+                "restrictions": {
+                    "min_kwh": 0.1,
+                    "day_of_week": []
+                }
+            },
+            {
+                "price_components": [
+                    {
+                        "type": "TIME",
+                        "price": 0,
+                        "step_size": 60
+                    },
+                    {
+                        "type": "ENERGY",
+                        "price": 0.46,
+                        "step_size": 100
+                    },
+                    {
+                        "type": "PARKING_TIME",
+                        "price": 0,
+                        "step_size": 60
+                    }
+                ],
+                "restrictions": {
+                    "min_power": 9999,
+                    "day_of_week": []
+                }
+            },
+            {
+                "price_components": [
+                    {
+                        "type": "TIME",
+                        "price": 0,
+                        "step_size": 60
+                    },
+                    {
+                        "type": "ENERGY",
+                        "price": 0.46,
+                        "step_size": 100
+                    },
+                    {
+                        "type": "PARKING_TIME",
+                        "price": 15,
+                        "step_size": 60
+                    }
+                ],
+                "restrictions": {
+                    "day_of_week": []
+                }
+            }
+        ],
+        "last_updated": "2026-06-18T12:12:34.633Z"
+    },
+    {
+        "id": "c22287d4eb8140d785467ba0d6885855_9",
+        "currency": "EUR",
+        "tariff_alt_text": [
+            {
+                "language": "en",
+                "text": "AC"
+            }
+        ],
+        "elements": [
+            {
+                "price_components": [
+                    {
+                        "type": "TIME",
+                        "price": 0,
+                        "step_size": 60
+                    },
+                    {
+                        "type": "ENERGY",
+                        "price": 0.38,
+                        "step_size": 100
+                    },
+                    {
+                        "type": "PARKING_TIME",
+                        "price": 0,
+                        "step_size": 60
+                    }
+                ],
+                "restrictions": {
+                    "day_of_week": []
+                }
+            }
+        ],
+        "last_updated": "2026-06-18T12:12:34.633Z"
+    },
+    {
+        "id": "c22287d4eb8140d785467ba0d6885855_10",
+        "currency": "EUR",
+        "tariff_alt_text": [
+            {
+                "language": "en",
+                "text": "DC < 75kW"
+            }
+        ],
+        "elements": [
+            {
+                "price_components": [
+                    {
+                        "type": "TIME",
+                        "price": 0,
+                        "step_size": 60
+                    },
+                    {
+                        "type": "ENERGY",
+                        "price": 0.46,
+                        "step_size": 100
+                    },
+                    {
+                        "type": "PARKING_TIME",
+                        "price": 0,
+                        "step_size": 60
+                    }
+                ],
+                "restrictions": {
+                    "day_of_week": []
+                }
+            }
+        ],
+        "last_updated": "2026-06-18T12:12:34.633Z"
+    },
+    {
+        "id": "c22287d4eb8140d785467ba0d6885855_14",
+        "currency": "EUR",
+        "tariff_alt_text": [
+            {
+                "language": "en",
+                "text": "DC < 75kW"
+            }
+        ],
+        "elements": [
+            {
+                "price_components": [
+                    {
+                        "type": "TIME",
+                        "price": 0,
+                        "step_size": 60
+                    },
+                    {
+                        "type": "ENERGY",
+                        "price": 0.46,
+                        "step_size": 100
+                    },
+                    {
+                        "type": "PARKING_TIME",
+                        "price": 10.2,
+                        "step_size": 60
+                    }
+                ],
+                "restrictions": {
+                    "min_kwh": 0.1,
+                    "day_of_week": []
+                }
+            },
+            {
+                "price_components": [
+                    {
+                        "type": "TIME",
+                        "price": 0,
+                        "step_size": 60
+                    },
+                    {
+                        "type": "ENERGY",
+                        "price": 0.46,
+                        "step_size": 100
+                    },
+                    {
+                        "type": "PARKING_TIME",
+                        "price": 0,
+                        "step_size": 60
+                    }
+                ],
+                "restrictions": {
+                    "min_power": 9999,
+                    "day_of_week": []
+                }
+            },
+            {
+                "price_components": [
+                    {
+                        "type": "TIME",
+                        "price": 0,
+                        "step_size": 60
+                    },
+                    {
+                        "type": "ENERGY",
+                        "price": 0.46,
+                        "step_size": 100
+                    },
+                    {
+                        "type": "PARKING_TIME",
+                        "price": 10.2,
+                        "step_size": 60
+                    }
+                ],
+                "restrictions": {
+                    "day_of_week": []
+                }
+            }
+        ],
+        "last_updated": "2026-06-18T12:12:34.633Z"
+    },
+    {
+        "id": "c22287d4eb8140d785467ba0d6885855_13",
+        "currency": "EUR",
+        "tariff_alt_text": [
+            {
+                "language": "en",
+                "text": "AC"
+            }
+        ],
+        "elements": [
+            {
+                "price_components": [
+                    {
+                        "type": "TIME",
+                        "price": 0,
+                        "step_size": 60
+                    },
+                    {
+                        "type": "ENERGY",
+                        "price": 0.38,
+                        "step_size": 100
+                    },
+                    {
+                        "type": "PARKING_TIME",
+                        "price": 6,
+                        "step_size": 60
+                    }
+                ],
+                "restrictions": {
+                    "start_time": "05:00",
+                    "end_time": "21:00",
+                    "min_kwh": 0.1,
+                    "day_of_week": []
+                }
+            },
+            {
+                "price_components": [
+                    {
+                        "type": "TIME",
+                        "price": 0,
+                        "step_size": 60
+                    },
+                    {
+                        "type": "ENERGY",
+                        "price": 0.38,
+                        "step_size": 100
+                    },
+                    {
+                        "type": "PARKING_TIME",
+                        "price": 0,
+                        "step_size": 60
+                    }
+                ],
+                "restrictions": {
+                    "min_power": 9999,
+                    "day_of_week": []
+                }
+            },
+            {
+                "price_components": [
+                    {
+                        "type": "TIME",
+                        "price": 0,
+                        "step_size": 60
+                    },
+                    {
+                        "type": "ENERGY",
+                        "price": 0.38,
+                        "step_size": 100
+                    },
+                    {
+                        "type": "PARKING_TIME",
+                        "price": 0,
+                        "step_size": 60
+                    }
+                ],
+                "restrictions": {
+                    "day_of_week": []
+                }
+            }
+        ],
+        "last_updated": "2026-06-18T12:12:34.633Z"
+    },
+    {
+        "id": "e11d9f9257dc455fbf47af8913eb26df_104",
+        "currency": "EUR",
+        "tariff_alt_text": [
+            {
+                "language": "en",
+                "text": "DC ≥ 150kW"
+            }
+        ],
+        "elements": [
+            {
+                "price_components": [
+                    {
+                        "type": "TIME",
+                        "price": 0,
+                        "step_size": 60
+                    },
+                    {
+                        "type": "ENERGY",
+                        "price": 0.49,
+                        "step_size": 100
+                    },
+                    {
+                        "type": "PARKING_TIME",
+                        "price": 0,
+                        "step_size": 60
+                    }
+                ],
+                "restrictions": {
+                    "day_of_week": []
+                }
+            }
+        ],
+        "last_updated": "2026-03-29T09:46:33.821Z"
+    }
+]
