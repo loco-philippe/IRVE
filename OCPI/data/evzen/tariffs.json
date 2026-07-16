@@ -1,0 +1,235 @@
+[
+    {
+        "id": "303a999db1e8436d891395637110fbb2",
+        "currency": "EUR",
+        "elements": [
+            {
+                "price_components": [
+                    {
+                        "type": "ENERGY",
+                        "price": 0.325,
+                        "step_size": 1
+                    }
+                ],
+                "restrictions": {
+                    "start_date": "2025-11-19",
+                    "end_date": "2026-01-23"
+                }
+            },
+            {
+                "price_components": [
+                    {
+                        "type": "ENERGY",
+                        "price": 0.325,
+                        "step_size": 1
+                    }
+                ],
+                "restrictions": {
+                    "start_date": "2026-01-23"
+                }
+            },
+            {
+                "price_components": [
+                    {
+                        "type": "ENERGY",
+                        "price": 0.325,
+                        "step_size": 1
+                    }
+                ],
+                "restrictions": {
+                    "start_date": "2024-01-01",
+                    "end_date": "2025-01-01"
+                }
+            },
+            {
+                "price_components": [
+                    {
+                        "type": "ENERGY",
+                        "price": 0.325,
+                        "step_size": 1
+                    }
+                ],
+                "restrictions": {
+                    "start_date": "2025-01-01",
+                    "end_date": "2025-11-19"
+                }
+            }
+        ],
+        "last_updated": "2026-02-12T02:20:04Z"
+    },
+    {
+        "id": "9390bdd487804336807aaf69768e03df",
+        "currency": "EUR",
+        "elements": [
+            {
+                "price_components": [
+                    {
+                        "type": "ENERGY",
+                        "price": 0.325,
+                        "step_size": 1
+                    }
+                ],
+                "restrictions": {
+                    "start_date": "2025-11-19",
+                    "end_date": "2026-01-23"
+                }
+            },
+            {
+                "price_components": [
+                    {
+                        "type": "ENERGY",
+                        "price": 0.325,
+                        "step_size": 1
+                    }
+                ],
+                "restrictions": {
+                    "start_date": "2026-01-23"
+                }
+            },
+            {
+                "price_components": [
+                    {
+                        "type": "ENERGY",
+                        "price": 0.325,
+                        "step_size": 1
+                    }
+                ],
+                "restrictions": {
+                    "start_date": "2024-01-01",
+                    "end_date": "2025-01-01"
+                }
+            },
+            {
+                "price_components": [
+                    {
+                        "type": "ENERGY",
+                        "price": 0.325,
+                        "step_size": 1
+                    }
+                ],
+                "restrictions": {
+                    "start_date": "2025-01-01",
+                    "end_date": "2025-11-19"
+                }
+            }
+        ],
+        "last_updated": "2026-02-12T02:20:04Z"
+    },
+    {
+        "id": "b5dafd86e84b4243b906ead05482058a",
+        "currency": "EUR",
+        "elements": [
+            {
+                "price_components": [
+                    {
+                        "type": "ENERGY",
+                        "price": 0.4583,
+                        "step_size": 1
+                    }
+                ],
+                "restrictions": {
+                    "start_date": "2025-11-19",
+                    "end_date": "2026-01-23"
+                }
+            },
+            {
+                "price_components": [
+                    {
+                        "type": "ENERGY",
+                        "price": 0.4583,
+                        "step_size": 1
+                    }
+                ],
+                "restrictions": {
+                    "start_date": "2026-01-23"
+                }
+            },
+            {
+                "price_components": [
+                    {
+                        "type": "ENERGY",
+                        "price": 0.4583,
+                        "step_size": 1
+                    }
+                ],
+                "restrictions": {
+                    "start_date": "2023-12-04",
+                    "end_date": "2025-01-01"
+                }
+            },
+            {
+                "price_components": [
+                    {
+                        "type": "ENERGY",
+                        "price": 0.4583,
+                        "step_size": 1
+                    }
+                ],
+                "restrictions": {
+                    "start_date": "2025-01-01",
+                    "end_date": "2025-11-19"
+                }
+            }
+        ],
+        "last_updated": "2026-02-12T02:20:04Z"
+    },
+    {
+        "id": "d369901a61db4255a5fd40e4795b29e7",
+        "currency": "EUR",
+        "elements": [
+            {
+                "price_components": [
+                    {
+                        "type": "ENERGY",
+                        "price": 0.4083,
+                        "step_size": 1
+                    }
+                ],
+                "restrictions": {
+                    "start_date": "2025-11-19",
+                    "end_date": "2026-01-23"
+                }
+            },
+            {
+                "price_components": [
+                    {
+                        "type": "ENERGY",
+                        "price": 0.4083,
+                        "step_size": 1
+                    }
+                ],
+                "restrictions": {
+                    "start_date": "2026-01-23"
+                }
+            },
+            {
+                "price_components": [
+                    {
+                        "type": "ENERGY",
+                        "price": 0.4083,
+                        "step_size": 1
+                    }
+                ],
+                "restrictions": {
+                    "start_date": "2024-01-01",
+                    "end_date": "2025-01-01"
+                }
+            },
+            {
+                "price_components": [
+                    {
+                        "type": "ENERGY",
+                        "price": 0.4083,
+                        "step_size": 1
+                    }
+                ],
+                "restrictions": {
+                    "start_date": "2025-01-01",
+                    "end_date": "2025-11-19"
+                }
+            }
+        ],
+        "last_updated": "2026-02-12T02:20:04Z"
+    }
+]
+
