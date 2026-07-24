@@ -1,0 +1,1659 @@
+[
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "BFC",
+      "id": "e93cabb7-3f4f-5892-9576-217e669e22eb",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {
+            "end_time": "19:00",
+            "start_time": "08:00"
+          },
+          "price_components": [
+            {
+              "type": "PARKING_TIME",
+              "price": 15,
+              "step_size": 60
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.33334,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "end_time": "08:00",
+            "start_time": "19:00"
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.33334,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.33334,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif Non-Abonné Charge normale avec plafond< 25 kW V2 - SDEY (Yonne)"
+        }
+      ],
+      "last_updated": "2025-04-11T10:07:26Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "BFC",
+      "id": "23108e8c-e4ce-5fd0-b4fa-092f3f4a4c55",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {
+            "end_time": "19:00",
+            "start_time": "08:00"
+          },
+          "price_components": [
+            {
+              "type": "PARKING_TIME",
+              "price": 20,
+              "step_size": 60
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.41667,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "end_time": "08:00",
+            "start_time": "19:00"
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.41667,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.41667,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif Non-Abonné Charge rapide avec plafond >25 kW V2 - SDEY (Yonne)"
+        }
+      ],
+      "last_updated": "2025-04-11T10:13:07Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "BFC",
+      "id": "0e0ac270-f9f3-552b-8799-b63478956bff",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {
+            "end_time": "19:00",
+            "start_time": "08:00"
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.5,
+              "step_size": 1000
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 25,
+              "step_size": 60
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "end_time": "08:00",
+            "start_time": "19:00"
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.5,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.5,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif Non-Abonné Charge ultra-rapide avec plafond > 100 kW V2 - SDEY (Yonne)"
+        }
+      ],
+      "last_updated": "2025-04-11T10:13:18Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "BFC",
+      "id": "4c26cda5-c224-57e5-981c-1134afef7891",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.45,
+              "step_size": 1000
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 10,
+              "step_size": 60
+            }
+          ]
+        }
+      ],
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif Charge rapide 50 kW - SIED70 (Haute-Saône) - V2 - 01/07/2026"
+        }
+      ],
+      "last_updated": "2026-06-24T09:46:36Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "BFC",
+      "id": "31eec665-e151-588b-89ac-d28253c01e3c",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {
+            "end_time": "22:00",
+            "start_time": "08:00"
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.3,
+              "step_size": 1000
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 10,
+              "step_size": 60
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "end_time": "08:00",
+            "start_time": "22:00"
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.3,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.3,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif Charge accélérée 22 kW - SIED70 (Haute-Saône) - V2 - 01/07/2026"
+        }
+      ],
+      "last_updated": "2026-06-24T09:47:12Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "BFC",
+      "id": "46d965e1-aee3-5562-8971-4c5f515c3c13",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "FLAT",
+              "price": 1.25,
+              "step_size": 1
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.33334,
+              "step_size": 1000
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 0.25,
+              "step_size": 60
+            },
+            {
+              "type": "TIME",
+              "price": 0.25,
+              "step_size": 60
+            }
+          ]
+        }
+      ],
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif Charge Lente avec plafond - SICECO Territoire d’Energie Côte-d’Or (Côte d’Or)"
+        }
+      ],
+      "last_updated": "2025-02-04T10:24:09Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "BFC",
+      "id": "de738de0-eebd-5b6d-b2c1-616f91729958",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "FLAT",
+              "price": 1.66667,
+              "step_size": 1
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.41667,
+              "step_size": 1000
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 1.25,
+              "step_size": 60
+            },
+            {
+              "type": "TIME",
+              "price": 1.25,
+              "step_size": 60
+            }
+          ]
+        }
+      ],
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif Charge rapide avec plafond- SICECO Territoire d’Energie Côte-d’Or (Côte d’Or)"
+        }
+      ],
+      "last_updated": "2025-02-04T10:22:38Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "BFC",
+      "id": "20afe9df-b572-539e-8955-6078c35aa306",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {
+            "max_duration": 10800,
+            "min_duration": 0
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.33334,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "min_duration": 10800
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.33334,
+              "step_size": 1000
+            },
+            {
+              "type": "TIME",
+              "price": 1,
+              "step_size": 60
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 1,
+              "step_size": 60
+            }
+          ]
+        },
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.33334,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif Charge accélérée 22 kW avec plafond- SYDED (Doubs)"
+        }
+      ],
+      "last_updated": "2025-02-04T10:23:18Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "BFC",
+      "id": "7426df1a-543c-5d39-9c9b-f1f6b05f5ef6",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {
+            "max_duration": 5400,
+            "min_duration": 0
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.41667,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "min_duration": 5400
+          },
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 1.5,
+              "step_size": 60
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.41667,
+              "step_size": 1000
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 1.5,
+              "step_size": 60
+            }
+          ]
+        },
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.41667,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif Charge rapide 50 kW avec plafond - SYDED (Doubs)"
+        }
+      ],
+      "last_updated": "2025-02-04T10:23:31Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "BFC",
+      "id": "bf83e7ff-dc26-502d-9f40-380ca4c6d084",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {
+            "max_duration": 3600,
+            "min_duration": 0
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.5,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "min_duration": 3600
+          },
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 2.5,
+              "step_size": 60
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 2.5,
+              "step_size": 60
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.5,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif Charge ultra-rapide 100 kW avec plafond - SYDED (Doubs)"
+        }
+      ],
+      "last_updated": "2025-02-04T10:23:39Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "BFC",
+      "id": "a4c79978-1602-5093-9fe9-a1ee7d10c844",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {
+            "end_time": "00:00",
+            "start_time": "06:00",
+            "max_duration": 7200,
+            "min_duration": 0
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.33334,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "end_time": "00:00",
+            "start_time": "06:00",
+            "max_duration": 10800,
+            "min_duration": 7200
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.33334,
+              "step_size": 1000
+            },
+            {
+              "type": "TIME",
+              "price": 4,
+              "step_size": 60
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 4,
+              "step_size": 60
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "end_time": "00:00",
+            "start_time": "06:00",
+            "min_duration": 10800
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.33334,
+              "step_size": 1000
+            },
+            {
+              "type": "TIME",
+              "price": 8,
+              "step_size": 60
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 8,
+              "step_size": 60
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "end_time": "06:00",
+            "start_time": "00:00"
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.20834,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.20834,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif Charge accélérée 22 kW avec plafond - SIEEN (Nièvre)"
+        }
+      ],
+      "last_updated": "2025-02-04T10:24:56Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "BFC",
+      "id": "fb1fb9d2-2295-5103-978e-4d02fdfb372f",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {
+            "end_time": "00:00",
+            "start_time": "06:00",
+            "max_duration": 7200,
+            "min_duration": 0
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.41667,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "end_time": "00:00",
+            "start_time": "06:00",
+            "max_duration": 10800,
+            "min_duration": 7200
+          },
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 4,
+              "step_size": 60
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 4,
+              "step_size": 60
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.41667,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "end_time": "00:00",
+            "start_time": "06:00",
+            "min_duration": 10800
+          },
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 8,
+              "step_size": 60
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.41667,
+              "step_size": 1000
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 8,
+              "step_size": 60
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "end_time": "06:00",
+            "start_time": "00:00"
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.29167,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.29167,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif Charge rapide 50 kW avec plafond - SIEEN (Nièvre)"
+        }
+      ],
+      "last_updated": "2025-02-04T10:25:17Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "MBI",
+      "id": "c0f5db65-1f2e-522b-ae49-ec346a48f785",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {
+            "end_time": "23:00",
+            "start_time": "07:00",
+            "max_duration": 10800,
+            "min_duration": 0
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.45833,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "end_time": "23:00",
+            "start_time": "07:00",
+            "min_duration": 10800
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.45833,
+              "step_size": 1000
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 4.5,
+              "step_size": 60
+            },
+            {
+              "type": "TIME",
+              "price": 4.5,
+              "step_size": 60
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "end_time": "07:00",
+            "start_time": "23:00"
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.45833,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.45833,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "TARIF 2024 - PDC AC >7kVA - Non abonnés"
+        }
+      ],
+      "last_updated": "2024-03-18T15:44:50Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "MBI",
+      "id": "82bcb11f-dffd-545e-8669-088701f74b76",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {
+            "min_duration": 3600
+          },
+          "price_components": [
+            {
+              "type": "PARKING_TIME",
+              "price": 4.5,
+              "step_size": 60
+            },
+            {
+              "type": "TIME",
+              "price": 4.5,
+              "step_size": 60
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.5333,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "max_duration": 3600,
+            "min_duration": 0
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.5333,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.5333,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "TARIF 2024 - PDC DC entre 40 et 60 kVA - Non abonné - V2"
+        }
+      ],
+      "last_updated": "2024-07-19T17:27:27Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "MBI",
+      "id": "a48f6d58-2a5f-50de-90b6-145a6cdf2f99",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {
+            "end_time": "22:00",
+            "start_time": "07:00",
+            "max_duration": 36000,
+            "min_duration": 0
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.3333,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "end_time": "22:00",
+            "start_time": "07:00",
+            "min_duration": 36000
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.3333,
+              "step_size": 1000
+            },
+            {
+              "type": "TIME",
+              "price": 5,
+              "step_size": 60
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 5,
+              "step_size": 60
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "end_time": "07:00",
+            "start_time": "22:00"
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.3333,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.3333,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "TARIF mai 2025 PDC AC <= 8 kVA - Non abonnés"
+        }
+      ],
+      "last_updated": "2025-04-29T07:58:41Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "MBI",
+      "id": "2a535590-6daa-5301-b2cc-0d886428fdcc",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {
+            "end_time": "22:00",
+            "start_time": "07:00",
+            "max_duration": 9000,
+            "min_duration": 0
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.3333,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "end_time": "22:00",
+            "start_time": "07:00",
+            "min_duration": 9000
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.3333,
+              "step_size": 1000
+            },
+            {
+              "type": "TIME",
+              "price": 5,
+              "step_size": 60
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 5,
+              "step_size": 60
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "end_time": "07:00",
+            "start_time": "22:00"
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.3333,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.3333,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "TARIF mai 2025 - PDC AC > 8 kVA - Non abonnés"
+        }
+      ],
+      "last_updated": "2025-04-29T07:59:18Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "MBI",
+      "id": "d7335526-c242-569a-9bd6-7c4c38dba00a",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {
+            "max_duration": 5400,
+            "min_duration": 0
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.4167,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "min_duration": 5400
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.4167,
+              "step_size": 1000
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 6,
+              "step_size": 60
+            },
+            {
+              "type": "TIME",
+              "price": 6,
+              "step_size": 60
+            }
+          ]
+        },
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.4167,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "TARIF mai 2025 - PDC DC entre 22 et 39 kVA - Non abonnés"
+        }
+      ],
+      "last_updated": "2025-04-29T07:59:41Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "MBI",
+      "id": "a9088e97-5589-5e87-8a3f-8f684b0fef0d",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {
+            "max_duration": 3600,
+            "min_duration": 0
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.4583,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "min_duration": 3600
+          },
+          "price_components": [
+            {
+              "type": "PARKING_TIME",
+              "price": 6,
+              "step_size": 60
+            },
+            {
+              "type": "TIME",
+              "price": 6,
+              "step_size": 60
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.4583,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.4583,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "TARIF mai 2025 - PDC DC entre 40 et 60 kVA - Non abonné"
+        }
+      ],
+      "last_updated": "2025-04-29T08:00:01Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "MBI",
+      "id": "a9a803d0-66db-5917-a4ce-4e130bb4abe8",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {
+            "max_duration": 1800,
+            "min_duration": 0
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.5667,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "min_duration": 1800
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.5667,
+              "step_size": 1000
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 6,
+              "step_size": 60
+            },
+            {
+              "type": "TIME",
+              "price": 6,
+              "step_size": 60
+            }
+          ]
+        },
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.5667,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "TARIF mai 2025 - PDC DC > 60kVA - Non abonnés"
+        }
+      ],
+      "last_updated": "2025-04-29T08:01:36Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "PRP",
+      "id": "41c93f9b-f61b-5c36-aab9-9bdcc7b1cf20",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {
+            "end_time": "23:00",
+            "start_time": "07:00"
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.2667,
+              "step_size": 1000
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 6,
+              "step_size": 60
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "end_time": "07:00",
+            "start_time": "23:00"
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.2667,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.2667,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif Station recharge normale (de 7 à 22 kW AC) - Perpignan - Mars 2025 - V3"
+        }
+      ],
+      "last_updated": "2025-03-10T13:11:36Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "S84",
+      "id": "ed3a123c-d03d-568e-ac22-31cba9cbd197",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {
+            "max_duration": 1800,
+            "min_duration": 0
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.33334,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "min_duration": 1800
+          },
+          "price_components": [
+            {
+              "type": "PARKING_TIME",
+              "price": 6,
+              "step_size": 60
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.33334,
+              "step_size": 1000
+            },
+            {
+              "type": "TIME",
+              "price": 6,
+              "step_size": 60
+            }
+          ]
+        },
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.33334,
+              "step_size": 60
+            }
+          ]
+        }
+      ],
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif pour les Non-Abonnés AC – Borne de 50 kW jusqu’à 120 kW - 02/06/2025"
+        }
+      ],
+      "last_updated": "2025-05-28T15:23:16Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "S84",
+      "id": "32c387a5-0c0f-516f-b90b-1e95ee54be13",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {
+            "max_duration": 7200,
+            "min_duration": 0
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.33334,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "min_duration": 7200
+          },
+          "price_components": [
+            {
+              "type": "TIME",
+              "price": 2.5,
+              "step_size": 60
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 2.5,
+              "step_size": 60
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.33334,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.33334,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif pour les Non-Abonnés AC – Borne de 22 kW jusqu’à 24 kW - 02/06/2025"
+        }
+      ],
+      "last_updated": "2025-05-28T15:23:29Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "S84",
+      "id": "abc1f96d-9384-546b-a123-26882b2c7331",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {
+            "max_duration": 7200,
+            "min_duration": 0
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.29167,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "min_duration": 7200
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.29167,
+              "step_size": 1000
+            },
+            {
+              "type": "TIME",
+              "price": 2,
+              "step_size": 60
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 2,
+              "step_size": 60
+            }
+          ]
+        },
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.29167,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif pour les Non-Abonnés AC – Borne de 11 kW - 02/06/2025"
+        }
+      ],
+      "last_updated": "2025-05-28T15:23:45Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "S84",
+      "id": "af5516bc-78b1-5feb-afd0-a8a14c00e941",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {
+            "max_duration": 1800,
+            "min_duration": 0
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.475,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "min_duration": 1800
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.475,
+              "step_size": 1000
+            },
+            {
+              "type": "TIME",
+              "price": 6,
+              "step_size": 60
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 6,
+              "step_size": 60
+            }
+          ]
+        },
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.475,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif pour les Non-Abonnés DC – Borne de 120 kW - 02/06/2025"
+        }
+      ],
+      "last_updated": "2025-05-28T15:24:03Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "S84",
+      "id": "2d7ec556-c8a5-5707-8aae-da26c047e0bd",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {
+            "max_duration": 1800,
+            "min_duration": 0
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.41667,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "min_duration": 1800
+          },
+          "price_components": [
+            {
+              "type": "PARKING_TIME",
+              "price": 6,
+              "step_size": 60
+            },
+            {
+              "type": "ENERGY",
+              "price": 0.41667,
+              "step_size": 1000
+            },
+            {
+              "type": "TIME",
+              "price": 6,
+              "step_size": 60
+            }
+          ]
+        },
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.41667,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif pour les Non-Abonnés DC – Borne de 50 kW jusqu’à 90 kW - 02/06/2025"
+        }
+      ],
+      "last_updated": "2025-05-28T15:24:47Z"
+    }
+  },
+  {
+    "tariff": {
+      "country_code": "FR",
+      "party_id": "S84",
+      "id": "150e3f46-5c04-56c8-9e26-4a561feb9428",
+      "currency": "EUR",
+      "elements": [
+        {
+          "restrictions": {
+            "max_duration": 7200,
+            "min_duration": 0
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.375,
+              "step_size": 1000
+            }
+          ]
+        },
+        {
+          "restrictions": {
+            "min_duration": 7200
+          },
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.375,
+              "step_size": 1000
+            },
+            {
+              "type": "TIME",
+              "price": 2.5,
+              "step_size": 60
+            },
+            {
+              "type": "PARKING_TIME",
+              "price": 2.5,
+              "step_size": 60
+            }
+          ]
+        },
+        {
+          "restrictions": {},
+          "price_components": [
+            {
+              "type": "ENERGY",
+              "price": 0.375,
+              "step_size": 1000
+            }
+          ]
+        }
+      ],
+      "tariff_alt_text": [
+        {
+          "language": "fr",
+          "text": "Tarif pour les Non-Abonnés DC – Borne de 24 kW - 02/06/2025"
+        }
+      ],
+      "last_updated": "2025-05-28T15:25:03Z"
+    }
+  }
+]
