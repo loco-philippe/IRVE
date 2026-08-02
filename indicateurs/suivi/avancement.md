@@ -77,27 +77,52 @@
   - extension de l'analyse de saturation Vinci ?
   - autres ?
 
-## Activités juillet (16 jours)
+## Bilan d'activité Juillet
 
-- onboarding des opérateurs
-  - validation de flux d'opérateurs (12 en cours: Wewise, Partage ma borne, OZECAR, Monta, Indelec, Bouygues extension, Watt Up, electric 55, FRC2A, Car2plug, Chargepoly, Modulo)
+Attente contractualisation pour l'activité d'avril à juillet (16 + 12 + 15 + 18 j).
+
+### Orientations aout (prévu 11 jours)
+
+- opérateurs
+  - validation de flux d'opérateurs : nouvelles unités + nouveaux opérateurs (Wewise, Partage ma borne, OZECAR, Indelec, Watt Up, electric 55, FRC2A, Car2plug, Chargepoly, Modulo)
   - activité récurrente de suivi des opérateurs et des incidents
 - indicateurs
   - calcul de l'indicateur de fiabilité des statuts
+  - mise à niveau des indicateurs dynamiques (prise en compte des decommission et des doublons de sessions)
+- CarbuRe
+  - activation d'un envoi mensuel des volumes Qualicharge (déploiement Prefect)
+  - validation des volumes aménageurs
+  - analyse des écarts de volumes (identfiés : Q1 2026 IZIVIA, Q1 2026 SHELL, Q2 2026 ENGIE)
+- tarifs
+  - obtention des tarifs pour chaque pdc auprès des opérateurs principaux manquant (Engie, Allego/EVcars, Powerdot)
+  - intégration des tarifs dans les indicateurs qualité et dans le processus d'onboarding
+  - mise en production des API tarifs (ajout de la documentation et processus de validation opérateur)
+- modèle de données européen AFIR
+  - Formalisation pour Qualicharge de l'évolution du schéma (V3)
+- niveau de service DMR (saturation)
+  - consolidation des données statiques (aires et liens aires-stations)
+  - mise en oeuvre de la phase 2 (calcul des indicateurs DMR)
+  - réflexion avec les concessionnaires sur le processus de consolidation des indicateurs (à confirmer ?)
+
+### Réalisé juillet (18 jours)
+
+- onboarding des opérateurs
+  - validation de flux d'opérateurs : (EVcars (via Allego) : EVC, SoWatt (via Monta), Citeos : FRS54 + FRHPB, EVzen (smeg) : FRABA + FRS13)
+  - activité récurrente de suivi des opérateurs et des incidents (1 incident majeur pour Allego)
+- indicateurs
   - stockage des données pour les indicateurs saturation, disponibilité, occupation
   - mise à niveau des indicateurs dynamiques (decommission, doublons de sessions)
 - CarbuRe
   - validation des volumes aménageurs
-  - analyse des écarts de volumes
+  - analyse des écarts de volumes (Q2 2026 Electra, Q2 2026 BP)
 - tarifs
-  - obtention des tarifs pour chaque pdc auprès des opérateurs principaux
-  - intégration des tarifs dans les indicateurs qualité et dans le processus d'onboarding
+  - obtention des tarifs pour chaque pdc auprès des opérateurs principaux (tarifs obtenus pour 58 % des pdc à fin juillet)
 - modèle de données européen AFIR
-  - Formalisation pour Qualicharge de l'évolution du schéma (V3)
-- saturation
-  - intégration de la structure de données DMR
-  - mise en oeuvre de la phase 1 de calcul des indicateurs DMR
-  - validation des données consolidées par Vinci ?
+  - Construction et validation du nouveau schéma IRVE (V3)
+- niveau de service DMR (saturation)
+  - intégration de la structure de données DMR  
+  - mise en oeuvre de la phase 1 de calcul des indicateurs DMR (3 PR)
+  - validation avec la DMR des contours des aires de service
 
 ## Activités juin (15 jours)
 
